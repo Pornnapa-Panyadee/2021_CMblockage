@@ -69,7 +69,7 @@
                                                 <table class="table table-borderless">
                                                     {{-- 1.1 --}}
                                                     <tr>
-                                                        <th colspan="2" width="30%">1.1 ประเภทลำน้ำ </th>
+                                                        <th colspan="2" width="30%">1.1 ประเภทลำน้ำ  <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
                                                         <td>
                                                             <select id="river_type" name="river_type">
                                                                 <option value="">-- เลือกประเภท --</option>
@@ -79,7 +79,7 @@
                                                             </select>
                                                         </td>
                                                     </tr>
-                                                    <tr><th colspan="2">1.2 ที่ตั้งของช่วงเวลาที่เกิดปัญหา </th></tr>
+                                                    <tr><th colspan="2">1.2 ที่ตั้งของช่วงเวลาที่เกิดปัญหา   <span class="chatbox__button1"><img src="{{ asset('images/question-mark.png') }} " /></span> </th></tr>
                                                     <tr>
                                                         <td align="right">จังหวัด : </td>
                                                         <td colspan="2">
@@ -94,9 +94,11 @@
                                                             <select id='blk_district' name='blk_district' required onchange="validateForm(this.id)">
                                                                 <option value=''>-- เลือกอำเภอ --</option>
                                                                 <!-- Read district -->
+                                     
                                                                 @foreach($districtData['data'] as $village)
-                                                                <option value='{{ $village->vill_district }}'>{{ $village->vill_district  }}</option>
+                                                                    <option value='{{ $village->vill_district }}'>{{ $village->vill_district  }}</option>
                                                                 @endforeach
+                                                                    
                                                             </select>
                                                             <div class="invalid-feedback"></div>
                                                         </td>
@@ -136,7 +138,7 @@
                                                 </table>
                                                 <table style="margin-left:10px;" class="table table-borderless">
                                                     <tr>
-                                                        <td colspan="5">พิกัดเริ่มต้นของปัญหา : </td>
+                                                        <td colspan="5">พิกัดเริ่มต้นของปัญหา : <span class="chatbox__button2"><img src="{{ asset('images/question-mark.png') }} " /></span></td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>
@@ -166,7 +168,7 @@
                                                 </table>
                                                 <table style="margin-left:10px;" class="table table-borderless">
                                                     <tr>
-                                                        <td colspan="5">พิกัดสิ้นสุดของปัญหา : </td>
+                                                        <td colspan="5">พิกัดสิ้นสุดของปัญหา : <span class="chatbox__button3"><img src="{{ asset('images/question-mark.png') }} " /></span></td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>
@@ -199,7 +201,7 @@
                                                 {{-- 1.3 --}}
                                                 <table class="table table-form table-borderless">
                                                     <tr>
-                                                        <th colspan="4">1.3 หน้าตัดของลำน้ำ<b>เดิม</b>ในอดีตก่อนเกิดปัญหา <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span> </th>
+                                                        <th colspan="4">1.3 หน้าตัดของลำน้ำ<b>เดิม</b>ในอดีตก่อนเกิดปัญหา <span class="chatbox__button4"><img src="{{ asset('images/question-mark.png') }} " /></span> </th>
                                                     </tr>
                                                     <tr>
                                                         <td width="9%"></td>
@@ -212,7 +214,7 @@
                                                 <table class="table table-form table-borderless">
 
                                                     <tr>
-                                                        <th colspan="4">1.4 หน้าตัดของช่วงลำน้ำในปัจจุบันที่เกิดปัญหา </th>
+                                                        <th colspan="4">1.4 หน้าตัดของช่วงลำน้ำในปัจจุบันที่เกิดปัญหา <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span> </th>
                                                     </tr>
                                                     <tr>
 
@@ -225,7 +227,7 @@
                                                         <td><input type="text" id="cross_slope_now" name="current_start[slop]" placeholder="ความลาดชันตลิ่ง" step="any" > </td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="3" style="padiing-left:20px;">1.4.2. หน้าตัดของลำน้ำที่<b>แคบที่สุด</b>ในช่วงของลำน้ำที่เกิดปัญหา </td>
+                                                        <td colspan="3" style="padiing-left:20px;">1.4.2. หน้าตัดของลำน้ำที่<b>แคบที่สุด</b>ในช่วงของลำน้ำที่เกิดปัญหา   <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></td>
                                                     </tr>
                                                     <tr>
                                                         <td width=10%></td>
@@ -266,7 +268,7 @@
                                                     </tr>
                                                     <tr>
 
-                                                        <td colspan="3" style="padiing-left:20px;">1.4.3. หน้าตัดของลำน้ำ<b>ท้ายน้ำ</b>หลังช่วงที่เกิดปัญหา </td>
+                                                        <td colspan="3" style="padiing-left:20px;">1.4.3. หน้าตัดของลำน้ำ<b>ท้ายน้ำ</b>หลังช่วงที่เกิดปัญหา  <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>
@@ -281,7 +283,7 @@
                                                 {{-- 1.4 --}}
                                                 <table class="table table-form table-borderless"  >
                                                     <tr>
-                                                        <th colspan="3">1.5 ความยาวของช่วงลำน้ำที่เกิดปัญหา </th>
+                                                        <th colspan="3">1.5 ความยาวของช่วงลำน้ำที่เกิดปัญหา  <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
                                                     </tr>
                                                 </table>
                                                 <table align="center" class="table table-form table-borderless"  width="90%" >
@@ -315,8 +317,8 @@
                                                 {{-- 1.5 --}}
                                                 <table class="table table-form table-borderless">
                                                     <tr>
-                                                        <th width=20%>1.6 การดาดผิวของลำน้ำ </th>
-                                                        <td width=20%><input type="radio" id="blk_surface1" value="ไม่ดาดผิว" name="blk_surface" ><label for="blk_surface1">ไม่ดาดผิว</label></td>
+                                                        <th width=20%>1.6 การดาดผิวของลำน้ำ  <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
+                                                        <td width=20%><input type="radio" id="blk_surface1" value="ไม่ดาดผิว" name="blk_surface" ><label for="blk_surface1">ไม่ดาดผิว </label></td>
                                                         <td><input type="radio" id="blk_surface2" value="ดาดผิว" name="blk_surface" ><label for="blk_surface2">ดาดผิว</label></td>
                                                         <td></td>
                                                     </tr>
@@ -349,7 +351,7 @@
                                                 <h4><span class="number">2</span>ความเสียหายที่เคยเกิดขึ้น</h4>
                                                 <table class="table table-form table-borderless" >
                                                     <tr>
-                                                        <th colspan="6">2.1 ลักษณะของความเสียหาย </th>
+                                                        <th colspan="6">2.1 ลักษณะของความเสียหาย  <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
                                                     </tr>
                                                 </table>
                                                 <table align="center"  class="table-damages table-borderless" width="80%">
@@ -408,7 +410,7 @@
                                                 <table class="table table-form table-borderless">
 
                                                     <tr>
-                                                        <th colspan="5">2.2 ความถี่ที่เกิดความเสียหาย </th>
+                                                        <th colspan="5">2.2 ความถี่ที่เกิดความเสียหาย  <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
                                                     </tr>
                                                 </table>
                                                 <table align="center" width="80%" class="table table-form table-borderless">
@@ -429,7 +431,7 @@
                                                 <h4><span class="number">3</span>สภาพปัญหา</h4>
                                                 <table class="table table-form table-borderless">
                                                     <tr>
-                                                        <th colspan="6">3.1 สาเหตุการกีดขวางลำน้ำโดย (เลือกได้หลายข้อ) </th>
+                                                        <th colspan="6">3.1 สาเหตุการกีดขวางลำน้ำโดย (เลือกได้หลายข้อ)  <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
                                                     </tr>
                                                 </table>
                                                 <table align="center" class="table table-form table-borderless">
@@ -547,7 +549,7 @@
                                                 <table class="table table-form table-borderless">
 
                                                     <tr>
-                                                        <th colspan="6">3.2 ระดับกีดขวาง (เปอร์เซ็นต์คิดโดนพื้นที่ที่ถูกกีดขวางต่อพื้นที่ลำน้ำเดิม) </th>
+                                                        <th colspan="6">3.2 ระดับกีดขวาง (เปอร์เซ็นต์คิดโดนพื้นที่ที่ถูกกีดขวางต่อพื้นที่ลำน้ำเดิม)  <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
                                                     </tr>
                                                 </table>
                                                 <table align="center" class="table table-form table-borderless"> 
@@ -557,14 +559,14 @@
                                                         <td ><input type="radio" id="problevel3" name="prob_level" value="มากกว่า 70%"  /><label for="problevel3">มาก (มากกว่า 70%)</label></td>
                                                     </tr>
                                                 </table>
-                                            </div>
+                                            </div>0
                                             <!-- END Step 3 -->
                                             
                                             <!-- Step 4 -->
                                             <div class="tab-pane" id="wizard-progress-step4" role="tabpanel">
                                                 {{-- ข้อ 4 การแก้ไข --}}
 
-                                                <h4><span class="number">4</span> การดำเนินการแก้ไขของหน่วยงานท้องถิ่น และหน่วยงานที่รับผิดชอบ</h4>
+                                                <h4><span class="number">4</span> การดำเนินการแก้ไขของหน่วยงานท้องถิ่น และหน่วยงานที่รับผิดชอบ  <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></h4>
 
                                                 <table align="center" class="table table-form table-borderless">
                                                     <tr>
@@ -588,7 +590,7 @@
                                                 {{-- 4.1 --}}
                                                 <table class="table table-form table-borderless">
                                                     <tr>
-                                                        <th colspan="6">4.1 ผลการดำเนินการ </th>
+                                                        <th colspan="6">4.1 ผลการดำเนินการ  <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
                                                     </tr>
                                                 </table>
                                                 <table class="table table-form table-borderless">
@@ -606,7 +608,7 @@
                                                 {{-- 4.2 --}}
                                                 <table class="table table-form table-borderless">
                                                     <tr>
-                                                        <th colspan="6">4.2 สถานภาพปัจจุบันของโครงการที่แก้ไขปัญหาได้ </th>
+                                                        <th colspan="6">4.2 สถานภาพปัจจุบันของโครงการที่แก้ไขปัญหาได้  <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
                                                     </tr>
 
                                                 </table>
@@ -696,7 +698,18 @@
                         <div class="chatbox__messages">
                             <div>
                                 <div class="messages__item messages__item--visitor">
-                                    ข้อความสนับสนุนที่ 1 
+                         
+                                    
+                                <p>รายละเอียดของความหมาย</p>
+                                <p>{{$detailsAdviceF110}}</p>
+                                <p>-----------</p>
+                                <p>คำอธิบาย</p>
+                                <p>{{$descAdviceF110}}</p>
+                                <p>-----------</p>
+                                <p>วิธีการ</p>
+                                <p>{{$methodAdviceF110}}</p>
+                                    
+
                                 </div>
                             </div>
                         </div>
@@ -715,7 +728,10 @@
                         <div class="chatbox__messages">
                             <div>
                                 <div class="messages__item messages__item--visitor">
-                                    ข้อความสนับสนุนที่ 2
+                                
+                                <p>รายละเอียดของความหมาย</p>
+                                <p>{{$detailsAdviceF121}}</p>
+                             
                                 </div>
                             </div>
                         </div>
@@ -734,7 +750,76 @@
                         <div class="chatbox__messages">
                             <div>
                                 <div class="messages__item messages__item--visitor">
-                                    ข้อความสนับสนุนที่ 3
+                          
+                                <p>รายละเอียดของความหมาย</p>
+                                <p>{{$detailsAdviceF122}}</p>
+                                <p>-----------</p>
+                                <p>คำอธิบาย</p>
+                                <p>{{$descAdviceF122}}</p>
+                                <p>-----------</p>
+                                <p>วิธีการ</p>
+                                <p>{{$methodAdviceF122}}</p>    
+                                                             
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatbox__footer">
+                        </div>
+                    </div>
+
+
+                    <div class="chatbox__support3">
+                        <div class="chatbox__header">
+                            <div class="chatbox__image--header">
+                                <button class="btn-close" id="closeTab">Close</button>
+                            </div>
+                            <div class="chatbox__content--header">
+                            </div>
+                        </div>
+                        <div class="chatbox__messages">
+                            <div>
+                                <div class="messages__item messages__item--visitor">
+                          
+                                <p>รายละเอียดของความหมาย</p>
+                                <p>{{$detailsAdviceF123}}</p>
+                                <p>-----------</p>
+                                <p>คำอธิบาย</p>
+                                <p>{{$descAdviceF123}}</p>
+                                <p>-----------</p>
+                                <p>วิธีการ</p>
+                                <p>{{$methodAdviceF123}}</p>    
+                                                             
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatbox__footer">
+                        </div>
+                    </div>
+
+                    <div class="chatbox__support4">
+                        <div class="chatbox__header">
+                            <div class="chatbox__image--header">
+                                <button class="btn-close" id="closeTab">Close</button>
+                            </div>
+                            <div class="chatbox__content--header">
+                            </div>
+                        </div>
+                        <div class="chatbox__messages">
+                            <div>
+                                <div class="messages__item messages__item--visitor">
+                          
+                                <p>รายละเอียดของความหมาย</p>
+                                <p>{{$detailsAdviceF130}}</p>
+                                <p>-----------</p>
+                                <p>คำอธิบาย</p>
+                                <p>{{$descAdviceF130}}</p>
+                                <p>-----------</p>
+                                <p>วิธีการ</p>
+                                <p>{{$methodAdviceF130}}</p>    
+                                                             
+
                                 </div>
                             </div>
                         </div>

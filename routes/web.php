@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -195,3 +199,10 @@ Route::get('mapthai',function () {return view('rain/thai');});
 Route::get('mapthai/chiangrai',function () {return view('rain/chiangrai');});
 Route::get('mapthai/chiangrai/{amp}', 'RaindataController@getIDF');
 // Route::get('mapthai/chiangrai/เวียงป้าเป้า',function () {return view('rain/showrain');});
+
+
+
+// Api chatbot popup
+// Route::get('newblockage', 'ChatBotPopupController@adviceF110');
+ 
+ 
