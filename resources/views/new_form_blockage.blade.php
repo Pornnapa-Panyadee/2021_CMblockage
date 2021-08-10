@@ -661,7 +661,7 @@
                                             </div>
                                             <!-- END Step 4 -->
                                             
-                                            <!-- Step 4 -->
+                                            <!-- Step 5 -->
                                             <div class="tab-pane" id="wizard-progress-step5" role="tabpanel">
                                              
                                                 <span class="number">5</span><b>รูปภาพประกอบ (ใส่รูปได้มากกว่า 1 รูป)</b>
@@ -675,7 +675,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- END Step 4 -->
+                                            <!-- END Step 5 -->
 
 
                                         </div>
@@ -705,7 +705,7 @@
 
 
                 <!-- chat -->
-                <!-- <div class="chatbox">
+                <div class="chatbox">
                     <div class="chatbox__support">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
@@ -850,7 +850,7 @@
                     <div class="chatbox__button_pix">
                         <button ><img src="{{ asset('images/chatbox-icon.svg') }}" /></button>
                     </div>
-                </div> -->
+                </div>
 
             </div>
          
