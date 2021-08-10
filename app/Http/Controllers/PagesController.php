@@ -210,6 +210,11 @@ class PagesController extends Controller
         $descAdviceF500 = $data_json[23]['desc'];
         $methodAdviceF500 = $data_json[23]['method'];
 
+        //F124 
+        $detailsAdviceF124 = $data_json[24]['details'];
+        $descAdviceF124 = $data_json[24]['desc'];
+        $methodAdviceF124 = $data_json[24]['method'];      
+
         $districtData['data'] = Page::getDistrict();
         return view('new_form_blockage', 
           compact(
@@ -255,6 +260,8 @@ class PagesController extends Controller
             'descAdviceF222',
             'methodAdviceF222',
             'detailsAdviceF220',
+            'descAdviceF220',
+            'methodAdviceF220',
             'detailsAdviceF300',
             'detailsAdviceF310',
             'descAdviceF310',
@@ -279,7 +286,8 @@ class PagesController extends Controller
             'methodAdviceF420',
             'detailsAdviceF500',
             'descAdviceF500',
-            'methodAdviceF500']
+            'methodAdviceF500',
+            'detailsAdviceF124','descAdviceF124','methodAdviceF124']
           ));
       }
       
