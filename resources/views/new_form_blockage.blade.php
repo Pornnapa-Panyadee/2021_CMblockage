@@ -32,6 +32,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#wizard-progress-step4" data-toggle="tab">การแก้ไข</a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#wizard-progress-step5" data-toggle="tab">ภาพประกอบ</a>
+                                        </li>
                                     </ul>
                                     <!-- END Step Tabs -->
 
@@ -657,6 +660,23 @@
                                                 </table>
                                             </div>
                                             <!-- END Step 4 -->
+                                            
+                                            <!-- Step 5 -->
+                                            <div class="tab-pane" id="wizard-progress-step5" role="tabpanel">
+                                             
+                                                <span class="number">5</span><b>รูปภาพประกอบ (ใส่รูปได้มากกว่า 1 รูป)</b>
+                                                <div class="row">
+                                                    <div class="col-lg-2" style="text-align:right;"> กรุณาใส่รูปภาพ :  &nbsp; &nbsp; </div>
+                                                    <div class="col-lg-9">
+                                                        <div class="form-group">
+                                                            <input type="file" id = "photo_type_bld" name="photo_type_bld[]" class="form-control-file" multiple="true">
+                                                        </div>
+                                                        <div id="image_preview_bld"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END Step 5 -->
+
 
                                         </div>
                                         <div class="block-content block-content-sm block-content-full bg-body-light rounded-bottom">

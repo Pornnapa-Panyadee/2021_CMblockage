@@ -83,6 +83,7 @@
         </main>
     </div>
     
+    <script src= "{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/Chat.js') }}"></script>
     <script src="{{ asset('js/app_chat.js') }}"></script>
     <script src="{{ asset('js/shortable-nestable/Sortable.min.js') }}"></script>
@@ -95,6 +96,23 @@
     <script src="{{ asset('js/dashmix.core.min.js') }}"></script>
     <script src="{{ asset('js/jquery.bootstrap.wizard.min.js') }}"></script>
     <script src="{{ asset('js/be_forms_wizard.min.js') }}"></script>
+    <script src= "{{ asset('js/imagePreview.js') }}"></script>
+    <script>
+            $(document).ready(function(){
+            $("select").change(function(){
+                $(this).find("option:selected").each(function(){
+                    var optionValue = $(this).attr("value");
+                    if(optionValue){
+                        $(".box").not("." + optionValue).hide();
+                        $("." + optionValue).show();
+                    } else{
+                        $(".box").hide();
+                    }
+                });
+            }).change();
+        });
+            
+    </script>
     
 
 </body>
