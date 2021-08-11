@@ -664,7 +664,7 @@
                                             <!-- Step 5 -->
                                             <div class="tab-pane" id="wizard-progress-step5" role="tabpanel">
                                              
-                                                <span class="number">5</span><b>รูปภาพประกอบ (ใส่รูปได้มากกว่า 1 รูป)</b>
+                                                <span class="number">5</span><b>รูปภาพประกอบ (ใส่รูปได้มากกว่า 1 รูป) <span class="chatbox__button18"><img src="{{ asset('images/question-mark.png') }} " /></span></b>
                                                 <div class="row">
                                                     <div class="col-lg-2" style="text-align:right;"> กรุณาใส่รูปภาพ :  &nbsp; &nbsp; </div>
                                                     <div class="col-lg-9">
@@ -1230,6 +1230,34 @@
                                 <p>-----------</p>
                                 <p>วิธีการ</p>
                                 <p>ประมาณโดยสอบถามคนในพื้นที่โดยกรอกความกว้าง ยาว สูง หน่วยเป็นเมตร</p> 
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatbox__footer">
+                        </div>
+                    </div>
+
+                    <div class="chatbox__support18">
+                        <div class="chatbox__header">
+                            <div class="chatbox__image--header">
+                                <button class="btn-close" id="closeTab">X</button>
+                            </div>
+                            <div class="chatbox__content--header">
+                            </div>
+                        </div>
+                        <div class="chatbox__messages">
+                            <div>
+                                <div class="messages__item messages__item--visitor">
+ 
+                                <p>รายละเอียดของความหมาย</p>
+                                <p>{{$detailsAdviceF500}}</p>
+                                <p>-----------</p>
+                                <p>คำอธิบาย</p>
+                                <p>{{$descAdviceF500}}</p>
+                                <p>-----------</p>
+                                <p>วิธีการ</p>
+                                <p>{{$methodAdviceF500}}</p> 
 
                                 </div>
                             </div>
