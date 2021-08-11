@@ -6,7 +6,15 @@
     position: absolute;
     bottom: 30px;
     right: 30px;
+    position: fixed;
+
 }
+
+/* Btn close chatbox */ 
+
+/* .btn-close{
+    right: 30px;
+} */
 
 /* CONTENT IS CLOSE */
 .chatbox__support, .chatbox__support1, .chatbox__support2, .chatbox__support3, .chatbox__support4, .chatbox__support5, .chatbox__support6
@@ -47,7 +55,7 @@
 
 /* HEADER */
 .chatbox__header {
-    position: sticky;
+    /* position: sticky; */
     top: 0;
     background: orange;
 }
@@ -77,8 +85,9 @@
 
 /* FOOTER */
 .chatbox__footer {
-    position: sticky;
+    /* position: sticky; */
     bottom: 0;
+    /* position: fixed; */
+    
 }
-
 
