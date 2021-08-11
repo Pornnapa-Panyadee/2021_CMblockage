@@ -57,6 +57,8 @@ const chatContent16 = document.querySelector('.chatbox__support16');
 const chatButton17 = document.querySelector('.chatbox__button17');
 const chatContent17 = document.querySelector('.chatbox__support17'); 
 
+const chatButton1_7 = document.querySelector('.chatbox__button1_7');
+const chatContent1_7 = document.querySelector('.chatbox__support1_7'); 
 
 const icons = {
     isClicked: '???',
@@ -119,3 +121,6 @@ chatbox16.display();
 
 const chatbox17 = new InteractiveChatbox(chatButton17, chatContent17, icons);
 chatbox17.display();
+
+const chatbox1_7 = new InteractiveChatbox(chatButton1_7, chatContent1_7, icons);
+chatbox1_7.display();

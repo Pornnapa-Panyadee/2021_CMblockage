@@ -335,7 +335,7 @@
                                                 {{-- 1.7 --}}
                                                 <table class="table table-form table-borderless">
                                                         <tr>
-                                                            <th width=30%>1.7 ความลาดชันท้องน้ำช่วงที่เกิดปัญหา </th>
+                                                            <th width=30%>1.7 ความลาดชันท้องน้ำช่วงที่เกิดปัญหา <span class="chatbox__button1_7"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
                                                             <td colspan="2"><input type="text" id="blk_slope_bed" name="blk_slope_bed" placeholder="ระบุความลาดชัน">
                                                             </td>
                         
@@ -689,7 +689,7 @@
                     <div class="chatbox__support">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" >X</button>
+                                <button class="btn-close" >Close</button>
                                 
                             </div>
                             <div class="chatbox__content--header">
@@ -1183,6 +1183,34 @@
                                 <p>-----------</p>
                                 <p>วิธีการ</p>
                                 <p>{{$methodAdviceF420}}</p> 
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatbox__footer">
+                        </div>
+                    </div>
+
+                    <div class="chatbox__support1_7">
+                        <div class="chatbox__header">
+                            <div class="chatbox__image--header">
+                                <button class="btn-close" id="closeTab">Close</button>
+                            </div>
+                            <div class="chatbox__content--header">
+                            </div>
+                        </div>
+                        <div class="chatbox__messages">
+                            <div>
+                                <div class="messages__item messages__item--visitor">
+ 
+                                <p>รายละเอียดของความหมาย</p>
+                                <p>ความลาดชันท้องน้ำช่วงที่เกิดปัญหา (โดยประมาณ)</p>
+                                <p>-----------</p>
+                                <p>คำอธิบาย</p>
+                                <p>เป็นความลาดชันท้องน้ำในอดีตก่อนที่จะเกิดปัญหา</p>
+                                <p>-----------</p>
+                                <p>วิธีการ</p>
+                                <p>ประมาณโดยสอบถามคนในพื้นที่โดยกรอกความกว้าง ยาว สูง หน่วยเป็นเมตร</p> 
 
                                 </div>
                             </div>
