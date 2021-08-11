@@ -688,7 +688,7 @@
                     <div class="chatbox__support">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close">Close</button>
+                                <button class="btn-close">X</button>
                                 
                             </div>
                             <div class="chatbox__content--header">
@@ -719,7 +719,7 @@
                     <div class="chatbox__support1">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -747,7 +747,7 @@
                     <div class="chatbox__support2">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -777,7 +777,7 @@
                     <div class="chatbox__support3">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -805,7 +805,7 @@
                     <div class="chatbox__support4">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -835,7 +835,7 @@
                     <div class="chatbox__support5">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -864,7 +864,7 @@
                     <div class="chatbox__support6">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -892,7 +892,7 @@
                     <div class="chatbox__support7">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -920,7 +920,7 @@
                     <div class="chatbox__support8">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -948,7 +948,7 @@
                     <div class="chatbox__support9">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -976,7 +976,7 @@
                     <div class="chatbox__support10">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -997,7 +997,7 @@
                     <div class="chatbox__support11">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -1025,7 +1025,7 @@
                     <div class="chatbox__support12">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -1053,7 +1053,7 @@
                     <div class="chatbox__support13">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -1081,7 +1081,7 @@
                     <div class="chatbox__support14">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab" >Close</button>
+                                <button class="btn-close" id="closeTab" >X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -1109,7 +1109,7 @@
                     <div class="chatbox__support15">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -1137,7 +1137,7 @@
                     <div class="chatbox__support16">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -1165,7 +1165,7 @@
                     <div class="chatbox__support17">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
@@ -1193,7 +1193,7 @@
                     <div class="chatbox__support1_7">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab">X</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
