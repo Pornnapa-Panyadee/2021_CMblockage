@@ -7367,8 +7367,10 @@ Media Query
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     box-shadow: var(--primaryBoxShadow);
+    text-align: right;
 }
 
+ 
 .chatbox__image--header {
     margin-right: 10px;
 }
@@ -7459,10 +7461,11 @@ Media Query
     border: none;
     /* padding: 15px 20px; */
     color: antiquewhite;
-    text-align: center;
+    text-align: right;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
+    margin-left: 250px;
     /* margin: 4px 2px; */
     cursor: pointer;
 }

@@ -679,7 +679,6 @@
                                     </form>
                                 </div>
                             </div>
-                     
                     </div>
                 </div>
 
@@ -689,7 +688,7 @@
                     <div class="chatbox__support">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" >Close</button>
+                                <button class="btn-close">Close</button>
                                 
                             </div>
                             <div class="chatbox__content--header">
@@ -1082,7 +1081,7 @@
                     <div class="chatbox__support14">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">Close</button>
+                                <button class="btn-close" id="closeTab" >Close</button>
                             </div>
                             <div class="chatbox__content--header">
                             </div>
