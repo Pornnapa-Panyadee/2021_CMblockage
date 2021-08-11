@@ -26,7 +26,9 @@ body {
     background: #F1F1F1;
 }
 
-.chatbox__support,.chatbox__support1, .chatbox__support2, .chatbox__support3, .chatbox__support4 {
+.chatbox__support,.chatbox__support1, .chatbox__support2, .chatbox__support3, .chatbox__support4, .chatbox__support5, .chatbox__support6
+, .chatbox__support7, .chatbox__support8, .chatbox__support9, .chatbox__support10, .chatbox__support11, .chatbox__support12,
+.chatbox__support13,.chatbox__support14, .chatbox__support15,.chatbox__support16, .chatbox__support17, .chatbox__support1_7, .chatbox__support18 {
     background: #f9f9f9;
     height: 450px;
     width: 350px;
@@ -46,7 +48,10 @@ body {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     box-shadow: var(--primaryBoxShadow);
+    text-align: right;
 }
+
+ 
 
 .chatbox__image--header {
     margin-right: 10px;
@@ -101,6 +106,7 @@ body {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     margin-top: 20px;
+    /* position: fixed; */
 }
 
 .chatbox__footer input {
@@ -138,10 +144,11 @@ body {
     border: none;
     /* padding: 15px 20px; */
     color: antiquewhite;
-    text-align: center;
+    text-align: right;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
+    margin-left: 310px;
     /* margin: 4px 2px; */
     cursor: pointer;
 }
