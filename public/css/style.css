@@ -7392,9 +7392,9 @@ Media Query
 
 .messages__item {
     margin-top: 10px;
-    background: #E0E0E0; 
+    background: #9c1de724; 
     padding: 8px 12px;
-    max-width: 70%;
+    max-width: 80%;
 }
 
 .messages__item--visitor,
