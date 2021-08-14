@@ -717,18 +717,17 @@
                         <div class="chatbox__messages">
                             <div>
                                 <div class="messages__item messages__item--visitor">
-                         
-                                    
-                                <p>รายละเอียดของความหมาย</p>
-                                <p>{{$detailsAdviceF110}}</p>
-                                <p>-----------</p>
-                                <p>คำอธิบาย</p>
-                                <p>{{$descAdviceF110}}</p>
-                                <p>-----------</p>
-                                <p>วิธีการ</p>
-                                <p>{{$methodAdviceF110}}</p>
-                                    
-
+                                    <p class="describe_text">คำอธิบาย{{"ประเภทลำน้ำ"}}</p>
+                                    <p>{{$detailsAdviceF110}}</p>
+                                </div>
+                                <div class="messages__item messages__item--visitor">
+                                    <p>เเม่น้ำสายหลัก : -------------</p>
+                                </div>
+                                <div class="messages__item messages__item--visitor">
+                                    <p>เเม่น้ำสาขา : -------------</p>
+                                </div>
+                                <div class="messages__item messages__item--visitor">
+                                    <p>ลำห้วย : -------------</p>
                                 </div>
                             </div>
                         </div>
