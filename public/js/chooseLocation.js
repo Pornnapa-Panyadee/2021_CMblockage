@@ -1,6 +1,6 @@
 //console.log('hello');
 
-// var ID = window.location.href.replace("https://survey.crflood.com/blockage/", "");
+var ID = window.location.href.replace("https://cmblockage.cmfightflood.com/", "");
 var ID = window.location.href.replace("http://localhost/chiang-rai/public/", "");
 // console.log(ID);
 // alert(ID);
@@ -13,8 +13,8 @@ function Province(id,district) {
   // AJAX request 
   $.ajax({
   
- url: 'http://localhost/chiang-rai/public/getdistrict/' + id,
-//  url: 'https://survey.crflood.com/getdistrict/' + id,
+//  url: 'http://localhost/chiang-rai/public/getdistrict/' + id,
+  url: 'https://cmblockage.cmfightflood.com/getdistrict/' + id,
   //url: link+'getVillage/' + id,
  
     type: 'get',
@@ -56,8 +56,8 @@ function District(id, tumbol) {
     // AJAX request 
     $.ajax({
      
-  url: 'http://localhost/chiang-rai/public/getTumbol/' + id,
-  // url: 'https://survey.crflood.com/getTumbol/' + id,
+  // url: 'http://localhost/chiang-rai/public/getTumbol/' + id,
+  url: 'https://cmblockage.cmfightflood.com/getTumbol/' + id,
      // url: link+'getTumbol/' + id,
       type: 'get',
       dataType: 'json',
@@ -98,8 +98,8 @@ function Tumbol(id, vill) {
       // AJAX request 
       $.ajax({
       
-    url: 'http://localhost/chiang-rai/public/getVillage/' + id,
-    //url: 'https://survey.crflood.com/getVillage/' + id,
+    // url: 'http://localhost/chiang-rai/public/getVillage/' + id,
+    url: 'https://cmblockage.cmfightflood.com/getVillage/' + id,
       //url: link+'getVillage/' + id,
         type: 'get',
         dataType: 'json',
@@ -135,8 +135,8 @@ function Tumbol(id, vill) {
 if(ID.length > 4){
   // console.log(ID);
   // alert(ID)
-  $.getJSON('http://localhost/chiang-rai/public/getBlockageID/' + ID, (data) => {
-    //$.getJSON('https://survey.crflood.com/getBlockageID/' + ID, (data) => {
+  // $.getJSON('http://localhost/chiang-rai/public/getBlockageID/' + ID, (data) => {
+  $.getJSON('https://cmblockage.cmfightflood.com/getBlockageID/' + ID, (data) => {
     // $.getJSON(link+'getBlockageID/' + ID, (data) => {
   let id = data[0]['blockage_location']['blk_district'];
   //console.log(data);
