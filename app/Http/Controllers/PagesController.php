@@ -87,11 +87,7 @@ class PagesController extends Controller
 
       public function newFormblockage(){
 
-
-
-        $data = DB::table('advice')
-        // ->where('id','=',"F110")
-        ->get(columns:['details', 'desc', 'method']);
+        $data = DB::table('advice')->select('details','desc','method')->get();
         $data_json = json_decode($data, true);
 
         // F110
