@@ -29,6 +29,10 @@
             font-family: 'Mitr', sans-serif;
 
         }
+        .describe_text{
+            font-size: 16px;
+            font-weight: bold;
+        }
 
         .position-ref {
             position: relative;
