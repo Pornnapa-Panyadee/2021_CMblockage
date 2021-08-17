@@ -7350,7 +7350,7 @@ Media Query
 .chatbox__support13,.chatbox__support14, .chatbox__support15,.chatbox__support16, .chatbox__support17 , .chatbox__support1_7, .chatbox__support18{
     background: #f9f9f9;
     height: 450px;
-    width: 350px;
+    width: 300px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -7465,7 +7465,7 @@ Media Query
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    margin-left: 310px;
+    margin-left: 250px;
     /* margin: 4px 2px; */
     cursor: pointer;
 }
