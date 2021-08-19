@@ -27,13 +27,12 @@ class FormBlockageController extends Controller
     
     public function formblockage()
     {
-        
+        echo("form_blockage function");
         return view('form_blockage');
     }
 
     public function reportBackend(User $user ){
-
-    
+   
         if(!isset(Auth::user()->name )){
             $name="99";
         }else{
@@ -332,25 +331,31 @@ class FormBlockageController extends Controller
     }
 
     public function getBlockagebyUser(User $user ){
-        
         $name=Auth::user()->name ;
+        $verify_status = Auth::user()->verify;
+ 
         // dd (Auth::user()->status_work);
-        if($name=="admin"){
+        if($name=="admin" && $verify_status == 1){
             $data = Blockage::with('blockageLocation')->get();
             // dd($data);
+    
             return view('report_admin',compact('data'));
             
-        }else if($name=="ระวีเวช จาติเกตุ" ||$name=="Prem" || Auth::user()->status_work=="expert" ){
+        }else if($name=="ระวีเวช จาติเกตุ" ||$name=="Prem" || Auth::user()->status_work=="expert"  ){
             $data = Blockage::with('blockageLocation')->get();
             return view('pages.homeblockage',compact('data'));
-        }else{
+        }else if ($verify_status == 1){
             $user=Auth::user()->id ;
+       
+            // dd($user=Auth::user()->id);
             $data = Blockage::with('blockageLocation','User')->where('blk_user_id', $user)->get();
             //dd($data);
             //return response()->json($data);
             //exit;
             return view('pages.homeblockage',compact('data'));
            
+        }else if($verify_status == 0){
+            return view('verifyMessage');
         }
             
     }

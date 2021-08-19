@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AutoMail;
+
 
 class RegisterController extends Controller
 {
@@ -63,10 +66,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+
+        $details = [
+            'title' => 'New user register',
+            'body' => ('user name that register from website CMblockage is: '. $data['name'].' and email is:'. $data['email'])
+        ];
+
+        Mail::to("pcsishun@gmail.com") -> send(new AutoMail($details));
+
+        return   User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'verify' => 0,
         ]);
     }
 }
