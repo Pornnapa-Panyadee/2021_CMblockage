@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/blocker';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
