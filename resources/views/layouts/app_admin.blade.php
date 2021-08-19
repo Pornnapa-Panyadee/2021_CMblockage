@@ -73,6 +73,10 @@
         .table thead th , .table th{
             text-align: left;
         }
+
+        .btn btn-secondary{
+            z-index: 999;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{{ asset('js/proj4js.js') }}"></script>
