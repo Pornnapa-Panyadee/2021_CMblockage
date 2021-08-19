@@ -26,7 +26,8 @@ body {
     background: #F1F1F1;
 }
 
-.chatbox__support4, .chatbox__support5, .chatbox__support9, .chatbox__support10, .chatbox__support1_7, .chatbox__support18 {
+.chatbox__support4,  .chatbox__support9, .chatbox__support10, .chatbox__support1_7, .chatbox__support18,.chatbox__support6, .chatbox__support7
+, .chatbox__support8 {
     background: #f9f9f9;
     height: 450px;
     width: 350px;

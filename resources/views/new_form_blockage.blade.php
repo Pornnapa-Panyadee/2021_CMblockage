@@ -217,11 +217,11 @@
                                                 <table class="table table-form table-borderless">
 
                                                     <tr>
-                                                        <th colspan="4">1.4 หน้าตัดของช่วงลำน้ำในปัจจุบันที่เกิดปัญหา <span class="chatbox__button5"><img src="{{ asset('images/question-mark.png') }} " /></span> </th>
+                                                        <th colspan="4">1.4 หน้าตัดของช่วงลำน้ำในปัจจุบันที่เกิดปัญหา <span class="chatbox__button5"> {{-- <img src="{{ asset('images/question-mark.png') }} " /></span> --}} </th>
                                                     </tr>
                                                     <tr>
 
-                                                        <td style="padiing-left:20px;" colspan="3">1.4.1. หน้าตัดของลำน้ำ<b>ก่อน</b>ถึงช่วงที่เริ่มที่เกิดปัญหา {{--  <span class="chatbox__button6"><img src="{{ asset('images/question-mark.png') }} " /></span> --}} </td>
+                                                        <td style="padiing-left:20px;" colspan="3">1.4.1. หน้าตัดของลำน้ำ<b>ก่อน</b>ถึงช่วงที่เริ่มที่เกิดปัญหา  <span class="chatbox__button6"><img src="{{ asset('images/question-mark.png') }} " /></span> </td>
                                                     </tr>
                                                     <tr>
                                                         <td width="9%"></td>
@@ -230,7 +230,7 @@
                                                         <td><input type="text" id="cross_slope_now" name="current_start[slop]" placeholder="ความลาดชันตลิ่ง" step="any" > </td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="3" style="padiing-left:20px;">1.4.2. หน้าตัดของลำน้ำที่<b>แคบที่สุด</b>ในช่วงของลำน้ำที่เกิดปัญหา  {{--  <span class="chatbox__button7"><img src="{{ asset('images/question-mark.png') }} " /></span> --}} </td>
+                                                        <td colspan="3" style="padiing-left:20px;">1.4.2. หน้าตัดของลำน้ำที่<b>แคบที่สุด</b>ในช่วงของลำน้ำที่เกิดปัญหา    <span class="chatbox__button7"><img src="{{ asset('images/question-mark.png') }} " /></span> </td>
                                                     </tr>
                                                     <tr>
                                                         <td width=10%></td>
@@ -271,7 +271,7 @@
                                                     </tr>
                                                     <tr>
 
-                                                        <td colspan="3" style="padiing-left:20px;">1.4.3. หน้าตัดของลำน้ำ<b>ท้ายน้ำ</b>หลังช่วงที่เกิดปัญหา  {{-- <span class="chatbox__button8"><img src="{{ asset('images/question-mark.png') }} " /></span> --}} </td>
+                                                        <td colspan="3" style="padiing-left:20px;">1.4.3. หน้าตัดของลำน้ำ<b>ท้ายน้ำ</b>หลังช่วงที่เกิดปัญหา   <span class="chatbox__button8"><img src="{{ asset('images/question-mark.png') }} " /></span>  </td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>
@@ -731,7 +731,7 @@
                                 <p>วิธีการ</p>
                                 <p>{{$methodAdviceF130}}</p>    
                                 <p>รายละเอียดเชิงรูปภาพ</p>
-                                <p><a href="{{ asset('images/exsample1.jpg') }}">Link</a></p>
+                                <p><a href="{{ asset('images/1_3.jpg') }}">Link</a></p>
                                                              
 
                                 </div>
@@ -741,8 +741,42 @@
                         </div>
                     </div>
 
+                    {{--
 
                     <div class="chatbox__support5">
+                        <div class="chatbox__header">
+                            <div class="chatbox__image--header">
+                                <button class="btn-close" id="closeTab">X</button>
+                            </div>
+                            <div class="chatbox__content--header">
+                            </div>
+                        </div>
+                        <div class="chatbox__messages">
+                            <div>
+                                <div class="messages__item messages__item--visitor">
+                    
+                                <p>รายละเอียดของความหมาย</p>
+                                <p>{{$detailsAdviceF140}}</p>
+                                <p>-----------</p>
+                                <p>คำอธิบาย</p>
+                                <p>{{$descAdviceF140}}</p>
+                                <p>-----------</p>                         
+                                <p>วิธีการ</p>
+                                <p>{{$methodAdviceF140}}</p>    
+                                <p>รายละเอียดเชิงรูปภาพ</p>
+                                <p><a href="{{ asset('images/exsample1.jpg') }}">Link</a></p>
+                                                             
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatbox__footer">
+                        </div>
+                    </div>
+                                        --}}
+
+
+                    <div class="chatbox__support6">
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
                                 <button class="btn-close" id="closeTab">X</button>
@@ -756,18 +790,18 @@
                                  {{--
 
                                 <p>รายละเอียดของความหมาย</p>
-                                <p>{{$detailsAdviceF140}}</p>
+                                <p>{{$detailsAdviceF141}}</p>
                                 <p>-----------</p>
                                 <p>คำอธิบาย</p>
-                                <p>{{$descAdviceF140}}</p>
+                                <p>{{$descAdviceF141}}</p>
                                 <p>-----------</p>                         
                                     
                                     --}}
 
                                 <p>วิธีการ</p>
-                                <p>{{$methodAdviceF140}}</p>    
+                                <p>{{$methodAdviceF141}}</p>    
                                 <p>รายละเอียดเชิงรูปภาพ</p>
-                                <p><a href="{{ asset('images/exsample1.jpg') }}">Link</a></p>
+                                <p><a href="{{ asset('images/1_4_1.jpg') }}">Link</a></p>
                                                              
 
                                 </div>
@@ -777,6 +811,75 @@
                         </div>
                     </div>
 
+                    <div class="chatbox__support7">
+                        <div class="chatbox__header">
+                            <div class="chatbox__image--header">
+                                <button class="btn-close" id="closeTab">X</button>
+                            </div>
+                            <div class="chatbox__content--header">
+                            </div>
+                        </div>
+                        <div class="chatbox__messages">
+                            <div>
+                                <div class="messages__item messages__item--visitor">
+                                 {{--
+
+                                <p>รายละเอียดของความหมาย</p>
+                                <p>{{$detailsAdviceF142}}</p>
+                                <p>-----------</p>
+                                <p>คำอธิบาย</p>
+                                <p>{{$descAdviceF142}}</p>
+                                <p>-----------</p>                         
+                                    
+                                    --}}
+
+                                <p>วิธีการ</p>
+                                <p>{{$methodAdviceF142}}</p>    
+                                <p>รายละเอียดเชิงรูปภาพ</p>
+                                <p><a href="{{ asset('images/1_4_2.jpg') }}">Link</a></p>
+                                                             
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatbox__footer">
+                        </div>
+                    </div>
+
+                    <div class="chatbox__support8">
+                        <div class="chatbox__header">
+                            <div class="chatbox__image--header">
+                                <button class="btn-close" id="closeTab">X</button>
+                            </div>
+                            <div class="chatbox__content--header">
+                            </div>
+                        </div>
+                        <div class="chatbox__messages">
+                            <div>
+                                <div class="messages__item messages__item--visitor">
+                                 {{--
+
+                                <p>รายละเอียดของความหมาย</p>
+                                <p>{{$detailsAdviceF143}}</p>
+                                <p>-----------</p>
+                                <p>คำอธิบาย</p>
+                                <p>{{$descAdviceF143}}</p>
+                                <p>-----------</p>                         
+                                    
+                                    --}}
+
+                                <p>วิธีการ</p>
+                                <p>{{$methodAdviceF143}}</p>    
+                                <p>รายละเอียดเชิงรูปภาพ</p>
+                                <p><a href="{{ asset('images/1_4_3.jpg') }}">Link</a></p>
+                                                             
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatbox__footer">
+                        </div>
+                    </div>
 
                     <div class="chatbox__support9">
                         <div class="chatbox__header">
@@ -818,8 +921,13 @@
                             <div>
                                 <div class="messages__item messages__item--visitor">
                                     <p>คำอธิบาย</p>
-                                    <p>เป็นลำน้ำที่ไม่ได้เกิดขึ้นเองตามธรรมชาติ เป็นลำน้ำที่ถูกสร้างขึ้นโดยมนุษย์</p>
-                                                             
+                                    <p>คลองส่งน้ําที่เสริมคลองส่วนที่สัมผัสกับน้ําด้วยวัสดุที่มีความแข็งแรง ที่นิยมใช้กันคือการดาดผิวคลองด้วยคอนกรีต 
+                                        เพราะมีความแข็งแรง และก่อสร้างได้ง่าย ซึ่งจะช้วยลดการรั่วซึมผ่านตัวคลองส่งน้ํา ลดการพังทลายของลาดด้านข้างคลองส่งน้ํา ป้องกัน 
+                                        วัชพืชและลดขนาดของตัวคลองลง ทําให้ประหยัดพื้นที่สําหรับการก่อสร้างด้วย
+                                    </p>
+                                    <p>รายละเอียดเชิงรูปภาพ</p>
+                                <p><a href="{{ asset('images/1_6.jpg') }}">Link</a></p>
+
                                 </div>
                             </div>
                         </div>
@@ -847,6 +955,8 @@
                                 <p>-----------</p>
                                 <p>วิธีการ</p>
                                 <p>ประมาณโดยสอบถามคนในพื้นที่โดยกรอกความกว้าง ยาว สูง หน่วยเป็นเมตร</p> 
+                                <p>รายละเอียดเชิงรูปภาพ</p>
+                                <p><a href="{{ asset('images/1_7.jpg') }}">Link</a></p>
 
                                 </div>
                             </div>

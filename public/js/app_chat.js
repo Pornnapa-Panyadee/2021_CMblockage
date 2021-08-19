@@ -13,17 +13,17 @@
 const chatButton4 = document.querySelector('.chatbox__button4');
 const chatContent4 = document.querySelector('.chatbox__support4');
 
-const chatButton5 = document.querySelector('.chatbox__button5');
-const chatContent5 = document.querySelector('.chatbox__support5');
+// const chatButton5 = document.querySelector('.chatbox__button5');
+// const chatContent5 = document.querySelector('.chatbox__support5');
 
-// const chatButton6 = document.querySelector('.chatbox__button6');
-// const chatContent6 = document.querySelector('.chatbox__support6');
+const chatButton6 = document.querySelector('.chatbox__button6');
+const chatContent6 = document.querySelector('.chatbox__support6');
 
-// const chatButton7 = document.querySelector('.chatbox__button7');
-// const chatContent7 = document.querySelector('.chatbox__support7');
+const chatButton7 = document.querySelector('.chatbox__button7');
+const chatContent7 = document.querySelector('.chatbox__support7');
 
-// const chatButton8 = document.querySelector('.chatbox__button8');
-// const chatContent8 = document.querySelector('.chatbox__support8');
+const chatButton8 = document.querySelector('.chatbox__button8');
+const chatContent8 = document.querySelector('.chatbox__support8');
 
 const chatButton9 = document.querySelector('.chatbox__button9');
 const chatContent9 = document.querySelector('.chatbox__support9');
@@ -86,17 +86,17 @@ const icons = {
 const chatbox4 = new InteractiveChatbox(chatButton4, chatContent4, icons);
 chatbox4.display();
 
-const chatbox5 = new InteractiveChatbox(chatButton5, chatContent5, icons);
-chatbox5.display();
+// const chatbox5 = new InteractiveChatbox(chatButton5, chatContent5, icons);
+// chatbox5.display();
 
-// const chatbox6 = new InteractiveChatbox(chatButton6, chatContent6, icons);
-// chatbox6.display();
+const chatbox6 = new InteractiveChatbox(chatButton6, chatContent6, icons);
+chatbox6.display();
 
-// const chatbox7 = new InteractiveChatbox(chatButton7, chatContent7, icons);
-// chatbox7.display();
+const chatbox7 = new InteractiveChatbox(chatButton7, chatContent7, icons);
+chatbox7.display();
 
-// const chatbox8 = new InteractiveChatbox(chatButton8, chatContent8, icons);
-// chatbox8.display();
+const chatbox8 = new InteractiveChatbox(chatButton8, chatContent8, icons);
+chatbox8.display();
 
 const chatbox9 = new InteractiveChatbox(chatButton9, chatContent9, icons);
 chatbox9.display();
