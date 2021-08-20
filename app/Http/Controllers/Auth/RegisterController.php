@@ -53,8 +53,14 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'LName' => ['required', 'string', 'max:255'],
+            'Position' => ['required', 'string', 'max:255'],
+            'Department'=> ['required', 'string', 'max:255'],
+            'Tel' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            
+            
         ]);
     }
 
@@ -69,7 +75,7 @@ class RegisterController extends Controller
 
         $details = [
             'title' => 'New user register',
-            'body' => ('user name that register from website CMblockage is: '. $data['name'].' and email is:'. $data['email']),
+            'body' => ('user name that register from website CMblockage is: '. $data['name'].' '.$data['LName'].' and email is:'. $data['email']),
             'replyback' => "Do not reply this email"
         ];
 
@@ -77,6 +83,10 @@ class RegisterController extends Controller
 
         return   User::create([
             'name' => $data['name'],
+            'LName' =>  $data['LName'],
+            'Position' => $data['Position'],
+            'Department' => $data['Department'],
+            'Tel' => $data['Tel'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'verify' => 0,
