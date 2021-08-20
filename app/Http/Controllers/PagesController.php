@@ -42,7 +42,7 @@ class PagesController extends Controller
         if($user != $userId) return view('auth.login');
         $districtData['data'] = Page::getDistrict();
         $river = River::where('river_id', str_replace("B", "R", $uid))->get();
-        dd($river);
+        // dd($river);
         //$json = file_get_contents('http://localhost/chiang-rai/public/getBlockageID/' . $uid);
        
         $json = file_get_contents('https://survey.crflood.com/getBlockageID/'.$uid);

@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AutoMail;
+
 
 class RegisterController extends Controller
 {
@@ -28,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/blocker';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -50,8 +53,14 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'LName' => ['required', 'string', 'max:255'],
+            'Position' => ['required', 'string', 'max:255'],
+            'Department'=> ['required', 'string', 'max:255'],
+            'Tel' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            
+            
         ]);
     }
 
@@ -63,10 +72,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $details = [
+            'title' => 'New user register',
+            'body' => ('user name that register from website CMblockage is: '. $data['name'].' '.$data['LName'].' and email is:'. $data['email']),
+            'replyback' => "Do not reply this email"
+        ];
+
+        Mail::to("cmblockage.cmu@gmail.com") -> send(new AutoMail($details));
+
+        return   User::create([
             'name' => $data['name'],
+            'LName' =>  $data['LName'],
+            'Position' => $data['Position'],
+            'Department' => $data['Department'],
+            'Tel' => $data['Tel'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'verify' => 0,
         ]);
+
     }
 }

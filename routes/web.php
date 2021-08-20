@@ -14,11 +14,17 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//////// test return data ////////
+Route::get('/testing/emailsend', 'TestingEmailController@testingemail');
+//////////////////////////////////////////
+
 
 Route::get('/','DataForExpertController@getDataforHome');
 Route::get('box','DataForExpertController@getDataforHome1');
 Route::get('login', function () {return view('auth/login');});
 Route::get('register', function () {return view('auth/register');});
+// verify message 
+Route::get('/verifymessage', function(){return view('verifyMessage');});
 //Route::get('/report/map', function () {return view('pages.testmap');});
 
 
@@ -200,7 +206,7 @@ Route::get('mapthai/chiangrai',function () {return view('rain/chiangrai');});
 Route::get('mapthai/chiangrai/{amp}', 'RaindataController@getIDF');
 // Route::get('mapthai/chiangrai/เวียงป้าเป้า',function () {return view('rain/showrain');});
 
-
+ 
 
 // Api chatbot popup
 // Route::get('newblockage', 'ChatBotPopupController@adviceF110');

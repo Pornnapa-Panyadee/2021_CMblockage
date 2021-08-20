@@ -687,10 +687,10 @@
                                                     </button>
                                                 </div>
                                                 <div class="col-6 text-right">
-                                                    <button type="button" class="btn btn-secondary" data-wizard="next">
+                                                    <button type="button" class="btn btn-secondary" data-wizard="next"  >
                                                         Next <i class="fa fa-angle-right ml-1"></i>
                                                     </button>
-                                                    <button type="submit" class="btn btn-primary d-none" data-wizard="finish">
+                                                    <button type="submit" class="btn btn-primary d-none" data-wizard="finish"  >
                                                         <i class="fa fa-check mr-1"></i> Submit
                                                     </button>
                                                 </div>
