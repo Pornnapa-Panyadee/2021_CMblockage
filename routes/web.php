@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//////// test return data ////////
+Route::get('/testing/emailsend', 'TestingEmailController@testingemail');
+//////////////////////////////////////////
+
 
 Route::get('/','DataForExpertController@getDataforHome');
 Route::get('box','DataForExpertController@getDataforHome1');
