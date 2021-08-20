@@ -19,8 +19,8 @@ class TestingEmailController extends Controller
 
         $countingmail = count($userEmail);
         $dataDecode = json_decode($userEmail, true);
-        if($countingmail > 0){
 
+        if($countingmail > 0){
             foreach($dataDecode as $d){
                 foreach($d as $k=>$v) {
                     // echo $v;
