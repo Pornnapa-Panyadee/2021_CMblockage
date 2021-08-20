@@ -67,13 +67,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-
         $details = [
             'title' => 'New user register',
-            'body' => ('user name that register from website CMblockage is: '. $data['name'].' and email is:'. $data['email'])
+            'body' => ('user name that register from website CMblockage is: '. $data['name'].' and email is:'. $data['email']),
+            'replyback' => "Do not reply this email"
         ];
 
-        Mail::to("pcsishun@gmail.com") -> send(new AutoMail($details));
+        Mail::to("cmblockage.cmu@gmail.com") -> send(new AutoMail($details));
 
         return   User::create([
             'name' => $data['name'],
@@ -81,5 +81,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'verify' => 0,
         ]);
+
     }
 }
