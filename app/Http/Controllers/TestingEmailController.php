@@ -34,6 +34,9 @@ class TestingEmailController extends Controller
                     DB::table('users')->where('email','=', $v)->update(['sendEmail' => 1]);
                 }
             }
+           echo "Success sent e-mail and update sendEmail to 1.";
+        }else{
+            echo "all e-mail alreadly verified.";
         }
     }
 }
