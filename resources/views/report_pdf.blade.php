@@ -85,6 +85,9 @@
         span {
         content: "\2611";
         }
+        .sizePic{
+            width: 5%;
+        }
     </style>
         
 </head>
@@ -150,9 +153,9 @@
                     <table class="table-report1" width="90%" align="center"  >
                         <tr>
                             <td>ผู้กรอกแบบสำรวจ &nbsp;&nbsp;</td>
-                            <td colspan="4" class="line">  {{ $data[0]->blk_user_name}} </td>
+                            <td colspan="3" class="line">  {{ $data[0]->blk_user_name}} </td>
                             <td align="center" >  วัน/เดือน/ปี</td>
-                            <td  class="line"> {{date_format($data[0]->created_at,"d/m/Y H:i") }} </td>
+                            <td colspan="2"class="line"> {{date_format($data[0]->created_at,"d/m/Y") }} </td>
                         </tr>
                         <tr>
                             <td align="center"> ตำแหน่ง  </td>
@@ -178,8 +181,8 @@
                     1. ลักษณะทั่วไป
                     <table class="table-report1" width="90%" align="center">
                         <tr>
-                            <td> 1.1 ประเภทลำน้ำที่เกิดปัญหากีดขวางทางน้ำ</td>
-                            <td class="line" width=70%> {{ $data[0]->river->river_type }} </td>
+                            <td> 1.1 ประเภทลำน้ำที่เกิดปัญหากีดขวางทางน้ำ &nbsp;&nbsp;
+                            <font class="line" width=70%> {{ $data[0]->river->river_type }} &nbsp;&nbsp;&nbsp;&nbsp;</font> </td>
                         </tr>
                   
                         <tr>
@@ -300,15 +303,15 @@
                     <?php 
                     function checkCuase($text) {
                         if($text!=NULL){
-                            $img='https://survey.crflood.com/images/logo/check.png';
-                            //$img='http://localhost/chiang-rai/public/images/logo/check.png';
-                            echo "<img src='{$img}'  width=100%>";	
+                            $img='https://cmblockage.cmfightflood.com/images/logo/check.png';
+                            // $img='http://localhost/2021_CMblockage/public/images/logo/check.png';
+                            echo "<img src='{$img}'  width=3%>";	
                             //echo  "<font size=\"4\"> &#9745;</font>";
                         }else{
                             // echo "<font size=\"4\"> &#9744;</font>";
-                            $img='https://survey.crflood.com/images/logo/square.png';
-                            //$img='http://localhost/chiang-rai/public/images/logo/square.png';
-                            echo "<img src='{$img}'  width=100%>";	
+                            $img='https://cmblockage.cmfightflood.com/images/logo/square.png';
+                            // $img='http://localhost/2021_CMblockage/public/images/logo/square.png';
+                            echo "<img src='{$img}'  width=3%>";	
                         }
                         }
                     ?>
@@ -400,18 +403,20 @@
                                 }
                         ?>
                             <tr>
-                                <td width=28%>1.5 ความยาวของช่วงลำน้ำที่เกิดปัญหา </td>
-                                <td class="line" > {{checkZero($lenght)}} </td>
+                                <td colspan="4">1.5&nbsp;ความยาวของช่วงลำน้ำที่เกิดปัญหา &nbsp;&nbsp; <font class="line" > {{checkZero($lenght)}} </font></td>
                             </tr>
                             <tr>
-                                <td >1.6 การดาดผิวของลำน้ำ </td>
-                                <td class="line" > {{$data[0]->blk_surface}}  </td>
-                                <td align="right" width=10%> วัสดุที่ใช้ดาดผิวของลำน้ำ </td>
-                                <td class="line"> {{$data[0]->blk_surface_detail}} </td>
+                                <td colspan="4">1.6 การดาดผิวของลำน้ำ 
+                                    <font class="line"  > {{$data[0]->blk_surface}}  </font>
+                                    &nbsp;&nbsp;&nbsp;วัสดุที่ใช้ดาดผิวของลำน้ำ&nbsp; 
+                                    <font class="line"> {{$data[0]->blk_surface_detail}} </font> 
+                                </td>
                             </tr>
                             <tr>
-                                <td >1.7 ความลาดชันท้องน้ำช่วงที่เกิดปัญหา </td>
-                                <td class="line"> {{checkZero($data[0]->blk_slope_bed)}} </td>
+                                <td colspan="4">1.7 ความลาดชันท้องน้ำช่วงที่เกิดปัญหา&nbsp;&nbsp;
+                                <font class="line"> {{checkZero($data[0]->blk_slope_bed)}} </font> 
+
+                                </td>
                             </tr>
                     </table>
                     {{-- ข้อ2   --}}
@@ -445,12 +450,12 @@
                                     
                                     $img='https://survey.crflood.com/images/logo/check.png';
                                     //$img='http://localhost/chiang-rai/public/images/logo/check.png';
-                                    echo "<img src='{$img}'  width=100%>";
+                                    echo "<img src='{$img}'  width=3%>";
                                     //echo  "<font size=\"4\"> &#9745; </font>";
                                 }else{
                                     $img='https://survey.crflood.com/images/logo/square.png';
                                     //$img='http://localhost/chiang-rai/public/images/logo/square.png';
-                                    echo "<img src='{$img}'  width=100%>";
+                                    echo "<img src='{$img}'  width=3%>";
                                     // echo "<font size=\"4\"> &#9744; </font>";
                                 }
                             }
@@ -480,9 +485,9 @@
                     </table>
                     <table  width="90%" align="center">
                         <tr>
-                            <td width=21%>2.2 ความถี่ที่เกิดความเสียหาย  </td>
-                            <td class="line">{{$data[0]->damage_frequency}}</td>
-                            <td width=50%></td>
+                            <td >2.2 ความถี่ที่เกิดความเสียหาย &nbsp;&nbsp;
+                            <font class="line"> &nbsp;&nbsp; {{$data[0]->damage_frequency}}&nbsp;&nbsp;&nbsp; </font></td>
+                            
                         </tr>
                     </table>
                     {{-- ข้อ3   --}}
@@ -491,122 +496,113 @@
                         <tr><td>3.1 สาเหตุการกีดขวางลำน้ำ โดย</td></tr>
                     </table>
                     <?php 
-                                            if ($problem[0]->nat_erosion!=NULL||$problem[0]->nat_shoal!=NULL||$problem[0]->nat_missing!=NULL||$problem[0]->nat_winding!=NULL||$problem[0]->nat_weed!=NULL||$problem[0]->nat_other!=NULL){
-                                                
-                                                $text="<img src=\"images/logo/check.png\"  width=100%>";
-                                            }else{
-                                                $text="<img src=\"images/logo/square.png\"  width=100%>";
-                                            }
-                                            if($problem[0]->hum_structure!=NULL||$problem[0]->hum_other!=NULL||$problem[0]->hum_trash!=NULL||$problem[0]->hum_soil_cover!=NULL){
-                                                $hum="<font size=\"4\"> &#9745; </font>";
-                                            }else{
-                                                $hum="<img src='images/logo/square.png'  width=100%>";
-                                            }
-                                            if($problem[0]->hum_stc_bld_num!=NULL||$problem[0]->hum_stc_fence_num!=NULL||$problem[0]->hum_str_other!=NULL){
-                                                $hum_stc="<font size=\"4\"> &#9745; </font>";
-                                            }else{
-                                                $hum_stc="<img src='images/logo/square.png'  width=100%>";
-                                            }
-                                            if($problem[0]->hum_stc_bld_bu_num!=NULL||$problem[0]->hum_stc_fence_bu_num!=NULL||$problem[0]->hum_str_other_bu!=NULL){
-                                                $hum_stc_bu="<font size=\"4\"> &#9745; </font>";
-                                            }else{
-                                                $hum_stc_bu="<img src='images/logo/square.png'  width=100%>";
-                                            }
-                                            if($problem[0]->hum_road!=NULL||$problem[0]->hum_smallconvert!=NULL||$problem[0]->hum_road_paralel!=NULL||$problem[0]->hum_replaced_convert!=NULL||$problem[0]->hum_bridge_pile!=NULL){
-                                                $infa="<font size=\"4\"> &#9745; </font>";
-                                            }else{
-                                                $infa="<img src='images/logo/square.png'  width=100%>";
-                                            }
-                                            if($problem[0]->prob_level=="1-30%"){
-                                                $t="น้อย";
-                                            }else if($problem[0]->prob_level=="30-70%"){
-                                                $t="ปานกลาง";
-                                            }else{
-                                                $t="มาก";
-                                            }
-                                            if($solution_id[0]->sol_how=="ปรับปรุงแก้ไข"){
-                                                $sol1="<img src='images/logo/check.png'  width=100%>";
-                                                $sol2="<img src='images/logo/square.png'  width=100%>";
-                                                $sol3="<img src='images/logo/square.png'  width=100%>";
-                                                $sol4="<img src='images/logo/square.png'  width=100%>";
-                                                $sol5="<img src='images/logo/square.png'  width=100%>";
-                                            }else if($solution_id[0]->sol_how=="เจรจาให้รื้อถอน"){
-                                                $sol1="<img src='images/logo/square.png'  width=100%>";
-                                                $sol2="<img src='images/logo/check.png'  width=100%>";
-                                                $sol3="<img src='images/logo/square.png'  width=100%>";
-                                                $sol4="<img src='images/logo/square.png'  width=100%>";
-                                                $sol5="<img src='images/logo/square.png'  width=100%>";
-                                            }else if($solution_id[0]->sol_how=="ฟ้องร้อง"){
-                                                $sol1="<img src='images/logo/square.png'  width=100%>";
-                                                $sol2="<img src='images/logo/square.png'  width=100%>";
-                                                $sol3="<img src='images/logo/check.png'  width=100%>";
-                                                $sol4="<img src='images/logo/square.png'  width=100%>";
-                                                $sol5="<img src='images/logo/square.png'  width=100%>";
-                                            }else if($solution_id[0]->sol_how=="รื้นถอน"){
-                                                $sol1="<img src='images/logo/square.png'  width=100%>";
-                                                $sol2="<img src='images/logo/square.png'  width=100%>";
-                                                $sol3="<img src='images/logo/square.png'  width=100%>";
-                                                $sol4="<img src='images/logo/check.png'  width=100%>";
-                                                $sol5="<img src='images/logo/square.png'  width=100%>";
-                                            }else if($solution_id[0]->sol_how=="ยังไม่ได้ดำเนินการ"){
-                                                $sol1="<img src='images/logo/square.png'  width=100%>";
-                                                $sol2="<img src='images/logo/square.png'  width=100%>";
-                                                $sol3="<img src='images/logo/square.png'  width=100%>";
-                                                $sol4="<img src='images/logo/square.png'  width=100%>";
-                                                $sol5="<img src='images/logo/check.png'  width=100%>";
-                                            }else {
-                                                $sol1="<img src='images/logo/square.png'  width=100%>";
-                                                $sol2="<img src='images/logo/square.png'  width=100%>";
-                                                $sol3="<img src='images/logo/square.png'  width=100%>";
-                                                $sol4="<img src='images/logo/square.png'  width=100%>";
-                                                $sol5="<img src='images/logo/square.png'  width=100%>";
-                                            }
+                        if ($problem[0]->nat_erosion!=NULL||$problem[0]->nat_shoal!=NULL||$problem[0]->nat_missing!=NULL||$problem[0]->nat_winding!=NULL||$problem[0]->nat_weed!=NULL||$problem[0]->nat_other!=NULL){
+                            $text="<img src=\"images/logo/check.png\"  width=3%>";
+                        }else{ $text="<img src=\"images/logo/square.png\"  width=3%>";}
+
+                        if($problem[0]->hum_structure!=NULL||$problem[0]->hum_other!=NULL||$problem[0]->hum_trash!=NULL||$problem[0]->hum_soil_cover!=NULL){
+                            $hum="<font size=\"4\"> &#9745; </font>";
+                        }else{$hum="<img src='images/logo/square.png'  width=3%>";}
+
+                        if($problem[0]->hum_stc_bld_num!=NULL||$problem[0]->hum_stc_fence_num!=NULL||$problem[0]->hum_str_other!=NULL){
+                            $hum_stc="<font size=\"4\"> &#9745; </font>";
+                        }else{$hum_stc="<img src='images/logo/square.png'  width=3%>"; }
+
+                        if($problem[0]->hum_stc_bld_bu_num!=NULL||$problem[0]->hum_stc_fence_bu_num!=NULL||$problem[0]->hum_str_other_bu!=NULL){
+                            $hum_stc_bu="<font size=\"4\"> &#9745; </font>";
+                        }else{$hum_stc_bu="<img src='images/logo/square.png'  width=3%>";}
+                    
+                        if($problem[0]->hum_road!=NULL||$problem[0]->hum_smallconvert!=NULL||$problem[0]->hum_road_paralel!=NULL||$problem[0]->hum_replaced_convert!=NULL||$problem[0]->hum_bridge_pile!=NULL){
+                            $infa="<font size=\"4\"> &#9745; </font>";
+                        }else{$infa="<img src='images/logo/square.png'  width=3%>"; }
+                        
+                        if($problem[0]->prob_level=="1-30%"){ $t="น้อย"; }
+                        else if($problem[0]->prob_level=="30-70%"){$t="ปานกลาง";}
+                        else{$t="มาก";}
+                        
+                        if($solution_id[0]->sol_how=="ปรับปรุงแก้ไข"){
+                            $sol1="<img src='images/logo/check.png'  width=3%>";
+                            $sol2="<img src='images/logo/square.png'  width=3%>";
+                            $sol3="<img src='images/logo/square.png'  width=3%>";
+                            $sol4="<img src='images/logo/square.png'  width=3%>";
+                            $sol5="<img src='images/logo/square.png'  width=3%>";
+                        }else if($solution_id[0]->sol_how=="เจรจาให้รื้อถอน"){
+                            $sol1="<img src='images/logo/square.png'  width=3%>";
+                            $sol2="<img src='images/logo/check.png'  width=3%>";
+                            $sol3="<img src='images/logo/square.png'  width=3%>";
+                            $sol4="<img src='images/logo/square.png'  width=3%>";
+                            $sol5="<img src='images/logo/square.png'  width=3%>";
+                        }else if($solution_id[0]->sol_how=="ฟ้องร้อง"){
+                            $sol1="<img src='images/logo/square.png'  width=3%>";
+                            $sol2="<img src='images/logo/square.png'  width=3%>";
+                            $sol3="<img src='images/logo/check.png'  width=3%>";
+                            $sol4="<img src='images/logo/square.png'  width=3%>";
+                            $sol5="<img src='images/logo/square.png'  width=3%>";
+                        }else if($solution_id[0]->sol_how=="รื้นถอน"){
+                            $sol1="<img src='images/logo/square.png'  width=3%>";
+                            $sol2="<img src='images/logo/square.png'  width=3%>";
+                            $sol3="<img src='images/logo/square.png'  width=3%>";
+                            $sol4="<img src='images/logo/check.png'  width=3%>";
+                            $sol5="<img src='images/logo/square.png'  width=3%>";
+                        }else if($solution_id[0]->sol_how=="ยังไม่ได้ดำเนินการ"){
+                            $sol1="<img src='images/logo/square.png'  width=3%>";
+                            $sol2="<img src='images/logo/square.png'  width=3%>";
+                            $sol3="<img src='images/logo/square.png'  width=3%>";
+                            $sol4="<img src='images/logo/square.png'  width=3%>";
+                            $sol5="<img src='images/logo/check.png'  width=3%>";
+                        }else {
+                            $sol1="<img src='images/logo/square.png'  width=3%>";
+                            $sol2="<img src='images/logo/square.png'  width=3%>";
+                            $sol3="<img src='images/logo/square.png'  width=3%>";
+                            $sol4="<img src='images/logo/square.png'  width=3%>";
+                            $sol5="<img src='images/logo/square.png'  width=3%>";
+                        }
 
 
-                                            if($project_id[0]->proj_status=="plan"){
-                                                $proj1="<img src='images/logo/check.png'  width=100%>";
-                                                $proj2="<img src='images/logo/square.png'  width=100%>";
-                                                $proj3="<img src='images/logo/square.png'  width=100%>";
-                                                $proj4="<img src='images/logo/square.png'  width=100%>";
-                                                $budget_plan=$project_id[0]->proj_budget;
-                                                $budget_received=NULL;
-                                                $name_plan=$project_id[0]->proj_char;
-                                                $name_received=NULL;
+                        if($project_id[0]->proj_status=="plan"){
+                            $proj1="<img src='images/logo/check.png'  width=3%>";
+                            $proj2="<img src='images/logo/square.png'  width=3%>";
+                            $proj3="<img src='images/logo/square.png'  width=3%>";
+                            $proj4="<img src='images/logo/square.png'  width=3%>";
+                            $budget_plan=$project_id[0]->proj_budget;
+                            $budget_received=NULL;
+                            $name_plan=$project_id[0]->proj_char;
+                            $name_received=NULL;
 
 
                                             }else if($project_id[0]->proj_status=="received"){
-                                                $proj1="<img src='images/logo/square.png'  width=100%>";
-                                                $proj2="<img src='images/logo/check.png'  width=100%>";
-                                                $proj3="<img src='images/logo/square.png'  width=100%>";
-                                                $proj4="<img src='images/logo/square.png'  width=100%>";
+                                                $proj1="<img src='images/logo/square.png'  width=3%>";
+                                                $proj2="<img src='images/logo/check.png'  width=3%>";
+                                                $proj3="<img src='images/logo/square.png'  width=3%>";
+                                                $proj4="<img src='images/logo/square.png'  width=3%>";
                                                 $budget_plan=NULL;
                                                 $budget_received=$project_id[0]->proj_budget;
                                                 $name_plan=NULL;
                                                 $name_received=$project_id[0]->proj_char;
                                                 
                                             }else if($project_id[0]->proj_status=="making"){
-                                                $proj1="<img src='images/logo/square.png'  width=100%>";
-                                                $proj2="<img src='images/logo/square.png'  width=100%>";
-                                                $proj3="<img src='images/logo/check.png'  width=100%>";
-                                                $proj4="<img src='images/logo/square.png'  width=100%>";
+                                                $proj1="<img src='images/logo/square.png'  width=3%>";
+                                                $proj2="<img src='images/logo/square.png'  width=3%>";
+                                                $proj3="<img src='images/logo/check.png'  width=3%>";
+                                                $proj4="<img src='images/logo/square.png'  width=3%>";
                                                 $budget_plan=NULL;
                                                 $budget_received=NULL;
                                                 $name_plan=NULL;
                                                 $name_received=NULL;
                                             }else if($project_id[0]->proj_status=="noplan"){
-                                                $proj1="<img src='images/logo/square.png'  width=100%>";
-                                                $proj2="<img src='images/logo/square.png'  width=100%>";
-                                                $proj3="<img src='images/logo/square.png'  width=100%>";
-                                                $proj4="<img src='images/logo/check.png'  width=100%>";
+                                                $proj1="<img src='images/logo/square.png'  width=3%>";
+                                                $proj2="<img src='images/logo/square.png'  width=3%>";
+                                                $proj3="<img src='images/logo/square.png'  width=3%>";
+                                                $proj4="<img src='images/logo/check.png'  width=3%>";
                                                 $budget_plan=NULL;
                                                 $budget_received=NULL;
                                                 $name_plan=NULL;
                                                 $name_received=NULL;
                                             }else{
-                                                $proj1="<img src='images/logo/square.png'  width=100%>";
-                                                $proj2="<img src='images/logo/square.png'  width=100%>";
-                                                $proj3="<img src='images/logo/square.png'  width=100%>";
-                                                $proj4="<img src='images/logo/square.png'  width=100%>";
+                                                $proj1="<img src='images/logo/square.png'  width=3%>";
+                                                $proj2="<img src='images/logo/square.png'  width=3%>";
+                                                $proj3="<img src='images/logo/square.png'  width=3%>";
+                                                $proj4="<img src='images/logo/square.png'  width=3%>";
                                                 $budget_plan=NULL;
                                                 $budget_received=NULL;
                                                 $name_plan=NULL;
@@ -614,13 +610,12 @@
 
                                             }
                                     ?>
-                                    <table class="table-report1" width="80%" align="center">
+                                    <table class="table-report1" width="90%" align="center" style="margin-top:-10px;">
                                         <tr> 
-                                            <td ><?php echo $text?></td>
-                                            <td width=96%> ธรรมชาติ </td>
+                                            <td>- ธรรมชาติ </td>
                                         </tr>
                                     </table>
-                                    <table width="70%" align="center"  >
+                                    <table width="70%" align="center" >
                                         <tr>
                                             <td >{{checkCuase($problem[0]->nat_erosion) }} </td>
                                             <td width=25%>ตลิ่งพังการกัดเซาะ </td>
@@ -639,10 +634,9 @@
                                             <td class="line">{{$problem[0]->nat_other_detail}}</td>
                                         </tr>
                                     </table>
-                                    <table class="table-report1" width="80%" align="center">
+                                    <table class="table-report1" width="90%" align="center" style="margin-top:-10px;">
                                         <tr> 
-                                            <td  ><?php echo $hum?></td>
-                                            <td width=96%> มนุษย์ </td>
+                                            <td> - มนุษย์ </td>
                                         </tr>
                                     </table>
                                     <table class="table-report3" width="70%" align="center">
@@ -732,7 +726,7 @@
                                             </table>
                                         </tr>
                                     </table>
-                                    <br><br><br><br><br><br>
+                                   
                                     {{-- ข้อ 4  --}}
                                     4. การดำเนินการแก้ไขของหน่วยงานท้องถิ่น และหน่วยงานที่รับผิดชอบ  <font class="line"> {{$solution_id[0]->responsed_dept}} </font>
                                     <table  width="80%" align="center">
@@ -755,9 +749,9 @@
                                     </table> 
                                     <table class="table-report1" width="90%" align="center">
                                         <tr>
-                                            <td width=10%>4.1 ผลการดำเนินการ </td>
-                                            <td class="line"> {{$solution_id[0]->result}}</td>
-                                            <td width=60%></td>
+                                            <td >4.1 ผลการดำเนินการ 
+                                             <font class="line"> {{$solution_id[0]->result}} </font> 
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td colspan="2">4.2 สภาพในปัจจุบันของโครงการที่แก้ไขปัญหา </td>
@@ -818,7 +812,7 @@
                                                                 <br></tr></table>  
 
                                                             <?php } 
-                                                        }?>
+                                            }?>
                                                     
                                          
 
