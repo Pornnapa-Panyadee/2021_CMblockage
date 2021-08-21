@@ -15,6 +15,17 @@
 		font-weight: normal;
 		src: url("{{ asset('fonts/THSarabunNew Bold.ttf') }}") format('truetype');
 		}
+        @page {
+            size: A4;
+            padding: 5px;
+            }
+        @media print {
+            html, body {
+                width: 210mm;
+                height: 300mm;
+                /*font-size : 16px;*/
+            }
+        }
 		
 		html, body {
 			background-color: #fff;
@@ -31,7 +42,6 @@
 		}
 		.content {
 			text-align: left;
-			
 		}
 		.title {
 			font-size:20px;
@@ -58,7 +68,7 @@
             border-bottom:1px solid #000000;
         }
         .table tbody+tbody{
-            border-top:2px solid #000000
+            border-top:1px solid #000000
         }
         .table .table{background-color:#f8fafc}
         /*  */
@@ -98,12 +108,24 @@
             <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12" > 
                 <div class="card">
                     <div class="title m-b-md">
-                        <?php if( $data[0]->blockageLocation->blk_district !="แม่อาย" && $data[0]->blockageLocation->blk_district !="ฝาง" && $data[0]->blockageLocation->blk_district !="ไชยปราการ"  ){?>
-                                <img src="{{ asset('images/logo/head_form.png') }}" width="100%">
-                        <?php }else{?>
-                            <img src="{{ asset('images/logo/head_formCM.png') }}" width="100%">
-                        <?php }?> 
-                        <div align="right">รหัสตำแหน่งกีดขวางที่: {{ $data[0]->blk_code }}</div>
+                        <table style="margin-top:-20px;">
+                            <tr>
+                                <td rowspan="2"><img src="{{ asset('images/icon/cmu.png') }}" width="12%"></td>
+                                <td align="center"> <div style="font-size: 28px;margin-top:-10px;"> แบบสำรวจรายละเอียดการกีดขวางทางน้ำ </div></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><div style="margin-top:-10px;">"กิจกรรมการพัฒนาระบบข้อมูลของสิ่งกีดขวางทางน้ำในลำน้ำคูคลองและถนนในจังหวัดเชียงใหม่" </div></td>
+                            </tr>
+                            <tr align="center">
+                                <td colspan="2"  ><div style="font-size: 16px;margin-top:-10px;"> ภายใต้โครงการการพัฒนาระบบการสำรวจและบริหารจัดการพื้นที่เสี่ยงภัยน้ำท่วมและดินถล่มบนพื้นฐานของเทคโนโลยีสารสนเทศและการจัดการน้ำขั้นสูง </div> </td>
+                            </tr>
+                        </table>
+                        <hr>
+
+                        <div align="right" style="font-size: 16px;margin-top:-10px;">รหัสตำแหน่งกีดขวางที่: {{ $data[0]->blk_code }}</div>
+                        <!-- <h3> แบบสำรวจรายละเอียดการกีดขวางทางน้ำ</h3>
+                        <h4> "กิจกรรมการพัฒนาระบบข้อมูลของสิ่งกีดขวางทางน้ำในลำน้ำคูคลองและถนนในจังหวัดเชียงใหม่"</h4> -->
+                       
                     </div>
                 </div>
                 <div class="card-body">
@@ -202,7 +224,7 @@
                               <td width=5% >อำเภอ  </td>
                               <td width=15% class="line"> {{  $data[0]->blockageLocation->blk_district  }} </td>
                               <td width=5% > จังหวัด  </td>
-                              <td width=10% class="line"> เชียงราย </td> 
+                              <td width=10% class="line"> เชียงใหม่ </td> 
                           <tr>
                       </table>
 
