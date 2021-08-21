@@ -639,10 +639,9 @@
                                             <td> - มนุษย์ </td>
                                         </tr>
                                     </table>
-                                    <table class="table-report3" width="70%" align="center">
+                                    <table class="table-report3" width="70%" align="center" style="margin-top:-10px;">
                                         <tr>
-                                            <td>{{checkCuase($problem[0]->hum_structure)}} </td>
-                                            <td width=96%>สิ่งปลูกสร้าง </td>
+                                            <td> - สิ่งปลูกสร้าง </td>
                                         </tr>
                                     </table>
                                     <table class="table-report4" width="70%" align="center">
@@ -673,10 +672,9 @@
                                             <td class="line">{{$problem[0]->hum_str_other_bu}} </td>
                                         </tr>
                                     </table>
-                                    <table  width="70%" align="center">
+                                    <table  width="70%" align="center" style="margin-top:-10px;">
                                         <tr>
-                                            <td ><?php echo $infa ?> </td>
-                                            <td width=96%>ระบบสาธารณูปโภค (ถนน ท่อลอด สะพานและอื่นๆ) </td>
+                                            <td >- ระบบสาธารณูปโภค (ถนน ท่อลอด สะพานและอื่นๆ) </td>
                                         </tr>
                                     </table>
                                     <table  width="70%" align="center">
