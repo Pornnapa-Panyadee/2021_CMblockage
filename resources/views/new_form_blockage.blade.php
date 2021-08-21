@@ -613,49 +613,27 @@
                                                     </tr>
 
                                                 </table>
-                                                <table align="center" width="90%" class="table table-form table-borderless">
+                                                <table align="center" width="70%" class="table table-form table-borderless">
                                                     <tr>
-                                                        <td><input type="radio" id="proj_status1" name="proj_status" value="plan" /><label for="proj_status1"> อยู่ในแผน </label></td>
-                                                        <td><input type="radio" id="proj_status2" name="proj_status" value="received"/><label for="proj_status2">ได้รับงบประมาณแล้ว</label></td>
-                                                        <td><input type="radio" id="proj_status3" name="proj_status" value="making"  /><label for="proj_status3">กำลังปรับปรุงก่อสร้าง</label> </td>
-                                                        <td><input type="radio" id="proj_status4" name="proj_status" value="noplan" /><label for="proj_status4">ยังไม่มีในแผน </label></td>
+                                                        <td><input type="radio" id="proj_status1" name="proj_status" value="plan" onclick="projStatusValidate()"/><label for="proj_status1"> อยู่ในแผน </label></td>
+                                                        <td><input type="text" id="proj_year" name="proj_year" step="any" placeholder="ระบุปี พ.ศ" disabled></td>
+                                                        <td><input type="text" id="proj_name" name="proj_name" step="any" placeholder="ระบุชื่อโครงการ" disabled></td>
+                                                        <td><input type="text" id="proj_budget" name="proj_budget" step="any" placeholder="ระบุงบประมาณ" disabled ></td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="5">
-                                                            <div id="showplan" class="myDiv" style="background-color:#fff;padding-top:30px;padding-bottom:30px;">
-                                                                <table align="center" >
-                                                                    <tr></tr>
-                                                                    <tr>
-                                                                        <td>ลักษณะโครงการ: </td>
-                                                                        <td><input type="text" id="proj_year" name="proj_year" step="any" placeholder="ระบุปี พ.ศ"></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td></td>
-                                                                        <td><input type="text" id="proj_name" name="proj_name" step="any" placeholder="ระบุชื่อโครงการ"></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>งบประมาณ: </td>
-                                                                        <td><input type="text" id="proj_budget" name="proj_budget" step="any" placeholder="ระบุงบประมาณ"></td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
-                                                            <div id="showreceived" class="myDiv" style="background-color:#fff;padding-top:10px;padding-bottom:30px;">
-                                                                <table align="center">
-                                                                    <tr></tr>
-                                                                    <tr>
-                                                                        <td>ลักษณะโครงการ: </td>
-                                                                        <td><input type="text" id="proj_name2" name="proj_name2" step="any" placeholder="ระบุชื่อโครงการ"></td>
-                                                                    </tr>
-
-                                                                    <tr>
-                                                                        <td>งบประมาณ: </td>
-                                                                        <td><input type="text" id="proj_budget2" name="proj_budget2" step="any" placeholder="ระบุงบประมาณ"></td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
-                                                        </td>
+                                                        <td><input type="radio" id="proj_status2" name="proj_status" value="received" onclick="projStatusValidate()" /><label for="proj_status2">ได้รับงบประมาณแล้ว</label></td>
+                                                        <td><input type="text" id="proj_name2" name="proj_name2" step="any" placeholder="ระบุชื่อโครงการ" disabled ></td>
+                                                        <td><input type="text" id="proj_budget" name="proj_budget" step="any" placeholder="ระบุงบประมาณ" disabled></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3"><input type="radio" id="proj_status3" name="proj_status" value="making"  /><label for="proj_status3">กำลังปรับปรุงก่อสร้าง</label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3"><input type="radio" id="proj_status4" name="proj_status" value="noplan" /><label for="proj_status4">ยังไม่มีในแผน </label></td>
                                                     </tr>
                                                 </table>
+
+
                                             </div>
                                             <!-- END Step 4 -->
                                             
