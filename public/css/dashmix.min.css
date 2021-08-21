@@ -12242,9 +12242,16 @@ a.badge-secondary:focus {
 .content .items-push-3x > div {
     margin-bottom: 2.625rem;
 }
+@media (min-width: 1025px) {
+    .content {
+        width: 75%;
+        margin: 0 auto;
+        padding: 1.75rem 1.75rem 1px;
+        overflow-x: visible;
+    }
+}
 @media (min-width: 768px) {
     .content {
-        width: 70%;
         margin: 0 auto;
         padding: 1.75rem 1.75rem 1px;
         overflow-x: visible;

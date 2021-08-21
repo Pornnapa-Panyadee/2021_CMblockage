@@ -87,7 +87,12 @@
             color: #3042fa;
             box-shadow: 0 1px 0 rgb(0 0 0 / 3%) inset;
         }
-        
+        input[type="text"],select{
+            color: #3042fa;
+        }
+        label{
+            margin-left:20px;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{{ asset('js/proj4js.js') }}"></script>
@@ -95,7 +100,7 @@
     <script src="{{ asset('js/utmlatlong.js') }}"></script>
 
 </head>
-<body onload="initProj4js()">
+<body onload="initProj4js()";checkHumStr('{{ $blk_problem_detail[$id]   }}'); loadRadioButton('{{ $uid }}'); loadProjStatus('{{ $blk_project->proj_status }}');">
     <div id="app">
         <main class="py-4">
             @yield('content')
@@ -103,35 +108,16 @@
     </div>
     
     <script src= "{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/Chat.js') }}"></script>
-    <script src="{{ asset('js/app_chat.js') }}"></script>
-    <script src="{{ asset('js/shortable-nestable/Sortable.min.js') }}"></script>
-    <script src="{{ asset('js/shortable-nestable/sort-nest.js') }}"></script>
-    <script src="{{ asset('js/shortable-nestable/jquery.nestable.js') }}"></script>
     <script src="{{ asset('js/location.js') }}"></script>
     <script src="{{ asset('js/showhide.js') }}"></script>
     <script src="{{ asset('js/chooseLocation.js') }}"></script>
-    <script src="{{ asset('js/validateNewForm.js') }}"></script>
+    
     <script src="{{ asset('js/dashmix.core.min.js') }}"></script>
     <script src="{{ asset('js/jquery.bootstrap.wizard.min.js') }}"></script>
     <script src="{{ asset('js/be_forms_wizard.min.js') }}"></script>
     <script src= "{{ asset('js/imagePreview.js') }}"></script>
-    <script>
-            $(document).ready(function(){
-            $("select").change(function(){
-                $(this).find("option:selected").each(function(){
-                    var optionValue = $(this).attr("value");
-                    if(optionValue){
-                        $(".box").not("." + optionValue).hide();
-                        $("." + optionValue).show();
-                    } else{
-                        $(".box").hide();
-                    }
-                });
-            }).change();
-        });
-            
-    </script>
+    <script src="{{ asset('js/radioAndCheckbox.js') }}"></script>
+    <script src="{{ asset('js/validateNewForm.js') }}"></script>
     
 
 </body>

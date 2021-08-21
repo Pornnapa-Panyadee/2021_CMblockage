@@ -69,7 +69,11 @@ Route::get('form/questionnaire', "QuestionController@questionnaire");
 Route::get('form/questionnaire2', "QuestionController2@questionnaire2")->name('form.Qnaire2');
 Route::get('form/questionnaire3', "QuestionController3@questionnaire3")->name('form.Qnaire3');
 Route::get('form/questionnaire4', "QuestionController4@questionnaire4")->name('form.Qnaire4');
+
 Route::get('form/questionnaire5/{id}', "QuestionController5@questionnaire5")->name('form.Qnaire5');
+Route::get('photoremove/{id}', "QuestionController5@photoremove");
+
+
 Route::get('form/questionnaire6/{id}', "QuestionController6@questionnaire6")->name('form.Qnaire6');
 //Route::get('form/questionnaire5/{id}', ['as' => 'form/questionnaire5', 'uses' => 'QuestionController5@BlockageId'])->name('form.Qnaire5');
 
@@ -109,10 +113,11 @@ Route::get('/editblockage/{id}', 'PagesController@editblockage');
 
 //Controller Form_blockage
 Route::get('/form_blockage', "FormBlockageController@formblockage");
-Route::get('form/storeform', 'FormBlockageController@storeform')->name('form.storeform');
+Route::post('form/storeform', 'FormBlockageController@storeform')->name('form.storeform');
 Route::get('form/getBlockage', 'FormBlockageController@getBlockageData')->name('form.getBlockageData');
 Route::get('/getBlockageID/{id}', 'FormBlockageController@getBlockageID');
 Route::get('edit/{id}', 'FormBlockageController@editform')->name('editform');
+Route::get('delete/{id}', 'FormBlockageController@removeblockage')->name('removeform');
 
 
 //PD

@@ -13,6 +13,9 @@ use App\Solution;
 use App\Project;
 use App\User;
 use App\BlockageLocation;
+use App\Photo;
+use App\ChangeLogs;
+use App\Expert;
 
 class PagesController extends Controller
 {
@@ -45,7 +48,7 @@ class PagesController extends Controller
         // dd($river);
         //$json = file_get_contents('http://localhost/chiang-rai/public/getBlockageID/' . $uid);
        
-        $json = file_get_contents('https://survey.crflood.com/getBlockageID/'.$uid);
+        $json = file_get_contents('https://cmblockage.cmfightflood.com/getBlockageID/'.$uid);
         $obj = json_decode($json);
         $id = 0;
         // dd($obj[0]);
@@ -334,11 +337,13 @@ class PagesController extends Controller
 
       $districtData['data'] = Page::getDistrict();
       $river = River::where('river_id',$data[0]->river_id )->get();
-      // $json = file_get_contents('http://localhost/chiang-rai/public/getBlockageID/' . $uid);
-      $json = file_get_contents('https://survey.crflood.com/getBlockageID/'.$uid);
+      $json = file_get_contents('https://cmblockage.cmfightflood.com/getBlockageID/'.$uid);
       $obj = json_decode($json);
+      $damage_type = json_decode($obj[0]->damage_type);
+      $damage_level = json_decode($obj[0]->damage_level);
+      // dd($damage_type);
       $id = 0;
-      //  dd($obj[0]);
+      // dd($obj[0]);
       $temp = BlockageCrossection::where('blk_id', $uid)->value('past');
       $blk_crossection_past = json_decode($temp);
       $temp = BlockageCrossection::where('blk_id', $uid)->value('current_start');
@@ -350,27 +355,57 @@ class PagesController extends Controller
       $temp = BlockageCrossection::where('blk_id', $uid)->value('current_brigde');
       $blk_crossection_current_brigde = json_decode($temp);
      
-      // dd($obj[0]);
-      $len_morekm=NULL;
+      // dd($obj[0]);    
       if($obj[0]->blk_length_type=="มากกว่า 1 กิโลเมตร"||$obj[0]->blk_length_type=="น้อยกว่า 10 เมตร"){
-        $len_prob="-- ระบุระยะ --";
-        $len_prob_value="0";
+        $len_prob_value_btw="-- ระบุระยะ --";
+        $len_prob_value=$obj[0]->blk_length;
         if($obj[0]->blk_length_type=="น้อยกว่า 10 เมตร"){
-          $len_morekm="-- ระบุระยะมากกว่า 1 กม.--";
+          $len_prob_value="-- ระบุระยะมากกว่า 1 กม.--";
         }
       }else{
-        $len_prob=$obj[0]->blk_length_type;
-        $len_prob_value=$obj[0]->blk_length_type;
-        $len_morekm="-- ระบุระยะมากกว่า 1 กม.--";
+        $len_prob_value_btw=$obj[0]->blk_length;
+        $len_prob_value="-- ระบุระยะมากกว่า 1 กม.--";
       }
       $blk_damage_level = json_decode($obj[0]->damage_level);
       $blk_project = \App\Project::where('proj_id', str_replace("B", "PJ", $uid))->get();
       $ProblemDetail = ProblemDetail::where('blk_id', $uid)->get();
       $solution_id=Solution::where('sol_id',$obj[0]->sol_id)->get();
       $project_id=Project::where('proj_id',$solution_id[0]->proj_id)->get();
+      
+      // dd($project_id);
+      if($project_id[0]->proj_status=="plan"){
+        $proj =[
+          'proj_status'=>$project_id[0]->proj_status,
+          'proj_year'=> $project_id[0]->proj_year,
+          'proj_name_plan' => $project_id[0]->proj_char,
+          'proj_budget_plan' => $project_id[0]->proj_budget,
+          'proj_name_rev'=>NULL,
+          'proj_budget_rev'=>NULL
+        ];
+      }else if($project_id[0]->proj_status=="received"){
+        $proj =[
+          'proj_status'=>$project_id[0]->proj_status,
+          'proj_year'=> NULL,
+          'proj_name_plan' => NULL,
+          'proj_budget_plan' => NULL,
+          'proj_name_rev'=>$project_id[0]->proj_char,
+          'proj_budget_rev'=>$project_id[0]->proj_budget
+        ];
 
+      }else{
+        $proj =[
+          'proj_status'=>$project_id[0]->proj_status,
+          'proj_year'=> NULL,
+          'proj_name_plan' => NULL,
+          'proj_budget_plan' => NULL,
+          'proj_name_rev'=>NULL,
+          'proj_budget_rev'=>NULL
+        ];
+
+      }
+      // dd($obj);
       // Load index view
-     // dd($blk_crossection_current_narrow);
+     
       return view('edit_form_blockage',[
         'river' => $river,
         'obj' => $obj,
@@ -385,12 +420,15 @@ class PagesController extends Controller
         'blk_damage_level' => $blk_damage_level,
         'blk_project' => $blk_project[0],   
         'solution'=>$solution_id ,
-        'project'=>$project_id ,
-        'len_prob'=>$len_prob,
+        'project'=>$proj ,
         'len_prob_value'=>$len_prob_value,
-        'len_morekm'=>$len_morekm
+        'len_prob_value_btw' => $len_prob_value_btw,
+        'damage_type'=>$damage_type,
+        'damage_level'=>$damage_level
 
       ])->with("districtData",$districtData);
      
     }
+
+    
 }

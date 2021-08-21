@@ -58,9 +58,10 @@ function inboxValidate(array, detail) {
         isCheck = document.getElementById(array[i]).checked;
         if (isCheck) checker.push(1);
         else checker.push(0);
+        console.log(checker);
     }
 
-    console.log(checker);
+    
 
     let j;
     for (j = 0; j < detail.length; j++) {
@@ -102,7 +103,7 @@ function xsectionRadioValidation() {
 
 
 function validateCheckbox() {
-    let content = [['#damage_type1', '#damage_type2', '#damage_type3'], ['#nat_erosion', '#nat_shoal', '#nat_missing', '#nat_winding', '#nat_weed', '#nat_other', '#hum_structure', '#huminfa', '#hum_road', '#hum_smallconvert', '#hum_road_paralel', '#hum_replaced_convert', '#hum_bridge_pile', '#hum_soil_cover', '#hum_trash', '#hum_other']];
+    let content = [['#damage_type1', '#damage_type2', '#damage_type3'], ['#nat_erosion', '#nat_shoal', '#nat_missing', '#nat_winding', '#nat_weed', '#nat_other', '#hum_structure', '#huminfa', '#hum_road', '#hum_smallconvert', '#hum_road_paralel', '#hum_replaced_convert', '#hum_bridge_pile', '#hum_soil_cover', '#hum_trash', '#hum_other', '#sol_how2']];
 
     content.forEach(array => {
         let isValid = false;
@@ -126,6 +127,7 @@ function validateCheckbox() {
 }
 
 
+
 function damageLevelRadioValidation() {
     let array = ['damage_type1', 'damage_type2', 'damage_type3', 'hum_structure'];
     let detail = [['damageflood1', 'damageflood2', 'damageflood3'], ['damagewaste1', 'damagewaste2', 'damagewaste3'], ['damageotherdetail', 'damageother1', 'damageother2', 'damageother3']];
@@ -145,15 +147,19 @@ function causeOfDamageValidate() {
 
 function projStatusValidate() {
     let array = ['proj_status1', 'proj_status2'];
-    //let detail = [['proj_year', 'proj_name', 'proj_budget'], ['proj_name2', 'proj_budget2']];
-    inboxValidate(array);
+    let detail = [['proj_year', 'proj_name', 'proj_budget'], ['proj_name2', 'proj_budget2']];
+    inboxValidate(array,detail);
 }
 
 function solHowValidate() {
-    array = ['sol_how'];
-    detail = [['responsed_dept2']];
+    array = ['sol_how', 'proj_status1'];
+    detail = [['responsed_dept2',['proj_year','proj_name','proj_budget']]];
     inboxValidate(array, detail);
 }
+
+
+
+
 
 function culvertValidate() {
     array = ['culvert_round', 'culvert_square'];

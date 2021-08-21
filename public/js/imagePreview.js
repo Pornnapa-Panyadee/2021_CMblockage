@@ -4,7 +4,7 @@ $('#image_preview_bld').html("");
 var total_file=document.getElementById("photo_type_bld").files.length;
 for(var i=0;i<total_file;i++)
 {
-    $('#image_preview_bld').append("<img src='"+URL.createObjectURL(event.target.files[i])+"'>");
+    $('#image_preview_bld').append("<img src='"+URL.createObjectURL(event.target.files[i])+"' width=100%>");
 }
 });
 

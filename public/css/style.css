@@ -4557,6 +4557,32 @@ Pills vertical
     background-color: rgba(230, 230, 242, .5);
 }
 
+.table_bg {
+    font-family: 'Mitr';
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 5px;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+}    
+.table_bg th {
+    text-align: center;
+    padding: 10px;
+    vertical-align: middle;
+    /* border-top: 1px solid #e6e6f2; */
+    font-weight: normal;
+}
+.table_bg tr,
+.table_bg td  {
+    margin: 5px;
+    padding: 5px;
+    vertical-align: middle;
+    /* border-top: 1px solid #e6e6f2; */
+    font-weight: normal;
+}
+
+
 
 /*-----------------------
 5.2.  Data Tables
@@ -7143,29 +7169,32 @@ Media Query
     .table_bg {
         border: 1px solid #ccc;
         border-collapse: collapse;
-        margin: 0;
+        margin: 5px;
         padding: 0;
         width: 100%;
         table-layout: fixed;
     }    
     .table_bg thead {
-      border: none;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
+        text-align: center;
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
     }
     
     .table_bg tr {
-      background-color: #f8f8f8;
-      border: 1px solid #ddd;
-      padding: 10px;
-      border-bottom: 3px solid #ddd;
-      display: block;
-      margin-bottom: .625em;
+        text-align: center;
+        background-color: #f8f8f8;
+        margin: 5px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
     }
     
     .table_bg td {
@@ -7185,6 +7214,8 @@ Media Query
     .table_bg td:last-child {
       border-bottom: 0;
     }
+
+
     li{
       font-size: 16px;
       text-align: left;

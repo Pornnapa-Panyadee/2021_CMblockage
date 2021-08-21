@@ -39,7 +39,10 @@
                                     <!-- END Step Tabs -->
 
                                     <!-- Form -->
-                                    <form action="{{route('form.storeform')}}" method="GET" onsubmit="return confirm('บันทึกข้อมูล เรียบร้อย !!');">
+                                    <!-- <form action="{{ route('form.Qnaire5.uploadImage') }}" method="post" enctype="multipart/form-data" onsubmit="return confirm('บันทึกข้อมูล !!');"> -->
+
+                                    <form action="{{route('form.storeform')}}" method="post" enctype="multipart/form-data" onsubmit="return confirm('บันทึกข้อมูล เรียบร้อย !!');" >
+                                        {{ csrf_field() }}
                                         <!-- Wizard Progress Bar -->
                                         <div class="block-content block-content-sm">
                                             <div class="progress" data-wizard="progress" style="height: 8px;">
@@ -141,46 +144,39 @@
                                                 </table>
                                                 <table style="margin-left:10px;" class="table table-borderless">
                                                     <tr>
-                                                        <td colspan="5">พิกัดเริ่มต้นของปัญหา : {{-- <span class="chatbox__button2"><img src="{{ asset('images/question-mark.png') }} " /></span>--}} </td>
+                                                        <td colspan="4">พิกัดเริ่มต้นของปัญหา : {{-- <span class="chatbox__button2"><img src="{{ asset('images/question-mark.png') }} " /></span>--}} </td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>
-                                                        <td><input type="text" id="xstart" name="xstart" placeholder="UTM Easting" maxlength="6"  required>
-                                                            <div class="invalid-feedback"></div>
-                                                        </td>
-                                                        <td rowspan="2" align="center"><button type="button" onclick="transform()"> >></button>
-                                                                    <br><button type="button" onclick="transformutm()"> <<</button>
-                                                        </td>
-                                                        <td><input type="text" id="latstart" name="latstart" placeholder="Latitude" required>
-                                                            <div class="invalid-feedback"></div>
-                                                        </td>
+                                                        <td><input type="text" id="xstart" name="xstart" placeholder="UTM Easting" maxlength="6"  required> <div class="invalid-feedback"></div> </td>
+                                                        <td align="center"><button class="btn btn-outline-success waves-effect" type="button" onclick="transform()"> >> </button>  </td>
+                                                        <td><input type="text" id="latstart" name="latstart" placeholder="Latitude" required> <div class="invalid-feedback"></div></td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>
                                                         <td><input type="text" id="ystart" name="ystart" placeholder="UTM Northing" maxlength="7"  required>
                                                             <div class="invalid-feedback"></div>
                                                         </td>
+                                                        <td align="center" ><button class="btn btn-outline-success waves-effect" type="button" onclick="transformutm()"> <<</button> </td>
                                                         <td><input type="text" id="longstart" name="longstart" placeholder="Longitude" required>
                                                             <div class="invalid-feedback"></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td></td><td></td>
-                                                        <td align="center" colspan="2">  <button type="button" onclick="getStLocation()" >Location</button>
+                                                        <td align="center" colspan="2">  <button class="btn btn-outline-success waves-effect"  type="button" onclick="getStLocation()" >Location</button>
                                                     </tr>
                                                 </table>
                                                 <table style="margin-left:10px;" class="table table-borderless">
                                                     <tr>
-                                                        <td colspan="5">พิกัดสิ้นสุดของปัญหา : {{-- <span class="chatbox__button3"><img src="{{ asset('images/question-mark.png') }} " /></span> --}} </td>
+                                                        <td colspan="4">พิกัดสิ้นสุดของปัญหา : {{-- <span class="chatbox__button3"><img src="{{ asset('images/question-mark.png') }} " /></span> --}} </td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>
                                                         <td><input type="text" id="xend" name="xend" placeholder="UTM Easting" maxlength="6" required>
                                                             <div class="invalid-feedback"></div>
                                                         </td>
-                                                        <td rowspan="2" align="center"><button type="button" onclick="transformend()"> >></button><br>
-                                                            <button type="button" onclick="transformendutm()"> <<</button>
-                                                        </td>
+                                                        <td align="center"><button  class="btn btn-outline-success waves-effect"  type="button" onclick="transformend()" > >></button> </td>
                                                         <td><input type="text" id="latend" name="latend" placeholder="Latitude" required>
                                                             <div class="invalid-feedback"></div>
                                                         </td>
@@ -190,13 +186,14 @@
                                                         <td><input type="text" id="yend" name="yend" placeholder="UTM Northing" maxlength="7" required >
                                                             <div class="invalid-feedback"></div>
                                                         </td>
+                                                        <td align="center"><button  class="btn btn-outline-success waves-effect"  type="button" onclick="transformendutm()"> <<</button> </td>
                                                         <td><input type="text" id="longend" name="longend" placeholder="Longitude" required>
                                                             <div class="invalid-feedback"></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td></td><td></td>
-                                                        <td align="center" colspan="2">  <button type="button" onclick="getFinLocation()" >Location</button>
+                                                        <td align="center" colspan="2">  <button class="btn btn-outline-success waves-effect"  type="button" onclick="getFinLocation()" >Location</button>
                                                 </tr>
 
                                                 </table>
@@ -221,7 +218,7 @@
                                                     </tr>
                                                     <tr>
 
-                                                        <td style="padiing-left:20px;" colspan="3">1.4.1. หน้าตัดของลำน้ำ<b>ก่อน</b>ถึงช่วงที่เริ่มที่เกิดปัญหา  <span class="chatbox__button6"><img src="{{ asset('images/question-mark.png') }} " /></span> </td>
+                                                        <td style="padding-left:20px;" colspan="3">1.4.1. หน้าตัดของลำน้ำ<b>ก่อน</b>ถึงช่วงที่เริ่มที่เกิดปัญหา  <span class="chatbox__button6"><img src="{{ asset('images/question-mark.png') }} " /></span> </td>
                                                     </tr>
                                                     <tr>
                                                         <td width="9%"></td>
@@ -230,7 +227,7 @@
                                                         <td><input type="text" id="cross_slope_now" name="current_start[slop]" placeholder="ความลาดชันตลิ่ง" step="any" > </td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="3" style="padiing-left:20px;">1.4.2. หน้าตัดของลำน้ำที่<b>แคบที่สุด</b>ในช่วงของลำน้ำที่เกิดปัญหา    <span class="chatbox__button7"><img src="{{ asset('images/question-mark.png') }} " /></span> </td>
+                                                        <td colspan="3" style="padding-left:20px;">1.4.2. หน้าตัดของลำน้ำที่<b>แคบที่สุด</b>ในช่วงของลำน้ำที่เกิดปัญหา    <span class="chatbox__button7"><img src="{{ asset('images/question-mark.png') }} " /></span> </td>
                                                     </tr>
                                                     <tr>
                                                         <td width=10%></td>
@@ -271,7 +268,7 @@
                                                     </tr>
                                                     <tr>
 
-                                                        <td colspan="3" style="padiing-left:20px;">1.4.3. หน้าตัดของลำน้ำ<b>ท้ายน้ำ</b>หลังช่วงที่เกิดปัญหา   <span class="chatbox__button8"><img src="{{ asset('images/question-mark.png') }} " /></span>  </td>
+                                                        <td colspan="3" style="padding-left:20px;">1.4.3. หน้าตัดของลำน้ำ<b>ท้ายน้ำ</b>หลังช่วงที่เกิดปัญหา   <span class="chatbox__button8"><img src="{{ asset('images/question-mark.png') }} " /></span>  </td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>
@@ -338,7 +335,7 @@
                                                 {{-- 1.7 --}}
                                                 <table class="table table-form table-borderless">
                                                         <tr>
-                                                            <th width=30%>1.7 ความลาดชันท้องน้ำช่วงที่เกิดปัญหา <span class="chatbox__button1_7"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
+                                                            <th width=25%>1.7 ความลาดชันท้องน้ำช่วงที่เกิดปัญหา <span class="chatbox__button1_7"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
                                                             <td colspan="2"><input type="text" id="blk_slope_bed" name="blk_slope_bed" placeholder="ระบุความลาดชัน">
                                                             </td>
                         
@@ -459,12 +456,11 @@
                                                     </tr>   
                                                     <tr>
 
-                                                        <td><input type="checkbox" id="nat_weed" name="nat_weed" onclick="causeOfDamageValidate()" value="1"/> <label for="nat_weed"> วัชพืช </label></td>
-                                                        <td><input type="text" id="nat_cause_5_detail" name="nat_weed_detail" placeholder="ระบุวัชพืช"></td>
+                                                        <td colspan="2"><input type="checkbox" id="nat_weed" name="nat_weed" onclick="causeOfDamageValidate()" value="1"/> <label for="nat_weed"> วัชพืช <input  class="textbox" id="nat_cause_5_detail" name="nat_weed_detail" placeholder="ระบุวัชพืช">  </label> </td>
+                                                        
                                                     <tr>
 
-                                                        <td><input type="checkbox" id="nat_other" name="nat_other" onclick="causeOfDamageValidate()" value="1"/> <label for="nat_other"> อื่นๆ </label></td>
-                                                        <td><input type="text" id="nat_cause_6_detail" name="nat_other_detail" placeholder="ระบุ"></td>
+                                                        <td colspan="2" ><input type="checkbox" id="nat_other" name="nat_other" onclick="causeOfDamageValidate()" value="1"/> <label for="nat_other"> อื่นๆ <input  class="textbox" id="nat_cause_6_detail" name="nat_other_detail" placeholder="ระบุ"> </label></td>
                                                     </tr>
                                                     {{-- มนุษย์ --}}
                                                 </table>
@@ -544,8 +540,9 @@
                                                         <td ><input type="checkbox" id="hum_trash" name="hum_trash" value="1"/><label for="hum_trash">สิ่งปฏิกูล </label></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" id="hum_other" name="hum_other" onclick="causeOfDamageValidate()" value="1"/><label for="hum_other">อื่นๆ </label></td>
-                                                        <td ><input type="text" name="hum_other_detail" id="hum_other_detail" placeholder="ระบุ" /></td>
+                                                        <td> <input type="checkbox" id="hum_other" name="hum_other" onclick="causeOfDamageValidate()" value="1"/><label for="hum_other">อื่นๆ </label> 
+                                                             <input class="textbox"  name="hum_other_detail" id="hum_other_detail" placeholder="ระบุ" />
+                                                        </td>
                                                     </tr>
                                                 </table>
                                                 {{-- 3.2 --}}
@@ -579,8 +576,9 @@
                                                     </tr>
                                                     <tr>
 
-                                                        <td style="padding-left:40px;"><input type="radio" id="sol_how" name="sol_how" value="ปรับปรุงแก้ไข" onclick="solHowValidate()" ><label for="sol_how">ปรับปรุงแก้ไขโดย </label></td>
-                                                        <td colspan="4"><input type="text" id="responsed_dept2" name="sol_edit" placeholder="(วิธีแก้ไขหรือโครงการ)" disabled></td>
+                                                        <td colspan="5" style="padding-left:40px;"><input type="radio" id="sol_how" name="sol_how" value="ปรับปรุงแก้ไข" onclick="solHowValidate()" ><label for="sol_how">ปรับปรุงแก้ไขโดย </label>
+                                                            <input class="textbox"  id="responsed_dept2" name="sol_edit" placeholder="(วิธีแก้ไขหรือโครงการ)" disabled>
+                                                        </td>
                                                     </tr>
                                                     <tr>
 

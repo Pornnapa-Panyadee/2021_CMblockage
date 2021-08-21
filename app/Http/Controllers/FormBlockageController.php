@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use File;
+use Image;
 
 use Illuminate\Http\Request;
 use App\BlockageLocation;
@@ -13,12 +15,14 @@ use App\Project;
 use App\Photo;
 use App\ChangeLogs;
 use App\Expert;
-use DB;
-use Auth;
 use App\User;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
+
 use AuthenticatesUsers;
 use SpatialTrait;
+use DB;
+use Auth;
+
 
 class FormBlockageController extends Controller
 {
@@ -53,72 +57,82 @@ class FormBlockageController extends Controller
     // }
    
     public function storeform(Request $request){
-    // dd($request);
-    //  $locationloc= DB::select('SELECT *FROM `blockage_locations`  order by `created_at` DESC LIMIT 1');
-    //  dd($locationloc->blk_location_id);
-    //dd($request);
-    
-    function calCode($users,$text) {
-       
-        if($users== NULL){
-            return ("00001");
-        }else{
-            
-            $names = str_split($users->$text);
-            if($text=="prob_id" ||$text=="proj_id" ){
-                $code =$names[3].$names[4].$names[5].$names[6];
+        // dd($request);
+        function calCode($users,$text) {
+        
+            if($users== NULL){
+                return ("00001");
             }else{
-                $code =$names[2].$names[3].$names[4].$names[5];
-            }
-            $num=$code+1;
+                
+                $names = str_split($users->$text);
+                if($text=="prob_id" ||$text=="proj_id" ){
+                    $code =$names[3].$names[4].$names[5].$names[6];
+                }else{
+                    $code =$names[2].$names[3].$names[4].$names[5];
+                }
+                $num=$code+1;
 
-            if($num<10){
-                return ("0000".$num);
-            }else if ($num<100){
-                return ("000".$num);
-            }else if ($num<1000){
-                return ("00".$num);
-            }else {
-                return ("0".$num);
+                if($num<10){
+                    return ("0000".$num);
+                }else if ($num<100){
+                    return ("000".$num);
+                }else if ($num<1000){
+                    return ("00".$num);
+                }else {
+                    return ("0".$num);
+                }
+            }
+            
+        }
+        function calCodePix($users,$text) {
+       
+            if($users== NULL){
+                return ("01");
+            }else{
+                $names = str_split($users->$text);
+                    $code =$names[13].$names[14];
+                    $num=$code+1;
+                    // dd($code);
+                    if($num<10){
+                        return ("0".$num);
+                    }else{
+                        return ($num);
+                    }
             }
         }
-        
-    }
-    //check username & user id
-    // $text= Auth::user()->name ;
-   // $userId=DB::table('users')->select('id')->wherw('name',$text)->get();
-    
-    $locations = DB::table('blockage_locations')->select('blk_location_id')->orderBy('created_at', 'asc')->get()->last();
-    $crossection = DB::table('blockage_crossections')->select('blk_xsection_id')->orderBy('created_at', 'asc')->get()->last();
-    $river = DB::table('rivers')->select('river_id')->orderBy('created_at', 'asc')->get()->last();
-    $problem = DB::table('problem_details')->select('prob_id')->orderBy('created_at', 'asc')->get()->last();
-    $solution = DB::table('solutions')->select('sol_id')->orderBy('created_at', 'asc')->get()->last();
-    $project = DB::table('projects')->select('proj_id')->orderBy('created_at', 'asc')->get()->last();
-    $blockage = DB::table('blockages')->select('blk_id')->orderBy('created_at', 'asc')->get()->last();
-   
-   // echo ($problem);
-    $locationsId="L".calCode($locations,"blk_location_id");
-    $crossectionId="X".calCode($crossection,"blk_xsection_id");
-    $riverId="R".calCode($river,"river_id");
-    $problemId="PB".calCode($problem,"prob_id");
-    $solutionId="S".calCode($solution,"sol_id");
-    $projectId="PJ".calCode($project,"proj_id");
-    $blockageId="B".calCode($blockage,"blk_id");
-    //echo ($projectId."/".$blockageId);
-    $vill=explode(" ",$request->blk_village);
-    $code =DB::table('info_village')->select('vill_code')->where('vill_name',$vill[2] )->where('vill_moo',$vill[1])->get();
-    $codeBlk=$code[0]->vill_code;
-    $blkcode = DB::table('blockages')->select('blk_id')->where('blk_code','like',$codeBlk.'%' )->get();
-    // dd(count($blkcode));
-    if(count($blkcode)<10){
-        $num="00".(count($blkcode)+1);
-    }else{
-        $num="0".(count($blkcode)+1);
-    }
-    $codeBlk=$code[0]->vill_code.$num;
 
-    //dd($codeBlk);
-    //location point
+    
+        $locations = DB::table('blockage_locations')->select('blk_location_id')->orderBy('created_at', 'asc')->get()->last();
+        $crossection = DB::table('blockage_crossections')->select('blk_xsection_id')->orderBy('created_at', 'asc')->get()->last();
+        $river = DB::table('rivers')->select('river_id')->orderBy('created_at', 'asc')->get()->last();
+        $problem = DB::table('problem_details')->select('prob_id')->orderBy('created_at', 'asc')->get()->last();
+        $solution = DB::table('solutions')->select('sol_id')->orderBy('created_at', 'asc')->get()->last();
+        $project = DB::table('projects')->select('proj_id')->orderBy('created_at', 'asc')->get()->last();
+        $blockage = DB::table('blockages')->select('blk_id')->orderBy('created_at', 'asc')->get()->last();
+    
+        // echo ($problem);
+        $locationsId="L".calCode($locations,"blk_location_id");
+        $crossectionId="X".calCode($crossection,"blk_xsection_id");
+        $riverId="R".calCode($river,"river_id");
+        $problemId="PB".calCode($problem,"prob_id");
+        $solutionId="S".calCode($solution,"sol_id");
+        $projectId="PJ".calCode($project,"proj_id");
+        $blockageId="B".calCode($blockage,"blk_id");
+        //echo ($projectId."/".$blockageId);
+        $vill=explode(" ",$request->blk_village);
+        $code =DB::table('info_village')->select('vill_code')->where('vill_name',$vill[2] )->where('vill_moo',$vill[1])->get();
+        $codeBlk=$code[0]->vill_code;
+        $blkcode = DB::table('blockages')->select('blk_id')->where('blk_code','like',$codeBlk.'%' )->get();
+        // dd(count($blkcode));
+        if(count($blkcode)<10){
+            $num="00".(count($blkcode)+1);
+        }else{
+            $num="0".(count($blkcode)+1);
+        }
+        $codeBlk=$code[0]->vill_code.$num;
+
+        //dd($codeBlk);
+        //location point
         //$locationSt = new Point($request->latstart,$request->longstart);
         $locationSt = new Point($request->latstart,$request->longstart);
         $locationFin = new Point($request->latend,$request->longend);
@@ -127,192 +141,215 @@ class FormBlockageController extends Controller
         
 
         /////////--------blockage_location-------------/////////
-        $loc = new BlockageLocation(
-            [
-                'blk_location_id'=>$locationsId ,
-                'blk_start_location'=>$locationSt,
-                'blk_end_location'=>$locationFin,
-                'blk_village'=>$request->blk_village,
-                'blk_tumbol'=>$request->blk_tumbol,
-                'blk_district'=>$request->blk_district,
-                'blk_province'=>$request->blk_province,
-                'blk_start_utm'=>$locationSt_utm,
-                'blk_end_utm'=>$locationFin_utm
-            ]
-        );
-        // dd($loc);
-         $loc->save();
+            $loc = new BlockageLocation(
+                [
+                    'blk_location_id'=>$locationsId ,
+                    'blk_start_location'=>$locationSt,
+                    'blk_end_location'=>$locationFin,
+                    'blk_village'=>$request->blk_village,
+                    'blk_tumbol'=>$request->blk_tumbol,
+                    'blk_district'=>$request->blk_district,
+                    'blk_province'=>$request->blk_province,
+                    'blk_start_utm'=>$locationSt_utm,
+                    'blk_end_utm'=>$locationFin_utm
+                ]
+            );
+            // dd($loc);
+            $loc->save();
 
-        
-        
 
-         /////////--------blockage_crossection-------------/////////
+        /////////--------blockage_crossection-------------/////////
       
-        $BlockageCrossection = new BlockageCrossection(
-            [
-                'blk_xsection_id'=>$crossectionId,
-                'blk_id'=>$blockageId,
-                'past'=>json_encode($request->past),
-                'current_start'=>json_encode($request->current_start),
-                'current_narrow'=>json_encode($request->current_narrow),
-                'current_end'=>json_encode($request->current_end),
-                'current_brigde'=>json_encode($request->current_bridge)
-            ]
-        );
-        $BlockageCrossection->save();
+            $BlockageCrossection = new BlockageCrossection(
+                [
+                    'blk_xsection_id'=>$crossectionId,
+                    'blk_id'=>$blockageId,
+                    'past'=>json_encode($request->past),
+                    'current_start'=>json_encode($request->current_start),
+                    'current_narrow'=>json_encode($request->current_narrow),
+                    'current_end'=>json_encode($request->current_end),
+                    'current_brigde'=>json_encode($request->current_bridge)
+                ]
+            );
+            $BlockageCrossection->save();
         /////////--------River-------------/////////
-        $River = new River(
-            [
-               'river_id'=>$riverId,
-               'river_name'=>$request->river_name,
-               'river_type'=>$request->river_type,
-               'river_main'=>$request->river_main
-            ]
-        );
-        $River->save();
-        
-        
-
-         /////////--------addSolution-------------/////////
-         
-        $solutionLoc = new Solution(
-            
-            [
-                'sol_id'=>$solutionId,
-                'proj_id'=>$projectId,
-                'responsed_dept'=>$request->responsed_dept,
-                'sol_how'=> $request->sol_how,
-                'result'=>$request->result_selector,
-                'sol_edit'=> $request->sol_edit
-            ]
-        );
-         $solutionLoc->save();
-
-         /////////--------addProject-------------/////////
-         if($request->proj_status=="received"){
-            $proj_budget=$request->proj_budget2;
-            $proj_year=$request->proj_year2;
-        }else{
-            $proj_budget=$request->proj_budget;
-            $proj_year=$request->proj_year;
-        }
-        $ProjectLoc = new Project(
-           
-            [
+            $River = new River(
+                [
+                'river_id'=>$riverId,
+                'river_name'=>$request->river_name,
+                'river_type'=>$request->river_type,
+                'river_main'=>$request->river_main
+                ]
+            );
+            $River->save();
+        /////////--------addSolution-------------/////////
+            $solutionLoc = new Solution(
                 
-                'proj_id'=>$projectId,
-                'proj_char'=>$request->proj_name,
-                'proj_status'=>$request->proj_status,
-                'proj_budget'=>$proj_budget,
-                'proj_year'=>$proj_year
-            ]
-        );
-         $ProjectLoc->save();
+                [
+                    'sol_id'=>$solutionId,
+                    'proj_id'=>$projectId,
+                    'responsed_dept'=>$request->responsed_dept,
+                    'sol_how'=> $request->sol_how,
+                    'result'=>$request->result_selector,
+                    'sol_edit'=> $request->sol_edit
+                ]
+            );
+            $solutionLoc->save();
 
-           ///////--------blockage Main-------------/////////
-         if($request->blk_length_type=='น้อยกว่า 10 เมตร') {
-             $length=0;
-         }else{
-            $length=$request->blk_length;
-         }
-        //  $data=$request->damage_type;
-        //  dd($request->damage_level);
-         $Blockage = new Blockage(
-             [
-                 'blk_id' =>$blockageId,
-                 'blk_code'=>$codeBlk,
-                 'blk_location_id' => $locationsId,
-                 'river_id' => $riverId,
-                 'blk_crossection_id' =>$crossectionId,
-                 'sol_id' =>$solutionId,
-                 'blk_user_id'=> Auth::user()->id,
-                 'blk_user_name'=> Auth::user()->name,
-                 'blk_length_type' =>$request->blk_length_type,
-                 'blk_length' =>$length,
-                 'damage_type' => json_encode($request->damage_type),
-                 'damage_level' => json_encode($request->damage_level),
-                 'damage_frequency' => $request->damage_frequency,
-                 'blk_surface'=>$request->blk_surface,
-                 'blk_surface_detail'=>$request->blk_surface_detail,
-                 'proj_id'=>$projectId,
-                 'blk_slope_bed'=>$request->blk_slope_bed
-
-             ]
-         );
-         $Blockage->save();
-         /////////--------Expert-------------/////////
-      
-        $Expertdata = new Expert(
-            [
-                'blk_id'=>$blockageId,
-                'blk_code'=>$codeBlk
-            ]
-        );
-        $Expertdata->save();
-
-        // $Blockage = new Blockage(
-        //     [
-        //         'blk_id' =>$blockageId,
-        //         'blk_code'=>"CR100301",
-        //         'blk_location_id' => "L00001",
-        //         'river_id' => "R00001",
-        //         'blk_crossection_id' =>"X00001",
-        //         'sol_id' =>"S00001",
-        //         'blk_length' =>"10",
-        //         'damage_type' => "น้ำ",
-        //         'damage_level' => "น้ำน้ำ",
-        //         'damage_frequency' =>"น้ำน้ำ",
-        //         'blk_surface'=>"น้ำน้ำ",
-        //         'blk_surface_detail'=>"น้ำน้ำ"
-
-        //     ]
-        // );
-        // $Blockage->save();
-          
-
-        /////////--------ProblemDetail-------------/////////
-        $ProblemCount = ProblemDetail::count();
-        $Promblemloc = new ProblemDetail(
+        /////////--------addProject-------------/////////
+            if($request->proj_status=="received"){
+                $proj_budget=$request->proj_budget2;
+                $proj_year=$request->proj_year2;
+            }else{
+                $proj_budget=$request->proj_budget;
+                $proj_year=$request->proj_year;
+            }
+            $ProjectLoc = new Project(
             
-            [
-                'prob_id'=> $problemId,
-                'blk_id'=>$blockageId,
-                'prob_level'=>$request->prob_level,
-                'nat_erosion'=>$request->nat_erosion,
-                'nat_shoal'=>$request->nat_shoal,
-                'nat_missing'=>$request->nat_missing,
-                'nat_winding'=>$request->nat_winding,
-                'nat_weed'=>$request->nat_weed,
-                'nat_weed_detail'=>$request->nat_weed_detail,
-                'nat_other'=>$request->nat_other,
-                'nat_other_detail'=>$request->nat_other_detail,
-                // 'nat_other_detail'=>"1",
-                'hum_structure'=>$request->hum_structure,
-                'hum_str_owner_type'=>$request->hum_str_owner_type,
-                'hum_stc_bld_num'=>$request->hum_stc_bld_num,
-                'hum_stc_fence_num'=>$request->hum_stc_fence_num,
-                'hum_str_other'=>$request->hum_str_other,
-                'hum_stc_bld_bu_num'=>$request->hum_stc_bld_bu_num,
-                'hum_stc_fence_bu_num'=>$request->hum_stc_fence_bu_num,
-                'hum_str_other_bu'=>$request->hum_str_other_bu,
-                'hum_road'=>$request->hum_road,
-                'hum_smallconvert'=>$request->hum_smallconvert,
-                'hum_road_paralel'=>$request->hum_road_paralel,
-                'hum_replaced_convert'=>$request->hum_replaced_convert,
-                'hum_bridge_pile'=>$request->hum_bridge_pile,
-                'hum_soil_cover'=>$request->hum_soil_cover,
-                'hum_trash'=>$request->hum_trash,
-                'hum_other'=>$request->hum_other,
-                'hum_other_detail'=>$request->hum_other_detail,
+                [
+                    
+                    'proj_id'=>$projectId,
+                    'proj_char'=>$request->proj_name,
+                    'proj_status'=>$request->proj_status,
+                    'proj_budget'=>$proj_budget,
+                    'proj_year'=>$proj_year
+                ]
+            );
+            $ProjectLoc->save();
 
-            ]
-        );
-         $Promblemloc->save();
+        ///////--------blockage Main-------------/////////
+            if($request->blk_length_type=='น้อยกว่า 10 เมตร') {
+                $length=0;
+            }else{
+                $length=$request->blk_length;
+            }
+            $Blockage = new Blockage(
+                [
+                    'blk_id' =>$blockageId,
+                    'blk_code'=>$codeBlk,
+                    'blk_location_id' => $locationsId,
+                    'river_id' => $riverId,
+                    'blk_crossection_id' =>$crossectionId,
+                    'sol_id' =>$solutionId,
+                    'blk_user_id'=> Auth::user()->id,
+                    'blk_user_name'=> Auth::user()->name,
+                    'blk_length_type' =>$request->blk_length_type,
+                    'blk_length' =>$length,
+                    'damage_type' => json_encode($request->damage_type),
+                    'damage_level' => json_encode($request->damage_level),
+                    'damage_frequency' => $request->damage_frequency,
+                    'blk_surface'=>$request->blk_surface,
+                    'blk_surface_detail'=>$request->blk_surface_detail,
+                    'proj_id'=>$projectId,
+                    'blk_slope_bed'=>$request->blk_slope_bed
+
+                ]
+            );
+            $Blockage->save();
+        /////////--------Expert-------------/////////
+            $Expertdata = new Expert(
+                [
+                    'blk_id'=>$blockageId,
+                    'blk_code'=>$codeBlk
+                ]
+            );
+            $Expertdata->save();
+        /////////--------ProblemDetail-------------/////////
+            $ProblemCount = ProblemDetail::count();
+            $Promblemloc = new ProblemDetail(
+                
+                [
+                    'prob_id'=> $problemId,
+                    'blk_id'=>$blockageId,
+                    'prob_level'=>$request->prob_level,
+                    'nat_erosion'=>$request->nat_erosion,
+                    'nat_shoal'=>$request->nat_shoal,
+                    'nat_missing'=>$request->nat_missing,
+                    'nat_winding'=>$request->nat_winding,
+                    'nat_weed'=>$request->nat_weed,
+                    'nat_weed_detail'=>$request->nat_weed_detail,
+                    'nat_other'=>$request->nat_other,
+                    'nat_other_detail'=>$request->nat_other_detail,
+                    // 'nat_other_detail'=>"1",
+                    'hum_structure'=>$request->hum_structure,
+                    'hum_str_owner_type'=>$request->hum_str_owner_type,
+                    'hum_stc_bld_num'=>$request->hum_stc_bld_num,
+                    'hum_stc_fence_num'=>$request->hum_stc_fence_num,
+                    'hum_str_other'=>$request->hum_str_other,
+                    'hum_stc_bld_bu_num'=>$request->hum_stc_bld_bu_num,
+                    'hum_stc_fence_bu_num'=>$request->hum_stc_fence_bu_num,
+                    'hum_str_other_bu'=>$request->hum_str_other_bu,
+                    'hum_road'=>$request->hum_road,
+                    'hum_smallconvert'=>$request->hum_smallconvert,
+                    'hum_road_paralel'=>$request->hum_road_paralel,
+                    'hum_replaced_convert'=>$request->hum_replaced_convert,
+                    'hum_bridge_pile'=>$request->hum_bridge_pile,
+                    'hum_soil_cover'=>$request->hum_soil_cover,
+                    'hum_trash'=>$request->hum_trash,
+                    'hum_other'=>$request->hum_other,
+                    'hum_other_detail'=>$request->hum_other_detail,
+
+                ]
+            );
+            $Promblemloc->save();
+        
+        /////////--------UpPhoto-------------/////////
+            
+            if ($request->hasFile('photo_type_bld')) {
+                $images = $request->file('photo_type_bld');
+                
+                //setting flag for condition
+                $org_img = $thm_img = true;
+                // create new directory for uploading image if doesn't exist
+                if( ! File::exists('images/originals/')) {
+                    $org_img = File::makeDirectory('images/originals/', 0777, true);
+                    
+                }
+                if ( ! File::exists('images/thumbnails/')) {
+                    $thm_img = File::makeDirectory('images/thumbnails', 0777, true);
+                }
+    
+                // loop through each image to save and upload
+                foreach($images as $key => $image) {
+                    
+                    $blockage = DB::table('blockages')->select('blk_code')->where('blk_id', $blockageId)->get();
+                    $photo= DB::table('photos')->select('photo_id')->where('blk_id', $blockageId)->orderBy('created_at', 'asc')->get()->last();
+                    
+                    $blockageId=$blockageId;                
+                    $photosId=$blockage[0]->blk_code."-".calCodePix($photo,"photo_id");
+                    $filename = $photosId.'.'.$image->getClientOriginalExtension();
+                    //path of image for upload
+                    $org_path = 'images/originals/' . $filename;
+                    $thm_path = 'images/thumbnails/' . $filename;
+    
+                    // upload image to server
+                    if (($org_img && $thm_img) == true) {
+                        Image::make($image)->fit(900, 500, function ($constraint) {
+                                $constraint->upsize();
+                            })->save($org_path);
+                        Image::make($image)->fit(270, 160, function ($constraint) {
+                            $constraint->upsize();
+                        })->save($thm_path);
+                    }
+                    
+                    $loc = new Photo(
+                        [
+                            'photo_id'=> $photosId,
+                            'blk_id'=>$blockageId,
+                            'photo_type'=>'Blockage',
+                            'photo_name'=>$org_path,
+                            'thumbnail_name'=>$thm_path,
+                            'photo_detail'=>''
+                            
+                        ]
+                    );
+                    $loc->save();
+                }
+            }
 
 
-         
-    //    return redirect()->route("form.Qnaire4");
-        return redirect()->route('form.Qnaire6', ['id' => $blockageId]);
+        //    return redirect()->route("form.Qnaire4");
+        return redirect()->route('blocker');
         
     }
 
@@ -341,10 +378,15 @@ class FormBlockageController extends Controller
     
             return view('report_admin',compact('data'));
             
-        }else if($name=="ระวีเวช จาติเกตุ" ||$name=="Prem" || Auth::user()->status_work=="expert"  ){
+        }else if(Auth::user()->status_work=="expert" ||Auth::user()->status_work=="admin" ){
+            $user= Auth::user()->name;
             $data = Blockage::with('blockageLocation')->get();
-            return view('pages.homeblockage',compact('data'));
-        }else if ($verify_status == 1){
+            // dd($data[0]);
+            return view('pages.homeblockage',compact('data','user'));
+        }else if($verify_status == 0){
+            return view('verifyMessage');
+        }
+        else{
             $user=Auth::user()->id ;
        
             // dd($user=Auth::user()->id);
@@ -352,11 +394,9 @@ class FormBlockageController extends Controller
             //dd($data);
             //return response()->json($data);
             //exit;
-            return view('pages.homeblockage',compact('data'));
-           
-        }else if($verify_status == 0){
-            return view('verifyMessage');
+            return view('pages.homeblockage',compact('data','user'));
         }
+        
             
     }
 
@@ -438,7 +478,7 @@ class FormBlockageController extends Controller
             $current_brigde=json_decode($current_brigde);
         }
         
-    //   dd($current_narrow->culvert);
+        //   dd($current_narrow->culvert);
         $current_narrow_new = [
             'waterway_type' => null,
             'round_type' => null,
@@ -633,17 +673,19 @@ class FormBlockageController extends Controller
        
         if($request->blk_length_type=='น้อยกว่า 10 เมตร') {
             $length=0;
-        }else{
+        }else if($request->blk_length_type=='10 -1000 เมตร'){
            $length=$request->blk_length_lo;
+        }else{
+            $length=$request->blk_length_more1;
         }
-
+        // dd($length);
         $locationSt = new Point($request->latstart,$request->longstart);
         $locationFin = new Point($request->latend,$request->longend);
         $locationSt_utm = new Point($request->xstart,$request->ystart);
         $locationFin_utm = new Point($request->xend,$request->yend);
         //dd(json_encode($request->damage_level));
 
-/////////--------blockage-------------/////////
+        /////////--------blockage-------------/////////
            $blk = Blockage::where('blk_id', $id)
                 ->update([  'blk_length_type' =>$request->blk_length_type,
                             'blk_length' =>$length,
@@ -654,7 +696,7 @@ class FormBlockageController extends Controller
                             'blk_surface_detail'=>$request->blk_surface_detail,
                             'blk_slope_bed'=>$request->blk_slope_bed
                 ]);
-/////////--------blockage_location-------------/////////
+        /////////--------blockage_location-------------/////////
             $locLocation = BlockageLocation::where('blk_location_id', $data->blk_location_id)
                 ->update([
                     'blk_start_location'=>$locationSt,
@@ -668,7 +710,7 @@ class FormBlockageController extends Controller
                 
                     ]);
 
- /////////--------blockage_crossection-------------/////////
+        /////////--------blockage_crossection-------------/////////
       
         // $BlockageCrossection = BlockageCrossection::where('blk_xsection_id', $data->blk_xsection_id)
         //         ->update([
@@ -691,7 +733,7 @@ class FormBlockageController extends Controller
 
 
         //  dd($data->blk_crossection_id);
-/////////--------River-------------/////////
+        /////////--------River-------------/////////
         $River= River::where('river_id', $data->river_id)
                 ->update([
                 'river_name'=>$request->river_name,
@@ -699,7 +741,7 @@ class FormBlockageController extends Controller
                 'river_main'=>$request->river_main
                ]);
 
-/////////--------addSolution-------------/////////
+        /////////--------addSolution-------------/////////
          
         $solutionLoc = Solution:: where('sol_id',$data->sol_id)
                 ->update([
@@ -709,30 +751,29 @@ class FormBlockageController extends Controller
                     'sol_edit'=> $request->sol_edit
                 ]);
 
-/////////--------Project-------------/////////
+        /////////--------Project-------------/////////
          if($request->proj_status=="received"){
             $proj_budget=$request->proj_budget2;
-            $proj_year=$request->proj_year2;
-        }else{
-            $proj_budget=$request->proj_budget;
-            $proj_year=$request->proj_year;
-        }
-        $solution_id=Solution::where('sol_id',$data->sol_id)->first();
-       
-        $project_id=Project::where('proj_id',$solution_id->proj_id)->first();
-
-        $ProjectLoc =  Project::where('proj_id',$project_id)
-           ->update([
-                
-                'proj_char'=>$request->proj_name,
-                'proj_status'=>$request->proj_status,
-                'proj_budget'=>$proj_budget,
-                'proj_year'=>$proj_year
+            $proj_name=$request->proj_name2;
+            }else{
+                $proj_budget=$request->proj_budget;
+                $proj_name=$request->proj_name;
+            }
+            $solution_id=Solution::where('sol_id',$data->sol_id)->first();
             
-            ]);
-
-/////////--------Promblem-------------/////////     
-//dd($request->nat_erosion);
+            $project_id=Project::where('proj_id',$solution_id->proj_id)->first();
+            // dd($request->proj_status);
+            $ProjectLoc =  Project::where('proj_id',$project_id->proj_id)
+                    ->update([
+                            'proj_char'=>$proj_name,
+                            'proj_status'=>$request->proj_status,
+                            'proj_budget'=>$proj_budget,
+                            'proj_year'=>$request->proj_year
+                        
+                        ]);
+            // dd($ProjectLoc);           
+        /////////--------Promblem-------------/////////     
+        //dd($request->nat_erosion);
         $Promblemloc = ProblemDetail::where('blk_id',$data->blk_id)
             ->update([
                
@@ -789,7 +830,45 @@ class FormBlockageController extends Controller
         //return response()->json($jsondata_old);
         return redirect()->route("blocker");
 
-      }
+    }
+
+    // remove blockage
+    public function removeblockage($id){
+        $data =  Blockage::where('blk_id', $id)->get();
+        $sol = Solution::where('sol_id',$data[0]->sol_id )->get();
+        /////////--------blockage_location-------------/////////
+        $loc = BlockageLocation::where('blk_location_id',$data[0]->blk_location_id)->delete(); 
+        /////////--------blockage_crossection-------------/////////
+        $BlockageCrossection = BlockageCrossection::where('blk_xsection_id',$data[0]->blk_crossection_id)->delete(); 
+        /////////--------River-------------/////////
+        $River = River::where('river_id',$data[0]->river_id)->delete();           
+        /////////--------addSolution-------------/////////
+        $solutionLoc = Solution::where('sol_id',$data[0]->sol_id)->delete();          
+        /////////--------addProject-------------/////////      
+        $ProjectLoc = Project::where('proj_id',$sol[0]->proj_id)->delete();      
+        ///////--------blockage Main-------------/////////      
+        $Blockage = Blockage::where('blk_id',$id)->delete();        
+        /////////--------Expert-------------///////// 
+        $Expertdata = Expert::where('blk_id',$data[0]->blk_id)->delete();        
+        /////////--------ProblemDetail-------------/////////
+        $Promblemloc =  ProblemDetail::where('blk_id',$data[0]->blk_id)->delete();       
+        /////////--------UpPhoto-------------/////////
+        $photo= DB::table('photos')->where('blk_id', $data[0]->blk_id)->delete();   
+
+        
+        
+        $Logs = new ChangeLogs(
+            [
+                'blk_id'=>$data[0]->blk_id,
+                'user_id'=>Auth::user()->id ,
+                'data_old'=>$data,
+                'data_new'=>NULL
+            ]
+        );
+        $Logs->save();
+  
+        return redirect()->route("blocker");
+    }
 
 
 }
