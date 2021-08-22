@@ -355,7 +355,8 @@ class FormBlockageController extends Controller
             return view('pages.homeblockage',compact('data'));
            
         }else if($verify_status == 0){
-            return view('verifyMessage');
+            $massageNotic = "Please contact admin to verify account.";
+            return view('verifyMessage', compact('massageNotic'));
         }
             
     }

@@ -16,8 +16,12 @@ use Illuminate\Support\Facades\Auth;
 */
 //////// test return data ////////
 Route::get('/testing/emailsend', 'TestingEmailController@testingemail');
+Route::get('/testing/emailsendperuser/{updateByEmail}', 'TestingEmailController@sendingEmailByPerUser');
 //////////////////////////////////////////
 
+// admin verify user //
+Route::get('/usersverify', 'ManagmemntVerifyUserController@managementVerifyusers');
+// 
 
 Route::get('/','DataForExpertController@getDataforHome');
 Route::get('box','DataForExpertController@getDataforHome1');
@@ -207,6 +211,7 @@ Route::get('mapthai/chiangrai/{amp}', 'RaindataController@getIDF');
 // Route::get('mapthai/chiangrai/เวียงป้าเป้า',function () {return view('rain/showrain');});
 
  
+
 
 // Api chatbot popup
 // Route::get('newblockage', 'ChatBotPopupController@adviceF110');
