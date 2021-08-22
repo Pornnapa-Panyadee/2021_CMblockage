@@ -385,8 +385,10 @@ class FormBlockageController extends Controller
             return view('pages.homeblockage',compact('data','user'));
         }else if($verify_status == 0){
             return view('verifyMessage');
-        }
-        else{
+        }else if($verify_status == 0){
+            $massageNotic = "Please contact admin to verify account.";
+            return view('verifyMessage', compact('massageNotic'));
+        }else{
             $user=Auth::user()->id ;
        
             // dd($user=Auth::user()->id);
@@ -394,7 +396,8 @@ class FormBlockageController extends Controller
             //dd($data);
             //return response()->json($data);
             //exit;
-            return view('pages.homeblockage',compact('data','user'));
+            return view('pages.homeblockage',compact('data'));
+           
         }
         
             

@@ -78,10 +78,9 @@
                                     <a class="nav-link" href="{{ asset('/Contact')}}"  aria-expanded="false"><i class="fab fa-fw fa-wpforms"></i>ติดต่อ</a>
                                     
                                 </li>
-                            
-                            
-                              
-                               
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="{{ url('/usersverify') }}"  aria-expanded="false"><i class="fa fa-fw fa-user-circle"></i>Management User</a> 
+                                </li>                       
                             </ul>
                         </div>
                     </nav>
