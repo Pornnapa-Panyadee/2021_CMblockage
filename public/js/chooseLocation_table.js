@@ -1,6 +1,6 @@
 //console.log('hello');
 
-// var ID = window.location.href.replace("https://survey.crflood.com/blockage/", "");
+var ID = window.location.href.replace("https://cmblockage.cmfightflood.com/", "");
 // var ID = window.location.href.replace("http://localhost/chiang-rai/public/blockage", "");
 // console.log(ID);
 
