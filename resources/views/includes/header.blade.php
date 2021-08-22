@@ -37,9 +37,9 @@
                                         </ul>
                                     </div>
                                 </li> --}}
-                                <li class="nav-item ">
+                                <!-- <li class="nav-item ">
                                     <a class="nav-link " href="{{ url('/report') }}"><i class="fa fa-fw fa-user-circle"></i>รายงานสรุป <span class="badge badge-success">6</span></a>
-                                </li>
+                                </li> -->
 
                                 <li class="nav-item ">
                                     <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>ข้อมูลการกีดขวางทางน้ำ</a>
@@ -74,10 +74,10 @@
                                         </ul>
                                     </div>
                                 </li> --}}
-                                <li class="nav-item ">
+                                <!-- <li class="nav-item ">
                                     <a class="nav-link" href="{{ asset('/Contact')}}"  aria-expanded="false"><i class="fab fa-fw fa-wpforms"></i>ติดต่อ</a>
                                     
-                                </li>
+                                </li> -->
                                 <li class="nav-item ">
                                     <a class="nav-link" href="{{ url('/usersverify') }}"  aria-expanded="false"><i class="fa fa-fw fa-user-circle"></i>Management User</a> 
                                 </li>                       
