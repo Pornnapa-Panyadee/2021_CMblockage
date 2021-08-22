@@ -109,7 +109,7 @@
                                                                     </td>
                                                                     <td>
                                                                         <h4 class="card-title">    
-                                                                            <button type="submit" class=" button button1 " > ค้นหา </button>
+                                                                            <button type="submit" button class="btn btn-outline-primary waves-effect" > ค้นหา </button>
                                                                         </h4>
                                                                     </td>
                                                                 </tr>
