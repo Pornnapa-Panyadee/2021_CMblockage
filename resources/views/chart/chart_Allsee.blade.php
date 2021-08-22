@@ -63,16 +63,10 @@
                                             <label> <h4>อำเภอ :  
                                                 <select name="amp" class="selectpicker " id="amp" onchange="this.form.submit();"> 
                                                     <option value="0">-- อำเภอ --</option>
-                                                    <option value="9 อำเภอ">รวม 9 อำเภอ</option>
-                                                    <option value="เชียงของ">เชียงของ</option>
-                                                    <option value="เชียงแสน">เชียงแสน</option>
-                                                    <option value="เวียงแก่น">เวียงแก่น</option>
-                                                    <option value="เวียงชัย">เวียงชัย</option>
-                                                    <option value="เวียงเชียงรุ้ง">เวียงเชียงรุ้ง</option>
-                                                    <option value="แม่จัน">แม่จัน</option>
-                                                    <option value="แม่สาย">แม่สาย</option>
-                                                    <option value="แม่ฟ้าหลวง">แม่ฟ้าหลวง</option>
-                                                    <option value="ดอยหลวง">ดอยหลวง</option>
+                                                    <option value="รวม">รวมทุกอำเภอ</option>
+                                                    <option value="ฝาง">ฝาง</option>
+                                                    <option value="ไชยปราการ">ไชยปราการ</option>
+                                                    <option value="แม่อาย">แม่อาย</option>
                                                 </select> </h4>
                                             </label>
                                         </div>
@@ -80,9 +74,7 @@
                                 <div class="row" style="background-color:#fff;margin:10px 10px 0 10px;">
                                     <h5> ข้อมูลจำนวนสิ่งกีดขวาง </h5>
                                 </div>
-                                <div class="row" style="background-color:#fff;" >
-                                    
-                                    <table align="center" width="80%">
+                                    <table class="table" align="center" width="80%">
                                         <tr>
                                             <td colspan="3"><b>สาเหตุ</b></td>
                                         </tr>
@@ -105,45 +97,42 @@
                                             <?php }?>
                                         </tr>
                                     </table>
-                                </div>
 
-                                                <table class="table table-striped table-bordered first">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>สาเหตุธรรมชาติ</th>
-                                                            <th>จำนวน</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php for($i=0;$i<6;$i++){?>
-                                                            <tr>
-                                                                <td>{{$countBar[$i][0] }}</td>
-                                                                <td align="center">{{$countBar[$i][1] }}</td>
-                                                            </tr>
-                                                           <?php }?>
-                                                     
-                                                    </tbody>
-                                                  
-                                                </table>
+                                    <table class="table table-striped table-bordered first">
+                                        <thead>
+                                            <tr>
+                                                <th>สาเหตุธรรมชาติ</th>
+                                                <th>จำนวน</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php for($i=0;$i<6;$i++){?>
+                                                <tr>
+                                                    <td>{{$countBar[$i][0] }}</td>
+                                                    <td align="center">{{$countBar[$i][1] }}</td>
+                                                </tr>
+                                            <?php }?>
+                                        </tbody>
+                                    </table>
 
-                                                <table class="table table-striped table-bordered first">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>สาเหตุมนุษย์</th>
-                                                            <th>จำนวน</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php for($i=6;$i<20;$i++){?>
-                                                            <tr>
-                                                                <td>{{$countBar[$i][0] }}</td>
-                                                                <td align="center">{{$countBar[$i][1] }}</td>
-                                                            </tr>
-                                                           <?php }?>
+                                    <table class="table table-striped table-bordered first">
+                                        <thead>
+                                            <tr>
+                                                <th>สาเหตุมนุษย์</th>
+                                                <th>จำนวน</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php for($i=6;$i<20;$i++){?>
+                                            <tr>
+                                                <td>{{$countBar[$i][0] }}</td>
+                                                <td align="center">{{$countBar[$i][1] }}</td>
+                                            </tr>
+                                            <?php }?>
                                                      
-                                                    </tbody>
+                                        </tbody>
                                                   
-                                                </table>
+                                     </table>
 
 
                             </div>
@@ -170,15 +159,17 @@
                                 
                      </div>
              </div>
+             
         </div>
+        
         @include('includes.foot')
-      
         <!-- ============================================================== -->
         <!-- end main wrapper -->
         <!-- ============================================================== -->
 
        
     </div>
+    
 
     <script src="{{ asset('js/jquery-1.9.1.min.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
