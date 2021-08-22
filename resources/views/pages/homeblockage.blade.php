@@ -45,13 +45,13 @@
                                         <!-- <table class="table_bg " width="100%" > -->
                                             <thead>
                                                 <tr>
-                                                    <th scope="col" width="3%;">#</th>
-                                                    <th scope="col" width="10%;">รหัส</th>
-                                                    <th scope="col" width="15%;">ลำน้ำ</th>
-                                                    <th scope="col" width="17%;">ที่ตั้ง</th>
-                                                    <th scope="col" width="15%;">วันที่เก็บข้อมูล</th>
+                                                    <th scope="col" width="2%;">#</th>
+                                                    <th scope="col" width="8%;">รหัส</th>
+                                                    <th scope="col" width="12%;">ลำน้ำ</th>
+                                                    <th scope="col" width="20%;">ที่ตั้ง</th>
+                                                    <th scope="col" width="10%;">วันที่เก็บข้อมูล</th>
                                                     <th scope="col" width="5%;">ผู้สำรวจ</th>
-                                                    <th scope="col" width="10%;"></th>
+                                                    <th scope="col" ></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
