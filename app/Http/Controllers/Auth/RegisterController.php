@@ -75,7 +75,7 @@ class RegisterController extends Controller
 
         $details = [
             'title' => 'New user register',
-            'body' => ('user name that register from website CMblockage is: '. $data['name'].' '.$data['LName'].' and email is:'. $data['email']),
+            'body' => ('user name that register from website CMblockage is: '. $data['name'].' '.$data['LName'].' and email is: '. $data['email']),
             'replyback' => "Do not reply this email"
         ];
 
