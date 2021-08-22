@@ -1,7 +1,7 @@
 
 
 
-<div class="footer" style="background-color:#fff">
+<div class="footer" style="background-color:#fff" align="center">
     <div style="margin-left:30px;">
         <table align="center" width=60%>
             <tr align="center">
