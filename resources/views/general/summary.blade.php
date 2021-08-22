@@ -107,25 +107,10 @@
                                                         <td align="right">อำเภอ :</td>
                                                         <td>
                                                             <select name="amp" class="selectpicker " id="blk_district" > 
-                                                                <option value="เชียงของ">- - กรุณาเลือกอำเภอ - -</option>
-                                                                <option value="เชียงของ">เชียงของ</option>
-                                                                <option value="เชียงแสน">เชียงแสน</option>
-                                                                <option value="เวียงแก่น">เวียงแก่น</option>
-                                                                <option value="เวียงชัย">เวียงชัย</option>
-                                                                <option value="เวียงเชียงรุ้ง">เวียงเชียงรุ้ง</option>
-                                                                <option value="แม่จัน">แม่จัน</option>
-                                                                <option value="แม่สาย">แม่สาย</option>
-                                                                <option value="แม่ฟ้าหลวง">แม่ฟ้าหลวง</option>
-                                                                <option value="ดอยหลวง">ดอยหลวง</option>
-                                                                <option value="เมืองเชียงราย">เมืองเชียงราย</option>
-                                                                <option value="ป่าแดด">ป่าแดด</option>
-                                                                <option value="แม่ลาว">แม่ลาว</option>
-                                                                <option value="แม่สรวย">แม่สรวย</option>
-                                                                <option value="เวียงป่าเป้า">เวียงป่าเป้า</option>
-                                                                <option value="พญาเม็งราย">พญาเม็งราย</option>
-                                                                <option value="เทิง">เทิง</option>
-                                                                <option value="พาน">พาน</option>
-                                                                <option value="ขุนตาล">ขุนตาล</option>
+                                                                <option value="sum">- - กรุณาเลือกอำเภอ - -</option>
+                                                                <option value="ฝาง">ฝาง</option>
+                                                                <option value="ไชยปราการ">ไชยปราการ</option>
+                                                                <option value="แม่อาย">แม่อาย</option>
 
                                                                 </select> 
                                                                 </td>
