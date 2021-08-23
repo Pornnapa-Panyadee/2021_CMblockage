@@ -850,7 +850,7 @@ class DataForExpertController extends Controller
                 ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                 ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
                 ->where('blockages.blk_user_id', $user_id)
-                ->orderBy('created_at', 'DESC')
+                ->orderBy('blockages.created_at', 'DESC')
                 ->get();
 
                 return view('expert.expert',compact('data','districtData'));
