@@ -834,7 +834,7 @@ class DataForExpertController extends Controller
         }else{
             $name=Auth::user()->name ;
             // dd ($name);
-            if($name=="admin" ||$name=="ระวีเวช จาติเกตุ" || $name=="Prem" ){
+            if($name=="admin" ||$name=="ระวีเวช จาติเกตุ" || $name=="Prem"||Auth::user()->status_work=="surveyor" ){
                 // $data = Blockage::with('blockageLocation')->get();
                 // dd($data);
                 $districtData['data'] = Page::getDistrictCM();
