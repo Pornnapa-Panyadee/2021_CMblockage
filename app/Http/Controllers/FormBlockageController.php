@@ -373,14 +373,14 @@ class FormBlockageController extends Controller
  
         // dd (Auth::user()->status_work);
         if($name=="admin" && $verify_status == 1){
-            $data = Blockage::with('blockageLocation')->get();
+            $data = Blockage::with('blockageLocation')->orderBy('created_at', 'DESC')->get();
             // dd($data);
     
             return view('report_admin',compact('data'));
             
         }else if(Auth::user()->status_work=="expert" ||Auth::user()->status_work=="admin" ){
             $user= Auth::user()->name;
-            $data = Blockage::with('blockageLocation')->get();
+            $data = Blockage::with('blockageLocation')->orderBy('created_at', 'DESC')->get();
             // dd($data[0]);
             return view('pages.homeblockage',compact('data','user'));
         }else if($verify_status == 0){
