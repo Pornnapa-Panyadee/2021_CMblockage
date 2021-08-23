@@ -830,7 +830,7 @@ class DataForExpertController extends Controller
     // home foe expert by p'kong & admin
     public function getDataforexpert(User $user ){
         $districtData['data'] = Page::getDistrictCM();
-        $user =Auth::user()->id;
+        $user_id =Auth::user()->id;
         if(!isset(Auth::user()->name)){
             return view('auth/login');
         }else{
@@ -838,7 +838,7 @@ class DataForExpertController extends Controller
             // dd ($name);
             if($name=="admin" ||$name=="ระวีเวช จาติเกตุ" || $name=="Prem"||Auth::user()->status_work=="admin" ){
                 // $data = Blockage::with('blockageLocation')->get();
-                // dd($data);
+                dd($data);
                 $data = DB::table('blockage_locations')
                 ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                 ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')->get();
@@ -849,7 +849,7 @@ class DataForExpertController extends Controller
                 $data = DB::table('blockage_locations')
                 ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                 ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
-                ->where('blockages.blk_user_id', $user)
+                ->where('blockages.blk_user_id', $user_id)
                 ->orderBy('created_at', 'DESC')
                 ->get();
 
