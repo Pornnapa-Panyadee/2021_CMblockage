@@ -392,7 +392,7 @@ class FormBlockageController extends Controller
             $user=Auth::user()->id ;
        
             // dd($user=Auth::user()->id);
-            $data = Blockage::with('blockageLocation','User')->where('blk_user_id', $user)->get();
+            $data = Blockage::with('blockageLocation','User')->where('blk_user_id', $user)->orderBy('created_at', 'DESC')->get();
             //dd($data);
             //return response()->json($data);
             //exit;
