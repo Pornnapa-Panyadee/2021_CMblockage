@@ -6799,6 +6799,9 @@ Media Query
 @media only screen and (max-width:992px) {
 
 /*--------- dashboard-influence -------- */
+    h1 {
+        font-size: 24px;
+    }
     .user-social-media {
         padding: 16px 45px;
         text-align: center;
@@ -6890,6 +6893,9 @@ Media Query
 /* Extra Small Devices, Phones */
 
 @media only screen and (max-width:600px) {
+    h1 {
+        font-size: 16px;
+    }
     .nav-user-dropdown .dropdown-item {
         display: block;
         width: 100%;

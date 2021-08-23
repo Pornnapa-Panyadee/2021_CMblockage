@@ -317,7 +317,7 @@
                                                 {{-- 1.5 --}}
                                                 <table class="table table-form table-borderless">
                                                     <tr>
-                                                        <th width=20%>1.6 การดาดผิวของลำน้ำ  <span class="chatbox__button10"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
+                                                        <th width=35%>1.6 การดาดผิวของลำน้ำ  <span class="chatbox__button10"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
                                                         <td width=20%><input type="radio" id="blk_surface1" value="ไม่ดาดผิว" name="blk_surface" ><label for="blk_surface1">ไม่ดาดผิว </label></td>
                                                         <td><input type="radio" id="blk_surface2" value="ดาดผิว" name="blk_surface" ><label for="blk_surface2">ดาดผิว</label></td>
                                                         <td></td>
@@ -335,9 +335,9 @@
                                                 {{-- 1.7 --}}
                                                 <table class="table table-form table-borderless">
                                                         <tr>
-                                                            <th width=25%>1.7 ความลาดชันท้องน้ำช่วงที่เกิดปัญหา <span class="chatbox__button1_7"><img src="{{ asset('images/question-mark.png') }} " /></span></th>
-                                                            <td colspan="2"><input type="text" id="blk_slope_bed" name="blk_slope_bed" placeholder="ระบุความลาดชัน">
-                                                            </td>
+                                                            <th>1.7 ความลาดชันท้องน้ำช่วงที่เกิดปัญหา <span class="chatbox__button1_7"><img src="{{ asset('images/question-mark.png') }} " /></span>
+                                                             <input class="textbox" id="blk_slope_bed" name="blk_slope_bed" placeholder="ระบุความลาดชัน">
+                                                            </th>
                         
                                                         </tr>
                         
