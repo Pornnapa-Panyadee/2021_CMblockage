@@ -837,14 +837,12 @@ class DataForExpertController extends Controller
             if($name=="admin" ||$name=="ระวีเวช จาติเกตุ" || $name=="Prem" ){
                 // $data = Blockage::with('blockageLocation')->get();
                 // dd($data);
-                
+                $districtData['data'] = Page::getDistrictCM();
                 $data = DB::table('blockage_locations')
                 ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                 ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')->get();
                 // ->where('blockage_locations.blk_province', '=', "เชียงราย")->get();
-
-            
-                return view('expert.expert',compact('data'));
+                return view('expert.expert',compact('data','districtData'));
                 
             }else{
                 return view('pages.test');
