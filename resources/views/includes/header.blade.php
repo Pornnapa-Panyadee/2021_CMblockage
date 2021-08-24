@@ -14,7 +14,7 @@
                                     เมนู
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="{{ url('/') }}"  aria-expanded="false"><i class="fab fa-fw fa-wpforms"></i>หน้าแรก</a>
+                                    <a class="nav-link" href="{{ url('/') }}"  aria-expanded="false"><i class="fa fa-home fa-fw"></i>หน้าแรก</a>
                                     
                                 </li>
 
@@ -40,10 +40,9 @@
                                 <!-- <li class="nav-item ">
                                     <a class="nav-link " href="{{ url('/report') }}"><i class="fa fa-fw fa-user-circle"></i>รายงานสรุป <span class="badge badge-success">6</span></a>
                                 </li> -->
-
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>ข้อมูลการกีดขวางทางน้ำ</a>
-                                    <div id="submenu-4" class="collapse submenu" style="">
+                                    <a class="nav-link" href="{{ asset('login') }}" aria-expanded="false" ><i class="fab fa-fw fa-wpforms"></i>ข้อมูลสำรวจรายละเอียดการกีดขวางทางน้ำ</a>
+                                    <!-- <div id="submenu-4" class="collapse submenu" >
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
                                                 
@@ -58,7 +57,27 @@
                                             </li> --}}
                                            
                                         </ul>
-                                    </div>
+                                    </div> -->
+                                </li>
+
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="{{ asset('/expert') }}" aria-expanded="false"><i class="fa fa-graduation-cap"></i>ข้อเสนอแนะโดยผู้เชี่ยวชาญ</a>
+                                    <!-- <div id="submenu-4" class="collapse submenu" >
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                
+                                                     <a class="nav-link" href="{{ asset('login') }}">ข้อมูลสำรวจรายละเอียดการกีดขวางทางน้ำ</a>
+                                                
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ asset('/expert') }}">ข้อเสนอแนะโดยผู้เชี่ยวชาญ</a>
+                                            </li>
+                                            {{-- <li class="nav-item">
+                                                    <a class="nav-link" href="#">admin</a>
+                                            </li> --}}
+                                           
+                                        </ul>
+                                    </div> -->
                                 </li>
                                 {{-- <li class="nav-item ">
                                     <a class="nav-link " href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i> เกี่ยวกับโครงการ <span class="badge badge-success">6</span></a>
