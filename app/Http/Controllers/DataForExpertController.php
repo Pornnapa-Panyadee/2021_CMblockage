@@ -216,7 +216,7 @@ class DataForExpertController extends Controller
         if(!empty($photo_Blockage)){
             $photo_Blockage=$photo_Blockage;
         }else{
-            $photo_Blockage=NULL;
+            $photo_Blockage="ไม่มี";
         }
         dd($photo_Blockage);
 
