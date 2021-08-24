@@ -51,10 +51,6 @@ class FormBlockageController extends Controller
         }
     }
 
-      // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
    
     public function storeform(Request $request){
         // dd($request);
@@ -360,6 +356,7 @@ class FormBlockageController extends Controller
         $data = Blockage::with('blockageLocation','blockageCrossection','River','Solution','Photo')->get();
         return response()->json($data);
     }
+
     public function getBlockageID($blk_id=0){
         //dd ("555");
         $data = Blockage::with('blockageLocation','blockageCrossection','River','Solution.Project','Photo')->where('blk_id', $blk_id)->distinct()->get();
@@ -406,8 +403,6 @@ class FormBlockageController extends Controller
 
             $data = Blockage::with('blockageLocation')->get();
             return view('pages.data',compact('data'));
-            
-    
             
     }
 
@@ -602,12 +597,6 @@ class FormBlockageController extends Controller
         return view('report', compact('data','damageData','damage_type','pastData','current_start','current_narrow_new','current_end','problem','photo_Blockage','photo_Land','photo_Riverbefore','photo_Riverprob','photo_Riverafter','photo_Probsketch','solution_id','project_id','current_brigde'));
        
     }
-    // public function getUser(){
-    //     //dd ("555");
-    //     $data = Blockage::with('User')->get();
-    //     return response()->json($data);
-    //     exit;
-    // }
 
     public function reportBlockageDetail($blk_id=0){
         //dd ("555");
@@ -870,6 +859,27 @@ class FormBlockageController extends Controller
         $Logs->save();
   
         return redirect()->route("blocker");
+    }
+
+    // edit detail from Expert
+    public function updateForExpert(Request $request)
+    {
+        // dd($request);
+        $expertInfo = Expert::where('blk_code', $request->blk_code)
+                ->update([
+                    'exp_problem'=>$request->problem,
+                    'exp_area'=>$request->exp_area,
+                    'exp_L0'=>$request->exp_L0,
+                    'exp_H'=>$request->exp_H,
+                    'exp_C'=>$request->exp_C,
+                    'exp_tc'=>$request->exp_tc,
+                    'exp_returnPeriod'=>$request->exp_returnPeriod,
+                    'exp_I'=>$request->exp_I,
+                    'exp_maxflow'=>$request->exp_maxflow,
+                    'exp_solution'=>$request->exp_solution,
+                    'exp_slope'=>$request->exp_slope
+                ]);
+        return redirect()->route('expert.report', ['id' => $request->blk_id]);
     }
 
 
