@@ -23,10 +23,10 @@
     bottom: 50px;
     right: 40px;
     background: #eee;
-    width: 300px;
+    width: 100px;
     height: 350px;
     z-index: -123456;
-    opacity: 0;
+    opacity: -1;
     transition: all .5s ease-in-out;
 }
 
@@ -36,9 +36,10 @@
 .chatbox--active {
     /* transform: translateY(-10px); */
     /* z-index: 123456; */
-    opacity: 1;
+    width: 450px;
+    opacity: 100;
     z-index: 50;
-    position:relative;
+    /* position:relative; */
     
 }
 

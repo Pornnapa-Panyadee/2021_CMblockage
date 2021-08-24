@@ -76,7 +76,7 @@
 
         .on-next-action{
             z-index: 9999;
-            position: relative;
+
         }
  
         .textbox{
