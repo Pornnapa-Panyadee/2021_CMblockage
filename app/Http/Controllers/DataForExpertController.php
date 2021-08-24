@@ -219,6 +219,7 @@ class DataForExpertController extends Controller
        
     }
 
+    
 
     public function expertPDF($blk_id=0)
     {
@@ -854,7 +855,7 @@ class DataForExpertController extends Controller
                 ->where('blockages.blk_user_id', $user_id)
                 ->orderBy('blockages.created_at', 'DESC')
                 ->get();
-
+                dd($data);
                 return view('expert.expert',compact('data','districtData'));
 
             }else{
@@ -1174,7 +1175,8 @@ class DataForExpertController extends Controller
         
     }
 
-    public function getDataforHome1(User $user, Request $request){
+    public function getDataforHome1(User $user, Request $request)
+    {
 
         if(!empty($request->blk_district)){
             if(!empty($request->blk_tumbolCR) && $request->blk_tumbolCR!="sum"){
