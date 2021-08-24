@@ -358,19 +358,15 @@
                                                                     
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td align="center"> 
-                                                                                <?php 
-                                                                                if($photo_Blockage[0]->thumbnail_name!=NULL){?>
+                                                                            <?php 
+                                                                            if($photo_has==1){?>
+                                                                                <td align="center"> 
                                                                                     <img src="{{asset($photo_Blockage[0]->thumbnail_name) }}">
-                                                                                <?php } ?>
-                                                                            </td>
-                                                                            <td align="center">
-                                                                                <?php if($photo_Blockage[1]->thumbnail_name!=NULL){?>
+                                                                                </td>
+                                                                                <td align="center">
                                                                                     <img src="{{asset($photo_Blockage[1]->thumbnail_name) }}">
-                                                                                <?php }?>
-                                                                                
-                                                                            </td>
-
+                                                                                </td>
+                                                                            <?php } ?>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
