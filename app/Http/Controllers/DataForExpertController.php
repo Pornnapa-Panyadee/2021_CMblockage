@@ -213,7 +213,9 @@ class DataForExpertController extends Controller
             $hum_other="อื่นๆ (".$problem[0]->hum_other_detail.")";
         }
         $hum= [$hum_structure,$infra,$hum_soil_cover,$hum_trash,$hum_other];
+
         dd($photo_Blockage[0]->thumbnail_name);
+        
         $current_end = json_decode($current_end);
         return view('expert.report', compact('expert','data','nut','hum','damageData','damage_type','pastData','current_start','current_narrow_new','current_end','problem','photo_Blockage','photo_Land','photo_Riverbefore','photo_Riverprob','photo_Riverafter','photo_Probsketch','solution_id','project_id'));
        
