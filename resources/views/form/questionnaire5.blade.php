@@ -20,7 +20,7 @@
                             <div class="row">
                                 <?php for($i=0;$i<count($data[0]->photo);$i++){?>
                                     <div style="margin:10px;">
-                                        <img src="http://localhost/2021_CMblockage/public/{{$data[0]->photo[$i]->thumbnail_name}}" style="width:100%" > 
+                                        <img src="{{asset($data[0]->photo[$i]->thumbnail_name)}}" style="width:100%" > 
                                            
                                         <div align="right">
                                             {{$data[0]->photo[$i]->photo_id }}
