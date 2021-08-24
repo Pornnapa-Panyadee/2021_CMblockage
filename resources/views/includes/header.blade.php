@@ -41,7 +41,7 @@
                                     <a class="nav-link " href="{{ url('/report') }}"><i class="fa fa-fw fa-user-circle"></i>รายงานสรุป <span class="badge badge-success">6</span></a>
                                 </li> -->
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="{{ asset('login') }}" aria-expanded="false" ><i class="fab fa-fw fa-wpforms"></i>ข้อมูลการสำรวจสิ่งกีดขวางทางน้ำ</a>
+                                    <a class="nav-link" href="{{ asset('login') }}" aria-expanded="false" ><i class="fab fa-fw fa-wpforms"></i>ข้อมูลสำรวจสิ่งกีดขวางทางน้ำ</a>
                                     <!-- <div id="submenu-4" class="collapse submenu" >
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
