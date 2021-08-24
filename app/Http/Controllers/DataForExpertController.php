@@ -33,7 +33,7 @@ class DataForExpertController extends Controller
         //$location= BlockageLocation::where('blk_location_id', $data[0]->blockageLocation->blk_location_id)->get();
         $problem =  ProblemDetail::where('blk_id', $data[0]->blk_id)->get();
         $photo_Blockage=Photo::where('blk_id', $data[0]->blk_id )->Where('photo_type','Blockage')->get();
-        dd(emtry($photo_Blockage[0]->thumbnail_name));
+        dd(empty($photo_Blockage[0]->thumbnail_name));
         $photo_Land=Photo::where('blk_id', $data[0]->blk_id )->Where('photo_type','Land')->get();
         $photo_Riverbefore=Photo::where('blk_id', $data[0]->blk_id )->Where('photo_type','River before')->get();
         $photo_Riverprob=Photo::where('blk_id', $data[0]->blk_id )->Where('photo_type','River prob')->get();
