@@ -144,76 +144,33 @@
                                             </div>
                                             
                                             <div class="card-body">
-                                            <div class="row">
-                                                <button class="tablink" onclick="openPage('sum', this, 'gray')" id="defaultOpen">รวม</button>
-                                                <button class="tablink" onclick="openPage('phase1', this, 'gray')" >ระยะที่ 1</button>
-                                                <button class="tablink" onclick="openPage('Contact', this, 'gray')">ระยะที่ 2</button>
-
-
-                                                <div id="sum" class="tabcontent">
-                                                <div class="table-responsive">
-                                                    <table id="example6" class="table table-striped table-bordered" style="width:80%" align="center">
-                                                        <thead>
-                                                                <tr>
-                                                                    <th> <b>อำเภอ </b></th>
-                                                                    <th > <b>ระดับความเสี่ยงมาก</b></th>
-                                                                    <th>amp</th>
-                                                                    <th><b>ระดับความเสี่ยงปานกลาง</b></th>
-                                                                    <th><b>ระดับความเสี่ยงต่ำ</b></th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>--</td>
-                                                                    <td align="center">{{$sum3}}</td>
-                                                                    <td>รวม 18 อำเภอ</td>
-                                                                    <td align="center">{{$sum2}}</td>
-                                                                    <td align="center">{{$sum1}}</td>
-                                                                </tr>
-                                                            <?php for($i=0;$i<count($result);$i++){?>
-                                                                <tr>
-                                                                    <td >{{ $result[$i]['amp']}}</td>
-                                                                    <td align="center">{{ $result[$i]['level3']}}</td>
-                                                                    <td >อำเภอ</td>
-                                                                    <td align="center" >{{ $result[$i]['level2']}}</td>
-                                                                    <td align="center">{{ $result[$i]['level1']}}</td>
-                                                                </tr>
-                                                            <?php }?>
-
-                                                            
-                                                        
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                </div>
-
-                                                <div id="phase1" class="tabcontent">
+                                                <div class="row">
                                                     <div class="table-responsive">
                                                         <table id="example2" class="table table-striped table-bordered" style="width:80%" align="center">
                                                             <thead>
                                                                 <tr>
                                                                     <th> <b>อำเภอ </b></th>
-                                                                    <th > <b>ระดับความเสี่ยงมาก</b></th>
+                                                                    <th > <b>ระดับการกีดขวางมาก</b></th>
                                                                     <th>amp</th>
-                                                                    <th><b>ระดับความเสี่ยงปานกลาง</b></th>
-                                                                    <th><b>ระดับความเสี่ยงต่ำ</b></th>
+                                                                    <th><b>ระดับการกีดขวางปานกลาง</b></th>
+                                                                    <th><b>ระดับการกีดขวางน้อย</b></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
                                                                     <td>--</td>
-                                                                    <td align="center">{{$phase1_3}}</td>
-                                                                    <td>รวม 9 อำเภอ ระยะ 1 </td>
-                                                                    <td align="center">{{$phase1_2}}</td>
-                                                                    <td align="center">{{$phase1_1}}</td>
+                                                                    <td align="center">{{$ampL1}}</td>
+                                                                    <td>รวม 3 อำเภอ</td>
+                                                                    <td align="center">{{$ampL2}}</td>
+                                                                    <td align="center">{{$ampL3}}</td>
                                                                 </tr>
-                                                                <?php for($i=0;$i<9;$i++){?>
+                                                                <?php for($i=0;$i<count($data);$i++){?>
                                                                     <tr>
-                                                                        <td >{{ $result[$i]['amp']}}</td>
-                                                                        <td align="center">{{ $result[$i]['level3']}}</td>
+                                                                        <td >{{ $data[$i]->amp}}</td>
+                                                                        <td align="center">{{ $data[$i]->level1}}</td>
                                                                         <td >อำเภอ</td>
-                                                                        <td align="center" >{{ $result[$i]['level2']}}</td>
-                                                                        <td align="center">{{ $result[$i]['level1']}}</td>
+                                                                        <td align="center" >{{ $data[$i]->level2}}</td>
+                                                                        <td align="center">{{ $data[$i]->level3}}</td>
                                                                     </tr>
                                                                 <?php }?>
 
@@ -221,46 +178,8 @@
                                                             
                                                             </tbody>
                                                         </table>
-                                                    </div>          
+                                                    </div>                               
                                                 </div>
-
-                                                <div id="Contact" class="tabcontent">
-                                                    <div class="table-responsive">
-                                                            <table id="example5" class="table table-striped table-bordered" style="width:80%" align="center">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th> <b>อำเภอ </b></th>
-                                                                        <th > <b>ระดับความเสี่ยงมาก</b></th>
-                                                                        <th>amp</th>
-                                                                        <th><b>ระดับความเสี่ยงปานกลาง</b></th>
-                                                                        <th><b>ระดับความเสี่ยงต่ำ</b></th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>--</td>
-                                                                        <td align="center">{{$phase2_3}}</td>
-                                                                        <td>รวม 9 อำเภอ ระยะ2 </td>
-                                                                        <td align="center">{{$phase2_2}}</td>
-                                                                        <td align="center">{{$phase2_1}}</td>
-                                                                    </tr>
-                                                                    <?php for($i=9;$i<count($result);$i++){?>
-                                                                        <tr>
-                                                                            <td >{{ $result[$i]['amp']}}</td>
-                                                                            <td align="center">{{ $result[$i]['level3']}}</td>
-                                                                            <td >อำเภอ</td>
-                                                                            <td align="center" >{{ $result[$i]['level2']}}</td>
-                                                                            <td align="center">{{ $result[$i]['level1']}}</td>
-                                                                        </tr>
-                                                                    <?php }?>
-
-                                                                    
-                                                                
-                                                                </tbody>
-                                                            </table>
-                                                    </div>          
-                                                </div>                                
-                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -297,21 +216,21 @@
                 var stations1 = new L.LayerGroup();
                 var stations2 = new L.LayerGroup();
                 var stations3 = new L.LayerGroup();
-                var stations4 = new L.LayerGroup();
-                var stations5 = new L.LayerGroup();
-                var stations6 = new L.LayerGroup();
-                var stations7 = new L.LayerGroup();
-                var stations8 = new L.LayerGroup();
-                var stations9 = new L.LayerGroup();
-                var stations10 = new L.LayerGroup();
-                var stations11 = new L.LayerGroup();
-                var stations12 = new L.LayerGroup();
-                var stations13 = new L.LayerGroup();
-                var stations14 = new L.LayerGroup();
-                var stations15= new L.LayerGroup();
-                var stations16 = new L.LayerGroup();
-                var stations17 = new L.LayerGroup();
-                var stations18 = new L.LayerGroup();
+                // var stations4 = new L.LayerGroup();
+                // var stations5 = new L.LayerGroup();
+                // var stations6 = new L.LayerGroup();
+                // var stations7 = new L.LayerGroup();
+                // var stations8 = new L.LayerGroup();
+                // var stations9 = new L.LayerGroup();
+                // var stations10 = new L.LayerGroup();
+                // var stations11 = new L.LayerGroup();
+                // var stations12 = new L.LayerGroup();
+                // var stations13 = new L.LayerGroup();
+                // var stations14 = new L.LayerGroup();
+                // var stations15= new L.LayerGroup();
+                // var stations16 = new L.LayerGroup();
+                // var stations17 = new L.LayerGroup();
+                // var stations18 = new L.LayerGroup();
 
                 var borders = new L.LayerGroup();
                 
@@ -349,16 +268,17 @@
         {//--------borders, stations, rivers, 
                 
 
-                    var x = 19.801755 ;
-                    var y = 99.9995964;
+                var x = 19.85755 ;
+                var y = 99.1995964;
                     
                     var map = L.map('map', {
                     center: [x,y],
-                    zoom: 9,
-                    layers: [borders,stations1,stations2,stations3,stations4,stations5,stations6,stations7,stations8,stations9,stations10,stations11,stations12,stations13,stations14,stations15,stations16,stations17,stations18,osm]
+                    zoom: 10,
+                    // layers: [borders,stations1,stations2,stations3,stations4,stations5,stations6,stations7,stations8,stations9,stations10,stations11,stations12,stations13,stations14,stations15,stations16,stations17,stations18,osm]
+                    layers: [borders,stations1,stations2,stations3,osm]
                 });
 
-                var runLayer = omnivore.kml('{{ asset('kml/CR_18Amphoe_bound.kml') }}')
+                var runLayer = omnivore.kml('{{ asset('kml/mapfang.kml') }}')
                             .on('ready', function() {
                             this.setStyle({
                             color: "#466DF3",
@@ -401,9 +321,9 @@
                 
                 
                 
-                // var amp=["เชียงของ","เชียงแสน","เวียงแก่น","เวียงชัย","เวียงเชียงรุ้ง","แม่จัน","แม่สาย","แม่ฟ้าหลวง","ดอยหลวง"];
-                var amp=["เชียงของ","เชียงแสน","เวียงแก่น","เวียงชัย","เวียงเชียงรุ้ง","แม่จัน","แม่สาย","แม่ฟ้าหลวง","ดอยหลวง",
-                            "เมืองเชียงราย","ป่าแดด","แม่ลาว","แม่สรวย","เวียงป่าเป้า","พญาเม็งราย","เทิง","พาน","ขุนตาล"];
+                var amp=["ฝาง","ไชยปราการ","แม่อาย"];
+                // var amp=["เชียงของ","เชียงแสน","เวียงแก่น","เวียงชัย","เวียงเชียงรุ้ง","แม่จัน","แม่สาย","แม่ฟ้าหลวง","ดอยหลวง",
+                //             "เมืองเชียงราย","ป่าแดด","แม่ลาว","แม่สรวย","เวียงป่าเป้า","พญาเม็งราย","เทิง","พาน","ขุนตาล"];
                 function addPin(ampName,i){
                     $.getJSON("{{ asset('form/getDamage') }}/"+amp[i], 
                         function (data){

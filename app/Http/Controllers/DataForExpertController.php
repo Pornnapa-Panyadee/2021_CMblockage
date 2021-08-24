@@ -829,25 +829,36 @@ class DataForExpertController extends Controller
     }
     // home foe expert by p'kong & admin
     public function getDataforexpert(User $user ){
+        $districtData['data'] = Page::getDistrictCM();
+        $user_id =Auth::user()->id;
         if(!isset(Auth::user()->name)){
             return view('auth/login');
         }else{
             $name=Auth::user()->name ;
             // dd ($name);
-            if($name=="admin" ||$name=="ระวีเวช จาติเกตุ" || $name=="Prem" ){
+            if($name=="admin" ||$name=="ระวีเวช จาติเกตุ" || $name=="Prem"||Auth::user()->status_work=="admin" ){
                 // $data = Blockage::with('blockageLocation')->get();
                 // dd($data);
-                
                 $data = DB::table('blockage_locations')
                 ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
-                ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')->get();
+                ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
+                ->orderBy('blockages.created_at', 'DESC')
+                ->get();
                 // ->where('blockage_locations.blk_province', '=', "เชียงราย")->get();
-
-            
-                return view('expert.expert',compact('data'));
+                return view('expert.expert',compact('data','districtData'));
                 
+            }else if(Auth::user()->status_work=="surveyor"){
+                $data = DB::table('blockage_locations')
+                ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
+                ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
+                ->where('blockages.blk_user_id', $user_id)
+                ->orderBy('blockages.created_at', 'DESC')
+                ->get();
+
+                return view('expert.expert',compact('data','districtData'));
+
             }else{
-                return view('pages.test');
+                return view('pages.test',compact('districtData'));
             }
         }
 

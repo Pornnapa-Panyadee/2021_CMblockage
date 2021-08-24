@@ -65,25 +65,11 @@
                                                 <label> <h4>อำเภอ :  
                                                     <select name="amp" class="selectpicker " id="amp" onchange="this.form.submit();"> 
                                                         <option value="0">-- อำเภอ --</option>
-                                                        <option value="9 อำเภอ">รวม 9 อำเภอ (เฟส 1)</option>
-                                                        <option value="เชียงของ">เชียงของ</option>
-                                                        <option value="เชียงแสน">เชียงแสน</option>
-                                                        <option value="เวียงแก่น">เวียงแก่น</option>
-                                                        <option value="เวียงชัย">เวียงชัย</option>
-                                                        <option value="เวียงเชียงรุ้ง">เวียงเชียงรุ้ง</option>
-                                                        <option value="แม่จัน">แม่จัน</option>
-                                                        <option value="แม่สาย">แม่สาย</option>
-                                                        <option value="แม่ฟ้าหลวง">แม่ฟ้าหลวง</option>
-                                                        <option value="ดอยหลวง">ดอยหลวง</option>
-                                                        <option value="9 อำเภอ2">รวม 9 อำเภอ (เฟส 2)</option>
-                                                        <option value="ป่าแดด">ป่าแดด</option>
-                                                        <option value="แม่ลาว">แม่ลาว</option>
-                                                        <option value="แม่สรวย">แม่สรวย</option>
-                                                        <option value="เวียงป่าเป้า">เวียงป่าเป้า</option>
-                                                        <option value="พญาเม็งราย">พญาเม็งราย</option>
-                                                        <option value="เทิง">เทิง</option>
-                                                        <option value="พาน">พาน</option>
-                                                        <option value="ขุนตาล">ขุนตาล</option>
+                                                        <option value="รวม">รวมทุกอำเภอ</option>
+                                                        <option value="ฝาง">ฝาง</option>
+                                                        <option value="ไชยปราการ">ไชยปราการ</option>
+                                                        <option value="แม่อาย">แม่อาย</option>
+                                                      
                                                     </select> </h4>
                                                 </label>
                                             </div>
@@ -91,14 +77,13 @@
                                     <div class="row" style="background-color:#fff;margin:10px 10px 0 10px;">
                                         <h5> ข้อมูลจำนวนสิ่งกีดขวาง </h5>
                                     </div>
-                                    <div class="row" style="background-color:#fff;" >
-                                        
+                                     
                                         <table align="center" width="80%">
                                             <tr>
-                                                <td colspan="3"><b>สาเหตุ</b></td>
+                                                <td colspan="3" align="center"><b>สาเหตุ</b></td>
                                             </tr>
                                             <tr>
-                                                <td width="50%">ธรรมชาติ</td>
+                                                <td width="50%" align="center">ธรรมชาติ</td>
                                                 <td width="5%">:</td>
                                                 <?php if(($countNum[0][1]+$countNum[1][1])!=0){?>
                                                 <td width="45%" align="center">{{$countNum[1][1]}} ({{number_format($countNum[1][1]/($countNum[0][1]+$countNum[1][1])*100,1)}}%)</td>
@@ -116,7 +101,7 @@
                                                 <?php }?>
                                             </tr>
                                         </table>
-                                    </div>
+                                    
 
                                                     <table class="table table-striped table-bordered first">
                                                         <thead>
@@ -400,11 +385,11 @@ Highcharts.chart('conBar', {
 
 </script>
 
-// <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-// <script src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
-// <script src="{{ asset('/js/dataTables.bootstrap4.min.js') }}"></script>
-// <script src="{{ asset('/js/buttons.bootstrap4.min.js') }}"></script>
-// <script src="{{ asset('/js/data-table.js') }}"></script>
+<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('/js/data-table.js') }}"></script>
 
 </body>
 </html>

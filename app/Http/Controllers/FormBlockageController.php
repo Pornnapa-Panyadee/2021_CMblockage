@@ -373,19 +373,30 @@ class FormBlockageController extends Controller
  
         // dd (Auth::user()->status_work);
         if($name=="admin" && $verify_status == 1){
-            $data = Blockage::with('blockageLocation')->get();
+            $data = Blockage::with('blockageLocation')->orderBy('created_at', 'DESC')->get();
             // dd($data);
     
             return view('report_admin',compact('data'));
             
         }else if(Auth::user()->status_work=="expert" ||Auth::user()->status_work=="admin" ){
             $user= Auth::user()->name;
-            $data = Blockage::with('blockageLocation')->get();
+            $data = Blockage::with('blockageLocation')->orderBy('created_at', 'DESC')->get();
             // dd($data[0]);
             return view('pages.homeblockage',compact('data','user'));
         }else if($verify_status == 0){
             $massageNotic = "Please contact admin to verify account.";
             return view('verifyMessage', compact('massageNotic'));
+
+        }else{
+            $user=Auth::user()->id ;
+       
+            // dd($user=Auth::user()->id);
+            $data = Blockage::with('blockageLocation','User')->where('blk_user_id', $user)->orderBy('created_at', 'DESC')->get();
+            //dd($data);
+            //return response()->json($data);
+            //exit;
+            return view('pages.homeblockage',compact('data'));
+           
         }
         
             

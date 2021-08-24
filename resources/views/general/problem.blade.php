@@ -108,16 +108,9 @@
                                                         <td>
                                                             <select name="amp" class="selectpicker " id="blk_district" > 
                                                                 <option value="sum">- - กรุณาเลือกอำเภอ - -</option>
-                                                                <option value="sum">รวม 9 อำเภอ</option>
-                                                                <option value="เชียงของ">เชียงของ</option>
-                                                                <option value="เชียงแสน">เชียงแสน</option>
-                                                                <option value="เวียงแก่น">เวียงแก่น</option>
-                                                                <option value="เวียงชัย">เวียงชัย</option>
-                                                                <option value="เวียงเชียงรุ้ง">เวียงเชียงรุ้ง</option>
-                                                                <option value="แม่จัน">แม่จัน</option>
-                                                                <option value="แม่สาย">แม่สาย</option>
-                                                                <option value="แม่ฟ้าหลวง">แม่ฟ้าหลวง</option>
-                                                                <option value="ดอยหลวง">ดอยหลวง</option>
+                                                                <option value="ฝาง">ฝาง</option>
+                                                                <option value="ไชยปราการ">ไชยปราการ</option>
+                                                                <option value="แม่อาย">แม่อาย</option>
                                                                 </select> 
                                                                 </td>
                                                     </tr>

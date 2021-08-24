@@ -71,7 +71,7 @@
                                                             <div class="btn-group ml-auto">
                                                                 <a href='{{ asset('/reportblockage/pdf') }}/{{$data[$i]->blk_id}}' target="_blank"> <button class="btn btn-outline-primary waves-effect" title="รายละเอียด" ><i class="fas fa-eye"></i> </button> </a>&nbsp;
                                                                 <a href='{{ asset('/editblockage') }}/{{$data[$i]->blk_id}}' target="_blank">  <button class="btn btn-outline-info waves-effect" title="แก้ไข"><i class="fas fa-edit"></i> </button> </a>&nbsp;
-                                                                <a href='{{ asset('/form/questionnaire5') }}/{{$data[$i]->blk_id}}' target="_blank">  <button class="btn btn-outline-success waves-effect" title="เพิ่มรูปถ่าย" ><i class="fas fa-images"></i> </button> </a>&nbsp;
+                                                                <a href='{{ asset('/form/uploadimage') }}/{{$data[$i]->blk_id}}' target="_blank">  <button class="btn btn-outline-success waves-effect" title="เพิ่มรูปถ่าย" ><i class="fas fa-images"></i> </button> </a>&nbsp;
                                                                 <a href='{{ asset('/delete/') }}/{{$data[$i]->blk_id}}'>  <button class="btn btn-outline-secondary waves-effect" title="ลบ" onclick="delFunction()"><i class="fas fa-trash"></i> </button> </a>
                                                             </div>
                                                         </td>                                   

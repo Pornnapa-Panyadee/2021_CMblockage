@@ -1,62 +1,24 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-</head>
-<body>
-   
-    <div class="footer">
-        {{-- <div class="container-fluid">
-            <div class="row">
-               
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    
-                    <div class="table-responsive">
-                        <table align="center" width=80%>
-                            <tr>
-                                <td><a href="#"> <img src="{{ asset('images/logo/footer/cr.png') }}" width="37%"></a></td>
-                                <td><a href="#"> <img src="{{ asset('images/logo/footer/ddpm.png') }}" width="35%"></a></td>
-                                <td><a href="#"> <img src="{{ asset('images/logo/footer/cmu.png') }}" width="45%"></a></td>
-                                <td> <a href="#"> <img src="{{ asset('images/logo/footer/cendim.jpg') }}" width="45%"></a></td>
-                                <td><a href="https://www.landslide-chiangrai.net/"> <img src="{{ asset('images/logo/footer/landslide1.jpg') }}" width="37%"></a></td>
-                            </tr>
-                        </table>
-                    </div>
-                    
-                </div>
-            </div>
-        </div> --}}
 
 
-        <div class="card-header">
-            
-                <div class="row justify-content-md-center" align="center">
-                    <div class="col-md-2" style="margin-top: 10px;">
-                        <a href="#"> <img src="{{ asset('images/logo/footer/cr.png') }}" width="37%"></a>
-                    </div>
-                    <div class="col-md-2"style="margin-top: 10px;">
-                       <a href="#"> <img src="{{ asset('images/logo/footer/ddpm.png') }}" width="25%"></a>
-                    </div>
-                    <div class="col-md-2" >
-                        <a href="#"> <img src="{{ asset('images/logo/footer/cmu.png') }}" width="50%"></a>
-                    </div>
-                    <div class="col-md-2" style="margin-top: 10px;">
-                       <a href="#">  <a href="#"> <img src="{{ asset('images/logo/footer/cendim.jpg') }}" width="55%"></a></a>
-                    </div>
-                    <div class="col-md-2">
-                       <a href="https://www.landslide-chiangrai.net/"> <img src="{{ asset('images/logo/footer/landslide1.jpg') }}" width="37%"></a>
-                    </div>
-                    
-                </div>           
 
-        </div>
-    </div
-  
-
-</body>
-</html>
+<div class="footer" style="background-color:#fff" align="center">
+    <div style="margin-left:30px;">
+        <table align="center" width=60%>
+            <tr align="center">
+                <td>
+                    <a href="https://eng.cmu.ac.th/"> <img src="{{ asset('images/logo/footer/cmu.png') }}" width="50%"></a>
+                </td>
+           
+                <td colspan="2">
+                ติดต่อเรา : ศูนย์ความเป็นเลิศด้านการจัดการภัยพิบัติทางธรรมชาติ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเชียงใหม่ <br>
+                239 ถนนห้วยแก้ว ต.สุเทพ อ.เมือง จ.เชียงใหม่ 50200 โทร 053-942074 <br>
+                Facebook: <a href="https://www.facebook.com/CENDiMcmu" >CENDiMcmu</a>
+                </td>
+                
+                <td> 
+                    <a href="https://cendim.eng.cmu.ac.th/">  <img src="{{ asset('images/logo/footer/cendim.jpg') }}" width="50%"></a> 
+                </td>
+            </tr>
+        </table>
+    </div>
+</div

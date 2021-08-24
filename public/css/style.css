@@ -7065,7 +7065,7 @@ Media Query
         display: inline-block;
         max-width: 90%;
         margin-bottom: 5px;
-        font-size: 1vw;
+        font-size: 14px;
         color: #71748d;
     }
   /*--------- dashboard-product-single -------- */
@@ -7385,6 +7385,12 @@ Media Query
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
+
+
+/* .chatbox--active{
+    z-index: 50;
+    position:relative;
+} */
 
 /* HEADER */
 .chatbox__header {

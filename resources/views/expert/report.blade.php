@@ -70,8 +70,8 @@
                     
                         <div class="row">
                                 <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
-                                        <h4 ><a href="{{ asset('/blocker') }}">ข้อเสนอแนะโดยผู้เชี่ยวชาญ </a> &raquo;  {{ $data[0]->blk_code }}</h4>
-                                        {{-- <h4 ><a href="{{ asset('/blocker') }}">ข้อเสนอแนะโดยผู้เชี่ยวชาญ </a> &raquo; xxxxxxx </h4> --}}
+                                        <h4 ><a href="{{ asset('/expert') }}">ข้อเสนอแนะโดยผู้เชี่ยวชาญ </a> &raquo;  {{ $data[0]->blk_code }}</h4>
+                                        {{-- <h4 ><a href="{{ asset('/expert') }}">ข้อเสนอแนะโดยผู้เชี่ยวชาญ </a> &raquo; xxxxxxx </h4> --}}
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12" align="right">
                                         <a href="{{ url('/') }}"><button class="btn btn-sm btn-outline-light " >
@@ -355,11 +355,16 @@
                                                                 <tbody>
                                                                     <tr>
                                                                         <td align="center"> 
-                                                                            
-                                                                            <img src="https://survey.crflood.com/{{($photo_Blockage[0]->thumbnail_name) }}">
+                                                                            <?php 
+                                                                               if($photo_Blockage[0]->thumbnail_name!=NULL){?>
+                                                                                <img src="{{asset($photo_Blockage[0]->thumbnail_name) }}">
+                                                                            <?php } ?>
                                                                         </td>
                                                                         <td align="center">
-                                                                            <img src="https://survey.crflood.com/{{($photo_Blockage[1]->thumbnail_name) }}">
+                                                                            <?php if($photo_Blockage[1]->thumbnail_name!=NULL){?>
+                                                                                <img src="{{asset($photo_Blockage[1]->thumbnail_name) }}">
+                                                                            <?php }?>
+                                                                            
                                                                         </td>
 
                                                                     </tr>

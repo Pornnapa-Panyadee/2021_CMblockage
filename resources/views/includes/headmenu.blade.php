@@ -30,7 +30,7 @@
                                 <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><font style="font-size:1vw;">ข้อมูลสิ่งกีดขวางทางน้ำ</font></a>
                                 <div class="dropdown-menu dropdown-menu-right" style="padding:20px 0 20px ; background-color:#b3d6ff ; font-size:16px;"  >
                                     <a class="dropdown-item" href="{{ asset('/reports/map')}}">แผนที่ตำแหน่งสิ่งกีดขวางตามความเสี่ยง</a>
-                                    <a class="dropdown-item" href="{{ asset('/chart?amp=9+อำเภอ')}}">กราฟแสดงการจำแนกสภาพปัญหา</a>
+                                    <a class="dropdown-item" href="{{ asset('/chart?amp=รวม')}}">กราฟแสดงการจำแนกสภาพปัญหา</a>
                                     <a class="dropdown-item" href="{{ asset('/reports/summary')}}">รายงานสภาพและแนวทางการแก้ไขปัญหา</a>
                                     <a class="dropdown-item" href="{{ asset('/reports/problem')}}">ตารางรายงานสาเหตุและสภาพปัญหา</a>
                                     <a class="dropdown-item" href="{{ asset('/reports/solution')}}">ตารางรายงานแนวทางการแก้ไขปัญหา</a>
@@ -40,12 +40,12 @@
                              <li class="nav-item dropdown " style="padding-bottom:-20px;">
                                 <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><font style="font-size:1vw;">คลังความรู้ </font></a>
                                 <div class="dropdown-menu dropdown-menu-right" style="padding:20px 0 20px ; background-color:#b3d6ff ; font-size:16px;"  >
-                                    <a class="dropdown-item" href="https://www.landslide-chiangrai.net/">แผนที่ความเสี่ยงดินถล่มเชิงพลวัต </a>
-                                    <a class="dropdown-item" href="{{ asset('/floodPreparedness')}}">คู่มือสถานการณ์น้ำท่วม</a>
+                                    <!-- <a class="dropdown-item" href="https://www.landslide-chiangrai.net/">แผนที่ความเสี่ยงดินถล่มเชิงพลวัต </a> -->
+                                    <a class="dropdown-item" href="{{ asset('/pdf/flood-preparedness.pdf')}}">คู่มือสถานการณ์น้ำท่วม</a>
                                     
-                                    <a class="dropdown-item" href="{{ asset('/floodManage')}}">การบริหารจัดการน้ำท่วม</a>
-                                    <a class="dropdown-item" href="{{ asset('/floodProtect')}}">การป้องกันน้ำไหลเข้าบ้าน</a>
-                                    <a class="dropdown-item" href="{{ asset('/floodStructures')}}">โครงสร้างป้องกันน้ำท่วม</a>
+                                    <a class="dropdown-item" href="{{ asset('/pdf/flood-manage.pdf')}}">การบริหารจัดการน้ำท่วม</a>
+                                    <a class="dropdown-item" href="{{ asset('/pdf/flood-protect.pdf')}}">การป้องกันน้ำไหลเข้าบ้าน</a>
+                                    <a class="dropdown-item" href="{{ asset('/pdf/flood-structures.pdf')}}">โครงสร้างป้องกันน้ำท่วม</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown ">

@@ -15,9 +15,9 @@ class ManagmemntVerifyUserController extends Controller
         $verify_status = Auth::user()->verify;
         // dd($name);
         if($name == "admin" && $verify_status == 1){
-            $users_register = DB::table('users')
+            $users_register = DB::table('users')->select('*')
             ->where('verify','=',0)
-            ->get(columns:['name','LName','email','created_at','Position','Department','Tel']);
+            ->get();
             $userRegisterJson = json_decode($users_register,true);
             // dd($userRegisterJson);
             return view('ManagementVerifyUser', compact('userRegisterJson'));

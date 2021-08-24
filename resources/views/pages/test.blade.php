@@ -88,11 +88,11 @@
                                                     <div class="card-body">
                                                         <form id="amp" name="amp" action="/#tableData" method="get">
 
-                                                            <table align="right" width=40%>
+                                                            <table align="right" width=30%>
                                                                 <tr>
                                                                     <td style="padding-left:20px;">
                                                                         <h4 class="card-title">
-                                                                        <select id='blk_district' name='blk_district' style="height:1.8em;" required>
+                                                                        <select id='blk_district' name='blk_district' style="height:2.8em; width:80%" required>
                                                                             <option value='0'>- - เลือกอำเภอ - -</option>
                                                                             @foreach($districtData['data'] as $village)
                                                                             <option value='{{ $village->vill_district }}'>{{ $village->vill_district  }}</option>
@@ -102,14 +102,14 @@
                                                                     </td>
                                                                     <td >
                                                                         <h4 class="card-title">
-                                                                            <select id="blk_tumbol" name="blk_tumbol" required>
+                                                                            <select id="blk_tumbol" name="blk_tumbol" style="height:2.8em; width:80%" required>
                                                                                 <option value='0'>-- เลือกตำบล --</option>
                                                                             </select>
                                                                         </h4>
                                                                     </td>
                                                                     <td>
                                                                         <h4 class="card-title">    
-                                                                            <button type="submit" class=" button button1 " > ค้นหา </button>
+                                                                            <button type="submit"  class="btn btn-outline-primary waves-effect" > ค้นหา </button>
                                                                         </h4>
                                                                     </td>
                                                                 </tr>

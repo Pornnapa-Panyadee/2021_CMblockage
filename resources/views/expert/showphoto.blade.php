@@ -206,10 +206,10 @@
                           <div class="alert alert-primary" style="margin:0 -20px 0;">รูปภาพแผนที่แสดงขอบเขตพื้นที่รับน้ำ</div>
                           <div class="row">
                               <div class="column">
-                                  <img src="https://survey.crflood.com/{{($expert[0]->exp_pixmap)  }}" onclick="openModal();currentSlide({{1}})" style="width:40%" class="hover-shadow cursor">
+                                  <img src="https://cmblockage.cmfightflood.com/{{($expert[0]->exp_pixmap)  }}" onclick="openModal();currentSlide({{1}})" style="width:40%" class="hover-shadow cursor">
                               </div>
                               <div class="column">
-                                  <img src="https://survey.crflood.com/images/map/{{$data[0]->blk_code}}.JPG" onclick="openModal();currentSlide({{2}})" style="width: 80%" class="hover-shadow cursor">
+                                  <img src="https://cmblockage.cmfightflood.com/images/map/{{$data[0]->blk_code}}.JPG" onclick="openModal();currentSlide({{2}})" style="width: 80%" class="hover-shadow cursor">
                               </div>
                           </div>
                           <br>
@@ -218,7 +218,7 @@
                             
                             <?php for($i=0;$i<count($photo_Blockage);$i++){?>
                               <div class="column">
-                                  <img src="https://survey.crflood.com/{{($photo_Blockage[$i]->photo_name)  }}" onclick="openModal();currentSlide({{$i+3}})" style="width:100%" class="hover-shadow cursor">
+                                  <img src="https://cmblockage.cmfightflood.com/{{($photo_Blockage[$i]->photo_name)  }}" onclick="openModal();currentSlide({{$i+3}})" style="width:100%" class="hover-shadow cursor">
                               </div>
                           <?php } ?> 
                           </div>
@@ -231,18 +231,18 @@
                                 <?php   $num =count($photo_Blockage)+2; ?>
                                   <div class="mySlides">
                                     <div class="numbertext">{{$i+1}} / {{$num}}</div>
-                                      <center><img src="https://survey.crflood.com/{{($expert[0]->exp_pixmap)  }}"  style="width:50%"></center>
+                                      <center><img src="https://cmblockage.cmfightflood.com/{{($expert[0]->exp_pixmap)  }}"  style="width:50%"></center>
                                     </div>
                                   </div>
                                   <div class="mySlides">
                                     <div class="numbertext">{{$i+2}} / {{$num}}</div>
-                                      <center><img src="https://survey.crflood.com/images/map/{{($data[0]->blk_code)}}.JPG"  style="width:80%"></center>
+                                      <center><img src="https://cmblockage.cmfightflood.com/images/map/{{($data[0]->blk_code)}}.JPG"  style="width:80%"></center>
                                     </div>
                                   
                                   <?php for($i=0;$i<count($photo_Blockage);$i++){?>
                                         <div class="mySlides">
                                             <div class="numbertext">{{$i+3}} / {{$num}}</div>
-                                            <img src="https://survey.crflood.com/{{($photo_Blockage[$i]->photo_name)  }}"  style="width:80%">
+                                            <img src="https://cmblockage.cmfightflood.com/{{($photo_Blockage[$i]->photo_name)  }}"  style="width:80%">
                                         </div>
                                   <?php } ?>
                                   
@@ -256,14 +256,14 @@
                                 </div>
                                 <div class="caption-container" width=120%>
                                   <div class="columnDown">
-                                    <img class="demo cursor" src="https://survey.crflood.com/{{($expert[0]->exp_pixmap)  }}" style="width:40%" onclick="currentSlide({{1}})" >
+                                    <img class="demo cursor" src="https://cmblockage.cmfightflood.com/{{($expert[0]->exp_pixmap)  }}" style="width:40%" onclick="currentSlide({{1}})" >
                                   </div>
                                   <div class="columnDown">
-                                    <img class="demo cursor" src="https://survey.crflood.com/images/map/{{($data[0]->blk_code)}}.JPG" style="width:40%" onclick="currentSlide({{1}})" >
+                                    <img class="demo cursor" src="https://cmblockage.cmfightflood.com/images/map/{{($data[0]->blk_code)}}.JPG" style="width:40%" onclick="currentSlide({{1}})" >
                                   </div>
                                   <?php for($i=0;$i<count($photo_Blockage);$i++){?>
                                       <div class="columnDown">
-                                          <img class="demo cursor" src="https://survey.crflood.com/{{($photo_Blockage[$i]->photo_name)  }}" style="width:100%" onclick="currentSlide({{$i+2}})" >
+                                          <img class="demo cursor" src="https://cmblockage.cmfightflood.com/{{($photo_Blockage[$i]->photo_name)  }}" style="width:100%" onclick="currentSlide({{$i+2}})" >
                                       </div>
                                   <?php } ?>
                                       
