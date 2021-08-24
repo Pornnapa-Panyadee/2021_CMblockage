@@ -65,14 +65,14 @@
                                     <tbody>
                                     @foreach($userRegisterJson as $userRegister)
                                         <tr>
-                                            <td>{{ $userRegister['name'] }}</td>
-                                            <td>{{ $userRegister['LName'] }}</td>
-                                            <td>{{ $userRegister['Position'] }}</td>
-                                            <td>{{ $userRegister['Department'] }}</td>
-                                            <td>{{ $userRegister['Tel'] }}</td>
-                                            <td>{{ $userRegister['email'] }}</td>
-                                            <td>{{ $userRegister['created_at'] }}</td>
-                                            <td>
+                                            <td style="text-align:center;">{{ $userRegister['name'] }}</td>
+                                            <td style="text-align:center;">{{ $userRegister['LName'] }}</td>
+                                            <td style="text-align:center;">{{ $userRegister['Position'] }}</td>
+                                            <td style="text-align:center;">{{ $userRegister['Department'] }}</td>
+                                            <td style="text-align:center;">{{ $userRegister['Tel'] }}</td>
+                                            <td style="text-align:center;">{{ $userRegister['email'] }}</td>
+                                            <td style="text-align:center;">{{ $userRegister['created_at'] }}</td>
+                                            <td style="text-align:center;">
                                                 <form method="get" action="/testing/emailsendperuser/{{$userRegister['email']}}">
                                                     <button class="btn btn-primary">Verify</button>
                                                 </form>
@@ -82,11 +82,10 @@
                                     </tbody>
                                 </table>
                                 <br>
-                                <div class="form-group" style="margin-left: 1700px;">
+                                <div class="form-group" style="margin-right: 1000px;">
                                     <form method="get" action="/testing/emailsend">
                                         <button class="btn btn-primary" type="submit">Verify All</button>
                                     </form>
-                                    
                                 </div>
                                 
                             </div>

@@ -30,11 +30,15 @@
     transition: all .5s ease-in-out;
 }
 
+ 
+
 /* CONTENT ISOPEN */
 .chatbox--active {
-    transform: translateY(-40px);
+    /* transform: translateY(-10px); */
     /* z-index: 123456; */
     opacity: 1;
+    z-index: 50;
+    position:relative;
     
 }
 

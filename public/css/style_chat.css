@@ -36,6 +36,11 @@ body {
     border-top-right-radius: 20px;
 }
 
+/* .chatbox--active{
+    z-index: 50;
+    position:relative;
+} */
+
 /* HEADER */
 .chatbox__header {
     background: var(--primaryGradient);

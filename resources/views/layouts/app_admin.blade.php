@@ -74,9 +74,11 @@
             text-align: left;
         }
 
-        .btn btn-secondary{
-            z-index: 999;
+        .on-next-action{
+            z-index: 9999;
+            position: relative;
         }
+ 
         .textbox{
             background: rgba(255,255,255,0.1);
             border: none;
