@@ -286,8 +286,9 @@
         var runLayer = omnivore.kml('{{ asset('kml/CM_bound-25-amphoe.kml') }}')
 						.on('ready', function() {
 						this.setStyle({
-						color: "#466DF3",
-						weight: 3
+                            fillOpacity: 0,
+                            color: "#466DF3",
+                            weight: 2
 						});
 			}).addTo(borders); 
   
