@@ -50,7 +50,7 @@
                                                     <th scope="col" width="12%;">ลำน้ำ</th>
                                                     <th scope="col" width="20%;">ที่ตั้ง</th>
                                                     <th scope="col" width="10%;">วันที่เก็บข้อมูล</th>
-                                                    <th scope="col" width="5%;">ผู้สำรวจ</th>
+                                                    <th scope="col" width="10%;">ผู้สำรวจ</th>
                                                     <th scope="col" ></th>
                                                 </tr>
                                             </thead>
