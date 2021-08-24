@@ -33,6 +33,7 @@ class DataForExpertController extends Controller
         //$location= BlockageLocation::where('blk_location_id', $data[0]->blockageLocation->blk_location_id)->get();
         $problem =  ProblemDetail::where('blk_id', $data[0]->blk_id)->get();
         $photo_Blockage=Photo::where('blk_id', $data[0]->blk_id )->Where('photo_type','Blockage')->get();
+        dd($photo_Blockage);
         $photo_Land=Photo::where('blk_id', $data[0]->blk_id )->Where('photo_type','Land')->get();
         $photo_Riverbefore=Photo::where('blk_id', $data[0]->blk_id )->Where('photo_type','River before')->get();
         $photo_Riverprob=Photo::where('blk_id', $data[0]->blk_id )->Where('photo_type','River prob')->get();
@@ -213,12 +214,7 @@ class DataForExpertController extends Controller
             $hum_other="อื่นๆ (".$problem[0]->hum_other_detail.")";
         }
         $hum= [$hum_structure,$infra,$hum_soil_cover,$hum_trash,$hum_other];
-        if($photo_Blockage->thumbnail_name==NULL){
-            $photo_has=1;
-        }else{
-            $photo_has="0";
-        }
-        dd($photo_has);
+        
 
         $current_end = json_decode($current_end);
         return view('expert.report', compact('expert','data','nut','hum','damageData','damage_type','pastData','current_start','current_narrow_new','current_end','problem','photo_Blockage','photo_Land','photo_Riverbefore','photo_Riverprob','photo_Riverafter','photo_Probsketch','solution_id','project_id'));
