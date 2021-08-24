@@ -706,10 +706,12 @@
 
                                 <p>วิธีการ</p>
                                 <p>{{$methodAdviceF130}}</p>    
-                                <p>รายละเอียดเชิงรูปภาพ</p>
-                                <p ><a  href="{{ asset('images/ref_advice/1_3.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
-                                                             
+                                <p><a  href="{{ asset('images/ref_advice/1_3.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
 
+                                {{--
+                                    <p ><a  href="{{ asset('images/ref_advice/1_3.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                    --}}
+                                
                                 </div>
                             </div>
                         </div>
@@ -776,8 +778,12 @@
 
                                 <p>วิธีการ</p>
                                 <p>{{$methodAdviceF141}}</p>    
-                                <p>รายละเอียดเชิงรูปภาพ</p>
-                                <p><a href="{{ asset('images/ref_advice/1_4_1.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                <p><a href="{{ asset('images/ref_advice/1_4_1.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
+
+                                {{--
+                                    <p><a href="{{ asset('images/ref_advice/1_4_1.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                    --}}
+                                
                                                              
 
                                 </div>
@@ -811,8 +817,12 @@
 
                                 <p>วิธีการ</p>
                                 <p>{{$methodAdviceF142}}</p>    
-                                <p>รายละเอียดเชิงรูปภาพ</p>
-                                <p><a href="{{ asset('images/ref_advice/1_4_2.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                <p><a href="{{ asset('images/ref_advice/1_4_2.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
+
+                                {{--
+                                    <p><a href="{{ asset('images/ref_advice/1_4_2.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                    --}}
+                                
                                                              
 
                                 </div>
@@ -846,8 +856,12 @@
 
                                 <p>วิธีการ</p>
                                 <p>{{$methodAdviceF143}}</p>    
-                                <p>รายละเอียดเชิงรูปภาพ</p>
-                                <p><a href="{{ asset('images/ref_advice/1_4_3.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                <p><a href="{{ asset('images/ref_advice/1_4_3.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
+
+                                {{--
+                                    <p><a href="{{ asset('images/ref_advice/1_4_3.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                    --}}
+                                
                                                              
 
                                 </div>
@@ -901,8 +915,12 @@
                                         เพราะมีความแข็งแรง และก่อสร้างได้ง่าย ซึ่งจะช้วยลดการรั่วซึมผ่านตัวคลองส่งน้ํา ลดการพังทลายของลาดด้านข้างคลองส่งน้ํา ป้องกัน 
                                         วัชพืชและลดขนาดของตัวคลองลง ทําให้ประหยัดพื้นที่สําหรับการก่อสร้างด้วย
                                     </p>
-                                    <p>รายละเอียดเชิงรูปภาพ</p>
-                                <p><a href="{{ asset('images/ref_advice/1_6.png') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                    <p><a href="{{ asset('images/ref_advice/1_6.png') }}">รายละเอียดเชิงรูปภาพ</a></p>
+
+                                    {{--
+                                        <p><a href="{{ asset('images/ref_advice/1_6.png') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                        --}}
+                                
 
                                 </div>
                             </div>
@@ -931,8 +949,12 @@
                                 <p>-----------</p>
                                 <p>วิธีการ</p>
                                 <p>ประมาณโดยสอบถามคนในพื้นที่โดยกรอกความกว้าง ยาว สูง หน่วยเป็นเมตร</p> 
-                                <p>รายละเอียดเชิงรูปภาพ</p>
-                                <p><a href="{{ asset('images/ref_advice/1_7.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                <p><a href="{{ asset('images/ref_advice/1_7.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
+                                
+                                {{--
+                                    <p><a href="{{ asset('images/ref_advice/1_7.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                    --}}
+                                
 
                                 </div>
                             </div>
