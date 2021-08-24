@@ -310,8 +310,8 @@
            
         var amp=["ฝาง","ไชยปราการ","แม่อาย","เมืองเชียงใหม่","หางดง","สารภี","สันกำแพง","สันป่าตอง","ดอยหล่อ","แม่ริม","สันทราย","ดอยสะเก็ด","แม่ออน","แม่วาง","สะเมิง"];
         
-        function addPin(ampName,i,mo){
-            $.getJSON("{{ asset('form/getDamage') }}/"+amp[i], 
+        function addPin(ampName,k,mo){
+            $.getJSON("{{ asset('form/getDamage') }}/"+amp[k], 
                 function (data){
 						 for (i=0;i<data.length;i++){
                             // for (i=0;i<1;i++){
