@@ -355,11 +355,16 @@
                                                                 <tbody>
                                                                     <tr>
                                                                         <td align="center"> 
-                                                                            
-                                                                            <img src="https://survey.crflood.com/{{($photo_Blockage[0]->thumbnail_name) }}">
+                                                                            <?php 
+                                                                               if($photo_Blockage[0]->thumbnail_name!=NULL){?>
+                                                                                <img src="{{asset($photo_Blockage[0]->thumbnail_name) }}">
+                                                                            <?php } ?>
                                                                         </td>
                                                                         <td align="center">
-                                                                            <img src="https://survey.crflood.com/{{($photo_Blockage[1]->thumbnail_name) }}">
+                                                                            <?php if($photo_Blockage[1]->thumbnail_name!=NULL){?>
+                                                                                <img src="{{asset($photo_Blockage[1]->thumbnail_name) }}">
+                                                                            <?php }?>
+                                                                            
                                                                         </td>
 
                                                                     </tr>
