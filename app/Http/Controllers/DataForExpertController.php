@@ -213,7 +213,7 @@ class DataForExpertController extends Controller
             $hum_other="อื่นๆ (".$problem[0]->hum_other_detail.")";
         }
         $hum= [$hum_structure,$infra,$hum_soil_cover,$hum_trash,$hum_other];
-        if(!empty($photo_Blockage)){
+        if($photo_Blockage==NULL){
             $photo_has=1;
         }else{
             $photo_has="0";
