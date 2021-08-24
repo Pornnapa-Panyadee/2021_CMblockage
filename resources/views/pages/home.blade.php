@@ -262,8 +262,8 @@
         var stations12 = new L.LayerGroup();  
         var borders = new L.LayerGroup();
         
-        var x = 19.75755 ;
-        var y = 99.5995964;
+        var x = 18.782687 ; 
+        var y = 98.993518 ;
 
         var mbAttr = 'CRFlood ',
            mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFucGFueWEiLCJhIjoiY2loZWl5ZnJ4MGxnNHRwbHp5bmY4ZnNxOCJ9.IooQB0jYS_4QZvIq7gkjeQ';
@@ -280,7 +280,7 @@
         var map = L.map('map', {
             layers: [borders,osm,stations1,stations2,stations3,stations4,stations5,stations6,stations7,stations8,stations9,stations10,stations11,stations12],
             center: [x,y],
-            zoom: 9,
+            zoom: 8,
         });
 
         var runLayer = omnivore.kml('{{ asset('kml/CM_bound-25-amphoe.kml') }}')
