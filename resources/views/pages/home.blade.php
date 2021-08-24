@@ -260,6 +260,7 @@
         var stations10 = new L.LayerGroup();    
         var stations11 = new L.LayerGroup();  
         var stations12 = new L.LayerGroup();  
+        var borders = new L.LayerGroup();
         
         var x = 19.75755 ;
         var y = 99.5995964;
@@ -277,11 +278,18 @@
                                 });
 
         var map = L.map('map', {
-            layers: [osm,stations1,stations2,stations3,stations4,stations5,stations6,stations7,stations8,stations9,stations10,stations11,stations12],
+            layers: [borders,osm,stations1,stations2,stations3,stations4,stations5,stations6,stations7,stations8,stations9,stations10,stations11,stations12],
             center: [x,y],
             zoom: 9,
         });
 
+        var runLayer = omnivore.kml('{{ asset('kml/Amphoe_9ChiangRai.kml') }}')
+						.on('ready', function() {
+						this.setStyle({
+						color: "#466DF3",
+						weight: 3
+						});
+			}).addTo(borders); 
   
         var pin = L.icon({
                     iconUrl: '{{ asset('images/logo/pin.png') }}',
