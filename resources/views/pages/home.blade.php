@@ -356,6 +356,15 @@
             addPin(stations1,0,mo);
             addPin(stations2,1,mo);
             addPin(stations3,2,mo);
+            addPin(stations4,3,mo);
+            addPin(stations5,4,mo);
+            addPin(stations6,5,mo);
+            addPin(stations7,6,mo);
+            addPin(stations8,7,mo);
+            addPin(stations9,8,mo);
+            addPin(stations10,9,mo);
+            addPin(stations11,10,mo);
+            addPin(stations12,11,mo);
 
      
         var baseTree = {
