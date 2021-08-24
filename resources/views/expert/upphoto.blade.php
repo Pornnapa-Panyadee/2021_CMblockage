@@ -101,7 +101,7 @@
                                                                         <input type="checkbox" id="photo{{$i}}" name="photo{{$i}}" value='{{$photo_Blockage[$i]->thumbnail_name}}' /> 
                                                                     
                                                                         <label for="photo{{$i}}"> 
-                                                                            <img src="{{asset($photo_Blockage[$i]->thumbnail_name)  }}">
+                                                                            <img src="https://cmblockage.cmfightflood.com/{{asset($photo_Blockage[$i]->thumbnail_name)  }}">
                                                                         </label>
                                                                     </td>
                                                                 </tr>
