@@ -258,6 +258,8 @@
         var stations8 = new L.LayerGroup();
         var stations9 = new L.LayerGroup();
         var stations10 = new L.LayerGroup();    
+        var stations11 = new L.LayerGroup();  
+        var stations12 = new L.LayerGroup();  
         
         var x = 19.75755 ;
         var y = 99.5995964;
@@ -275,7 +277,7 @@
                                 });
 
         var map = L.map('map', {
-            layers: [osm,stations1,stations2,stations3,stations4,stations5,stations6,stations7,stations8,stations9,stations10],
+            layers: [osm,stations1,stations2,stations3,stations4,stations5,stations6,stations7,stations8,stations9,stations10,stations11,stations12],
             center: [x,y],
             zoom: 9,
         });
@@ -297,7 +299,7 @@
                      popupAnchor: [0, 0]
                  });
            
-        var amp=["ฝาง","ไชยปราการ","แม่อาย"];
+        var amp=["ฝาง","ไชยปราการ","แม่อาย","เมืองเชียงใหม่","หางดง","สารภี","สันกำแพง","สันป่าตอง","ดอยหล่อ","แม่ริม","สันทราย","ดอยสะเก็ด","แม่ออน","แม่วาง","สะเมิง"];
         
         function addPin(ampName,i,mo){
             $.getJSON("{{ asset('form/getDamage') }}/"+amp[i], 
@@ -368,6 +370,8 @@
                 { label:" "+amp[7],layer: stations8,},
                 { label:" "+amp[8],layer: stations9,},
                 { label:" "+amp[9],layer: stations10},
+                { label:" "+amp[10],layer: stations11},
+                { label:" "+amp[12],layer: stations12}
             ]
         };
 
