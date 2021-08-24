@@ -287,7 +287,7 @@
 						.on('ready', function() {
 						this.setStyle({
                             fillOpacity: 0,
-                            color: "#466DF3",
+                            color: "#994F3E",
                             weight: 2
 						});
 			}).addTo(borders); 
