@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //////// test return data ////////
 Route::get('/testing/emailsend', 'TestingEmailController@testingemail');
 Route::get('/testing/emailsendperuser/{updateByEmail}', 'TestingEmailController@sendingEmailByPerUser');
@@ -44,6 +45,7 @@ Route::get('/report/mapCM', 'MapController@getDamageByAmpFang');
 
 // --Drop Down select AMP or tambol to gen pdf --
 Route::get('/reports/map', 'MapController@getDamageByAmpG'); 
+// Route::get('/reports/map', 'MapController@getDamageByAmpFang'); 
 Route::get('/reports/problem', function () {return view('general/problem');});
 Route::get('reports/problem/pdf', "pdfController@tablegen")->name('reports/pdf');
 Route::get('/reports/solution', function () {return view('general/solution');});
@@ -74,7 +76,7 @@ Route::get('form/questionnaire2', "QuestionController2@questionnaire2")->name('f
 Route::get('form/questionnaire3', "QuestionController3@questionnaire3")->name('form.Qnaire3');
 Route::get('form/questionnaire4', "QuestionController4@questionnaire4")->name('form.Qnaire4');
 
-Route::get('form/questionnaire5/{id}', "QuestionController5@questionnaire5")->name('form.Qnaire5');
+Route::get('form/uploadimage/{id}', "QuestionController5@questionnaire5")->name('form.Qnaire5');
 Route::get('photoremove/{id}', "QuestionController5@photoremove");
 
 
