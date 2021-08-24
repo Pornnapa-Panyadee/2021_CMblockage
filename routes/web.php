@@ -176,7 +176,8 @@ Route::get('api/solution', "DataForExpertController@getsolutionPDF");
 
 // report Expet
 Route::get('/expert','DataForExpertController@getDataforexpert')->name('expert.expert');
-Route::get('expert/report/{id}','DataForExpertController@reportExpert');
+Route::get('expert/report/{id}','DataForExpertController@reportExpert')->name('expert.report');
+Route::post('expert/edit','FormBlockageController@updateForExpert')->name('expert.edit');
 Route::get('report/pdf/{id}','DataForExpertController@expertPDF')->name('report.pdf');
 
 Route::get('expert/photo/{id}','DataForExpertController@showPhoto')->name('expert.photo');

@@ -187,272 +187,277 @@
                                                             <h4> รหัสตำแหน่งกีดขวางที่: {{ $data[0]->blk_code }} </h4>
                                                         </div>
                                                         <h3><span class="number">1 </span>  ข้อมูลจากการสำรวจ  </h3> 
-                                                        <div class="title m-b-md">
-                                                            <table  width="80%" align="center">
-                                                                   
-                                                                    <tr>
-                                                                        <td>ชื่อลำน้ำ {{ $data[0]->river->river_name }}</td>
-                                                                        <td colspan="2"> เป็นสาขาของแม่น้ำ  {{  $data[0]->river->river_main  }} </td>
-                                                                        <td>ประเภทลำน้ำ {{ $data[0]->river->river_type }}</td>
-                                                                        
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>หมู่บ้าน {{$data[0]->blockageLocation->blk_village}}</td>
-                                                                        <td>ตำบล {{$data[0]->blockageLocation->blk_tumbol }}  </td>
-                                                                        <td>อำเภอ {{  $data[0]->blockageLocation->blk_district  }}</td>
-                                                                        <td>จังหวัด {{  $data[0]->blockageLocation->blk_province  }}</td>
-                                                                    </tr>
-                                                            </table>
-                                        
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <td colspan="4" class="text-center" style="background-color:#C0C0C0">พิกัดเริ่มปัญหา</td>
-                                                                        <td colspan="4" class="text-center" style="background-color:#C0C0C0">พิกัดสิ้นสุดปัญหา</td>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr align="center">
-                                                                        <td width="5%">X(UTM)</td>
-                                                                        <td>{{$data[0]->blockageLocation->blk_start_utm->getLat()}}</td>
-                                                                        <td width="5%">Y(UTM)</td>
-                                                                        <td>{{$data[0]->blockageLocation->blk_start_utm->getLng()}}</td>
-                                                                        <td width="5%">X(UTM)</td>
-                                                                        <td>{{$data[0]->blockageLocation->blk_end_utm->getLat()}}</td>
-                                                                        <td width="5%">Y(UTM)</td>
-                                                                        <td>{{$data[0]->blockageLocation->blk_end_utm->getLng()}}</td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <td colspan="2" class="text-center" style="background-color:#C0C0C0">หน้าตัดลำน้ำที่เกิดปัญหา</td>
-                                                                        <td colspan="3"  class="text-center" style="background-color:#C0C0C0">กว้าง (เมตร)</td>
-                                                                        <td colspan="3"  class="text-center" style="background-color:#C0C0C0">ลึก (เมตร)</td>
-                                                                        <td colspan="3"  class="text-center" style="background-color:#C0C0C0">ความชันตลิ่ง</td>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td colspan="2">หน้าตัดลำน้ำเดิมในอดีตก่อนเกิดปัญหา</td>
-                                                                        <td colspan="3"  class="text-center" >{{ checkZero($pastData->width)}}</td>
-                                                                        <td colspan="3"  class="text-center" >{{checkZero($pastData->depth) }}</td>
-                                                                        <td colspan="3"  class="text-center" >{{ checkZero($pastData->slop) }}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td colspan="2">หน้าตัดลำน้ำก่อนถึงที่เกิดปัญหา</td>
-                                                                        <td colspan="3"  class="text-center" >{{ checkZero($current_start->width) }}</td>
-                                                                        <td colspan="3"  class="text-center" >{{ checkZero($current_start->depth) }}</td>
-                                                                        <td colspan="3"  class="text-center" >{{checkZero($current_start->slop) }}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td colspan="11">หน้าตัดที่แคบที่สุดของช่วงที่เกิดปัญหา</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td colspan="2"> - ทางน้ำเปิด</td>
-                                                                        <td colspan="3"  class="text-center">{{ checkZero($current_narrow_new->waterway->width )}} </td>
-                                                                        <td colspan="3"  class="text-center">{{ checkZero($current_narrow_new->waterway->depth) }}</td>
-                                                                        <td colspan="3"  class="text-center">{{ checkZero($current_narrow_new->waterway->slop) }} </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td rowspan="2"> - กรณีท่อลอด</td>
-                                                                        <td>ท่อกลม</td>
-                                                                        <td colspan="3" style="border: none;"> เส้นผ่านศูนย์กลาง</td>
-                                                                        <td colspan="2" class="text-center"> {{ checkZero($current_narrow_new->round->diameter)}} </td> 
-                                                                        <td>เมตร</td>
-                                                                        <td> จำนวนท่อ </td>
-                                                                        <td class="text-center"> {{ checkZero($current_narrow_new->round->num) }} </td>
-                                                                        <td> ช่อง</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>ท่อเหลี่ยม</td>
-                                                                        <td>กว้าง </td>
-                                                                        <td class="text-center">{{ checkZero($current_narrow_new->square->width) }}  </td>
-                                                                        <td>เมตร</td>
-                                                                        <td>สูง </td>
-                                                                        <td class="text-center"> {{ checkZero($current_narrow_new->square->high)}} </td>
-                                                                        <td> เมตร</td>
-                                                                        <td>จำนวนท่อ </td>
-                                                                        <td class="text-center">{{ checkZero($current_narrow_new->square->num)}}  </td>
-                                                                        <td>ช่อง</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td colspan="2"> - อื่นๆ</td>
-                                                                        <td colspan="9"> {{ checkZero($current_narrow_new->other->detail) }} </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td colspan="2">หน้าตัดลำน้ำด้านท้ายน้ำหลังช่วงที่เกิดปัญหา</td>
-                                                                        <td class="text-center" colspan="3">{{ checkZero($current_end->width)  }}</td>
-                                                                        <td class="text-center" colspan="3">{{ checkZero($current_end->depth)}} </td>
-                                                                        <td class="text-center" colspan="3">{{ checkZero($current_end->slope) }}</td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-
-                                                            <table  width=90% style="margin-left: 20px;">
-                                                                    <tr>
+                                                        <form action="{{ route('expert.edit') }}" method="post" enctype="multipart/form-data" onsubmit="return confirm('บันทึกข้อมูล !!');">
+                                                            {{ csrf_field() }}
+                                                            <div class="title m-b-md">
+                                                                <input type="text" id="blk_id" name="blk_id" hidden value="{{ $data[0]->blk_id }}">
+                                                                <input type="text" id="blk_code" name="blk_code" hidden value="{{ $data[0]->blk_code }}">
+                                                                <table  width="80%" align="center">
                                                                         <tr>
-                                                                            <td colspan="2"><b>ความยาวของช่วงลำน้ำที่เกิดปัญหา เป็นจุดระยะ </b> {{checkZero($data[0]->blk_length_type)}} </td>
-                                                                            <td ><b>การดาดผิวของน้ำ</b> {{checkZero($data[0]->blk_surface)}}</td>
-                                                                            <td ><b>วัสดุที่ใช้ดาดผิวของน้ำ</b> {{checkZero($data[0]->blk_surface_detail)}}</td>
-                                                                        </tr>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td width=20%><b>ลักษณะความเสียหาย </b> {{ checkDamage($damageData->flood,$damageData->waste,$damageData->other->level)}}</td>
-                                                                        <td width=30%><b>ระดับ</b> {{checklevel($damageData->flood,$damageData->waste,$damageData->other->level)}}</td>
-                                                                        <td><b>ความถี่ที่เกิดความเสียหาย </b> {{checkZero($data[0]->damage_frequency)}} </td>
-                                                                    </tr>
-                                                            </table>
-                                                            <table  width=90% style="margin-left: 20px;">
-                                                                    <tr>
-                                                                        <td colspan="3"><b>สาเหตุของการกีดขวางลำน้ำ</b></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td colspan="1" width=15%> &nbsp;&nbsp;&nbsp;> <b>โดยธรรมชาติ</b></td>
-                                                                        <td colspan="2">{{checkZero($nut)}}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td  width=15% valign="top"> &nbsp;&nbsp;&nbsp;> <b>โดยมนุษย์</b></td>
-                                                                        <td width=3% valign="top"> จาก</td>
-                                                                        <td >
-                                                                            <?php 
-                                                                                $n=0;
-                                                                                    for($i=0;$i<5;$i++){
-                                                                                        if($hum[$i]!=NULL){
-                                                                                            echo $hum[$i]."<br>";
-                                                                                        }else{
-                                                                                            $n=$n+1;
-                                                                                        }
-                                                                                    }
-                                                                                if($n==5){
-                                                                                    echo "-";
-                                                                                }
-                                                                            ?>
-                                                                        </td>
-                                                                    </tr>
-                                                            </table>
-                                        
-                                                            <table width=90% style="margin-left: 20px;">
-                                                                <tr>
-                                                                    <td width=20%> <b>ระดับการกีดขว้าง</b> {{checkProbleLevel($problem[0]->prob_level)}}</td>
-                                                                    <td><b>คิดเป็น</b> {{checkZero($problem[0]->prob_level)}}</td>
-                                                                    <td><b>หน่วยงานการดำเนินการแก้ไข</b> {{checkZero($solution_id[0]->responsed_dept)}}</td>
-                                                                </tr>
-                                                                    <tr>
-                                                                        <td><b>โดยวิธี </b>{{$solution_id[0]->sol_how}}</td>
-                                                                        <td colspan="2"><b>ผลการดำเนินการ</b> {{checkZero($solution_id[0]->result)}} </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td colspan="3"><b>สภาพในปัจจุบันของโครงการที่แก้ไขปัญหา</b> {{checkPlan($project_id[0]->proj_status,$project_id[0]->proj_year,$project_id[0]->proj_char,$project_id[0]->proj_budget)}}</td>
-                                                                    </tr>
-                                                            </table>
-                                                            <br><br>
-                                                            <h3><span class="number">2 </span>  รูปภาพประกอบ </h3> 
-                                                            <table class="table table-bordered">
-                                                                
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td align="center"> 
-                                                                            <?php 
-                                                                               if($photo_Blockage[0]->thumbnail_name!=NULL){?>
-                                                                                <img src="{{asset($photo_Blockage[0]->thumbnail_name) }}">
-                                                                            <?php } ?>
-                                                                        </td>
-                                                                        <td align="center">
-                                                                            <?php if($photo_Blockage[1]->thumbnail_name!=NULL){?>
-                                                                                <img src="{{asset($photo_Blockage[1]->thumbnail_name) }}">
-                                                                            <?php }?>
+                                                                            <td>ชื่อลำน้ำ {{ $data[0]->river->river_name }}</td>
+                                                                            <td colspan="2"> เป็นสาขาของแม่น้ำ  {{  $data[0]->river->river_main  }} </td>
+                                                                            <td>ประเภทลำน้ำ {{ $data[0]->river->river_type }}</td>
                                                                             
-                                                                        </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>หมู่บ้าน {{$data[0]->blockageLocation->blk_village}}</td>
+                                                                            <td>ตำบล {{$data[0]->blockageLocation->blk_tumbol }}  </td>
+                                                                            <td>อำเภอ {{  $data[0]->blockageLocation->blk_district  }}</td>
+                                                                            <td>จังหวัด {{  $data[0]->blockageLocation->blk_province  }}</td>
+                                                                        </tr>
+                                                                </table>
+                                            
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td colspan="4" class="text-center" style="background-color:#C0C0C0">พิกัดเริ่มปัญหา</td>
+                                                                            <td colspan="4" class="text-center" style="background-color:#C0C0C0">พิกัดสิ้นสุดปัญหา</td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr align="center">
+                                                                            <td width="5%">X(UTM)</td>
+                                                                            <td>{{$data[0]->blockageLocation->blk_start_utm->getLat()}}</td>
+                                                                            <td width="5%">Y(UTM)</td>
+                                                                            <td>{{$data[0]->blockageLocation->blk_start_utm->getLng()}}</td>
+                                                                            <td width="5%">X(UTM)</td>
+                                                                            <td>{{$data[0]->blockageLocation->blk_end_utm->getLat()}}</td>
+                                                                            <td width="5%">Y(UTM)</td>
+                                                                            <td>{{$data[0]->blockageLocation->blk_end_utm->getLng()}}</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
 
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                            <br><br>
-                                                            <h3><span class="number">3 </span>  ข้อมูลสำหรับผู้เชียวชาญ  </h3> 
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td colspan="2" class="text-center" style="background-color:#C0C0C0">หน้าตัดลำน้ำที่เกิดปัญหา</td>
+                                                                            <td colspan="3"  class="text-center" style="background-color:#C0C0C0">กว้าง (เมตร)</td>
+                                                                            <td colspan="3"  class="text-center" style="background-color:#C0C0C0">ลึก (เมตร)</td>
+                                                                            <td colspan="3"  class="text-center" style="background-color:#C0C0C0">ความชันตลิ่ง</td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td colspan="2">หน้าตัดลำน้ำเดิมในอดีตก่อนเกิดปัญหา</td>
+                                                                            <td colspan="3"  class="text-center" >{{ checkZero($pastData->width)}}</td>
+                                                                            <td colspan="3"  class="text-center" >{{checkZero($pastData->depth) }}</td>
+                                                                            <td colspan="3"  class="text-center" >{{ checkZero($pastData->slop) }}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2">หน้าตัดลำน้ำก่อนถึงที่เกิดปัญหา</td>
+                                                                            <td colspan="3"  class="text-center" >{{ checkZero($current_start->width) }}</td>
+                                                                            <td colspan="3"  class="text-center" >{{ checkZero($current_start->depth) }}</td>
+                                                                            <td colspan="3"  class="text-center" >{{checkZero($current_start->slop) }}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="11">หน้าตัดที่แคบที่สุดของช่วงที่เกิดปัญหา</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2"> - ทางน้ำเปิด</td>
+                                                                            <td colspan="3"  class="text-center">{{ checkZero($current_narrow_new->waterway->width )}} </td>
+                                                                            <td colspan="3"  class="text-center">{{ checkZero($current_narrow_new->waterway->depth) }}</td>
+                                                                            <td colspan="3"  class="text-center">{{ checkZero($current_narrow_new->waterway->slop) }} </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td rowspan="2"> - กรณีท่อลอด</td>
+                                                                            <td>ท่อกลม</td>
+                                                                            <td colspan="3" style="border: none;"> เส้นผ่านศูนย์กลาง</td>
+                                                                            <td colspan="2" class="text-center"> {{ checkZero($current_narrow_new->round->diameter)}} </td> 
+                                                                            <td>เมตร</td>
+                                                                            <td> จำนวนท่อ </td>
+                                                                            <td class="text-center"> {{ checkZero($current_narrow_new->round->num) }} </td>
+                                                                            <td> ช่อง</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>ท่อเหลี่ยม</td>
+                                                                            <td>กว้าง </td>
+                                                                            <td class="text-center">{{ checkZero($current_narrow_new->square->width) }}  </td>
+                                                                            <td>เมตร</td>
+                                                                            <td>สูง </td>
+                                                                            <td class="text-center"> {{ checkZero($current_narrow_new->square->high)}} </td>
+                                                                            <td> เมตร</td>
+                                                                            <td>จำนวนท่อ </td>
+                                                                            <td class="text-center">{{ checkZero($current_narrow_new->square->num)}}  </td>
+                                                                            <td>ช่อง</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2"> - อื่นๆ</td>
+                                                                            <td colspan="9"> {{ checkZero($current_narrow_new->other->detail) }} </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2">หน้าตัดลำน้ำด้านท้ายน้ำหลังช่วงที่เกิดปัญหา</td>
+                                                                            <td class="text-center" colspan="3">{{ checkZero($current_end->width)  }}</td>
+                                                                            <td class="text-center" colspan="3">{{ checkZero($current_end->depth)}} </td>
+                                                                            <td class="text-center" colspan="3">{{ checkZero($current_end->slope) }}</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
 
+                                                                <table  width=90% style="margin-left: 20px;">
+                                                                        <tr>
+                                                                            <tr>
+                                                                                <td colspan="2"><b>ความยาวของช่วงลำน้ำที่เกิดปัญหา เป็นจุดระยะ </b> {{checkZero($data[0]->blk_length_type)}} </td>
+                                                                                <td ><b>การดาดผิวของน้ำ</b> {{checkZero($data[0]->blk_surface)}}</td>
+                                                                                <td ><b>วัสดุที่ใช้ดาดผิวของน้ำ</b> {{checkZero($data[0]->blk_surface_detail)}}</td>
+                                                                            </tr>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width=20%><b>ลักษณะความเสียหาย </b> {{ checkDamage($damageData->flood,$damageData->waste,$damageData->other->level)}}</td>
+                                                                            <td width=30%><b>ระดับ</b> {{checklevel($damageData->flood,$damageData->waste,$damageData->other->level)}}</td>
+                                                                            <td><b>ความถี่ที่เกิดความเสียหาย </b> {{checkZero($data[0]->damage_frequency)}} </td>
+                                                                        </tr>
+                                                                </table>
+                                                                <table  width=90% style="margin-left: 20px;">
+                                                                        <tr>
+                                                                            <td colspan="3"><b>สาเหตุของการกีดขวางลำน้ำ</b></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="1" width=15%> &nbsp;&nbsp;&nbsp;> <b>โดยธรรมชาติ</b></td>
+                                                                            <td colspan="2">{{checkZero($nut)}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td  width=15% valign="top"> &nbsp;&nbsp;&nbsp;> <b>โดยมนุษย์</b></td>
+                                                                            <td width=3% valign="top"> จาก</td>
+                                                                            <td >
+                                                                                <?php 
+                                                                                    $n=0;
+                                                                                        for($i=0;$i<5;$i++){
+                                                                                            if($hum[$i]!=NULL){
+                                                                                                echo $hum[$i]."<br>";
+                                                                                            }else{
+                                                                                                $n=$n+1;
+                                                                                            }
+                                                                                        }
+                                                                                    if($n==5){
+                                                                                        echo "-";
+                                                                                    }
+                                                                                ?>
+                                                                            </td>
+                                                                        </tr>
+                                                                </table>
+                                            
+                                                                <table width=90% style="margin-left: 20px;">
+                                                                    <tr>
+                                                                        <td width=20%> <b>ระดับการกีดขว้าง</b> {{checkProbleLevel($problem[0]->prob_level)}}</td>
+                                                                        <td><b>คิดเป็น</b> {{checkZero($problem[0]->prob_level)}}</td>
+                                                                        <td><b>หน่วยงานการดำเนินการแก้ไข</b> {{checkZero($solution_id[0]->responsed_dept)}}</td>
+                                                                    </tr>
+                                                                        <tr>
+                                                                            <td><b>โดยวิธี </b>{{$solution_id[0]->sol_how}}</td>
+                                                                            <td colspan="2"><b>ผลการดำเนินการ</b> {{checkZero($solution_id[0]->result)}} </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="3"><b>สภาพในปัจจุบันของโครงการที่แก้ไขปัญหา</b> {{checkPlan($project_id[0]->proj_status,$project_id[0]->proj_year,$project_id[0]->proj_char,$project_id[0]->proj_budget)}}</td>
+                                                                        </tr>
+                                                                </table>
+                                                                <br><br>
+                                                                <h3><span class="number">2 </span>  รูปภาพประกอบ </h3> 
 
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <td colspan="2" style="background-color:#C0C0C0">คำอธิบายสภาพปัญหา</td>
-
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td class="text-center" style="background-color:#C0C0C0" widht=30%>คำอธิบายสภาพปัญหาเบื้องต้น</td>
-                                                                        <td class="text-center" style="background-color:#C0C0C0" >ข้อมูลพื้นที่รับน้ำของตำแน่งที่เกิดปัญหา</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td  ><textarea rows="8" cols="50" style="color:#000;"> {{checkZero($expert[0]->exp_problem)}} </textarea></td>
-                                                                        <td rowspan="3">
-                                                                            <table class="table table-bordered">
-                                                                                <tr>
-                                                                                    <td>พื้นที่ลาดชัน : </td>
-                                                                                    <td><input type="text" value='{{checkZero($expert[0]->exp_slope)}}'></td>
-                                                                                    <td></td>
-                                                                                </tr>    
-                                                                                <tr>
-                                                                                    <td>A =</td>
-                                                                                    <td><input type="text" value=' {{checkZero($expert[0]->exp_area)}}'></td>
-                                                                                    <td>ตารางกิโลเมตร</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td> L0 =</td>
-                                                                                    <td><input type="text" value=' {{checkZero($expert[0]->exp_L0)}}'></td>
-                                                                                    <td>กิโลเมตร</td>
-                                                                                </tr>
-                                                                              
-                                                                                <tr>
-                                                                                    <td> H =</td>
-                                                                                    <td><input type="text" value=' {{checkZero($expert[0]->exp_H)}}'></td>
-                                                                                    <td>เมตร</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td> C  =</td>
-                                                                                    <td><input type="text" value=' {{checkZero($expert[0]->exp_C)}}'></td>
-                                                                                    <td></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td> tc  =</td>
-                                                                                    <td><input type="text" value=' {{checkZero($expert[0]->exp_tc)}}'></td>
-                                                                                    <td>ชั่วโมง</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td> I  =</td>
-                                                                                    <td><input type="text" value=' {{checkZero($expert[0]->exp_I)}}'></td>
-                                                                                    <td>มิลลิเมตร</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td> อัตราการไหลสูงสุด  =</td>
-                                                                                    <td><input type="text" value=' {{checkZero($expert[0]->exp_maxflow)}}'></td>
-                                                                                    <td>m<sup>3</sup>/s</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td> Return period  =</td>
-                                                                                    <td><input type="text" value=' {{checkZero($expert[0]->exp_returnPeriod)}}'></td>
-                                                                                    <td>ปี</td>
-                                                                                </tr>
-
-                                                                            </table>  
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-center" style="background-color:#C0C0C0">แนวทางการแก้ไขเบื้องต้น</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td ><textarea rows="8" cols="50" style="color:#000;"> {{checkZero($expert[0]->exp_solution)}} </textarea></td>
-                                                                    </tr>
+                                                                <table class="table table-bordered">
                                                                     
-                                                                </tbody>
-                                                                
-                                                            </table>
-                                                           
-                                                            <button type="submit" class="butsummit" >บันทึกข้อมูล</button>
-                                                        </div>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td align="center"> 
+                                                                                <?php 
+                                                                                if($photo_Blockage[0]->thumbnail_name!=NULL){?>
+                                                                                    <img src="{{asset($photo_Blockage[0]->thumbnail_name) }}">
+                                                                                <?php } ?>
+                                                                            </td>
+                                                                            <td align="center">
+                                                                                <?php if($photo_Blockage[1]->thumbnail_name!=NULL){?>
+                                                                                    <img src="{{asset($photo_Blockage[1]->thumbnail_name) }}">
+                                                                                <?php }?>
+                                                                                
+                                                                            </td>
+
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <br><br>
+                                                                <h3><span class="number">3 </span>  ข้อมูลสำหรับผู้เชียวชาญ  </h3> 
+
+
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td colspan="2" style="background-color:#C0C0C0">คำอธิบายสภาพปัญหา</td>
+
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="text-center" style="background-color:#C0C0C0" widht=30%>คำอธิบายสภาพปัญหาเบื้องต้น</td>
+                                                                            <td class="text-center" style="background-color:#C0C0C0" >ข้อมูลพื้นที่รับน้ำของตำแน่งที่เกิดปัญหา</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td  ><textarea rows="8" cols="50" style="color:#000;" id="problem" name="problem"> {{checkZero($expert[0]->exp_problem)}} </textarea></td>
+                                                                            <td rowspan="3">
+                                                                                <table class="table table-bordered">
+                                                                                    <tr>
+                                                                                        <td>พื้นที่ลาดชัน : </td>
+                                                                                        <td><input type="text"  id="exp_slope" name="exp_slope" value='{{checkZero($expert[0]->exp_slope)}}'></td>
+                                                                                        <td></td>
+                                                                                    </tr>    
+                                                                                    <tr>
+                                                                                        <td>A =</td>
+                                                                                        <td><input type="text" id="exp_area" name="exp_area" value=' {{checkZero($expert[0]->exp_area)}}'></td>
+                                                                                        <td>ตารางกิโลเมตร</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td> L0 =</td>
+                                                                                        <td><input type="text" id="exp_L0" name="exp_L0" value=' {{checkZero($expert[0]->exp_L0)}}'></td>
+                                                                                        <td>กิโลเมตร</td>
+                                                                                    </tr>
+                                                                                
+                                                                                    <tr>
+                                                                                        <td> H =</td>
+                                                                                        <td><input type="text" id="exp_H" name="exp_H" value=' {{checkZero($expert[0]->exp_H)}}'></td>
+                                                                                        <td>เมตร</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td> C  =</td>
+                                                                                        <td><input type="text" id="exp_C" name="exp_C" value=' {{checkZero($expert[0]->exp_C)}}'></td>
+                                                                                        <td></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td> tc  =</td>
+                                                                                        <td><input type="text" id="exp_tc" name="exp_tc" value=' {{checkZero($expert[0]->exp_tc)}}'></td>
+                                                                                        <td>ชั่วโมง</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td> I  =</td>
+                                                                                        <td><input type="text" id="exp_I" name="exp_I" value=' {{checkZero($expert[0]->exp_I)}}'></td>
+                                                                                        <td>มิลลิเมตร</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td> อัตราการไหลสูงสุด  =</td>
+                                                                                        <td><input type="text" id="exp_maxflow" name="exp_maxflow" value=' {{checkZero($expert[0]->exp_maxflow)}}'></td>
+                                                                                        <td>m<sup>3</sup>/s</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td> Return period  =</td>
+                                                                                        <td><input type="text" id="exp_returnPeriod" name="exp_returnPeriod" value=' {{checkZero($expert[0]->exp_returnPeriod)}}'></td>
+                                                                                        <td>ปี</td>
+                                                                                    </tr>
+
+                                                                                </table>  
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-center" style="background-color:#C0C0C0">แนวทางการแก้ไขเบื้องต้น</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td ><textarea rows="8" cols="50" id="exp_solution" name="exp_solution" style="color:#000;"> {{checkZero($expert[0]->exp_solution)}} </textarea></td>
+                                                                        </tr>
+                                                                        
+                                                                    </tbody>
+                                                                    
+                                                                </table>
+                                                            
+                                                                <button type="submit" class="butsummit" >บันทึกข้อมูล</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
