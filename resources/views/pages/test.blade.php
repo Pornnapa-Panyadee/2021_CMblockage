@@ -193,7 +193,7 @@
     <script>
         var sliderControl = null;
 
-        var myMap = L.map('map').setView([19.75755, 99.5995964], 9);
+        var myMap = L.map('map').setView([18.782687, 98.993518], 8);
 
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {}).addTo(myMap);
         //Fetch some data from a GeoJSON file
