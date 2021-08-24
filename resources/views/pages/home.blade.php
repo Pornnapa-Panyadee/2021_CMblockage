@@ -283,7 +283,7 @@
             zoom: 9,
         });
 
-        var runLayer = omnivore.kml('{{ asset('kml/Amphoe_9ChiangRai.kml') }}')
+        var runLayer = omnivore.kml('{{ asset('kml/CM_bound-25-amphoe.kml') }}')
 						.on('ready', function() {
 						this.setStyle({
 						color: "#466DF3",
