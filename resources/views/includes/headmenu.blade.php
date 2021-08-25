@@ -27,7 +27,7 @@
                         <ul class="navbar-nav ml-auto navbar-right-top">
                             
                              <li class="nav-item dropdown " style="padding-bottom:-20px;">
-                                <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><font style="font-size:1vw;">ข้อมูลสิ่งกีดขวางทางน้ำ</font></a>
+                                <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ข้อมูลสิ่งกีดขวางทางน้ำ</a>
                                 <div class="dropdown-menu dropdown-menu-right" style="padding:20px 0 20px ; background-color:#b3d6ff ; font-size:16px;"  >
                                     <a class="dropdown-item" href="{{ asset('/reports/map')}}">แผนที่ตำแหน่งสิ่งกีดขวางตามความเสี่ยง</a>
                                     <a class="dropdown-item" href="{{ asset('/chart?amp=รวม')}}">กราฟแสดงการจำแนกสภาพปัญหา</a>
@@ -38,7 +38,7 @@
                             </li>
 
                              <li class="nav-item dropdown " style="padding-bottom:-20px;">
-                                <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><font style="font-size:1vw;">คลังความรู้ </font></a>
+                                <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">คลังความรู้ </a>
                                 <div class="dropdown-menu dropdown-menu-right" style="padding:20px 0 20px ; background-color:#b3d6ff ; font-size:16px;"  >
                                     <!-- <a class="dropdown-item" href="https://www.landslide-chiangrai.net/">แผนที่ความเสี่ยงดินถล่มเชิงพลวัต </a> -->
                                     <a class="dropdown-item" href="{{ asset('/pdf/flood-preparedness.pdf')}}">คู่มือสถานการณ์น้ำท่วม</a>
@@ -49,7 +49,7 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown ">
-                                <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><font style="font-size:1vw;">เกี่ยวกับโครงการ</font></a>
+                                <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">เกี่ยวกับโครงการ</a>
                                 <div class="dropdown-menu dropdown-menu-right" style="padding:20px 0 20px ; background-color:#b3d6ff ; font-size:16px;"  >
                                     <a class="dropdown-item" href="{{ asset('/projectInfomation')}}">ที่มาโครงการ</a>
                                     
@@ -57,13 +57,13 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown ">
-                                <a class="nav-link nav-user-img" href="{{ asset('/contact')}}" ><font style="font-size:1vw;">ติดต่อเรา</font></a>
+                                <a class="nav-link nav-user-img" href="{{ asset('/contact')}}" >ติดต่อเรา</a>
                                
                             </li>
                                 
                                 @guest
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}"><font style="font-size:1vw;">{{ __('เข้าสู่ระบบ') }}</font></a>
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('เข้าสู่ระบบ') }}</a>
                                     </li>
                                     @if (Route::has('register'))
                                         
