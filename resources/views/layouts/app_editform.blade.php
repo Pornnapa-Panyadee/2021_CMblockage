@@ -87,7 +87,7 @@
             color: #3042fa;
             box-shadow: 0 1px 0 rgb(0 0 0 / 3%) inset;
         }
-        input[type="text"],select{
+        input[type="text"],input[type="date"],select{
             color: #3042fa;
         }
         label{
