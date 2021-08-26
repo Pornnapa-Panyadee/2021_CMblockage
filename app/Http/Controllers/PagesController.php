@@ -340,7 +340,7 @@ class PagesController extends Controller
       $json = file_get_contents('https://cmblockage.cmfightflood.com/getBlockageID/'.$uid);
       $obj = json_decode($json);
 
-      dd($obj); 
+      // dd($obj); 
       $damage_type = json_decode($obj[0]->damage_type);
       $damage_level = json_decode($obj[0]->damage_level);
       // dd($damage_type);
