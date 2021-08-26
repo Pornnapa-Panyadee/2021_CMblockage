@@ -339,6 +339,8 @@ class PagesController extends Controller
       $river = River::where('river_id',$data[0]->river_id )->get();
       $json = file_get_contents('https://cmblockage.cmfightflood.com/getBlockageID/'.$uid);
       $obj = json_decode($json);
+
+      dd($obj); 
       $damage_type = json_decode($obj[0]->damage_type);
       $damage_level = json_decode($obj[0]->damage_level);
       // dd($damage_type);
@@ -355,7 +357,7 @@ class PagesController extends Controller
       $temp = BlockageCrossection::where('blk_id', $uid)->value('current_brigde');
       $blk_crossection_current_brigde = json_decode($temp);
      
-      // dd($obj[0]);    
+         
       if($obj[0]->blk_length_type=="มากกว่า 1 กิโลเมตร"||$obj[0]->blk_length_type=="น้อยกว่า 10 เมตร"){
         $len_prob_value_btw="-- ระบุระยะ --";
         $len_prob_value=$obj[0]->blk_length;

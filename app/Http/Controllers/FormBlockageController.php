@@ -237,8 +237,8 @@ class FormBlockageController extends Controller
                     'blk_surface'=>$request->blk_surface,
                     'blk_surface_detail'=>$request->blk_surface_detail,
                     'proj_id'=>$projectId,
-                    'blk_slope_bed'=>$request->blk_slope_bed
-
+                    'blk_slope_bed'=>$request->blk_slope_bed,
+                    'survey_date'=>$request->survey_date
                 ]
             );
             $Blockage->save();
@@ -685,7 +685,8 @@ class FormBlockageController extends Controller
                             'damage_frequency' => $request->damage_frequency,
                             'blk_surface'=>$request->blk_surface,
                             'blk_surface_detail'=>$request->blk_surface_detail,
-                            'blk_slope_bed'=>$request->blk_slope_bed
+                            'blk_slope_bed'=>$request->blk_slope_bed,
+                            'survey_date'=>$request->survey_date
                 ]);
         /////////--------blockage_location-------------/////////
             $locLocation = BlockageLocation::where('blk_location_id', $data->blk_location_id)
