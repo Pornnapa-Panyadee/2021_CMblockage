@@ -90,6 +90,11 @@
                                                         <td><input type="text" id="river_main" name="river_main" value='{{ $river[$id]->river_main ?? "" }}' placeholder="-- กรอกชื่อ --" required></td>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <th> วันที่ทำการสำรวจ </th>
+                                                        <td><input type="date" id="survey_date" name="survey_date" placeholder="dd-mm-yyyy" value='{{ $obj[$id]->survey_date }}'  >
+                                                        </td>
+                                                    </tr>
                                                 </table>
                                                 <br>
                                                 {{-- 1 ลักษณะทั่วไป--}}

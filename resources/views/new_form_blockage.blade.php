@@ -68,6 +68,11 @@
                                                         <td><input type="text" id="river_main" name="river_main" placeholder="-- กรอกชื่อ --" >
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <th> วันที่ทำการสำรวจ </th>
+                                                        <td><input type="date" id="survey_date" name="survey_date" placeholder="dd-mm-yyyy" placeholder="-- กรอกวันที่ --" >
+                                                        </td>
+                                                    </tr>
                                                 </table>
                                                 <br>
                                                 {{-- 1 ลักษณะทั่วไป--}}
@@ -82,6 +87,7 @@
                                                                 <option value="แม่น้ำสายหลัก">แม่น้ำสายหลัก</option>
                                                                 <option value="แม่น้ำสาขา">แม่น้ำสาขา</option>
                                                                 <option value="ลำห้วย">ลำห้วย</option>
+                                                                <option value="ลำเหมือง">ลำเหมือง</option>
                                                             </select>
                                                         </td>
                                                     </tr>
