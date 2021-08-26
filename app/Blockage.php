@@ -25,7 +25,8 @@ class Blockage extends Model
         'blk_surface_detail',
         'proj_id',
         'blk_user_name',
-        'blk_slope_bed'
+        'blk_slope_bed',
+        'survey_date'
     ];
 
     public function blockageLocation() {
