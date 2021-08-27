@@ -47,13 +47,13 @@
                                                 <tr>
                                                     <th scope="col" width="2%;">#</th>
                                                     <th scope="col" width="5%;">รหัส</th>
-                                                    <th scope="col" width="14%;">ลำน้ำ</th>
+                                                    <th scope="col" width="12%;">ลำน้ำ</th>
                                                     <th scope="col" width="8%;">หมู่บ้าน</th>
                                                     <th scope="col" width="4%;">ตำบล</th>
                                                     <th scope="col" width="4%;">อำเภอ</th>
                                                     <th scope="col" width="8%;">วันที่เก็บข้อมูล</th>
                                                     <th scope="col" width="8%;">ผู้สำรวจ</th>
-                                                    <th scope="col" width="20%;"></th>
+                                                    <th scope="col" ></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
