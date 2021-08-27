@@ -47,7 +47,7 @@
                                                 <tr>
                                                     <th scope="col" width="2%;">#</th>
                                                     <th scope="col" width="8%;">รหัส</th>
-                                                    <th scope="col" width="15%;">ลำน้ำ</th>
+                                                    <th scope="col" width="14%;">ลำน้ำ</th>
                                                     <th scope="col" width="8%;">หมู่บ้าน</th>
                                                     <th scope="col" width="4%;">ตำบล</th>
                                                     <th scope="col" width="4%;">อำเภอ</th>
