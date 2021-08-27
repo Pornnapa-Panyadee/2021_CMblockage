@@ -65,7 +65,7 @@
                                                         <td data-label="รหัส">{{$data[$i]->blk_code}}</td>
                                                         <td data-label="ลำน้ำ">{{$data[$i]->River->river_name}}, {{$data[$i]->River->river_main}} </td>
                                                         <td data-label="ที่ตั้ง">{{$data[$i]->blockageLocation->blk_village}} ต.{{$data[$i]->blockageLocation->blk_tumbol}} อ.{{$data[$i]->blockageLocation->blk_district}}</td>
-                                                        <td data-label="วันที่เก็บข้อมูล" align="center">{{$dateT}}</td>
+                                                        <td data-label="วันที่เก็บข้อมูล" align="center">{{$data[$i]->survey_date}}</td>
                                                         <td data-label="ผู้สำรวจ" align="center">{{$data[$i]->blk_user_name}}</td>
                                                         <td data-label="" align="center">
                                                             <div class="btn-group ml-auto">
