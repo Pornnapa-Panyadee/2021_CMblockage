@@ -41,18 +41,18 @@
                                                                   
                                 <div id="tableData">   
                                     <div class="card-body" style="overflow-x:auto;">
-                                        <table class="table_bg table-striped table-bordered first" width=100% align="center">
+                                        <table class="table_bg table-striped table-bordered first" width=95% align="center">
                                         <!-- <table class="table_bg " width="100%" > -->
                                             <thead>
                                                 <tr>
                                                     <th scope="col" width="2%;">#</th>
                                                     <th scope="col" width="8%;">รหัส</th>
-                                                    <th scope="col" width="12%;">ลำน้ำ</th>
+                                                    <th scope="col" width="10%;">ลำน้ำ</th>
                                                     <th scope="col" width="8%;">หมู่บ้าน</th>
                                                     <th scope="col" width="5%;">ตำบล</th>
                                                     <th scope="col" width="5%;">อำเภอ</th>
-                                                    <th scope="col" width="10%;">วันที่เก็บข้อมูล</th>
-                                                    <th scope="col" width="10%;">ผู้สำรวจ</th>
+                                                    <th scope="col" width="8%;">วันที่เก็บข้อมูล</th>
+                                                    <th scope="col" width="8%;">ผู้สำรวจ</th>
                                                     <th scope="col" ></th>
                                                 </tr>
                                             </thead>
