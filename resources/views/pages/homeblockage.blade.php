@@ -46,14 +46,14 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col" width="2%;">#</th>
-                                                    <th scope="col" width="8%;">รหัส</th>
+                                                    <th scope="col" width="5%;">รหัส</th>
                                                     <th scope="col" width="14%;">ลำน้ำ</th>
                                                     <th scope="col" width="8%;">หมู่บ้าน</th>
                                                     <th scope="col" width="4%;">ตำบล</th>
                                                     <th scope="col" width="4%;">อำเภอ</th>
                                                     <th scope="col" width="8%;">วันที่เก็บข้อมูล</th>
                                                     <th scope="col" width="8%;">ผู้สำรวจ</th>
-                                                    <th scope="col" ></th>
+                                                    <th scope="col" width="20%;"></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -69,7 +69,6 @@
                                                         <td data-label="หมู่บ้าน">{{$data[$i]->blockageLocation->blk_village}} </td>
                                                         <td data-label="ตำบล"> ต.{{$data[$i]->blockageLocation->blk_tumbol}} </td>
                                                         <td data-label="อำเภอ">อ.{{$data[$i]->blockageLocation->blk_district}}</td>
-                                                        
                                                         <td data-label="วันที่เก็บข้อมูล" align="center">{{$data[$i]->survey_date}}</td>
                                                         <td data-label="ผู้สำรวจ" align="center">{{$data[$i]->blk_user_name}}</td>
                                                         <td data-label="" align="center">
