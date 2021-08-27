@@ -49,8 +49,8 @@
                                                     <th scope="col" width="8%;">รหัส</th>
                                                     <th scope="col" width="15%;">ลำน้ำ</th>
                                                     <th scope="col" width="8%;">หมู่บ้าน</th>
-                                                    <th scope="col" width="6%;">ตำบล</th>
-                                                    <th scope="col" width="6%;">อำเภอ</th>
+                                                    <th scope="col" width="4%;">ตำบล</th>
+                                                    <th scope="col" width="4%;">อำเภอ</th>
                                                     <th scope="col" width="8%;">วันที่เก็บข้อมูล</th>
                                                     <th scope="col" width="8%;">ผู้สำรวจ</th>
                                                     <th scope="col" ></th>
