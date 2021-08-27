@@ -47,12 +47,12 @@
                                                 <tr>
                                                     <th scope="col" width="2%;">#</th>
                                                     <th scope="col" width="8%;">รหัส</th>
-                                                    <th scope="col" width="10%;">ลำน้ำ</th>
+                                                    <th scope="col" width="15%;">ลำน้ำ</th>
                                                     <th scope="col" width="8%;">หมู่บ้าน</th>
-                                                    <th scope="col" width="5%;">ตำบล</th>
-                                                    <th scope="col" width="5%;">อำเภอ</th>
-                                                    <th scope="col" width="8%;">วันที่เก็บข้อมูล</th>
-                                                    <th scope="col" width="8%;">ผู้สำรวจ</th>
+                                                    <th scope="col" width="8%;">ตำบล</th>
+                                                    <th scope="col" width="8%;">อำเภอ</th>
+                                                    <th scope="col" width="10%;">วันที่เก็บข้อมูล</th>
+                                                    <th scope="col" width="10%;">ผู้สำรวจ</th>
                                                     <th scope="col" ></th>
                                                 </tr>
                                             </thead>
