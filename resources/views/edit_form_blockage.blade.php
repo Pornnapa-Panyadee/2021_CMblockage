@@ -153,6 +153,12 @@
                                                             <div class="invalid-feedback"></div>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td align="right">หมายเหตุ : </td>
+                                                        <td colspan="2">
+                                                            <input type="text" id="comment" name="comment"  value='{{ $obj[$id]->blockage_location->comment }}'  >
+                                                        </td>
+                                                    </tr>
                                                 </table>
                                                 {{-- Location --}}
                                                 <table>

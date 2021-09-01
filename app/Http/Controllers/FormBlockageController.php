@@ -147,7 +147,8 @@ class FormBlockageController extends Controller
                     'blk_district'=>$request->blk_district,
                     'blk_province'=>$request->blk_province,
                     'blk_start_utm'=>$locationSt_utm,
-                    'blk_end_utm'=>$locationFin_utm
+                    'blk_end_utm'=>$locationFin_utm,
+                    'comment'=>$request->comment
                 ]
             );
             // dd($loc);
@@ -698,7 +699,8 @@ class FormBlockageController extends Controller
                     'blk_district'=>$request->blk_district,
                     'blk_province'=>$request->blk_province,
                     'blk_start_utm'=>$locationSt_utm,
-                    'blk_end_utm'=>$locationFin_utm
+                    'blk_end_utm'=>$locationFin_utm,
+                    'comment'=> $request->comment
                 
                     ]);
 
