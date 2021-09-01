@@ -100,7 +100,8 @@
     <script src="{{ asset('js/utmlatlong.js') }}"></script>
 
 </head>
-<body onload="initProj4js()";checkHumStr('{{ $blk_problem_detail[$id]   }}'); loadRadioButton('{{ $uid }}'); loadProjStatus('{{ $blk_project->proj_status }}');">
+<!-- <body onload="initProj4js()";checkHumStr('{{ $blk_problem_detail[$id]   }}'); loadRadioButton('{{ $uid }}'); loadProjStatus('{{ $blk_project->proj_status }}');"> -->
+<body onload="initProj4js()">
     <div id="app">
         <main class="py-4">
             @yield('content')
