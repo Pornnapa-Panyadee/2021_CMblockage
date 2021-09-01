@@ -337,7 +337,7 @@ class PagesController extends Controller
 
       $districtData['data'] = Page::getDistrict();
       $river = River::where('river_id',$data[0]->river_id )->get();
-      $json = file_get_contents('https://cmblockage.cmfightflood.com/getBlockageID/'.$uid);
+      $json = file_get_contents('http://localhost/2021_CMblockage/public/getBlockageID/'.$uid);
       $obj = json_decode($json);
 
       // dd($obj); 
@@ -373,7 +373,8 @@ class PagesController extends Controller
       $ProblemDetail = ProblemDetail::where('blk_id', $uid)->get();
       $solution_id=Solution::where('sol_id',$obj[0]->sol_id)->get();
       $project_id=Project::where('proj_id',$solution_id[0]->proj_id)->get();
-      
+
+      dd($blk_project[0]);
       // dd($project_id);
       if($project_id[0]->proj_status=="plan"){
         $proj =[

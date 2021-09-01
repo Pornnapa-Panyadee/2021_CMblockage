@@ -23,7 +23,8 @@ class BlockageLocation extends Model
         'updated_at',
         'blk_start_utm',
         'blk_end_utm',
-        'code_vill'
+        'code_vill',
+        'comment'
 
       ];
       protected $spatialFields = [
