@@ -374,7 +374,7 @@ class PagesController extends Controller
       $solution_id=Solution::where('sol_id',$obj[0]->sol_id)->get();
       $project_id=Project::where('proj_id',$solution_id[0]->proj_id)->get();
 
-      dd($blk_project[0]);
+      dd($blk_project);
       // dd($project_id);
       if($project_id[0]->proj_status=="plan"){
         $proj =[
