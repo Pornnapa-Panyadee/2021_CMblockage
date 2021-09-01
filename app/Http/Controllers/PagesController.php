@@ -337,7 +337,7 @@ class PagesController extends Controller
 
       $districtData['data'] = Page::getDistrict();
       $river = River::where('river_id',$data[0]->river_id )->get();
-      $json = file_get_contents('http://localhost/2021_CMblockage/public/getBlockageID/'.$uid);
+      $json = file_get_contents('https://cmblockage.cmfightflood.com/getBlockageID/'.$uid);
       $obj = json_decode($json);
 
       // dd($obj); 
