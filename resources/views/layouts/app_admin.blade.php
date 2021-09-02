@@ -118,6 +118,12 @@
     <script src="{{ asset('js/jquery.bootstrap.wizard.min.js') }}"></script>
     <script src="{{ asset('js/be_forms_wizard.min.js') }}"></script>
     <script src= "{{ asset('js/imagePreview.js') }}"></script>
+    <!-- thai date -->
+    <script src= "{{ asset('js/bootstrap-datepicker-thai/css/datepicker.css') }}"></script>
+    <script src= "{{ asset('js/bootstrap-datepicker-thai/js/bootstrap-datepicker.js') }}"></script>
+    <script src= "{{ asset('js/bootstrap-datepicker-thai/js/bootstrap-datepicker-thai.js') }}"></script>
+    <script src= "{{ asset('js/bootstrap-datepicker-thai/js/locales/bootstrap-datepicker.th.js') }}"></script>
+
     <script>
             $(document).ready(function(){
             $("select").change(function(){
@@ -133,6 +139,16 @@
             }).change();
         });
             
+    </script>
+
+    <script>
+        $(function(){
+            $("#survey_date").datepicker({
+                language:'th-th',
+                format:'dd-mm-yyyy',
+                autoclose: true
+            });
+        });
     </script>
     
 
