@@ -118,6 +118,22 @@
     <script src= "{{ asset('js/imagePreview.js') }}"></script>
     <script src="{{ asset('js/radioAndCheckbox.js') }}"></script>
     <script src="{{ asset('js/validateNewForm.js') }}"></script>
+
+    <!-- thai date -->
+    <script src= "{{ asset('js/bootstrap-datepicker-thai/css/datepicker.css') }}"></script>
+    <script src= "{{ asset('js/bootstrap-datepicker-thai/js/bootstrap-datepicker.js') }}"></script>
+    <script src= "{{ asset('js/bootstrap-datepicker-thai/js/bootstrap-datepicker-thai.js') }}"></script>
+    <script src= "{{ asset('js/bootstrap-datepicker-thai/js/locales/bootstrap-datepicker.th.js') }}"></script>
+
+    <script>
+        $(function(){
+            $("#survey_date").datepicker({
+                language:'th-th',
+                format:'dd-mm-yyyy',
+                autoclose: true
+            });
+        });
+    </script>
     
 
 </body>

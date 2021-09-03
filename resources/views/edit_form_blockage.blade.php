@@ -92,7 +92,9 @@
                                                     </tr>
                                                     <tr>
                                                         <th> วันที่ทำการสำรวจ </th>
-                                                        <td><input type="date" id="survey_date" name="survey_date" placeholder="dd-mm-yyyy" value='{{ $obj[$id]->survey_date }}'  >
+                                                        <td>
+                                                            <!-- <input type="date" id="survey_date" name="survey_date" placeholder="dd-mm-yyyy" value='{{ $obj[$id]->survey_date }}'  > -->
+                                                            <input type="text" name="survey_date" id="survey_date" value='{{ $obj[$id]->survey_date }}' />
                                                         </td>
                                                     </tr>
                                                 </table>
