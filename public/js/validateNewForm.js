@@ -116,7 +116,7 @@ function validateCheckbox() {
             // console.log(box);
             if (box) isValid = true;
         });
-        // console.log(isValid);
+        console.log(isValid);
         if (isValid) {
             array.forEach(element => {
                 $(element).removeAttr('required');
