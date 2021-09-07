@@ -83,11 +83,11 @@
                                                     <tr><th colspan="2">ลำน้ำที่เกิดปัญหาการกีดขวางทางน้ำ</th></tr>
                                                     <tr>
                                                         <th width="20%">ชื่อลำน้ำ  </th>
-                                                        <td><input type="text" id="river_name" name="river_name" value='{{ $river[$id]->river_name ?? "" }}' placeholder="-- กรอกชื่อ --" required ></td>
+                                                        <td><input type="text" id="river_name" name="river_name" value='{{ $river[$id]->river_name ?? "" }}' placeholder="-- กรอกชื่อ --" ></td>
                                                     </tr>
                                                     <tr>
                                                         <th> เป็นสาขาของแม่น้ำ </th>
-                                                        <td><input type="text" id="river_main" name="river_main" value='{{ $river[$id]->river_main ?? "" }}' placeholder="-- กรอกชื่อ --" required></td>
+                                                        <td><input type="text" id="river_main" name="river_main" value='{{ $river[$id]->river_main ?? "" }}' placeholder="-- กรอกชื่อ --" ></td>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -127,7 +127,7 @@
                                                     <tr>
                                                         <td align="right">อำเภอ : </td>
                                                         <td colspan="2">
-                                                            <select id='blk_district' name='blk_district' required onchange="validateForm(this.id)">
+                                                            <select id='blk_district' name='blk_district'  onchange="validateForm(this.id)">
                                                                 <option value='{{ $obj[$id]->blockage_location->blk_district }}'>{{ $obj[$id]->blockage_location->blk_district }}</option>
                                                                 <!-- Read district -->
                                                                 @foreach($districtData['data'] as $village)
@@ -140,7 +140,7 @@
                                                     <tr>
                                                         <td align="right">ตำบล : </td>
                                                         <td colspan="2">
-                                                            <select id="blk_tumbol" name="blk_tumbol" required onchange="validateForm(this.id)">
+                                                            <select id="blk_tumbol" name="blk_tumbol"  onchange="validateForm(this.id)">
                                                                 <option value='{{ $obj[$id]->blockage_location->blk_tumbol }}'>{{ $obj[$id]->blockage_location->blk_tumbol }}</option>
                                                             </select>
                                                             <div class="invalid-feedback"></div>
@@ -149,7 +149,7 @@
                                                     <tr>
                                                         <td align="right">หมู่บ้าน : </td>
                                                         <td colspan="2">
-                                                            <select id="blk_village" name="blk_village" required onchange="validateForm(this.id)">
+                                                            <select id="blk_village" name="blk_village" onchange="validateForm(this.id)">
                                                                 <option value='{{ $obj[$id]->blockage_location->blk_village }}'>{{ $obj[$id]->blockage_location->blk_village }}</option>
                                                             </select>
                                                             <div class="invalid-feedback"></div>
