@@ -219,13 +219,12 @@ Route::get('mapthai/chiangrai/{amp}', 'RaindataController@getIDF');
 // Route::get('mapthai/chiangrai/เวียงป้าเป้า',function () {return view('rain/showrain');});
 
 
-
  
 // ----------------------------------- //
 //----- Handdle Line ChatBot API -----//
 // ----------------------------------- //
 
-
+ 
 Route::get('solution_project/{blk_id}',[BlockagesController::class, 'solution_project']);
 Route::get('water_idf/{longitude}/{latitude}', [BlockagesController::class, 'water_idf_value']);
 
@@ -251,7 +250,8 @@ Route::get('find_location_blk/{province}/{ampol}/{tumbol}',[BlockagesController:
 // ความถี่การเกิดน้ำท่วม
 // Route::get('damage_freq/{feq}', [BlockagesController::class,'damage_freq']);
 // เเนวทางการเเก้ไขปัญหา 
-Route::get('solution_mockup/{id_location}',[BlockagesController::class, 'solution_mockup']);
+// Route::get('solution_mockup/{id_location}',[BlockagesController::class, 'solution_mockup']);
+ 
 // ------------------------------- //
 
 
@@ -263,3 +263,4 @@ Route::get('solution_mockup/{id_location}',[BlockagesController::class, 'solutio
 // ----------------------------------- //
 // ----------------------------------- //
 // ----------------------------------- //
+ 

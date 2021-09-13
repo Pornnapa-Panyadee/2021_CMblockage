@@ -58,7 +58,7 @@ function inboxValidate(array, detail) {
         isCheck = document.getElementById(array[i]).checked;
         if (isCheck) checker.push(1);
         else checker.push(0);
-        console.log(checker);
+        // console.log(checker);
     }
 
     
@@ -103,7 +103,7 @@ function xsectionRadioValidation() {
 
 
 function validateCheckbox() {
-    let content = [['#damage_type1', '#damage_type2', '#damage_type3'], ['#nat_erosion', '#nat_shoal', '#nat_missing', '#nat_winding', '#nat_weed', '#nat_other', '#hum_structure', '#huminfa', '#hum_road', '#hum_smallconvert', '#hum_road_paralel', '#hum_replaced_convert', '#hum_bridge_pile', '#hum_soil_cover', '#hum_trash', '#hum_other', '#sol_how2']];
+    let content = [['#damage_type1', '#damage_type2', '#damage_type3'], ['#nat_erosion', '#nat_shoal', '#nat_missing', '#nat_winding', '#nat_weed', '#nat_other', '#huminfa', '#hum_road', '#hum_smallconvert', '#hum_road_paralel', '#hum_replaced_convert', '#hum_bridge_pile', '#hum_soil_cover', '#hum_trash', '#hum_other', '#sol_how2']];
 
     content.forEach(array => {
         let isValid = false;
@@ -116,7 +116,7 @@ function validateCheckbox() {
             // console.log(box);
             if (box) isValid = true;
         });
-        // console.log(isValid);
+        console.log(isValid);
         if (isValid) {
             array.forEach(element => {
                 $(element).removeAttr('required');
@@ -129,7 +129,7 @@ function validateCheckbox() {
 
 
 function damageLevelRadioValidation() {
-    let array = ['damage_type1', 'damage_type2', 'damage_type3', 'hum_structure'];
+    let array = ['damage_type1', 'damage_type2', 'damage_type3',];
     let detail = [['damageflood1', 'damageflood2', 'damageflood3'], ['damagewaste1', 'damagewaste2', 'damagewaste3'], ['damageotherdetail', 'damageother1', 'damageother2', 'damageother3']];
     //console.log(document.getElementById('hum_structure').checked);
     inboxValidate(array, detail);

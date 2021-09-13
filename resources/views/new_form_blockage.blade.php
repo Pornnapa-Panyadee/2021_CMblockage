@@ -70,7 +70,9 @@
                                                     </tr>
                                                     <tr>
                                                         <th> วันที่ทำการสำรวจ </th>
-                                                        <td><input type="date" id="survey_date" name="survey_date" placeholder="dd-mm-yyyy" placeholder="-- กรอกวันที่ --" >
+                                                        <td>
+                                                            <!-- <input type="date" id="survey_date" name="survey_date" placeholder="dd-mm-yyyy" placeholder="-- กรอกวันที่ --" isBuddhist: true > -->
+                                                            <input type="text" name="survey_date" id="survey_date" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -131,6 +133,12 @@
                                                                 <option value=''>-- เลือกหมู่บ้าน --</option>
                                                             </select>
                                                             <div class="invalid-feedback"></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">หมายเหตุ : </td>
+                                                        <td colspan="2">
+                                                            <input type="text" id="comment" name="comment" >
                                                         </td>
                                                     </tr>
                                                 </table>

@@ -1,7 +1,7 @@
 //console.log('hello');
 
 var ID = window.location.href.replace("https://cmblockage.cmfightflood.com/", "");
-var ID = window.location.href.replace("http://localhost/chiang-rai/public/", "");
+// var ID = window.location.href.replace("http://localhost/chiang-rai/public/", "");
 // console.log(ID);
 // alert(ID);
 
@@ -98,7 +98,7 @@ function Tumbol(id, vill) {
       // AJAX request 
       $.ajax({
       
-    // url: 'http://localhost/chiang-rai/public/getVillage/' + id,
+    //  url: 'http://localhost/chiang-rai/public/getVillage/' + id,
     url: 'https://cmblockage.cmfightflood.com/getVillage/' + id,
       //url: link+'getVillage/' + id,
         type: 'get',
@@ -136,7 +136,7 @@ if(ID.length > 4){
   // console.log(ID);
   // alert(ID)
   // $.getJSON('http://localhost/chiang-rai/public/getBlockageID/' + ID, (data) => {
-  $.getJSON('https://cmblockage.cmfightflood.com/getBlockageID/' + ID, (data) => {
+   $.getJSON('https://cmblockage.cmfightflood.com/getBlockageID/' + ID, (data) => {
     // $.getJSON(link+'getBlockageID/' + ID, (data) => {
   let id = data[0]['blockage_location']['blk_district'];
   //console.log(data);
