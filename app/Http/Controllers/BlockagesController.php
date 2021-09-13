@@ -127,16 +127,11 @@ class BlockagesController extends Controller
         $longitude_cast = (float)$longitude;
         $latitude_cast = (float)$latitude;
         $data = DB::table('blockage_locations')
-        ->select(DB::raw("
-        blk_location_id, 
-        CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') AS float) as latitude_start, 
-        CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') AS float) as longitude_start, 
-        concat(blk_location_id,' ', blk_village,' ',blk_tumbol,' ',blk_province) as location,
-        sqrt( ((CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') AS float)  - $longitude_cast) * (CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') AS float)  - $longitude_cast)) + ((CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') AS float) -  $latitude_cast) * (CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') AS float) - $latitude_cast)) ) as distance",
-        ))
-        ->orderBy(DB::raw("sqrt( ((CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') AS float)  - $longitude_cast) * (CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') AS float)  - $longitude_cast)) + ((CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') AS float) -  $latitude_cast) * (CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') AS float) - $latitude_cast)) )"), 'asc')
-        ->limit(5)
-        ->get();
+                ->select(DB::raw("blk_location_id, CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') AS float) as latitude_start, CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]' ) AS float) as longitude_start, concat(blk_location_id,' ', blk_village,' ',blk_tumbol,' ',blk_province) as location,sqrt(  ((CAST (JSON_EXTRACT (ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') AS float) - $longitude_cast ) *  (CAST(JSON_EXTRACT (ST_AsGeoJSON (blk_start_location),  '$.coordinates[1]') AS float) - $longitude_cast ) ) + ((CAST(JSON_EXTRACT (ST_AsGeoJSON (blk_start_location), '$.coordinates[0]') AS float ) -  $latitude_cast) * ( CAST(JSON_EXTRACT (ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') AS float) -  $latitude_cast))  ) as distance",
+                ))
+                ->orderBy(DB::raw("sqrt( ((CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') AS float)  - $longitude_cast) * (CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') AS float)  - $longitude_cast)) + ((CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') AS float) -  $latitude_cast) * (CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') AS float) - $latitude_cast)) )"), 'asc')
+                ->limit(5)
+                ->get();
         // CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_end_location), '$.coordinates[0]') AS float) as latitude_end, 
         // CAST(JSON_EXTRACT(ST_AsGeoJSON(blk_end_location), '$.coordinates[1]') AS float)  as longitude_end,
         return $data;
