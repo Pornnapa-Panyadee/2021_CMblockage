@@ -24,7 +24,7 @@ class BlockagesController extends Controller
                 ->join('solutions', 'blockages.proj_id', '=', 'solutions.proj_id')
                 ->where('blockages.blk_id', '=', $blk_id)
                 ->limit('1')
-                ->get();
+                ->get(columns:['blockages.blk_id','problem_details.prob_level', 'problem_details.nat_weed_detail','experts.exp_solreport','solutions.sol_how']);
                 return  $data;
     }
 
@@ -33,7 +33,7 @@ class BlockagesController extends Controller
                 ->join('blockage_locations', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                 ->where('blockage_locations.blk_end_location', '=', $tumbol, 'and', 'blockage_locations.blk_village', '=', $ampol, 'and', 'blockage_locations.blk_tumbol', '=', $province)
                 ->limit('10')
-                ->get();
+                ->get(columns:['blockages.blk_id', 'blockages.blk_location_id', 'blockages.damage_level', 'blockages.damage_frequency']);
                 return  $data;
     }
 
@@ -98,7 +98,7 @@ class BlockagesController extends Controller
         ->where('id_user','=',$id_user)
         ->orderBy('timestamp','desc')
         ->limit(1)
-        ->get();
+        ->get(columns:['text_msg']);
 
         return $data;
     }
