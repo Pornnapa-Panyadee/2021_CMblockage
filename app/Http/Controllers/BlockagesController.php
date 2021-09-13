@@ -117,12 +117,12 @@ class BlockagesController extends Controller
 
     // -------------  ------------- ------------- // 
     
-    function solution_mockup($id_location){
-        $data = DB::table('mockup_solution')
-        ->where('id_location', '=', $id_location)
-        ->get();
-        return $data;
-    }
+    // function solution_mockup($id_location){
+    //     $data = DB::table('mockup_solution')
+    //     ->where('id_location', '=', $id_location)
+    //     ->get();
+    //     return $data;
+    // }
 
     // สถานที่เเจ้งปัญหา //
     function report_promble($aumpol,$tumbol){
