@@ -36,9 +36,11 @@ class TestingEmailController extends Controller
                     DB::table('users')->where('email','=', $v)->update(['verify' => 1]);
                 }
             }
-           echo "Success sent e-mail and update sendEmail to 1.";
+        //    echo "Success sent e-mail and update sendEmail to 1.";
+           return redirect('/usersverify');
         }else{
-            echo "all e-mail alreadly verified.";
+            // echo "all e-mail alreadly verified.";
+            return redirect('/usersverify');
         }
     }
 
@@ -55,7 +57,7 @@ class TestingEmailController extends Controller
         DB::table('users')->where('email','=',$updateByEmail)->update(['verify' =>1 ]);
         Mail::to($updateByEmail) -> send(new AutoMailReply($replyDetails));
 
-        echo ("verified email ".$updateByEmail);
+        // echo ("verified email ".$updateByEmail);
+        return redirect('/usersverify');
     }
-
 }

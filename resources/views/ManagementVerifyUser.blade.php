@@ -82,11 +82,57 @@
                                     </tbody>
                                 </table>
                                 <br>
-                                <div class="form-group" style="margin-right: 1000px;">
-                                    <form method="get" action="/testing/emailsend">
-                                        <button class="btn btn-primary" type="submit">Verify All</button>
-                                    </form>
+                                <div class="verfly-all-users">
+                                    <div class="form-group">
+                                        <form method="get" action="/testing/emailsend">
+                                            <button class="btn btn-primary" type="submit">Verify All</button>
+                                        </form>
+                                    </div>
                                 </div>
+
+                                <br>
+                                <hr>
+                                <div class="container">
+                                    <h4 text-align="center">รายละเอียดการยืนยันสมาชิก</h4>
+                                </div>
+
+                                {{-- User verified --}}
+                                <div class="container">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" >ชื่อ</th>
+                                                <th scope="col" >นามสกุล</th>
+                                                <th scope="col" >ตำเเหน่ง</th>
+                                                <th scope="col" >หน่วยงาน/สังกัด</th>
+                                                <th scope="col" >เบอร์ติดต่อ</th>
+                                                <th scope="col" >อีเมล</th>
+                                                <th scope="col" >วันที่สมัคร</th>
+                                                <th scope="col" >สถานะการยืยัน</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($userReportVerifiedJsosn as $userVerified)
+                                            <tr>
+                                                <td style="text-align:center;">{{ $userVerified['name'] }}</td>
+                                                <td style="text-align:center;">{{ $userVerified['LName'] }}</td>
+                                                <td style="text-align:center;">{{ $userVerified['Position'] }}</td>
+                                                <td style="text-align:center;">{{ $userVerified['Department'] }}</td>
+                                                <td style="text-align:center;">{{ $userVerified['Tel'] }}</td>
+                                                <td style="text-align:center;">{{ $userVerified['email'] }}</td>
+                                                <td style="text-align:center;">{{ $userVerified['created_at'] }}</td>
+                                                <td style="text-align:center;">{{ $userVerified['verify'] }}</td>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                {{-- END --}}
+      
+
                                 
                             </div>
             
