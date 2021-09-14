@@ -13,9 +13,11 @@ class TestingEmailController extends Controller
     //
     public function testingemail(){
         $userEmail = DB::table('users')
+        ->select('email')
         ->where('verify','=',0)
         ->where('sendEmail','=',0)
-        ->get(columns:['email']);
+        ->get();
+        // ->get(columns:['email']);
 
         $countingmail = count($userEmail);
         $dataDecode = json_decode($userEmail, true);
@@ -44,9 +46,9 @@ class TestingEmailController extends Controller
     public function sendingEmailByPerUser($updateByEmail){
 
         $replyDetails = [
-            'title' => 'Your account is verified.',
+            'title' => ('Your account is verified.'),
             'body' => ('login to https://blockage.crflood.com/login'),
-            'replyback' => "Do not reply this email"
+            'replyback' => ("Do not reply this email")
         ];
 
         DB::table('users')->where('email','=',$updateByEmail)->update(['sendEmail' =>1 ]);
