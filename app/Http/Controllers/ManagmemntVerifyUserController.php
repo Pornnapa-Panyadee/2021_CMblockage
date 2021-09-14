@@ -11,6 +11,7 @@ class ManagmemntVerifyUserController extends Controller
 {
     //
     public function managementVerifyusers(User $user){
+ 
         $name=Auth::user()->name ;
         $verify_status = Auth::user()->verify;
         // dd($name);
