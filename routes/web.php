@@ -218,15 +218,15 @@ Route::get('mapthai/chiangrai',function () {return view('rain/chiangrai');});
 Route::get('mapthai/chiangrai/{amp}', 'RaindataController@getIDF');
 // Route::get('mapthai/chiangrai/เวียงป้าเป้า',function () {return view('rain/showrain');});
 
- 
 
-
-// Api chatbot popup
-// Route::get('newblockage', 'ChatBotPopupController@adviceF110');
  
-//  API ----------------------------------------------- 
+// ----------------------------------- //
+//----- Handdle Line ChatBot API -----//
+// ----------------------------------- //
+
+ 
 Route::get('solution_project/{blk_id}',[BlockagesController::class, 'solution_project']);
-Route::get('water_idf/{longitude}/{latitude}', [BlockagesController::class, 'water_idf_value']);
+
 
 // api management menu // 
 Route::get('api_selection/{id_user}/{type_msg}/{text_msg}/{timestamp}',[BlockagesController::class, 'insert_selection']); // log_selection function in py 
@@ -236,11 +236,18 @@ Route::get('menu_selection/{id_user}',[BlockagesController::class, 'menu_selecti
 // Route::get('update_log_user/{id_user}/{text_msg}',[BlockagesController::class, 'update_log']); // for update log    
 // ------------------- // 
 
-// สถานที่เเจ้งปัญหา
-Route::get('problem_report/{aumpol}/{tumbol}',[BlockagesController::class, 'report_promble']);
+// ----Card 1 ---- // 
+// ---- end card 1 --- //
 
-// real location blockage 
+ 
+// --- Card2 blockageg --- // 
+//2.1 real location blockage 
 Route::get('location_test2/{longitude}/{latitude}',[BlockagesController::class, 'location_test_2']);
+//2.2 IDF Curve
+Route::get('water_idf/{longitude}/{latitude}', [BlockagesController::class, 'water_idf_value']);
+//2.3 สถานที่เเจ้งปัญหา
+Route::get('problem_report/{aumpol}/{tumbol}',[BlockagesController::class, 'report_promble']);
+// ---- end card 2 --- //
 
 
 // don't have in menu lineChat bot //
@@ -250,5 +257,17 @@ Route::get('find_location_blk/{province}/{ampol}/{tumbol}',[BlockagesController:
 // ความถี่การเกิดน้ำท่วม
 // Route::get('damage_freq/{feq}', [BlockagesController::class,'damage_freq']);
 // เเนวทางการเเก้ไขปัญหา 
-Route::get('solution_mockup/{id_location}',[BlockagesController::class, 'solution_mockup']);
+// Route::get('solution_mockup/{id_location}',[BlockagesController::class, 'solution_mockup']);
+ 
 // ------------------------------- //
+
+
+// test long la // 
+// Route::get('testing_long_la/{longitude}/{latitude}',[BlockagesController::class, 'testing_long_la']);
+// Route::get('find_distance/{longitude}/{latitude}', [BlockagesController::class, 'location_long_la']);
+
+
+// ----------------------------------- //
+// ----------------------------------- //
+// ----------------------------------- //
+ 

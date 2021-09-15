@@ -11,6 +11,7 @@ class ManagmemntVerifyUserController extends Controller
 {
     //
     public function managementVerifyusers(User $user){
+ 
         $name=Auth::user()->name ;
         $verify_status = Auth::user()->verify;
         // dd($name);
@@ -20,7 +21,13 @@ class ManagmemntVerifyUserController extends Controller
             ->get();
             $userRegisterJson = json_decode($users_register,true);
             // dd($userRegisterJson);
-            return view('ManagementVerifyUser', compact('userRegisterJson'));
+
+            $user_reportVerified =  DB::table('users')->select('*')
+            ->where('verify', '=', 1)
+            ->get();
+            $userReportVerifiedJsosn = json_decode($user_reportVerified, true);
+
+            return view('ManagementVerifyUser', compact('userRegisterJson', 'userReportVerifiedJsosn'));
         }
         else
         {   

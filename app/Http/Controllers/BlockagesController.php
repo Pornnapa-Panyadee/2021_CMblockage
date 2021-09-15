@@ -24,7 +24,11 @@ class BlockagesController extends Controller
                 ->join('solutions', 'blockages.proj_id', '=', 'solutions.proj_id')
                 ->where('blockages.blk_id', '=', $blk_id)
                 ->limit('1')
-                ->get();
+
+                ->get(columns:['blockages.blk_id','problem_details.prob_level', 'problem_details.nat_weed_detail','experts.exp_solreport','solutions.sol_how']);
+
+                // ->get();
+
                 return  $data;
     }
 
@@ -33,7 +37,15 @@ class BlockagesController extends Controller
                 ->join('blockage_locations', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                 ->where('blockage_locations.blk_end_location', '=', $tumbol, 'and', 'blockage_locations.blk_village', '=', $ampol, 'and', 'blockage_locations.blk_tumbol', '=', $province)
                 ->limit('10')
+<<<<<<< HEAD
                 ->get(['blockages.blk_id', 'blockages.blk_location_id', 'blockages.damage_level', 'blockages.damage_frequency']);
+=======
+
+                ->get(columns:['blockages.blk_id', 'blockages.blk_location_id', 'blockages.damage_level', 'blockages.damage_frequency']);
+
+                // ->get();
+
+>>>>>>> Earth
                 return  $data;
     }
 
@@ -98,19 +110,27 @@ class BlockagesController extends Controller
         ->where('id_user','=',$id_user)
         ->orderBy('timestamp','desc')
         ->limit(1)
+<<<<<<< HEAD
         ->get('text_msg');
+=======
+
+        ->get(columns:['text_msg']);
+
+        // ->get();
+
+>>>>>>> Earth
 
         return $data;
     }
 
     // -------------  ------------- ------------- // 
     
-    function solution_mockup($id_location){
-        $data = DB::table('mockup_solution')
-        ->where('id_location', '=', $id_location)
-        ->get();
-        return $data;
-    }
+    // function solution_mockup($id_location){
+    //     $data = DB::table('mockup_solution')
+    //     ->where('id_location', '=', $id_location)
+    //     ->get();
+    //     return $data;
+    // }
 
     // สถานที่เเจ้งปัญหา //
     function report_promble($aumpol,$tumbol){
@@ -122,7 +142,7 @@ class BlockagesController extends Controller
         return $data;
     }
 
-    // Blockage location distance that you are near
+    //Blockage location distance that you are near
     function location_test_2($longitude, $latitude){
         $longitude_cast = (float)$longitude;
         $latitude_cast = (float)$latitude;
@@ -132,7 +152,11 @@ class BlockagesController extends Controller
         JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') as latitude_start, 
         JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]')as longitude_start, 
         concat(blk_location_id,' ', blk_village,' ',blk_tumbol,' ',blk_province) as location, 
+<<<<<<< HEAD
         sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) ) as distance"
+=======
+        sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) ) as distance",
+>>>>>>> Earth
         ))
         ->orderBy(DB::raw(" sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') -$longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) )"), 'asc')
         ->limit(5)
@@ -162,4 +186,6 @@ class BlockagesController extends Controller
         
     //     return $data;
     // }
+
 }
+ 
