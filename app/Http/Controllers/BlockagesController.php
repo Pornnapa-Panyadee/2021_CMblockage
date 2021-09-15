@@ -137,7 +137,7 @@ class BlockagesController extends Controller
         ->select(DB::raw("blockages.blk_code, blockages.blk_id, 
         JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') as latitude_start, 
         JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]')as longitude_start, 
-        concat(blk_location_id,' ', blk_village,' ',blk_tumbol,' ',blk_province) as location,
+        concat(' ', blk_village,' ',blk_tumbol,' ',blk_province) as location,
         sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) ) as distance"
         ))
         ->join('blockages', 'blockage_locations.blk_location_id', '=', 'blockages.blk_location_id')
