@@ -19,21 +19,22 @@ class BlockagesController extends Controller
 
     function solution_project($blk_id){
         $data = DB::table('blockages')
+                ->select('blockages.blk_id','problem_details.prob_level', 'problem_details.nat_weed_detail','experts.exp_solreport','solutions.sol_how')
                 ->join('problem_details', 'blockages.blk_id', '=', 'problem_details.blk_id')
                 ->join('experts', 'experts.blk_id', '=', 'blockages.blk_id')
                 ->join('solutions', 'blockages.proj_id', '=', 'solutions.proj_id')
                 ->where('blockages.blk_id', '=', $blk_id)
                 ->limit('1')
-
-                ->get(columns:['blockages.blk_id','problem_details.prob_level', 'problem_details.nat_weed_detail','experts.exp_solreport','solutions.sol_how']);
-
-                // ->get();
+                ->get();
+                // ->get(columns:['blockages.blk_id','problem_details.prob_level', 'problem_details.nat_weed_detail','experts.exp_solreport','solutions.sol_how']);
+ 
 
                 return  $data;
     }
 
     function find_location_blk($province, $ampol, $tumbol){
         $data = DB::table('blockages')
+                ->select('blockages.blk_id', 'blockages.blk_location_id', 'blockages.damage_level', 'blockages.damage_frequency')
                 ->join('blockage_locations', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                 ->where('blockage_locations.blk_end_location', '=', $tumbol, 'and', 'blockage_locations.blk_village', '=', $ampol, 'and', 'blockage_locations.blk_tumbol', '=', $province)
                 ->limit('10')
@@ -99,6 +100,7 @@ class BlockagesController extends Controller
     // find user selection menu //
     function menu_selection($id_user){
         $data = DB::table('reply_msg')
+        ->select('text_msg')
         ->where('id_user','=',$id_user)
         ->orderBy('timestamp','desc')
         ->limit(1)
@@ -135,13 +137,8 @@ class BlockagesController extends Controller
         ->select(DB::raw("blockages.blk_code, 
         JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') as latitude_start, 
         JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]')as longitude_start, 
-<<<<<<< HEAD
         concat(blk_location_id,' ', blk_village,' ',blk_tumbol,' ',blk_province) as location, 
         sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) ) as distance"
-=======
-        concat('รหัส blockages:',' ',blockages.blk_code ) as location, 
-        sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) ) as distance",
->>>>>>> Earth
         ))
         ->join('blockages', 'blockage_locations.blk_location_id', '=', 'blockages.blk_location_id')
         ->orderBy(DB::raw(" sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') -$longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) )"), 'asc')
@@ -174,4 +171,3 @@ class BlockagesController extends Controller
     // }
 
 }
- 
