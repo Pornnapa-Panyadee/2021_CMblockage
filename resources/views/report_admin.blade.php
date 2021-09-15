@@ -60,7 +60,6 @@
                                                     <th scope="col" width="5%;">#</th>
                                                     <th scope="col" width="10%;">รหัส</th>
                                                     <th scope="col" width="15%;">ลำน้ำ</th>
-                                                    <th scope="col" width="15%;">ประเภทลำน้ำ</th>
                                                     <th scope="col" width="25%;">ที่ตั้ง</th>
                                                     <th scope="col" width="15%;">วันที่เก็บข้อมูล</th>
                                                     <th scope="col" width="15%;">ผู้กรอก</th>
@@ -73,7 +72,6 @@
                                                         <td >{{$i+1}}</td>
                                                         <td data-label="รหัส">{{$data[$i]->blk_code}}</td>
                                                         <td data-label="ลำน้ำ">{{$data[$i]->River->river_name}}, {{$data[$i]->River->river_main}} </td>
-                                                        <td data-label="ประเภทลำน้ำ">{{$data[$i]->River->river_type}} </td>
                                                         <td align="left" data-label="ที่ตั้ง">{{$data[$i]->blockageLocation->blk_village}} ต.{{$data[$i]->blockageLocation->blk_tumbol}} อ.{{$data[$i]->blockageLocation->blk_district}}</td>
                                                         <td data-label="วันที่เก็บข้อมูล">{{date_format($data[$i]->created_at,"Y/m/d H:i:s")}}</td>
                                                         <td data-label="ผู้กรอก">{{$data[$i]->blk_user_name}}</td>
