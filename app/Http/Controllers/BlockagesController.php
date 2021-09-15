@@ -37,15 +37,7 @@ class BlockagesController extends Controller
                 ->join('blockage_locations', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                 ->where('blockage_locations.blk_end_location', '=', $tumbol, 'and', 'blockage_locations.blk_village', '=', $ampol, 'and', 'blockage_locations.blk_tumbol', '=', $province)
                 ->limit('10')
-<<<<<<< HEAD
                 ->get(['blockages.blk_id', 'blockages.blk_location_id', 'blockages.damage_level', 'blockages.damage_frequency']);
-=======
-
-                ->get(columns:['blockages.blk_id', 'blockages.blk_location_id', 'blockages.damage_level', 'blockages.damage_frequency']);
-
-                // ->get();
-
->>>>>>> Earth
                 return  $data;
     }
 
@@ -110,15 +102,7 @@ class BlockagesController extends Controller
         ->where('id_user','=',$id_user)
         ->orderBy('timestamp','desc')
         ->limit(1)
-<<<<<<< HEAD
         ->get('text_msg');
-=======
-
-        ->get(columns:['text_msg']);
-
-        // ->get();
-
->>>>>>> Earth
 
         return $data;
     }
@@ -152,11 +136,7 @@ class BlockagesController extends Controller
         JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') as latitude_start, 
         JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]')as longitude_start, 
         concat(blk_location_id,' ', blk_village,' ',blk_tumbol,' ',blk_province) as location, 
-<<<<<<< HEAD
         sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) ) as distance"
-=======
-        sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) ) as distance",
->>>>>>> Earth
         ))
         ->orderBy(DB::raw(" sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') -$longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) )"), 'asc')
         ->limit(5)
