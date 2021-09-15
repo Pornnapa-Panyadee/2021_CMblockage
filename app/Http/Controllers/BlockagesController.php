@@ -19,28 +19,28 @@ class BlockagesController extends Controller
 
     function solution_project($blk_id){
         $data = DB::table('blockages')
+                ->select('blockages.blk_id','problem_details.prob_level', 'problem_details.nat_weed_detail','experts.exp_solreport','solutions.sol_how')
                 ->join('problem_details', 'blockages.blk_id', '=', 'problem_details.blk_id')
                 ->join('experts', 'experts.blk_id', '=', 'blockages.blk_id')
                 ->join('solutions', 'blockages.proj_id', '=', 'solutions.proj_id')
                 ->where('blockages.blk_id', '=', $blk_id)
                 ->limit('1')
-
-                ->get(columns:['blockages.blk_id','problem_details.prob_level', 'problem_details.nat_weed_detail','experts.exp_solreport','solutions.sol_how']);
-
-                // ->get();
+                ->get();
+                // ->get(columns:['blockages.blk_id','problem_details.prob_level', 'problem_details.nat_weed_detail','experts.exp_solreport','solutions.sol_how']);
+ 
 
                 return  $data;
     }
 
     function find_location_blk($province, $ampol, $tumbol){
         $data = DB::table('blockages')
+                ->select('blockages.blk_id', 'blockages.blk_location_id', 'blockages.damage_level', 'blockages.damage_frequency')
                 ->join('blockage_locations', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                 ->where('blockage_locations.blk_end_location', '=', $tumbol, 'and', 'blockage_locations.blk_village', '=', $ampol, 'and', 'blockage_locations.blk_tumbol', '=', $province)
                 ->limit('10')
 
-                ->get(columns:['blockages.blk_id', 'blockages.blk_location_id', 'blockages.damage_level', 'blockages.damage_frequency']);
-
-                // ->get();
+                // ->get(columns:['blockages.blk_id', 'blockages.blk_location_id', 'blockages.damage_level', 'blockages.damage_frequency']);
+                ->get();
 
                 return  $data;
     }
@@ -103,13 +103,13 @@ class BlockagesController extends Controller
     // find user selection menu //
     function menu_selection($id_user){
         $data = DB::table('reply_msg')
+        ->select('text_msg')
         ->where('id_user','=',$id_user)
         ->orderBy('timestamp','desc')
         ->limit(1)
 
-        ->get(columns:['text_msg']);
-
-        // ->get();
+        // ->get(columns:['text_msg']);
+        ->get();
 
 
         return $data;
@@ -178,4 +178,3 @@ class BlockagesController extends Controller
     // }
 
 }
- 
