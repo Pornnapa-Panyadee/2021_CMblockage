@@ -831,7 +831,7 @@
 
                                 <p>วิธีการ</p>
                                 <p>{{$methodAdviceF142}}</p>    
-                                <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_2.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
+                                <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_3.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
 
                                 {{--
                                     <p><a href="{{ asset('images/ref_advice/1_4_2.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
@@ -870,7 +870,7 @@
 
                                 <p>วิธีการ</p>
                                 <p>{{$methodAdviceF143}}</p>    
-                                <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_3.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
+                                <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_2.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
 
                                 {{--
                                     <p><a href="{{ asset('images/ref_advice/1_4_3.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
