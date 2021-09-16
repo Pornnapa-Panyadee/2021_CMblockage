@@ -23,8 +23,8 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <div class="navbar-toggler-icon"> <img src="{{ asset('images/logo/bar.png') }}" width="100%"> </div>
                     </button>
-                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto navbar-right-top">
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent" style="position: absolute; right: 0px; padding: 10px;">
+                        <ul class="navbar-nav mx-auto navbar-right-top">
                             
                              <li class="nav-item dropdown " style="padding-bottom:-20px;">
                                 <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ข้อมูลสิ่งกีดขวางทางน้ำ</a>
