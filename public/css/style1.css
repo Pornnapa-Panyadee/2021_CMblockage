@@ -1249,7 +1249,8 @@ Top Header
 .navbar-brand:hover{
     color: #007bff;
 }
-.navbar-right-top {}
+.navbar-right-top {
+}
 
 .navbar-right-top .nav-item {
     border-right: 1px solid #e6e6f2;
@@ -4841,6 +4842,7 @@ Vertical Timeline - by CodyHouse.co
     .cd-timeline__content p {}
     .cd-timeline__read-more,
     .cd-timeline__date {}
+    
 }
 
 @media only screen and (min-width:1170px) {
@@ -6816,6 +6818,13 @@ Media Query
 /* Small Devices, Tablets */
 
 @media only screen and (max-width:1024px) {
+    .navbar-right-top .nav-item .nav-link {
+        padding: 1px 10px;
+        font-size: 10px;
+        line-height: 2;
+        color: #82849f;
+    }
+    
     .card-title {
         font-size: 12px;
     }
@@ -6912,7 +6921,7 @@ Media Query
     }
     .navbar-right-top .nav-item .nav-link {
         padding: 1px 20px;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 2;
         color: #82849f;
     }
@@ -7045,6 +7054,7 @@ Media Query
 
 
 @media screen and (max-width: 870px) {
+   
     .table-report1{
         margin-left: 15px;
         width: 100%;

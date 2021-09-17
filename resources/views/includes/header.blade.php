@@ -98,7 +98,7 @@
                                     
                                 </li> -->
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="{{ url('/usersverify') }}"  aria-expanded="false"><i class="fa fa-fw fa-user-circle"></i>Management User</a> 
+                                    <a class="nav-link" href="{{ url('/usersverify') }}"  aria-expanded="false"><i class="fa fa-fw fa-user-circle"></i>การจัดการผู้ใช้งาน</a> 
                                 </li>                       
                             </ul>
                         </div>

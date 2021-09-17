@@ -161,8 +161,10 @@
 }
 
 *, html {
-    --primaryGradient: linear-gradient(93.12deg, #581B98 0.52%, #9C1DE7 100%);
-    --secondaryGradient: linear-gradient(268.91deg, #581B98 -2.14%, #9C1DE7 99.69%);
+    /* --primaryGradient: linear-gradient(93.12deg, #581B98 0.52%, #9C1DE7 100%);
+    --secondaryGradient: linear-gradient(268.91deg, #581B98 -2.14%, #9C1DE7 99.69%); */
+    --primaryGradient: linear-gradient(93.12deg, #007bff 0.52%, #25c9ff 100%);
+    --secondaryGradient: linear-gradient(268.91deg, #007bff -2.14%, #21c0ff 99.69%);
     --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
     --light: 300;
@@ -3199,6 +3201,7 @@ btn-link
 -------------------------*/
 
 .btn-link {
+    font-family: 'Mitr';
     color: #5969ff;
 }
 
@@ -7378,7 +7381,7 @@ Media Query
 /* chat */
 .chatbox__support4, .chatbox__support9, .chatbox__support10, .chatbox__support1_7, .chatbox__support18, .chatbox__support6, .chatbox__support7
 , .chatbox__support8{
-    background: #f9f9f9;
+    background: #dfe6ec;
     height: 450px;
     width: 1px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
@@ -7427,10 +7430,20 @@ Media Query
 .chatbox__messages {
     padding: 0 20px;
 }
+.user-img {
+    display: inline-block;
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    background: #3c9aff;
+    margin-left: -20px;
+}
 
 .messages__item {
     margin-top: 10px;
-    background: #9c1de724; 
+    margin-left: 20px;
+    /* background: #9c1de724;  */
+    background: #fff;
     padding: 8px 12px;
     max-width: 80%;
 }
@@ -7483,7 +7496,7 @@ Media Query
 .chatbox__button_pix button:focus,
 .chatbox__button_pix button:visited {
     padding: 10px;
-    background: white;
+    background: #3c9aff;
     border: none;
     outline: none;
     border-top-left-radius: 50px;
