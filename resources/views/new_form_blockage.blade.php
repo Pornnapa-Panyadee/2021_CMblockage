@@ -720,11 +720,20 @@
 
                                 <p>วิธีการ</p>
                                 <p>{{$methodAdviceF130}}</p>    
-                                <p><a target="_blank" href="{{ asset('images/ref_advice/1_3.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
 
-                                {{--
-                                    <p ><a  href="{{ asset('images/ref_advice/1_3.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
-                                    --}}
+                                {{--  Trigger/Open The Modal --}}
+                                <button id="myBtn1">รายละเอียดเชิงรูปภาพ</button>
+                                {{--  The Modal --}}
+                                <div id="myModal1" class="modal">
+
+                                    {{--  Modal content--}}
+                                    <div class="modal-content">
+                                        <span class="close1">&times;</span>
+                                        <img  src="{{ asset('images/ref_advice/1_3.jpg') }}"  weight="70%"  >  
+                                    </div>
+                                </div>
+ 
+ 
                                 
                                 </div>
                             </div>
@@ -732,40 +741,6 @@
                         <div class="chatbox__footer">
                         </div>
                     </div>
-
-                    {{--
-
-                    <div class="chatbox__support5 chatbox-infomation">
-                        <div class="chatbox__header">
-                            <div class="chatbox__image--header">
-                                <button class="btn-close" id="closeTab">X</button>
-                            </div>
-                            <div class="chatbox__content--header">
-                            </div>
-                        </div>
-                        <div class="chatbox__messages">
-                            <div>
-                                <div class="messages__item messages__item--visitor">
-                    
-                                <p>รายละเอียดของความหมาย</p>
-                                <p>{{$detailsAdviceF140}}</p>
-                                <p>-----------</p>
-                                <p>คำอธิบาย</p>
-                                <p>{{$descAdviceF140}}</p>
-                                <p>-----------</p>                         
-                                <p>วิธีการ</p>
-                                <p>{{$methodAdviceF140}}</p>    
-                                <p>รายละเอียดเชิงรูปภาพ</p>
-        
-                                                             
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbox__footer">
-                        </div>
-                    </div>
-                                        --}}
 
 
                     <div class="chatbox__support6 chatbox-infomation">
@@ -779,26 +754,28 @@
                         <div class="chatbox__messages">
                             <div>
                                 <div class="messages__item messages__item--visitor">
-                                 {{--
-
-                                <p>รายละเอียดของความหมาย</p>
-                                <p>{{$detailsAdviceF141}}</p>
-                                <p>-----------</p>
-                                <p>คำอธิบาย</p>
-                                <p>{{$descAdviceF141}}</p>
-                                <p>-----------</p>                         
-                                    
-                                    --}}
+ 
 
                                 <p>วิธีการ</p>
-                                <p>{{$methodAdviceF141}}</p>    
-                                <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_1.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
+                                <p>{{$methodAdviceF141}}</p>
+
+                                {{--  Trigger/Open The Modal --}}
+                                <button id="myBtn2">รายละเอียดเชิงรูปภาพ</button>
+                                {{--  The Modal --}}
+                                <div id="myModal2" class="modal">
+
+                                    {{--  Modal content--}}
+                                    <div class="modal-content">
+                                        <span class="close2">&times;</span>
+                                        <img  src="{{ asset('images/ref_advice/1_4_1.jpg') }}"  weight="70%"  >  
+                                    </div>
+                                </div>
+    
+
 
                                 {{--
-                                    <p><a href="{{ asset('images/ref_advice/1_4_1.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
-                                    --}}
-                                
-                                                             
+                                    <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_1.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
+                                    --}}  
 
                                 </div>
                             </div>
@@ -830,15 +807,25 @@
                                     --}}
 
                                 <p>วิธีการ</p>
-                                <p>{{$methodAdviceF142}}</p>    
-                                <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_3.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
+                                <p>{{$methodAdviceF142}}</p>   
 
-                                {{--
-                                    <p><a href="{{ asset('images/ref_advice/1_4_2.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
-                                    --}}
+                                {{--  Trigger/Open The Modal --}}
+                                <button id="myBtn3">รายละเอียดเชิงรูปภาพ</button>
+                                {{--  The Modal --}}
+                                <div id="myModal3" class="modal">
+
+                                    {{--  Modal content--}}
+                                    <div class="modal-content">
+                                        <span class="close3">&times;</span>
+                                        <img  src="{{ asset('images/ref_advice/1_4_3.jpg') }}"  weight="70%"  >  
+                                    </div>
+                                </div>
+
+     
+                                    {{--
+                                        <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_3.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
+                                        --}}
                                 
-                                                             
-
                                 </div>
                             </div>
                         </div>
@@ -870,13 +857,23 @@
 
                                 <p>วิธีการ</p>
                                 <p>{{$methodAdviceF143}}</p>    
-                                <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_2.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
 
-                                {{--
-                                    <p><a href="{{ asset('images/ref_advice/1_4_3.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                {{--  Trigger/Open The Modal --}}
+                                <button id="myBtn4">รายละเอียดเชิงรูปภาพ</button>
+                                {{--  The Modal --}}
+                                <div id="myModal4" class="modal">
+
+                                    {{--  Modal content--}}
+                                    <div class="modal-content">
+                                        <span class="close4">&times;</span>
+                                        <img  src="{{ asset('images/ref_advice/1_4_2.jpg') }}"  weight="70%"  >  
+                                    </div>
+                                </div>
+
+                                {{-- 
+                                    <p><a target="_blank" href="{{ asset('images/ref_advice/1_4_2.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
                                     --}}
-                                
-                                                             
+                                                    
 
                                 </div>
                             </div>
@@ -929,12 +926,19 @@
                                         เพราะมีความแข็งแรง และก่อสร้างได้ง่าย ซึ่งจะช้วยลดการรั่วซึมผ่านตัวคลองส่งน้ํา ลดการพังทลายของลาดด้านข้างคลองส่งน้ํา ป้องกัน 
                                         วัชพืชและลดขนาดของตัวคลองลง ทําให้ประหยัดพื้นที่สําหรับการก่อสร้างด้วย
                                     </p>
-                                    <p><a target="_blank" href="{{ asset('images/ref_advice/1_6.png') }}">รายละเอียดเชิงรูปภาพ</a></p>
 
-                                    {{--
-                                        <p><a href="{{ asset('images/ref_advice/1_6.png') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
-                                        --}}
-                                
+                                    {{--  Trigger/Open The Modal --}}
+                                    <button id="myBtn5">รายละเอียดเชิงรูปภาพ</button>
+                                    {{--  The Modal --}}
+                                    <div id="myModal5" class="modal">
+
+                                        {{--  Modal content--}}
+                                        <div class="modal-content">
+                                            <span class="close5">&times;</span>
+                                            <img  src="{{ asset('images/ref_advice/1_6.png') }}"  weight="70%"  >  
+                                        </div>
+                                    </div>
+                        
 
                                 </div>
                             </div>
@@ -963,12 +967,20 @@
                                 <p>-----------</p>
                                 <p>วิธีการ</p>
                                 <p>ประมาณโดยสอบถามคนในพื้นที่โดยกรอกความกว้าง ยาว สูง หน่วยเป็นเมตร</p> 
-                                <p><a target="_blank" href="{{ asset('images/ref_advice/1_7.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
-                                
+                                {{--  Trigger/Open The Modal --}}
+                                    <button id="myBtn6">รายละเอียดเชิงรูปภาพ</button>
+                                    {{--  The Modal --}}
+                                    <div id="myModal6" class="modal">
+
+                                        {{--  Modal content--}}
+                                        <div class="modal-content">
+                                            <span class="close6">&times;</span>
+                                            <img  src="{{ asset('images/ref_advice/1_7.jpg') }}"  weight="70%"  >  
+                                        </div>
+                                    </div>
                                 {{--
-                                    <p><a href="{{ asset('images/ref_advice/1_7.jpg') }}"><img src="{{ asset('images/image_info.png') }} " /></a></p>
+                                    <p><a target="_blank" href="{{ asset('images/ref_advice/1_7.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
                                     --}}
-                                
 
                                 </div>
                             </div>

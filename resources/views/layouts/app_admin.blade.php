@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('css/typing.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('fonts/fontawesome/css/fontawesome-all.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/popupInfo.css') }}">
     <!-- Styles -->
     <style>
         html,
@@ -95,6 +96,7 @@
     <script src="{{ asset('js/proj4js.js') }}"></script>
     <script src="{{ asset('js/EPSG32647.js') }}"></script>
     <script src="{{ asset('js/utmlatlong.js') }}"></script>
+    
 
 </head>
 <body onload="initProj4js()">
@@ -103,7 +105,7 @@
             @yield('content')
         </main>
     </div>
-    
+    <script src="{{ asset('js/popupInfo.js') }}"></script>
     <script src= "{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/Chat.js') }}"></script>
     <script src="{{ asset('js/app_chat.js') }}"></script>
