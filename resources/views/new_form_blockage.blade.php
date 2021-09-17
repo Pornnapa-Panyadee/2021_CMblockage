@@ -1,6 +1,6 @@
 @extends('layouts.app_admin')
-
 @section('content')
+
     <div class="dashboard-main-wrapper">
         @include('includes.head')
         @include('includes.header')
@@ -722,19 +722,16 @@
                                 <p>{{$methodAdviceF130}}</p>    
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button id="myBtn1">รายละเอียดเชิงรูปภาพ</button>
+                                <button id="myBtn1" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal1" class="modal">
-
                                     {{--  Modal content--}}
                                     <div class="modal-content">
                                         <span class="close1">&times;</span>
                                         <img  src="{{ asset('images/ref_advice/1_3.jpg') }}"  weight="70%"  >  
                                     </div>
                                 </div>
- 
- 
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -760,7 +757,7 @@
                                 <p>{{$methodAdviceF141}}</p>
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button id="myBtn2">รายละเอียดเชิงรูปภาพ</button>
+                                <button id="myBtn2" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal2" class="modal">
 
@@ -810,7 +807,7 @@
                                 <p>{{$methodAdviceF142}}</p>   
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button id="myBtn3">รายละเอียดเชิงรูปภาพ</button>
+                                <button id="myBtn3" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal3" class="modal">
 
@@ -859,7 +856,7 @@
                                 <p>{{$methodAdviceF143}}</p>    
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button id="myBtn4">รายละเอียดเชิงรูปภาพ</button>
+                                <button id="myBtn4" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal4" class="modal">
 
@@ -928,7 +925,7 @@
                                     </p>
 
                                     {{--  Trigger/Open The Modal --}}
-                                    <button id="myBtn5">รายละเอียดเชิงรูปภาพ</button>
+                                    <button id="myBtn5" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                     {{--  The Modal --}}
                                     <div id="myModal5" class="modal">
 
@@ -968,7 +965,7 @@
                                 <p>วิธีการ</p>
                                 <p>ประมาณโดยสอบถามคนในพื้นที่โดยกรอกความกว้าง ยาว สูง หน่วยเป็นเมตร</p> 
                                 {{--  Trigger/Open The Modal --}}
-                                    <button id="myBtn6">รายละเอียดเชิงรูปภาพ</button>
+                                    <button id="myBtn6" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                     {{--  The Modal --}}
                                     <div id="myModal6" class="modal">
 
