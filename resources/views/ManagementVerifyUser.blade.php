@@ -108,7 +108,7 @@
                                                 <th scope="col" >เบอร์ติดต่อ</th>
                                                 <th scope="col" >อีเมล</th>
                                                 <th scope="col" >วันที่สมัคร</th>
-                                                <th scope="col" >สถานะการยืยัน</th>
+                                                <th scope="col" >สถานะการยืนยัน</th>
                                             </tr>
                                         </thead>
                                         <tbody>

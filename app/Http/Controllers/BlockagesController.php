@@ -31,15 +31,22 @@ class BlockagesController extends Controller
 
                 return  $data;
     }
-
+    // JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') as latitude_start, 
+    // JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]')as longitude_start, 
+    
     function find_location_blk($province, $ampol, $tumbol){
-        $data = DB::table('blockages')
-                ->select('blockages.blk_id', 'blockages.blk_location_id', 'blockages.damage_level', 'blockages.damage_frequency')
-                ->join('blockage_locations', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
-                ->where('blockage_locations.blk_end_location', '=', $tumbol, 'and', 'blockage_locations.blk_village', '=', $ampol, 'and', 'blockage_locations.blk_tumbol', '=', $province)
-                ->limit('10')
-                ->get(['blockages.blk_id', 'blockages.blk_location_id', 'blockages.damage_level', 'blockages.damage_frequency']);
-                return  $data;
+        $data = DB::table('blockage_locations')
+        ->select(DB::raw("blockages.blk_code, blockages.blk_id, 
+        JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') as latitude_start, 
+        JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]')as longitude_start, 
+        concat(' ', blk_village,' ',blk_tumbol,' ',blk_province) as location "))
+        ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
+        ->where('blk_tumbol', '=', $tumbol)
+        ->where('blk_district', '=', $ampol)
+        ->where('blk_province', '=', $province)
+        ->limit('5')
+        ->get();
+        return  $data;
     }
 
     // test la long 
