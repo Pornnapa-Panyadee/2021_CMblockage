@@ -23,9 +23,9 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <div class="navbar-toggler-icon"> <img src="{{ asset('images/logo/bar.png') }}" width="100%"> </div>
                     </button>
-                    <div class="collapse navbar-collapse " id="navbarSupportedContent" style="position: absolute; right: 0px; padding: 10px;">
-                        <ul class="navbar-nav mx-auto navbar-right-top">
-                            
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-auto navbar-right-top" >
+                            <li class="nav-item" style="width: 40%">    </li>
                              <li class="nav-item dropdown " style="padding-bottom:-20px;">
                                 <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ข้อมูลสิ่งกีดขวางทางน้ำ</a>
                                 <div class="dropdown-menu dropdown-menu-right" style="padding:20px 0 20px ; background-color:#b3d6ff ; font-size:16px;"  >
@@ -60,9 +60,25 @@
                                 <a class="nav-link nav-user-img" href="{{ asset('/contact')}}" >ติดต่อเรา</a>
                                
                             </li>
-                                
-                                @guest
-                                    <li class="nav-item">
+
+                            <li class="nav-item" >
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('เข้าสู่ระบบ') }}</a>
+                             </li>
+                                   
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end navbar -->
+
+            <script src="{{ asset('js/app.js') }}"></script>
+            <script src="{{ asset('js/main-js.js') }}"></script>
+         
+</body>
+</html>
+                                <!-- @guest
+                                    <li class="nav-item" align="right">
                                         <a class="nav-link" href="{{ route('login') }}">{{ __('เข้าสู่ระบบ') }}</a>
                                     </li>
                                     @if (Route::has('register'))
@@ -89,16 +105,4 @@
                                                 </div>
                                         </li>
                                 @endguest
-                            {{-- </li> --}}
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <!-- ============================================================== -->
-            <!-- end navbar -->
-
-            <script src="{{ asset('js/app.js') }}"></script>
-            <script src="{{ asset('js/main-js.js') }}"></script>
-         
-</body>
-</html>
+                            {{-- </li> --}} -->
