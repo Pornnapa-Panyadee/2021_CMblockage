@@ -436,8 +436,9 @@ class pdfController extends Controller
 
     public function tablegen(Request $request)
     {   
-       
+    //    dd($request);
         $amp=$request->amp;
+        $tumbol=$request->tumbol;
         if ($request->amp=="sum"){
             // $data = BlockageLocation::select('*')->get();
             $data = Blockage::with('blockageLocation')->get();
@@ -453,7 +454,7 @@ class pdfController extends Controller
                         ->groupBy('blk_id')
                         ->get();
            // dd($data);
-            $amp="sum9";
+            $amp="sum";
             $pdf = PDF::loadView('table_report' ,compact('data','problem','amp'))->setPaper('a4', 'landscape');
             return $pdf->stream('BlockageAll.pdf');
         }else{
@@ -481,7 +482,7 @@ class pdfController extends Controller
                 // $damageData=json_decode($problem[0]->damage_level);
                 // dd($damageData->flood);
                 $name= "อำเภอ.".$amp.".pdf";
-                $pdf = PDF::loadView('table_reportAmp' ,compact('problem','amp'))->setPaper('a4', 'landscape');
+                $pdf = PDF::loadView('table_reportAmp' ,compact('problem','amp','tumbol'))->setPaper('a4', 'landscape');
                 return $pdf->stream($name);
 
             }else{
@@ -508,10 +509,10 @@ class pdfController extends Controller
 
                 // $damageData=json_decode($problem[0]->damage_level);
                 // dd($damageData->flood);
-                $amp=$amp."/".$request->tumbol;
+                $amp=$amp;
                 // dd($amp);
                 $name= "อำเภอ.".$amp.".pdf";
-                $pdf = PDF::loadView('table_reportAmp' ,compact('problem','amp'))->setPaper('a4', 'landscape');
+                $pdf = PDF::loadView('table_reportAmp' ,compact('problem','amp','tumbol'))->setPaper('a4', 'landscape');
                 return $pdf->stream($name);
 
             }
