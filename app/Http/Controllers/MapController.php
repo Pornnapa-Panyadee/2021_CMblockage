@@ -424,7 +424,7 @@ class MapController extends Controller
 
 
     public function getDamageByAmpG() {
-        $amp=["ฝาง","ไชยปราการ","แม่อาย"];
+        $amp=["ฝาง","ไชยปราการ","แม่อาย","ดอยหล่อ", "สะเมิง","สันกำแพง","สันทราย","สันป่าตอง","หางดง","เมืองเชียงใหม่","แม่ริม","แม่วาง","แม่ออน"];
         $level1=0;$level2=0;$level3=0;
         $ampL1=0;$ampL2=0;$ampL3=0;
         for($i=0;$i<count($amp);$i++){
