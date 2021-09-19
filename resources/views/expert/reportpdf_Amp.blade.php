@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
      <style>
 		@font-face{
 		font-family:'THSarabunNew';
@@ -104,11 +104,57 @@
         .page-break {
             page-break-after: always;
         }
-
+        .customers {
+            border-collapse: collapse;
+            border: 4px solid #fff;
+            border-color: #fff;
+        }
+        .text_report{
+            font-size: 70px;
+        }
+        .text_report1{
+            font-size: 42px;
+            margin-bottom: -20px;
+        }
+        .text_report2{
+            font-size: 80px;
+            margin: 100px 0 -20px 0;
+        }
+        .text_report3{
+            font-size: 30px;
+            margin: 250px 0 -260px 0;
+        }
+        .text_report4{
+            font-size: 24px;
+            margin: 260px 0 -260px 0;
+        }
+        .text_report5{
+            font-size: 60px;
+            margin: 170px 0 0 0;
+        }
+        .text_report6{
+            font-size: 18px;
+            font-weight: bold;
+        }
     </style>
         
 </head>
 <body>
+    <div class="row" align="center" style=" margin-top:10px;"> 
+    <!-- รายงานสรุป -->
+        <div class="text_report">รายงานสรุป</div>
+        <div class="text_report1">ข้อมูลสภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้น</div>
+        <div class="text_report1">ของตำแหน่งการกีดขวางทางน้ำ</div>
+        <?php if ($tumbol!="sum"){?>
+            <div class="text_report2">ตำบล{{$tumbol}}</div>
+            <div class="text_report1">อำเภอ{{$amp}} จังหวัดเชียงใหม่</div>
+        <?php }else{ ?> 
+            <div class="text_report5">อำเภอ{{$amp}} จังหวัดเชียงใหม่</div>
+        <?php }?>
+        <div class="text_report3"> โครงการพัฒนาระบบการสํารวจและบริหารจัดการพื้นที่เสี่ยงภัยน้ําท่วมและดินถล่ม </div>
+        <div class="text_report3">บนพื้นฐานของเทคโนโลยีสารสนเทศและการจัดการขั้นสูง</div>
+        <div class="text_report4">กิจกรรมการพัฒนาระบบข้อมูลของสิ่งกีดขวางทางน้ำในลำน้ำคูคลองและถนนในจังหวัดเชียงใหม่</div>
+    </div>
     <footer>
         หมายเหตุ ข้อมูลใช้เพื่อการศึกษาวางแผน ไม่สามารถใช้อ้างอิงทางกฎหมายและคดีความ
     </footer>
@@ -255,9 +301,9 @@
                 <div class="card-body">
                     <div class="flex-center position-ref full-height">
                         <div class="content">
-                            <div class="title m-b-md" style="margin-top:-30px;">
+                            <!-- <div class="title m-b-md" style="margin-top:-30px;">
                                 <center> <img src="{{ asset('images/logo/amp/'.$amp.'/report_sumary/'.$tumbol.'.png') }}" width="90%"> </center>
-                             </div>
+                             </div> -->
                              
                             <?php  
                             if($data==NULL){ ?>
@@ -267,7 +313,8 @@
                                 for($i=0;$i<count($data);$i++){?>
                                     <div class="page-break"></div>
                                     <div class="title m-b-md" style="margin-top:-35px;">
-                                    <center> <img src="{{ asset('images/logo/head_expert.png') }}" width="78%"> </center>
+                                    <!-- <center> <img src="{{ asset('images/logo/head_expert.png') }}" width="78%"> </center> -->
+                                        <center> ข้อมูลสภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้นของตำแหน่งการกีดขวางทางน้ำ จังหวัดเชียงใหม่ </center> 
                                     </div>
                                     <div align="right">
                                         รหัสตำแหน่งกีดขวางที่: {{ $data[$i][0]->blk_code }}  
@@ -521,10 +568,10 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td align="center" width=50%;><div style="margin-top:5px;"><img src="https://survey.crflood.com/{{($expert[$i][0]->exp_pixmap)  }}" width=140px;></div></td>
+                                                    <td align="center" width=50%;><div style="margin-top:5px;"><img src="https://cmblockage.cmfightflood.com/{{($expert[$i][0]->exp_pixmap)  }}" width=140px;></div></td>
                                                     <td align="center" width=50%;> 
-                                                        <div style="margin-top:10px;"><img src="https://survey.crflood.com/{{($expert[$i][0]->exp_pix1)  }}" width=160px;></div>
-                                                        <div style="margin-top:5px;margin-bottom:5px;"><img src="https://survey.crflood.com/{{($expert[$i][0]->exp_pix2) }}" width=160px;></div>
+                                                        <div style="margin-top:10px;"><img src="https://cmblockage.cmfightflood.com/{{($expert[$i][0]->exp_pix1)  }}" width=160px;></div>
+                                                        <div style="margin-top:5px;margin-bottom:5px;"><img src="https://cmblockage.cmfightflood.com/{{($expert[$i][0]->exp_pix2) }}" width=160px;></div>
                                                     </td>
                                                 </tr>
                                             </tbody>

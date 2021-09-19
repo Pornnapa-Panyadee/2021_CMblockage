@@ -101,20 +101,64 @@
             line-height: 1.5cm;
             content: counter(page);
         }
+        .text_report{
+            font-size: 70px;
+        }
+        .text_report1{
+            font-size: 42px;
+            margin-bottom: -20px;
+        }
+        .text_report2{
+            font-size: 60px;
+            margin: 100px 0 -20px 0;
+        }
+        .text_report3{
+            font-size: 30px;
+            margin: 150px 0 -160px 0;
+        }
+        .text_report4{
+            font-size: 24px;
+            margin: 160px 0 -160px 0;
+        }
+        .text_report5{
+            font-size: 56px;
+            margin: 130px 0 0 0;
+        }
+        .text_report6{
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .page-break {
+            page-break-after: always;
+        }
 	</style>
 </head>
 <body>
+    <div class="row" align="center" > 
+    
+        <div class="text_report">รายงานสรุป</div>
+        <div class="text_report1">ข้อมูลสภาพปัญหาและแนวทางกา</div>
+        <?php if ($tumbol!="sum"){?>
+            <div class="text_report2">ตำบล{{$tumbol}}</div>
+            <div class="text_report1">อำเภอ{{$amp_req}} จังหวัดเชียงใหม่</div>
+        <?php }else{ ?> 
+            <div class="text_report5">อำเภอ{{$amp_req}} จังหวัดเชียงใหม่</div>
+        <?php }?>
+        <div class="text_report3"> โครงการพัฒนาระบบการสํารวจและบริหารจัดการพื้นที่เสี่ยงภัยน้ําท่วมและดินถล่ม </div>
+        <div class="text_report3">บนพื้นฐานของเทคโนโลยีสารสนเทศและการจัดการขั้นสูง</div>
+        <div class="text_report4">กิจกรรมการพัฒนาระบบข้อมูลของสิ่งกีดขวางทางน้ำในลำน้ำคูคลองและถนนในจังหวัดเชียงใหม่</div>
+    </div>
     <footer>
         หมายเหตุ ข้อมูลใช้เพื่อการศึกษาวางแผน ไม่สามารถใช้อ้างอิงทางกฎหมายและคดีความ
     </footer>
     <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="row" align="center" style="page-break-after:always;"> 
+                <!-- <div class="row" align="center" style="page-break-after:always;"> 
                     <img src="{{ asset('images/logo/solution/'.$pix) }}" width="100%"> 
-                </div>
-               
+                </div> -->
+                    <div class="page-break"></div>
                 <div class="title m-b-md">
-                    
+                   
                     <table class="table table-bordered">
                         
                         <?php 
