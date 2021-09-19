@@ -1,6 +1,6 @@
 @extends('layouts.app_admin')
-
 @section('content')
+
     <div class="dashboard-main-wrapper">
         @include('includes.head')
         @include('includes.header')
@@ -706,10 +706,9 @@
                             </div>
                         </div>
                         <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
                             <div>
                                 <div class="messages__item messages__item--visitor">
-                                
+                                    
                                 {{--                                 
                                 <p>รายละเอียดของความหมาย</p>
                                 <p>{{$detailsAdviceF130}}</p>
@@ -723,19 +722,16 @@
                                 <p>{{$methodAdviceF130}}</p>    
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn1" class="btn btn-link">รายละเอียดเชิงรูปภาพ</button>
+                                <button id="myBtn1" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal1" class="modal">
-
                                     {{--  Modal content--}}
                                     <div class="modal-content">
                                         <span class="close1">&times;</span>
                                         <img  src="{{ asset('images/ref_advice/1_3.jpg') }}"  weight="70%"  >  
                                     </div>
                                 </div>
- 
- 
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -753,14 +749,15 @@
                             </div>
                         </div>
                         <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
                             <div>
                                 <div class="messages__item messages__item--visitor">
+ 
+
                                 <p>วิธีการ</p>
                                 <p>{{$methodAdviceF141}}</p>
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn2" class="btn btn-link"> รายละเอียดเชิงรูปภาพ</button>
+                                <button id="myBtn2" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal2" class="modal">
 
@@ -793,7 +790,6 @@
                             </div>
                         </div>
                         <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
                             <div>
                                 <div class="messages__item messages__item--visitor">
                                  {{--
@@ -811,7 +807,7 @@
                                 <p>{{$methodAdviceF142}}</p>   
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn3" class="btn btn-link"> รายละเอียดเชิงรูปภาพ</button>
+                                <button id="myBtn3" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal3" class="modal">
 
@@ -843,7 +839,6 @@
                             </div>
                         </div>
                         <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
                             <div>
                                 <div class="messages__item messages__item--visitor">
                                  {{--
@@ -861,7 +856,7 @@
                                 <p>{{$methodAdviceF143}}</p>    
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn4" class="btn btn-link">รายละเอียดเชิงรูปภาพ</button>
+                                <button id="myBtn4" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal4" class="modal">
 
@@ -893,7 +888,6 @@
                             </div>
                         </div>
                         <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
                             <div>
                                 <div class="messages__item messages__item--visitor">
                           
@@ -922,7 +916,6 @@
                             </div>
                         </div>
                         <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
                             <div>
                                 <div class="messages__item messages__item--visitor">
                                     <p>คำอธิบาย</p>
@@ -932,7 +925,7 @@
                                     </p>
 
                                     {{--  Trigger/Open The Modal --}}
-                                    <button type="button" id="myBtn5" class="btn btn-link">รายละเอียดเชิงรูปภาพ</button>
+                                    <button id="myBtn5" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                     {{--  The Modal --}}
                                     <div id="myModal5" class="modal">
 
@@ -960,7 +953,6 @@
                             </div>
                         </div>
                         <div class="chatbox__messages">
-                            <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
                             <div>
                                 <div class="messages__item messages__item--visitor">
  
@@ -973,7 +965,7 @@
                                 <p>วิธีการ</p>
                                 <p>ประมาณโดยสอบถามคนในพื้นที่โดยกรอกความกว้าง ยาว สูง หน่วยเป็นเมตร</p> 
                                 {{--  Trigger/Open The Modal --}}
-                                    <button type="button" id="myBtn6" class="btn btn-link">รายละเอียดเชิงรูปภาพ</button>
+                                    <button id="myBtn6" class="button-myBtn">รายละเอียดเชิงรูปภาพ</button>
                                     {{--  The Modal --}}
                                     <div id="myModal6" class="modal">
 
@@ -995,7 +987,6 @@
                     </div>
 
                     <div class="chatbox__support18 chatbox-infomation">
-                        
                         <div class="chatbox__header">
                             <div class="chatbox__image--header">
                                 <button class="btn-close" id="closeTab">X</button>
@@ -1004,7 +995,6 @@
                             </div>
                         </div>
                         <div class="chatbox__messages">
-                        <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
                             <div>
                                 <div class="messages__item messages__item--visitor">
  
@@ -1026,7 +1016,7 @@
                     </div>
 
                     <div class="chatbox__button_pix">
-                        <button ><img src="{{ asset('images/chat_bot_web.png') }}" /></button>
+                        <button ><img src="{{ asset('images/chatbox-icon.svg') }}" /></button>
                     </div>
                 </div>
 

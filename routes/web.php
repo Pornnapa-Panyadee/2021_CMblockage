@@ -243,8 +243,12 @@ Route::get('menu_selection/{id_user}',[BlockagesController::class, 'menu_selecti
 // --- Card2 blockageg --- // 
 //2.1 real location blockage 
 Route::get('location_test2/{longitude}/{latitude}',[BlockagesController::class, 'location_test_2']);
+// api get aumpol  
+Route::get('find_location_blk_ampol/{ampol}',[BlockagesController::class, 'find_location_blk_ampol']);
+// api get  tumbol 
+Route::get('find_location_blk_tumbol/{tumbol}',[BlockagesController::class, 'find_location_blk_tumbol']);
 //2.2 IDF Curve
-Route::get('water_idf/{longitude}/{latitude}', [BlockagesController::class, 'water_idf_value']);
+// Route::get('water_idf/{longitude}/{latitude}', [BlockagesController::class, 'water_idf_value']);
 //2.3 สถานที่เเจ้งปัญหา
 Route::get('problem_report/{aumpol}/{tumbol}',[BlockagesController::class, 'report_promble']);
 // ---- end card 2 --- //
