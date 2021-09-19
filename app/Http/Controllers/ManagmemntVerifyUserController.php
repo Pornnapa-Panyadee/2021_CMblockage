@@ -15,7 +15,7 @@ class ManagmemntVerifyUserController extends Controller
         $name=Auth::user()->name ;
         $verify_status = Auth::user()->verify;
         // dd($name);
-        if($name == "admin" && $verify_status == 1){
+        if(( $name == "admin" && $verify_status == 1 )|| Auth::user()->status_work=="expert" && $verify_status == 1){
             $users_register = DB::table('users')->select('*')
             ->where('verify','=',0)
             ->get();

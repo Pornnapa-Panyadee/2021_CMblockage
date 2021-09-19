@@ -867,6 +867,15 @@ class DataForExpertController extends Controller
                 
                 return view('expert.expert',compact('data','districtData'));
 
+            }else if(Auth::user()->status_work=="expert"){
+                $data = DB::table('blockage_locations')
+                ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
+                ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
+                ->orderBy('blockages.created_at', 'DESC')
+                ->get();
+                
+                return view('expert.expert',compact('data','districtData'));
+
             }else{
                 return view('pages.test',compact('districtData'));
             }
