@@ -485,13 +485,24 @@ class DataForExpertController extends Controller
         $amp=$request->amp;
         $tumbol=$request->tumbol;
         $hum=NULL;
-        $blk=DB::table('blockage_locations')
+        if($request->tumbol !="sum"){
+            $blk=DB::table('blockage_locations')
                 ->join('blockages', 'blockage_locations.blk_location_id', '=', 'blockages.blk_location_id')
                 ->select('blockages.blk_id')
                 ->where ('blockage_locations.blk_district',$request->amp)
                 ->where ('blockage_locations.blk_tumbol',$request->tumbol)
                 ->groupBy('blockages.blk_id')
                 ->get();
+        }else{
+            $blk=DB::table('blockage_locations')
+                ->join('blockages', 'blockage_locations.blk_location_id', '=', 'blockages.blk_location_id')
+                ->select('blockages.blk_id')
+                ->where ('blockage_locations.blk_district',$request->amp)
+                ->groupBy('blockages.blk_id')
+                ->get();
+
+        }
+        
 
       
         for($i=0;$i<count($blk);$i++){
@@ -1124,6 +1135,7 @@ class DataForExpertController extends Controller
     public function solutionPDFgen(Request $request)
     {
         $amp_req=$request->amp;
+        $tumbol=$request->tumbol;
         if ($request->amp=="sum"){
             $amp=[ 'เชียงของ','เชียงแสน','เวียงแก่น','เวียงชัย','เวียงเชียงรุ้ง','แม่จัน','แม่สาย','แม่ฟ้าหลวง','ดอยหลวง'];
                 for($i=0;$i<count($amp);$i++){
@@ -1163,7 +1175,7 @@ class DataForExpertController extends Controller
 
                 $pix=$amp_req.".jpg";
                 $key=2;
-                $pdf = PDF::loadView('expert.tablepdf' ,compact('data','pix','key'))->setPaper('a4', 'landscape');
+                $pdf = PDF::loadView('expert.tablepdf' ,compact('data','pix','key','amp_req','tumbol'))->setPaper('a4', 'landscape');
                 return $pdf->stream('solution_report.pdf');
             }else{
                 $blk[0] =DB::table('blockage_locations')
@@ -1183,7 +1195,7 @@ class DataForExpertController extends Controller
                 $pix=$amp_req."/".$request->tumbol.".png";
                 // dd($pix);
                 $key=2;
-                $pdf = PDF::loadView('expert.tablepdf' ,compact('data','pix','key'))->setPaper('a4', 'landscape');
+                $pdf = PDF::loadView('expert.tablepdf' ,compact('data','pix','key','amp_req','tumbol'))->setPaper('a4', 'landscape');
                 return $pdf->stream('solution_report.pdf');
 
             }
