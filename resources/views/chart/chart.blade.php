@@ -66,8 +66,18 @@
                                                     <select name="amp" class="selectpicker " id="amp" onchange="this.form.submit();"> 
                                                         <option value="0">-- อำเภอ --</option>
                                                         <option value="รวม">รวมทุกอำเภอ</option>
-                                                        <option value="ฝาง">ฝาง</option>
                                                         <option value="ไชยปราการ">ไชยปราการ</option>
+                                                        <option value="ดอยหล่อ">ดอยหล่อ</option>
+                                                        <option value="ฝาง">ฝาง</option>
+                                                        <option value="สะเมิง">สะเมิง</option>
+                                                        <option value="สันกำแพง">สันกำแพง</option>
+                                                        <option value="สันทราย">สันทราย</option>
+                                                        <option value="สันป่าตอง">สันป่าตอง</option>
+                                                        <option value="หางดง">หางดง</option>
+                                                        <option value="เมืองเชียงใหม่">เมืองเชียงใหม่</option>
+                                                        <option value="แม่ริม">แม่ริม</option>
+                                                        <option value="แม่วาง">แม่วาง</option>
+                                                        <option value="แม่ออน">แม่ออน</option>
                                                         <option value="แม่อาย">แม่อาย</option>
                                                       
                                                     </select> </h4>
