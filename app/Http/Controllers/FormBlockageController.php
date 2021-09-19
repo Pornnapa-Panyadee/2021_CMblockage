@@ -385,6 +385,11 @@ class FormBlockageController extends Controller
             $massageNotic = "Please contact admin to verify account.";
             return view('verifyMessage', compact('massageNotic'));
 
+        }else if(Auth::user()->status_work=="expert" ){
+            $user=Auth::user()->id ;
+            $data = Blockage::with('blockageLocation','User')->orderBy('survey_date', 'DESC')->get();
+            return view('pages.homeblockage',compact('data'));
+
         }else{
             $user=Auth::user()->id ;
        
