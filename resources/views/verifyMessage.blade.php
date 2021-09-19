@@ -9,7 +9,7 @@
 </head>
 <body>
     <h3 style="text-align: center;">You are not allow to this page.</h3>
-    <h3 style="text-align: center;"> {{$massageNotic}} <a href="https://cmblockage.cmfightflood.com/contact">Contact</a></h3>
+    <h3 style="text-align: center;"> {{$massageNotic}} <a href="https://cmblockage.cmfightflood.com/contact" target="_blank">Contact</a></h3>
     <h3 style="text-align: center;"><a class="btn btn-primary"  href="{{ asset('/')}}">Home</a></h3>
 </body>
 </html>
