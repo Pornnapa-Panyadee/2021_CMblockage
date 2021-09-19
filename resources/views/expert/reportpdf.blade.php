@@ -252,7 +252,8 @@
                     <div class="flex-center position-ref full-height">
                         <div class="content">
                             <div class="title m-b-md" style="margin-top:-30px;">
-                                <img src="{{ asset('images/logo/head_expert.png') }}" width="90%">
+                                <!-- <img src="{{ asset('images/logo/head_expert.png') }}" width="90%"> -->
+                                <center> ข้อมูลสภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้นของตำแหน่งการกีดขวางทางน้ำ จังหวัดเชียงใหม่ </center> 
                             </div>
                             <div align="right">
                                  รหัสตำแหน่งกีดขวางที่: {{ $data[0]->blk_code }} 
@@ -508,27 +509,31 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       <?php 
+                                        <tr>
+                                            <td colspan="2"style="height:150px"></td>
+                                            
+                                        </tr>
+                                       <!-- <?php 
                                             
                                             if(!empty($expert[0]->exp_google_map)){ ?>
                                                 <tr>
-                                                    <td align="center"><div style="margin-top:10px;"><img src="https://survey.crflood.com/{{($expert[0]->exp_pixmap)  }}" width=180px;></div></td>
-                                                    <td align="center"><div style="margin-top:-100px;"><img src="https://survey.crflood.com/images/map/{{($data[0]->blk_code)}}.JPG" width=200px;></div></td>
+                                                    <td align="center"><div style="margin-top:10px;"><img src="https://cmblockage.cmfightflood.com/{{($expert[0]->exp_pixmap)  }}" width=180px;></div></td>
+                                                    <td align="center"><div style="margin-top:-100px;"><img src="https://cmblockage.cmfightflood.com/images/map/{{($data[0]->blk_code)}}.JPG" width=200px;></div></td>
                                                     <td align="center"> 
-                                                        <div style="margin-top:-10px;"><img src="https://survey.crflood.com/{{($expert[0]->exp_pix1)  }}" width=180px;></div>
-                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="https://survey.crflood.com/{{($expert[0]->exp_pix2) }}" width=180px;></div>
+                                                        <div style="margin-top:-10px;"><img src="https://cmblockage.cmfightflood.com/{{($expert[0]->exp_pix1)  }}" width=180px;></div>
+                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="https://cmblockage.cmfightflood.com/{{($expert[0]->exp_pix2) }}" width=180px;></div>
                                                     </td>
                                                 </tr>
                                         <?php  }else{ ?>
                                                 <tr>
-                                                    <td align="center"><div style="margin-top:10px;"><img src="https://survey.crflood.com/{{($expert[0]->exp_pixmap)  }}" width=180px;></div></td>
+                                                    <td align="center"><div style="margin-top:10px;"><img src="https://cmblockage.cmfightflood.com/{{($expert[0]->exp_pixmap)  }}" width=180px;></div></td>
                                                     <td align="center"> 
-                                                        <div style="margin-top:-10px;"><img src="https://survey.crflood.com/{{($expert[0]->exp_pix1)  }}" width=180px;></div>
-                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="https://survey.crflood.com/{{($expert[0]->exp_pix2) }}" width=180px;></div>
+                                                        <div style="margin-top:-10px;"><img src="https://cmblockage.cmfightflood.com/{{($expert[0]->exp_pix1)  }}" width=180px;></div>
+                                                        <div style="margin-top:15px;margin-bottom:10px;"><img src="https://cmblockage.cmfightflood.com/{{($expert[0]->exp_pix2) }}" width=180px;></div>
                                                     </td>
                                                 </tr>
 
-                                        <?php } ?>
+                                        <?php } ?> -->
                                         
                                     </tbody>
                                 </table>
