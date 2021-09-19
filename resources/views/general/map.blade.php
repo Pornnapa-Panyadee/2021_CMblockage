@@ -160,7 +160,7 @@
                                                                 <tr>
                                                                     <td>--</td>
                                                                     <td align="center">{{$ampL1}}</td>
-                                                                    <td>รวม 3 อำเภอ</td>
+                                                                    <td>รวมอำเภอทั้งหมด</td>
                                                                     <td align="center">{{$ampL2}}</td>
                                                                     <td align="center">{{$ampL3}}</td>
                                                                 </tr>
@@ -216,16 +216,16 @@
                 var stations1 = new L.LayerGroup();
                 var stations2 = new L.LayerGroup();
                 var stations3 = new L.LayerGroup();
-                // var stations4 = new L.LayerGroup();
-                // var stations5 = new L.LayerGroup();
-                // var stations6 = new L.LayerGroup();
-                // var stations7 = new L.LayerGroup();
-                // var stations8 = new L.LayerGroup();
-                // var stations9 = new L.LayerGroup();
-                // var stations10 = new L.LayerGroup();
-                // var stations11 = new L.LayerGroup();
-                // var stations12 = new L.LayerGroup();
-                // var stations13 = new L.LayerGroup();
+                var stations4 = new L.LayerGroup();
+                var stations5 = new L.LayerGroup();
+                var stations6 = new L.LayerGroup();
+                var stations7 = new L.LayerGroup();
+                var stations8 = new L.LayerGroup();
+                var stations9 = new L.LayerGroup();
+                var stations10 = new L.LayerGroup();
+                var stations11 = new L.LayerGroup();
+                var stations12 = new L.LayerGroup();
+                var stations13 = new L.LayerGroup();
                 // var stations14 = new L.LayerGroup();
                 // var stations15= new L.LayerGroup();
                 // var stations16 = new L.LayerGroup();
@@ -267,18 +267,18 @@
         //----------------- การแสดงผลเริ่มต้น 
         {//--------borders, stations, rivers, 
                 
-
-                var x = 19.85755 ;
+            
+                var x = 19.213399 ;
                 var y = 99.1995964;
                     
                     var map = L.map('map', {
                     center: [x,y],
-                    zoom: 10,
-                    // layers: [borders,stations1,stations2,stations3,stations4,stations5,stations6,stations7,stations8,stations9,stations10,stations11,stations12,stations13,stations14,stations15,stations16,stations17,stations18,osm]
-                    layers: [borders,stations1,stations2,stations3,osm]
+                    zoom: 9,
+                    layers: [borders,stations1,stations2,stations3,stations4,stations5,stations6,stations7,stations8,stations9,stations10,stations11,stations12,stations13,osm]
+                    // layers: [borders,stations1,stations2,stations3,osm]
                 });
 
-                var runLayer = omnivore.kml('{{ asset('kml/mapfang.kml') }}')
+                var runLayer = omnivore.kml('{{ asset('kml/CM_bound-25-amphoe.kml') }}')
                             .on('ready', function() {
                             this.setStyle({
                             color: "#466DF3",
@@ -291,7 +291,7 @@
                         iconUrl: '{{ asset('images/logo/pin1.png') }}',
                         iconRetinaUrl:'{{ asset('images/logo/pin1.png') }}',
                         iconSize: [22, 22],
-                        iconAnchor: [5, 30],
+                        iconAnchor: [15, 10],
                         popupAnchor: [0, 0]
                     });
                 var lavel2 = L.icon({
@@ -305,7 +305,7 @@
                         iconUrl: '{{ asset('images/logo/pin3.png') }}',
                         iconRetinaUrl:'{{ asset('images/logo/pin3.png') }}',
                         iconSize: [26, 26],
-                        iconAnchor: [5, 5],
+                        iconAnchor: [10, 20],
                         popupAnchor: [0, 0]
                     });
                 
@@ -321,9 +321,8 @@
                 
                 
                 
-                var amp=["ฝาง","ไชยปราการ","แม่อาย"];
-                // var amp=["เชียงของ","เชียงแสน","เวียงแก่น","เวียงชัย","เวียงเชียงรุ้ง","แม่จัน","แม่สาย","แม่ฟ้าหลวง","ดอยหลวง",
-                //             "เมืองเชียงราย","ป่าแดด","แม่ลาว","แม่สรวย","เวียงป่าเป้า","พญาเม็งราย","เทิง","พาน","ขุนตาล"];
+                // var amp=["ฝาง","ไชยปราการ","แม่อาย"];
+                var amp=["ฝาง","ไชยปราการ","แม่อาย","ดอยหล่อ", "สะเมิง","สันกำแพง","สันทราย","สันป่าตอง","หางดง","เมืองเชียงใหม่","แม่ริม","แม่วาง","แม่ออน"];
                 function addPin(ampName,i){
                     $.getJSON("{{ asset('form/getDamage') }}/"+amp[i], 
                         function (data){
@@ -367,11 +366,6 @@
                 addPin(stations11,10);
                 addPin(stations12,11);
                 addPin(stations13,12);
-                addPin(stations14,13);
-                addPin(stations15,14);
-                addPin(stations16,15);
-                addPin(stations17,16);
-                addPin(stations18,17);
                 
 
         }
@@ -414,11 +408,6 @@
                     { label:" "+amp[10],layer: stations11},
                     { label:" "+amp[11],layer: stations12},
                     { label:" "+amp[12],layer: stations13},
-                    { label:" "+amp[13],layer: stations14},
-                    { label:" "+amp[14],layer: stations15},
-                    { label:" "+amp[15],layer: stations16},
-                    { label:" "+amp[16],layer: stations17},
-                    { label:" "+amp[17],layer: stations18},
 
                 ]
             };
