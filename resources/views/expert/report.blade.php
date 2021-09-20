@@ -76,9 +76,9 @@
                                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12" align="right">
                                         <a href="{{ url('/') }}"><button class="btn btn-sm btn-outline-light " >
                                             <i class="fa fa-home"></i> หน้าแรก</button></a>
-                                        <a href='{{ asset('/expert/pdf/') }}/{{$data[0]->blk_id}}' >
+                                        <!-- <a href='{{ asset('/expert/pdf/') }}/{{$data[0]->blk_id}}' >
                                             <button class="btn btn-sm btn-outline-light " >
-                                            <i class="fa fa-file-pdf"></i> PDF</button></a>                        
+                                            <i class="fa fa-file-pdf"></i> PDF</button></a>                         -->
                                 </div>
                         </div>
 

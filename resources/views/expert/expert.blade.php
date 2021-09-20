@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">ข้อมูลสภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้นของตำแหน่งสิ่งกีดขวาง จังหวัดเชียงราย</h2>
+                            <h2 class="pageheader-title">ข้อมูลสภาพปัญหาและแนวทางการแก้ไขปัญหาเบื้องต้นของตำแหน่งสิ่งกีดขวาง จังหวัดเชียงใหม่</h2>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                                 <h5 class="card-header">ข้อเสนอแนะและแนวทางการแก้ไขปัญหาโดยผู้เชี่ยวชาญ</h5>
                                 <div class="card-body">
                                     <div class="table-responsive" align="center">
-                                        <table class="table table-striped table-bordered first" width=80% >
+                                        <table class="table table-striped table-bordered first" width=90% >
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -61,10 +61,10 @@
                                                                     <a href='{{ asset('/reportBlockage') }}/{{$data[$i]->blk_id}}' > <button class="btn btn-outline-primary waves-effect" title="รายละเอียด" ><i class="fas fa-eye"></i>  รายละเอียด</button>&nbsp;  </a>
                                                                </div> --}}
                                                                 <div class="btn-group ml-auto">
-                                                                    <a href='{{ asset('expert/report/') }}/{{$data[$i]->blk_id}}' >  <button class="btn btn-outline-primary waves-effect" title="รายละเอียด" ><i class="fas fa-edit"></i> แก้ไขข้อมูล</button>&nbsp;&nbsp;   </a>
-                                                                    <a href='{{ asset('expert/photo/') }}/{{$data[$i]->blk_id}}' >  <button class="btn btn-outline-primary waves-effect" title="เลือกรูปภาพ" ><i class="fas fa-images"></i> เลือกรูปภาพ</button> &nbsp; </a>
+                                                                    <a href='{{ asset('expert/report/') }}/{{$data[$i]->blk_id}}' target="_blank" >  <button class="btn btn-outline-primary waves-effect" title="รายละเอียด" ><i class="fas fa-edit"></i> แก้ไขข้อมูล</button>&nbsp;&nbsp;   </a>
+                                                                    <a href='{{ asset('expert/photo/') }}/{{$data[$i]->blk_id}}'  target="_blank">  <button class="btn btn-outline-primary waves-effect" title="เลือกรูปภาพ" ><i class="fas fa-images"></i> เลือกรูปภาพ</button> &nbsp; </a>
                                                                     {{-- <a href='{{ asset('/reportBlockage') }}/{{$data[$i]->blk_id}}' > <button class="btn btn-sm btn-outline-light"><i class="fas fa-eye"></i> รายละเอียด</button> </a> --}}
-                                                                    <a href='{{ asset('/report/pdf/') }}/{{$data[$i]->blk_id}}' >  <button class="btn btn-outline-primary waves-effect"><i class="fas fa-eye"></i> รายงาน</button> </a>
+                                                                    <a href='{{ asset('/report/pdf/') }}/{{$data[$i]->blk_id}}' target="_blank">  <button class="btn btn-outline-primary waves-effect"><i class="fas fa-eye"></i> รายงาน</button> </a>
                                                                     
                                                                 </div>
                                                         </td>
