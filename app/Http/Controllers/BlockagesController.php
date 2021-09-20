@@ -57,6 +57,7 @@ class BlockagesController extends Controller
         concat(' ', blk_village,' ',blk_tumbol,' ',blk_province) as location "))
         ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
         ->where('blk_district', '=', $ampol)
+        ->orderby('rand()')
         ->limit('5')
         ->get();
         return  $data;
@@ -71,6 +72,7 @@ class BlockagesController extends Controller
         concat(' ', blk_village,' ',blk_tumbol,' ',blk_province) as location "))
         ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
         ->where('blk_tumbol', '=', $tumbol)
+        ->orderby('rand()')
         ->limit('5')
         ->get();
         return  $data;
