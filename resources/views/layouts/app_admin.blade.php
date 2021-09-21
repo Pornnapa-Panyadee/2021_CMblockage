@@ -90,6 +90,27 @@
             color: #3042fa;
             box-shadow: 0 1px 0 rgb(0 0 0 / 3%) inset;
         }
+        .modal-cal{
+            font-family: 'Mitr';
+            font-size: 20;
+            font-weight: bold;
+            margin-top: 60px;
+            padding: 2px 20px;
+            text-align: left;
+            color:#000;
+        }.answer{
+            color:#3042fa;
+            font-size: 20;
+            font-weight: bold;
+        }input[type="number"]{
+            padding: 2px 20px;
+            color:#3042fa;
+        }.form_cal{
+            margin: 10px auto;
+            padding: 10px 20px;
+            background: #ceeaf3;
+            border-radius: 8px;
+        }
         
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -150,6 +171,22 @@
                 format:'dd-mm-yyyy',
                 autoclose: true
             });
+        });
+    </script>
+    <script>
+        function calculate(a) 
+        {
+            const slope = Math.floor((a-9)/2); 
+            return slope
+        }
+
+        var picker = new Pikaday({ 
+            field: document.getElementById('A') ,
+            yearRange:[1900,2020],
+            onSelect: function(a) {
+                let a = calculate(a);
+                document.getElementById('slope').innerHTML = "Slope: "+a ;
+            }                        
         });
     </script>
     
