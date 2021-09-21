@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 //////// test return data ////////
 Route::get('/testing/emailsend', 'TestingEmailController@testingemail');
 Route::get('/testing/emailsendperuser/{updateByEmail}', 'TestingEmailController@sendingEmailByPerUser');
-Route::get('/sendmailforgot/{email}', 'SendPasswordForgetController@forgetUserName');
+ 
 //////////////////////////////////////////
 
 // admin verify user //
@@ -160,8 +160,6 @@ Route::get('form/getDamage/{amp}', 'MapController@getDamage')->name('form.getDam
 Route::get('form/getDamagetest/{amp}', 'MapController@getDamage_test');
 // Route::get('test', 'MapController@getDamageByAmp');
 
-
-
 // CM Fang
 Route::get('api/getcm', 'MapController@getDamageByAmpCM');
 Route::get('api/getDamageCM/{amp}', 'MapController@getDamageCM');
@@ -208,7 +206,6 @@ Route::get('projectinfomation',function () {return view('menubar/blackEnd/projec
 Route::get('index',function () {return view('pages/index');});
 
 
-// 
 // New
 Route::get('/map/{id}', 'MapController@getLocation');
 Route::get('map/getlocation/{amp}/{id}', 'MapController@locationShow')->name('map.locationShow');
