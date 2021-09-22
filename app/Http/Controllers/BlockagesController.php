@@ -149,7 +149,7 @@ class BlockagesController extends Controller
         $data = DB::table('reply_msg')
         ->select('text_msg')
         ->where('id_user','=',$id_user)
-        ->orderBy('timestamp','desc')
+        ->orderBy('collect_id','desc')
         ->limit(1)
         ->get('text_msg');
 
