@@ -244,7 +244,7 @@ Route::get('location_test2/{longitude}/{latitude}',[BlockagesController::class, 
 // api get aumpol  
 Route::get('find_location_blk_ampol/{ampol}',[BlockagesController::class, 'find_location_blk_ampol']);
 // api get  tumbol 
-Route::get('find_location_blk_tumbol/{tumbol}',[BlockagesController::class, 'find_location_blk_tumbol']);
+Route::get('find_location_blk_tumbol/{ampol}/{tumbol}',[BlockagesController::class, 'find_location_blk_tumbol']);
 //2.2 IDF Curve
 // Route::get('water_idf/{longitude}/{latitude}', [BlockagesController::class, 'water_idf_value']);
 //2.3 สถานที่เเจ้งปัญหา
