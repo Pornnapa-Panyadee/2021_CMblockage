@@ -40,7 +40,7 @@ class BlockagesController extends Controller
         JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]')as longitude_start, 
         concat(' ', blk_village,' ',blk_tumbol,' ',blk_province) as location "))
         ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
-        ->join(DB::raw('(select distinct blk_id, thumbnail_name FROM  photos where thumbnail_name like ("%-01%")) as photos'), 'photos.blk_id', '=', 'blockages.blk_id')
+        ->leftJoin(DB::raw('(select distinct blk_id, thumbnail_name FROM  photos where thumbnail_name like ("%-01%")) as photos'), 'photos.blk_id', '=', 'blockages.blk_id')
         ->where('blk_tumbol', '=', $tumbol)
         ->where('blk_district', '=', $ampol)
         ->where('blk_province', '=', $province)
@@ -57,7 +57,7 @@ class BlockagesController extends Controller
         JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]')as longitude_start, 
         concat(' ', blk_village,' ',blk_tumbol,' ',blk_province) as location "))
         ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
-        ->join(DB::raw('(select distinct blk_id, thumbnail_name FROM  photos where thumbnail_name like ("%-01%")) as photos'), 'photos.blk_id', '=', 'blockages.blk_id')
+        ->leftJoin(DB::raw('(select distinct blk_id, thumbnail_name FROM  photos where thumbnail_name like ("%-01%")) as photos'), 'photos.blk_id', '=', 'blockages.blk_id')
         ->where('blk_district', '=', $ampol)
         ->orderBy(DB::raw('RAND()'))
         ->limit('5')
@@ -74,7 +74,7 @@ class BlockagesController extends Controller
         concat(' ', blk_village,' ',blk_tumbol) as location 
         "))
         ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
-        ->join(DB::raw('(select distinct blk_id, thumbnail_name FROM  photos where thumbnail_name like ("%-01%")) as photos'), 'photos.blk_id', '=', 'blockages.blk_id')
+        ->leftJoin(DB::raw('(select distinct blk_id, thumbnail_name FROM  photos where thumbnail_name like ("%-01%")) as photos'), 'photos.blk_id', '=', 'blockages.blk_id')
         ->where('blk_tumbol', '=', $tumbol)
         ->where('blk_district', '=', $ampol)
  
@@ -183,7 +183,7 @@ class BlockagesController extends Controller
         sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) ) as distance"
         ))
         ->join('blockages', 'blockage_locations.blk_location_id', '=', 'blockages.blk_location_id')
-        ->join(DB::raw('(select distinct blk_id, thumbnail_name FROM  photos where thumbnail_name like ("%-01%")) as photos'), 'photos.blk_id', '=', 'blockages.blk_id')
+        ->leftJoin(DB::raw('(select distinct blk_id, thumbnail_name FROM  photos where thumbnail_name like ("%-01%")) as photos'), 'photos.blk_id', '=', 'blockages.blk_id')
         ->orderBy(DB::raw(" sqrt( ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') -$longitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location), '$.coordinates[1]') - $longitude_cast)) + ((JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast) * (JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') -  $latitude_cast)) )"), 'asc')
         ->limit(5)
         ->get();
