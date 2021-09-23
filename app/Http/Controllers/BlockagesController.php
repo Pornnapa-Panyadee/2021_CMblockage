@@ -168,13 +168,18 @@ class BlockagesController extends Controller
     // สถานที่เเจ้งปัญหา //
     function report_promble($aumpol,$tumbol){
         $data = DB::table('problem_report')
-        ->where('tumbol', '=', $tumbol)
-        ->where('aumpol', '=', $aumpol)
+        ->select('*')
+        ->where([
+            ['aumpol', 'like', "%$aumpol%"],
+            ['tumbol', 'like', "%$tumbol%"]
+        ])
+        // ->where('aumpol', '=', $aumpol)
+        // ->where('tumbol', '=', $tumbol)
         ->limit(1)
         ->get();
         return $data;
     }
-
+    
     //Blockage location distance that you are near
     function location_test_2($longitude, $latitude){
         $longitude_cast = (float)$longitude;
