@@ -448,12 +448,13 @@
                                                             <td><input type="checkbox" id="nat_winding" name="nat_winding" {{add($blk_problem_detail[$id]->nat_winding )}} /> <label for="nat_winding">ลักษณะทางกายภาพของล้ำน้ำ </label></td>
                                                         </tr>
                                                         <tr>
-                                                        <td><input type="checkbox" id="nat_weed" name="nat_weed" {{add($blk_problem_detail[$id]->nat_weed)}}> <label for="nat_weed"> วัชพืช : </label>
-                                                            <input class="textbox"  id="nat_cause_5_detail" name="nat_weed_detail" placeholder="ระบุวัชพืช" value={{$blk_problem_detail[$id]->nat_weed_detail}}>
-                                                        </td>
+                                                            <td colspan="2"><input type="checkbox" id="nat_weed" name="nat_weed" {{add($blk_problem_detail[$id]->nat_weed)}}> <label for="nat_weed"> วัชพืช : </label>
+                                                                <textarea  class="textbox"  id="nat_cause_5_detail" name="nat_weed_detail" placeholder="ระบุวัชพืช" value={{$blk_problem_detail[$id]->nat_weed_detail}}>{{$blk_problem_detail[$id]->nat_weed_detail}}</textarea>
+                                                            </td>
+                                                        </tr>
                                                         <tr>
-                                                        <td><input type="checkbox" id="nat_other" name="nat_other" {{add($blk_problem_detail[$id]->nat_other)}} > <label for="nat_other"> อื่นๆ : </label>
-                                                        <input class="textbox" id="nat_cause_6_detail" name="nat_other_detail" placeholder="ระบุ" value={{$blk_problem_detail[$id]->nat_other_detail}}></td>
+                                                            <td colspan="2"><input type="checkbox" id="nat_other" name="nat_other" {{add($blk_problem_detail[$id]->nat_other)}} > <label for="nat_other"> อื่นๆ : </label>
+                                                            <textarea class="textbox" id="nat_cause_6_detail" name="nat_other_detail" placeholder="ระบุ" value={{$blk_problem_detail[$id]->nat_other_detail}}> {{$blk_problem_detail[$id]->nat_other_detail}}</textarea></td>
                                                         </tr>
                                                         {{-- มนุษย์ --}}
                                                         <tr>
@@ -524,7 +525,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td><input type="checkbox" id="hum_other" name="hum_other"  {{add($blk_problem_detail[$id]->hum_other) }} onclick="causeOfDamageValidate()"/><label for="hum_other">อื่นๆ </label>
-                                                                <input class="textbox"  name="hum_other_detail" id="hum_other_detail" placeholder="ระบุ" value="{{$blk_problem_detail[$id]->hum_other_detail }}" />
+                                                                <textarea  class="textbox"  name="hum_other_detail" id="hum_other_detail" placeholder="ระบุ" value="{{$blk_problem_detail[$id]->hum_other_detail }}" /> {{$blk_problem_detail[$id]->hum_other_detail }}</textarea >
                                                             </td>
                                                         </tr>
                                                 </table>

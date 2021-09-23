@@ -80,7 +80,7 @@
         .textbox{
             background: rgba(255,255,255,0.1);
             border: none;
-            width: 70%;
+            width: 90%;
             font-size: 16px;
             padding: 1px;
             background-color: #e8eeef;
