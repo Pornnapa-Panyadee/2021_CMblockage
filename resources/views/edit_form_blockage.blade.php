@@ -120,7 +120,7 @@
                                                         <td align="right">จังหวัด : </td>
                                                         <td colspan="2">
                                                             <select id="blk_province" name="blk_province" value=''>
-                                                                <option value="chiangrai">เชียงใหม่</option>
+                                                                <option value="เชียงใหม่">เชียงใหม่</option>
                                                             </select>
                                                         </td>
                                                     </tr>
@@ -567,7 +567,7 @@
                                                     <tr> <td  colspan="2"><input type="radio" id="sol_how3" name="sol_how" value="ฟ้องร้อง" {{checksame($solution[0]->sol_how,"ฟ้องร้อง")}} ><label for="sol_how3">ฟ้องร้อง</label></td></tr>
                                                     <tr> <td  colspan="2"><input type="radio" id="sol_how4" name="sol_how" value="รื้อถอน" {{checksame($solution[0]->sol_how,"รื้อถอน")}} ><label for="sol_how4">รื้อถอน</label></td></tr>
                                                     <tr> <td  colspan="2"><input type="radio" id="sol_how5" name="sol_how" value="ยังไม่ได้ดำเนินการ" {{checksame($solution[0]->sol_how,"ยังไม่ได้ดำเนินการ")}} ><label for="sol_how5">ยังไม่ได้ดำเนินการ</label></td></tr>
-                                                   
+                                                    <tr> <td  colspan="2"><input type="checkbox" id="clear_sol"><label for="clear_sol">ล้างข้อมูลทั้งหมด</label> </td></tr>
                                                 </table>
                                                 {{-- 4.1 --}}
                                                 <table class="table table-form table-borderless">
@@ -580,7 +580,7 @@
                                                     <tr> <td colspan="2"><input type="radio" id="result_selector2" name="result_selector" value="ได้ผลดีพอสมควรแก้ไขปัญหาได้บางส่วน"  {{checksame($solution[0]->result,"ได้ผลดีพอสมควรแก้ไขปัญหาได้บางส่วน")}} ><label for="result_selector2">ได้ผลดีพอสมควรแก้ไขปัญหาได้บางส่วน</label></td></tr>
                                                     <tr> <td colspan="2"><input type="radio" id="result_selector3" name="result_selector" value="ได้ผลไม่ดีเท่าที่ควรแก้ไขปัญหาได้น้อย"{{checksame($solution[0]->result,"ได้ผลไม่ดีเท่าที่ควรแก้ไขปัญหาได้น้อย")}}   ><label for="result_selector3"> ได้ผลไม่ดีเท่าที่ควรแก้ไขปัญหาได้น้อย</label></td></tr>
                                                     <tr> <td colspan="2"><input type="radio" id="result_selector4" name="result_selector" value="ไม่ได้ผล" {{checksame($solution[0]->result,"ไม่ได้ผล")}}   ><label for="result_selector4"> ไม่ได้ผล </label></td></tr>
-                                                   
+                                                    <tr> <td  colspan="2"><input type="checkbox" id="clear_result"><label for="clear_result">ล้างข้อมูลทั้งหมด</label> </td></tr>
                                                 </table>
                                                 {{-- 4.2 --}}
                                                 <table class="table table-form table-borderless">
@@ -592,7 +592,7 @@
                                                 <table align="center" width="70%" class="table table-form table-borderless">
                                                     <tr>
                                                         <td><input type="radio" id="proj_status1" name="proj_status" value="plan"  {{checksame($project['proj_status'],"plan")}} onclick="projStatusValidate()" /><label for="proj_status1"> อยู่ในแผน </label></td>
-                                                        <td><input type="text" id="proj_year" name="proj_year" step="any" placeholder="ระบุปี พ.ศ" value='{{ $project['proj_year']  }}'disabled ></td> 
+                                                        <td><input type="text" id="proj_year" name="proj_year" step="any" placeholder="ระบุปี พ.ศ" value='{{ $project['proj_year']  }}' disabled ></td> 
                                                         <td><input type="text" id="proj_name" name="proj_name" step="any" placeholder="ระบุชื่อโครงการ" value='{{ $project['proj_name_plan']  }}' disabled></td>
                                                         <td><input type="text" id="proj_budget" name="proj_budget" step="any" placeholder="ระบุงบประมาณ" value='{{ $project['proj_budget_plan'] }}' disabled></td>
                                                     </tr>
@@ -607,6 +607,7 @@
                                                     <tr>
                                                         <td colspan="3"><input type="radio" id="proj_status4" name="proj_status" value="noplan" {{checksame($project['proj_status'],"noplan")}} /><label for="proj_status4">ยังไม่มีในแผน </label></td>
                                                     </tr>
+                                                    <tr> <td  colspan="3"><input type="checkbox" id="clear_proj"><label for="clear_proj">ล้างข้อมูลทั้งหมด</label> </td></tr>
                                                 </table>
                                             </div>
                                             <!-- END Step 4 -->
@@ -614,15 +615,22 @@
                                             
                                             <!-- Step 5 -->
                                             <div class="tab-pane" id="wizard-progress-step5" role="tabpanel">
-                                             
+                                                {{-- รูป--}}
                                                 <span class="number">5</span><b>รูปภาพประกอบ <span class="chatbox__button18"><img src="{{ asset('images/question-mark.png') }} " /></span></b>
+                                                <br><br>
                                                 <div class="row">
                                                         <?php for($i=0;$i<count($obj[0]->photo);$i++){ ?>
                                                             <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3" style="margin-bottom: 10px;" >
-                                                                {{checkphoto($obj[0]->photo[$i]->thumbnail_name)}}
+                                                                {{checkphoto($obj[0]->photo[$i]->thumbnail_name)}}  
+                                                            <br>
+                                                                <font style="padding-left:15%;">{{$obj[0]->photo[$i]->photo_id}}  </font>
                                                             </div>
+                                                               
                                                         <?php } ?>
                                                 </div>
+                                               
+                                                <div class="row" style="height: 400px;"></div>
+                                            
                                             </div>
                                             <!-- END Step 5 -->
                                         </div>

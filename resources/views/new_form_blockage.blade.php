@@ -35,6 +35,8 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#wizard-progress-step5" data-toggle="tab">ภาพประกอบ</a>
                                         </li>
+                                       
+                                        
                                     </ul>
                                     <!-- END Step Tabs -->
 
@@ -45,7 +47,7 @@
                                         {{ csrf_field() }}
                                         <!-- Wizard Progress Bar -->
                                         <div class="block-content block-content-sm">
-                                            <div class="progress" data-wizard="progress" style="height: 8px;">
+                                            <div class="progress" data-wizard="progress" style="height: 10px;">
                                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
@@ -653,9 +655,9 @@
                                             
                                             <!-- Step 5 -->
                                             <div class="tab-pane" id="wizard-progress-step5" role="tabpanel">
-                                             
+                                     
                                                 <span class="number">5</span><b>รูปภาพประกอบ (ใส่รูปได้มากกว่า 1 รูป) <span class="chatbox__button18"><img src="{{ asset('images/question-mark.png') }} " /></span></b>
-                                                <div class="row">
+                                                <div class="row" height="300px">
                                                     <div class="col-lg-2" style="text-align:right;"> กรุณาใส่รูปภาพ :  &nbsp; &nbsp; </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-group">
@@ -664,10 +666,12 @@
                                                         <div id="image_preview_bld"></div>
                                                     </div>
                                                 </div>
+                                                <div class="row" style="height: 300px;"></div>
+
+                                     
                                             </div>
                                             <!-- END Step 5 -->
-
-
+                                            
                                         </div>
                                         <div class="block-content block-content-sm block-content-full bg-body-light rounded-bottom">
                                             <div class="row">

@@ -133,8 +133,31 @@
                 autoclose: true
             });
         });
+        
     </script>
     
+    <script>
+        // -- clear Sol
+        document.getElementById('clear_sol').onclick = function() {
+            var radio = document.querySelector('input[type=radio][name=sol_how]:checked');
+            radio.checked = false;
+        }
+       
+    </script>
+     <script>
+     // -- clear radio clear_result
+        document.getElementById('clear_result').onclick = function() {
+            var radio = document.querySelector('input[type=radio][name=result_selector]:checked');
+            radio.checked = false;
+        }
+    </script>
+     <script>
+        // -- clear radio clear_proj
+        document.getElementById('clear_proj').onclick = function() {
+            var radio = document.querySelector('input[type=radio][name=proj_status]:checked');
+            radio.checked = false;
+        }
+    </script>
 
 </body>
 </html>
