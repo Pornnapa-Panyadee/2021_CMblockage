@@ -80,10 +80,8 @@ class BlockagesController extends Controller
         "))
         ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
         ->leftJoin(DB::raw('(select distinct blk_id, thumbnail_name FROM  photos where thumbnail_name like ("%-01%")) as photos'), 'photos.blk_id', '=', 'blockages.blk_id')
-        ->where([
-            ['blk_district', 'like', "%$ampol%"],
-            ['blk_tumbol', 'like', "%$tumbol%"]          
-        ])
+        ->where('blk_tumbol', '=', $tumbol)
+        ->where('blk_district', '=', $ampol)
  
         ->orderBy(DB::raw('RAND()'))
         ->limit('50')
