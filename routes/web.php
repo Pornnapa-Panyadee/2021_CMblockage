@@ -255,6 +255,7 @@ Route::get('problem_report/{aumpol}/{tumbol}',[BlockagesController::class, 'repo
 // don't have in menu lineChat bot //
 // manual input province && ampol && tumbol (in menu we don't have)
 Route::get('find_location_blk/{province}/{ampol}/{tumbol}',[BlockagesController::class, 'find_location_blk']);
+Route::get('listadress',[BlockagesController::class, 'list_of_address']);
 
 // ความถี่การเกิดน้ำท่วม
 // Route::get('damage_freq/{feq}', [BlockagesController::class,'damage_freq']);

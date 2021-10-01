@@ -30,6 +30,15 @@ class BlockagesController extends Controller
                 return  $data;
     }
 
+    function list_of_address(){
+        $data = DB::table('blockage_locations')
+        ->select(DB::raw(" DISTINCT CONCAT('อำเภอ:', blk_district,' ','ตำบล:', blk_tumbol) as address  "))
+        ->orderBy('blk_district','asc','blk_tumbol','asc')
+        ->get();
+        
+        return $data;
+    }
+
 
 
     // Blockage by province and ampol and tumbol 
