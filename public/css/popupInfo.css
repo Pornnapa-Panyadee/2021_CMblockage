@@ -116,7 +116,7 @@
 
   /*1_7*/
 
-  .close6 {
+  .close6,.close7  {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
@@ -124,8 +124,8 @@
     margin-left: 97%;
   }
   
-  .close6:hover,
-  .close6:focus {
+  .close6,.close7:hover,
+  .close6,.close7:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;

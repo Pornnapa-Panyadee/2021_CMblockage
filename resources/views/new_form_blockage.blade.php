@@ -35,6 +35,8 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#wizard-progress-step5" data-toggle="tab">ภาพประกอบ</a>
                                         </li>
+                                       
+                                        
                                     </ul>
                                     <!-- END Step Tabs -->
 
@@ -45,7 +47,7 @@
                                         {{ csrf_field() }}
                                         <!-- Wizard Progress Bar -->
                                         <div class="block-content block-content-sm">
-                                            <div class="progress" data-wizard="progress" style="height: 8px;">
+                                            <div class="progress" data-wizard="progress" style="height: 10px;">
                                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
@@ -653,9 +655,9 @@
                                             
                                             <!-- Step 5 -->
                                             <div class="tab-pane" id="wizard-progress-step5" role="tabpanel">
-                                             
+                                     
                                                 <span class="number">5</span><b>รูปภาพประกอบ (ใส่รูปได้มากกว่า 1 รูป) <span class="chatbox__button18"><img src="{{ asset('images/question-mark.png') }} " /></span></b>
-                                                <div class="row">
+                                                <div class="row" height="300px">
                                                     <div class="col-lg-2" style="text-align:right;"> กรุณาใส่รูปภาพ :  &nbsp; &nbsp; </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-group">
@@ -664,10 +666,12 @@
                                                         <div id="image_preview_bld"></div>
                                                     </div>
                                                 </div>
+                                                <div class="row" style="height: 300px;"></div>
+
+                                     
                                             </div>
                                             <!-- END Step 5 -->
-
-
+                                            
                                         </div>
                                         <div class="block-content block-content-sm block-content-full bg-body-light rounded-bottom">
                                             <div class="row">
@@ -983,6 +987,70 @@
                                             <img  src="{{ asset('images/ref_advice/1_7.jpg') }}"  weight="70%"  >  
                                         </div>
                                     </div>
+                                    {{--  The Modal  slope Cal--}}
+                                    <button type="button" id="myBtn7" class="btn btn-link">คำนวณความลาดชัน</button>
+                                    <div id="myModal7" class="modal">
+                                        <div class="modal-content">
+                                            <span class="close7">&times;</span>
+                                            <center>
+                                                <h3>การคำนวณความลาดชันท้องน้ำช่วงที่เกิดปัญหา</h3>
+                                            </center>
+                                            <div class="row justify-content-center" >
+                                                <div class="col-5">
+                                                     <img  src="{{ asset('images/ref_advice/1_7.jpg') }}"  width="100%"  >
+                                                </div>
+                                                <div class="col-5 " >
+
+                                                    <!-- <table width=100% class="modal-cal">
+                                                        <tr style="margin-bottom: 200px;">
+                                                            <td>ระดับจุด A </td>
+                                                            <td> <input type="text" id="A"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ระดับจุด B </td>
+                                                            <td> <input type="text" id="B"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ระยะทางจาก A ถึง B </td>
+                                                            <td> <input type="text" id="lenght"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2"><div id="slope" style="padding-top:2em;"></div></td>
+                                                        </tr>
+                                                    </table> -->
+                                                    <form class="form_cal">
+                                                        <table width=100% class="modal-cal">
+                                                            <tr style="margin-bottom: 200px;">
+                                                                <td width="30%">ระดับจุด A</td>
+                                                                <td ><input type="number" name="A" id="A" ></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>ระดับจุด B </td>
+                                                                <td> <input type="number"name="B" id="B"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>ระยะทางจาก A ถึง B </td>
+                                                                <td> <input type="number" name="lenght" id="lenght"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <br><br><br>
+                                                                    <button class="btn btn-outline-primary btn-lg btn-block" type="button" onclick="answer.value=((parseFloat(A.value) - parseFloat(B.value))/parseFloat(lenght.value));"> <font style="font-family: 'Mitr';">คำนวณความชัน </font></button><br>
+                                                                    <br>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>ความลาดชันท้องน้ำ </td>
+                                                                <td><input type="number" class="answer" name="answer" ></td>
+                                                            </tr>
+                                                        </table>
+                                                        <br><br><br>
+                                                     </form>
+                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 {{--
                                     <p><a target="_blank" href="{{ asset('images/ref_advice/1_7.jpg') }}">รายละเอียดเชิงรูปภาพ</a></p>
                                     --}}
@@ -1031,7 +1099,6 @@
                 </div>
 
             </div>
-         
                    
     </div>
 @endsection

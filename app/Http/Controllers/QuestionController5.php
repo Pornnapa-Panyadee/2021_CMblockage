@@ -40,7 +40,7 @@ class QuestionController5 extends Controller
 
     public function uploadImage(Request $request)
     {
-    //    dd($request);
+        // dd($request);
        $blk_id=$request->blk_id;
        function calCode($users,$text) {
        
