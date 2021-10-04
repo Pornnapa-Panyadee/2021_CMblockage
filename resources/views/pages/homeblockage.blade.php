@@ -25,17 +25,16 @@
                                 <div class="card-header drag-handle">
                                     <div class="row">
                                             <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
-                                                <h5 > รายละเอียดแบบสำรวจ  </h5>
+                                                <h5 > รายละเอียดแบบสำรวจ </h5>
                                             </div>            
-                                            <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12" align="right">
-                                                <div class="btn-group ml-auto">
-                                                    <a href="{{ asset('/newblockage') }}"> <button class="btn btn-outline-primary waves-effect">
-                                                    <i class="fas fa-plus-circle"></i>  เพิ่มข้อมูลการกีดขวางทางน้ำ</button></a>
-                                                    &nbsp;&nbsp;
-                                                    <a href="{{ url('/') }}"><button class="btn btn-outline-primary waves-effect" >
-                                                    <i class="fa fa-home"></i> หน้าแรก</button></a>
-                                                </div>
+                                            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12" align="right" style="margin-top: 5px;">
+                                                <a href="{{ asset('/newblockage') }}"> <button class="btn btn-outline-primary waves-effect">
+                                                <i class="fas fa-plus-circle"></i>  เพิ่มข้อมูลการกีดขวางทางน้ำ</button></a>
                                             </div>
+                                            <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12" align="right" style="margin-top: 5px;">
+                                                <a href="{{ url('/') }}"><button class="btn btn-outline-primary waves-effect" >
+                                                <i class="fa fa-home"></i> หน้าแรก</button></a>
+                                            </div>  
                                     </div>
                                 </div>
                                                                   

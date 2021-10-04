@@ -93,6 +93,32 @@
         label{
             margin-left:20px;
         }
+        @media screen and (max-width: 870px){
+            th,td{
+                width: 100%;
+                display:block;
+            }
+            .text_location{
+                text-align: left;
+            }
+            .location{
+                display: inline-block;
+            }
+            .loc_damage{
+                margin-left: 20px;
+                padding-left: 20px;
+            }
+            .nav-link {
+                font-weight: 200;
+            }
+            li {
+                font-size: 9px;
+                text-align: left;
+                padding: 2px;
+                margin: 1px;
+                color: #000000;
+            }
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{{ asset('js/proj4js.js') }}"></script>
