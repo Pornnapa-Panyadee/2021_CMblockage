@@ -711,35 +711,32 @@
                         </div>
                         <div class="chatbox__messages">
                             <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
-                            <div>
-                                <div class="messages__item messages__item--visitor">
-                                
-                                {{--                                 
-                                <p>รายละเอียดของความหมาย</p>
-                                <p>{{$detailsAdviceF130}}</p>
-                                <p>-----------</p>
-                                <p>คำอธิบาย</p>
-                                <p>{{$descAdviceF130}}</p>
-                                <p>-----------</p> 
-                                --}}
+                                <div>
+                                    <div class="messages__item messages__item--visitor">
+                                    
+                                    {{--                                 
+                                    <p>รายละเอียดของความหมาย</p>
+                                    <p>{{$detailsAdviceF130}}</p>
+                                    <p>-----------</p>
+                                    <p>คำอธิบาย</p>
+                                    <p>{{$descAdviceF130}}</p>
+                                    <p>-----------</p> 
+                                    --}}
 
-                                <p>วิธีการ</p>
-                                <p>{{$methodAdviceF130}}</p>    
+                                    <p>วิธีการคำนวนเบื้องต้น</p>
+                                    <p>{{$methodAdviceF130}}</p>    
 
-                                {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn1" class="btn btn-link">รายละเอียดเชิงรูปภาพ</button>
-                                {{--  The Modal --}}
-                                <div id="myModal1" class="modal">
+                                    {{--  Trigger/Open The Modal --}}
+                                    <button type="button" id="myBtn1" class="click-link-ref">ตัวอย่างรูปภาพการคำนวนความลาดตลิ่ง</button>
+                                    {{--  The Modal --}}
+                                    <div id="myModal1" class="modal">
 
-                                    {{--  Modal content--}}
-                                    <div class="modal-content">
-                                        <span class="close1">&times;</span>
-                                        <img  src="{{ asset('images/ref_advice/1_3.jpg') }}"  weight="70%"  >  
+                                        {{--  Modal content--}}
+                                        <div class="modal-content">
+                                            <span class="close1">&times;</span>
+                                            <img  src="{{ asset('images/ref_advice/1_3.jpg') }}"  weight="70%"  >  
+                                        </div>
                                     </div>
-                                </div>
- 
- 
-                                
                                 </div>
                             </div>
                         </div>
@@ -760,11 +757,11 @@
                             <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
                             <div>
                                 <div class="messages__item messages__item--visitor">
-                                <p>วิธีการ</p>
+                                <p>คำอธิบาย</p>
                                 <p>{{$methodAdviceF141}}</p>
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn2" class="btn btn-link"> รายละเอียดเชิงรูปภาพ</button>
+                                <button type="button" id="myBtn2" class="click-link-ref"> รูปภาพอธิบายตำแหน่งเพิ่มเติม</button>
                                 {{--  The Modal --}}
                                 <div id="myModal2" class="modal">
 
@@ -811,11 +808,11 @@
                                     
                                     --}}
 
-                                <p>วิธีการ</p>
+                                <p>คำอธิบาย</p>
                                 <p>{{$methodAdviceF142}}</p>   
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn3" class="btn btn-link"> รายละเอียดเชิงรูปภาพ</button>
+                                <button type="button" id="myBtn3" class="click-link-ref">รูปภาพเพิ่มเติมประเภทของสิ่งกีดขว้างทางน้ำ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal3" class="modal">
 
@@ -861,11 +858,11 @@
                                     
                                     --}}
 
-                                <p>วิธีการ</p>
+                                <p>คำอธิบาย</p>
                                 <p>{{$methodAdviceF143}}</p>    
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn4" class="btn btn-link">รายละเอียดเชิงรูปภาพ</button>
+                                <button type="button" id="myBtn4" class="click-link-ref">รูปภาพตัวอย่างหน้าตัดลำน้ำ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal4" class="modal">
 
@@ -907,7 +904,7 @@
                                 <p>คำอธิบาย</p>
                                 <p>{{$descAdviceF150}}</p>
                                 <p>-----------</p>
-                                <p>วิธีการ</p>
+                                <p>วิธีการกรอกข้อมูล</p>
                                 <p>{{$methodAdviceF150}}</p>    
                                                              
                                 </div>
@@ -930,13 +927,10 @@
                             <div>
                                 <div class="messages__item messages__item--visitor">
                                     <p>คำอธิบาย</p>
-                                    <p>คลองส่งน้ําที่เสริมคลองส่วนที่สัมผัสกับน้ําด้วยวัสดุที่มีความแข็งแรง ที่นิยมใช้กันคือการดาดผิวคลองด้วยคอนกรีต 
-                                        เพราะมีความแข็งแรง และก่อสร้างได้ง่าย ซึ่งจะช้วยลดการรั่วซึมผ่านตัวคลองส่งน้ํา ลดการพังทลายของลาดด้านข้างคลองส่งน้ํา ป้องกัน 
-                                        วัชพืชและลดขนาดของตัวคลองลง ทําให้ประหยัดพื้นที่สําหรับการก่อสร้างด้วย
-                                    </p>
+                                    <p>คลองส่งน้ำที่เสริมคลองส่วนที่สัมผัสกับน้ำด้วยวัสดุที่มีความแข็งแรง ที่นิยมใช้กันคือการดาดผิวคลองด้วยคอนกรีต เพราะมีความแข็งแรง และก่อสร้างได้ง่าย ซึ่งจะช่วยลดการรั่วซึมผ่านตัวคลองส่งน้ำ ลดการพังทลายของลาดด้านข้างคลองส่งน้ำ ป้องกันวัชพืชและลดขนาดของตัวคลองลง ทําให้ประหยัดพื้นที่สําหรับการก่อสร้างด้วย</p>
 
                                     {{--  Trigger/Open The Modal --}}
-                                    <button type="button" id="myBtn5" class="btn btn-link">รายละเอียดเชิงรูปภาพ</button>
+                                    <button type="button" id="myBtn5" class="click-link-ref">รูปภาพตัวอย่าง</button>
                                     {{--  The Modal --}}
                                     <div id="myModal5" class="modal">
 
@@ -974,10 +968,10 @@
                                 <p>คำอธิบาย</p>
                                 <p>เป็นความลาดชันท้องน้ำในอดีตก่อนที่จะเกิดปัญหา</p>
                                 <p>-----------</p>
-                                <p>วิธีการ</p>
-                                <p>ประมาณโดยสอบถามคนในพื้นที่โดยกรอกความกว้าง ยาว สูง หน่วยเป็นเมตร</p> 
+                                <p>วิธีการคำนวน</p>
+                                <p>โดยสอบถามคนในพื้นที่ และนำมากรอกโดยสูตรตามรูปภาพตัวอย่าง ความกว้าง ยาว สูง (หน่วยเป็นเมตร)</p> 
                                 {{--  Trigger/Open The Modal --}}
-                                    <button type="button" id="myBtn6" class="btn btn-link">รายละเอียดเชิงรูปภาพ</button>
+                                    <button type="button" id="myBtn6" class="click-link-ref">รูปภาพตัวอย่างการคำนวน</button>
                                     {{--  The Modal --}}
                                     <div id="myModal6" class="modal">
 
@@ -988,7 +982,10 @@
                                         </div>
                                     </div>
                                     {{--  The Modal  slope Cal--}}
-                                    <button type="button" id="myBtn7" class="btn btn-link">คำนวณความลาดชัน</button>
+                                    <div>
+                                        <br>
+                                        <button type="button" id="myBtn7" class="click-link-ref">คำนวณความลาดชัน</button>
+                                    </div>
                                     <div id="myModal7" class="modal">
                                         <div class="modal-content">
                                             <span class="close7">&times;</span>

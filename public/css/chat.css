@@ -93,3 +93,17 @@
     
 }
 
+.click-link-ref{
+    color:#71748d;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden; 
+    text-align: left;
+}
+
+
+.click-link-ref:hover{
+    color:#123456;
+}

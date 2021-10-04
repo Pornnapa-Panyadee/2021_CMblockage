@@ -40,7 +40,6 @@ class BlockagesController extends Controller
     }
 
 
-
     // Blockage by province and ampol and tumbol 
     function find_location_blk($province, $ampol, $tumbol){
         $data = DB::table('blockage_locations')
