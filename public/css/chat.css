@@ -101,9 +101,10 @@
     cursor:pointer;
     overflow: hidden; 
     text-align: left;
+    color:#2B547E;
 }
 
 
 .click-link-ref:hover{
-    color:#123456;
+    color:#0909FF;
 }
