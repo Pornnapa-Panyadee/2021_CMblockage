@@ -35,8 +35,6 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#wizard-progress-step5" data-toggle="tab">ภาพประกอบ</a>
                                         </li>
-                                       
-                                        
                                     </ul>
                                     <!-- END Step Tabs -->
 
@@ -47,14 +45,14 @@
                                         {{ csrf_field() }}
                                         <!-- Wizard Progress Bar -->
                                         <div class="block-content block-content-sm">
-                                            <div class="progress" data-wizard="progress" style="height: 10px;">
+                                            <div class="progress" data-wizard="progress" style="height: 8px;">
                                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                         <!-- END Wizard Progress Bar -->
 
-                                        <!-- Steps Content -->
-                                        <div class="block-content block-content-full tab-content" style="min-height: 300px;">
+                                       <!-- Steps Content -->
+                                       <div class="block-content block-content-full tab-content" style="min-height: 300px;">
                                             <!-- Step 1 -->
                                             <div class="tab-pane active" id="wizard-progress-step1" role="tabpanel">
                                                 <div class="table-responsive">
@@ -229,11 +227,12 @@
                                                         <td  ><input type="text" id="longend" name="longend" placeholder="Longitude" required>
                                                             <div class="invalid-feedback"></div>
                                                         </td>
+
                                                     </tr>
                                                     <tr>
                                                         <td > &nbsp;</td>
                                                         <td colspan="2" align="center" >  <button class="btn btn-outline-success btn-lg btn-block waves-effect"  type="button" onclick="getFinLocation()" >Location</button>
-                                                    </tr>
+                                                </tr>
 
                                                 </table>
                                             
@@ -403,7 +402,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="5%"></td>
-                                                        <td class="loc_damage" ><input type="hidden" name="damage_level[flood]" value="0">
+                                                        <td class="loc_damage"><input type="hidden" name="damage_level[flood]" value="0">
                                                             <input type="radio" id="damageflood1" name="damage_level[flood]" value="low" disabled/> 
                                                             <label for="damageflood1">น้อย</label>
                                                         </td>
@@ -427,11 +426,10 @@
                                                         <td class="loc_damage"><input type="radio" id="damagewaste3" name="damage_level[waste]" value="high" disabled/><label for="damagewaste3"> มาก </label></td>
                                                     </tr>
                                                     <tr >
-                                                        <td width="10%"><input type="hidden" name="damage_type[other]" value="0">
+                                                    <td width="10%"><input type="hidden" name="damage_type[other]" value="0">
                                                                         <input type="checkbox" id="damage_type3"  name='damage_type[other]' value="1" onclick="damageLevelRadioValidation()">
                                                                         <label for="damage_type3">อื่นๆ </label>
-                                                        </td>
-                                                        <td colspan="2" width="60%">
+                                                        <td colspan="2">
                                                             <input type="hidden" name="damage_level[other][detail]" value="NULL">
                                                                         <input type="text" name="damage_level[other][detail]" id="damageotherdetail" size="5" placeholder="ระบุ">
                                                         </td>
@@ -679,9 +677,9 @@
                                             
                                             <!-- Step 5 -->
                                             <div class="tab-pane" id="wizard-progress-step5" role="tabpanel">
-                                     
+                                             
                                                 <span class="number">5</span><b>รูปภาพประกอบ (ใส่รูปได้มากกว่า 1 รูป) <span class="chatbox__button18"><img src="{{ asset('images/question-mark.png') }} " /></span></b>
-                                                <div class="row" height="300px">
+                                                <div class="row">
                                                     <div class="col-lg-2" style="text-align:right;"> กรุณาใส่รูปภาพ :  &nbsp; &nbsp; </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-group">
@@ -691,11 +689,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="row" style="height: 300px;"></div>
-
-                                     
                                             </div>
                                             <!-- END Step 5 -->
-                                            
+
+
                                         </div>
                                         <div class="block-content block-content-sm block-content-full bg-body-light rounded-bottom">
                                             <div class="row">
@@ -751,7 +748,7 @@
                                     <p>{{$methodAdviceF130}}</p>    
 
                                     {{--  Trigger/Open The Modal --}}
-                                    <button type="button" id="myBtn1" class="click-link-ref">ตัวอย่างรูปภาพการคำนวนความลาดตลิ่ง</button>
+                                    <button type="button" id="myBtn1" class="btn btn-link">ตัวอย่างรูปภาพ <br>การคำนวนความลาดตลิ่ง</button>
                                     {{--  The Modal --}}
                                     <div id="myModal1" class="modal">
 
@@ -761,6 +758,7 @@
                                             <img  src="{{ asset('images/ref_advice/1_3.jpg') }}"  weight="70%"  >  
                                         </div>
                                     </div>
+                                
                                 </div>
                             </div>
                         </div>
@@ -785,7 +783,7 @@
                                 <p>{{$methodAdviceF141}}</p>
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn2" class="click-link-ref"> รูปภาพอธิบายตำแหน่งเพิ่มเติม</button>
+                                <button type="button" id="myBtn2" class="btn btn-link"> รูปภาพอธิบาย <br> ตำแหน่งเพิ่มเติม</button>
                                 {{--  The Modal --}}
                                 <div id="myModal2" class="modal">
 
@@ -836,7 +834,7 @@
                                 <p>{{$methodAdviceF142}}</p>   
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn3" class="click-link-ref">รูปภาพเพิ่มเติมประเภทของสิ่งกีดขว้างทางน้ำ</button>
+                                <button type="button" id="myBtn3" class="btn btn-link"> รูปภาพเพิ่มเติมประเภท<br>สิ่งกีดขวางทางน้ำ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal3" class="modal">
 
@@ -886,7 +884,7 @@
                                 <p>{{$methodAdviceF143}}</p>    
 
                                 {{--  Trigger/Open The Modal --}}
-                                <button type="button" id="myBtn4" class="click-link-ref">รูปภาพตัวอย่างหน้าตัดลำน้ำ</button>
+                                <button type="button" id="myBtn4" class="btn btn-link">รูปภาพตัวอย่าง <br>หน้าตัดลำน้ำ</button>
                                 {{--  The Modal --}}
                                 <div id="myModal4" class="modal">
 
@@ -954,7 +952,7 @@
                                     <p>คลองส่งน้ำที่เสริมคลองส่วนที่สัมผัสกับน้ำด้วยวัสดุที่มีความแข็งแรง ที่นิยมใช้กันคือการดาดผิวคลองด้วยคอนกรีต เพราะมีความแข็งแรง และก่อสร้างได้ง่าย ซึ่งจะช่วยลดการรั่วซึมผ่านตัวคลองส่งน้ำ ลดการพังทลายของลาดด้านข้างคลองส่งน้ำ ป้องกันวัชพืชและลดขนาดของตัวคลองลง ทําให้ประหยัดพื้นที่สําหรับการก่อสร้างด้วย</p>
 
                                     {{--  Trigger/Open The Modal --}}
-                                    <button type="button" id="myBtn5" class="click-link-ref">รูปภาพตัวอย่าง</button>
+                                    <center><button type="button" id="myBtn5" class="btn btn-link">รูปภาพตัวอย่าง <br> การดาดผิว</button></center>
                                     {{--  The Modal --}}
                                     <div id="myModal5" class="modal">
 
@@ -995,7 +993,7 @@
                                 <p>วิธีการคำนวน</p>
                                 <p>โดยสอบถามคนในพื้นที่ และนำมากรอกโดยสูตรตามรูปภาพตัวอย่าง ความกว้าง ยาว สูง (หน่วยเป็นเมตร)</p> 
                                 {{--  Trigger/Open The Modal --}}
-                                    <button type="button" id="myBtn6" class="click-link-ref">รูปภาพตัวอย่างการคำนวน</button>
+                                    <center><button type="button" id="myBtn6" class="btn btn-link">รายละเอียดการคำนวน</button></center>
                                     {{--  The Modal --}}
                                     <div id="myModal6" class="modal">
 
@@ -1007,8 +1005,7 @@
                                     </div>
                                     {{--  The Modal  slope Cal--}}
                                     <div>
-                                        <br>
-                                        <button type="button" id="myBtn7" class="click-link-ref">คำนวณความลาดชัน</button>
+                                        <center><button type="button" id="myBtn7" class="btn btn-link">คำนวณความลาดชัน</button></center>
                                     </div>
                                     <div id="myModal7" class="modal">
                                         <div class="modal-content">
