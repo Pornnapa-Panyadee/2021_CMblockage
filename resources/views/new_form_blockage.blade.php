@@ -57,93 +57,99 @@
                                         <div class="block-content block-content-full tab-content" style="min-height: 300px;">
                                             <!-- Step 1 -->
                                             <div class="tab-pane active" id="wizard-progress-step1" role="tabpanel">
-                                                <table class="table table-borderless">
-                                                    <tr><th colspan="2">ลำน้ำที่เกิดปัญหาการกีดขวางทางน้ำ</th></tr>
-                                                    <tr>
-                                                        <th width="20%">ชื่อลำน้ำ  </th>
-                                                        <td ><input type="text" id="river_name" name="river_name" placeholder="-- กรอกชื่อ --" required onchange="validateForm(this.id)">
-                                                            <div class="invalid-feedback"></div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th> เป็นสาขาของแม่น้ำ </th>
-                                                        <td><input type="text" id="river_main" name="river_main" placeholder="-- กรอกชื่อ --" >
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th> วันที่ทำการสำรวจ </th>
-                                                        <td>
-                                                            <!-- <input type="date" id="survey_date" name="survey_date" placeholder="dd-mm-yyyy" placeholder="-- กรอกวันที่ --" isBuddhist: true > -->
-                                                            <input type="text" name="survey_date" id="survey_date" />
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <div class="table-responsive">
+                                                    <table class="table table-borderless">
+                                                        <tr><th colspan="2">ลำน้ำที่เกิดปัญหาการกีดขวางทางน้ำ</th></tr>
+                                                        <tr>
+                                                            <th width=20%>ชื่อลำน้ำ  </th>
+                                                            <td ><input type="text" id="river_name" name="river_name" placeholder="-- กรอกชื่อ --" required onchange="validateForm(this.id)">
+                                                                <div class="invalid-feedback"></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th> เป็นสาขาของแม่น้ำ </th>
+                                                            <td><input type="text" id="river_main" name="river_main" placeholder="-- กรอกชื่อ --" >
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th> วันที่ทำการสำรวจ </th>
+                                                            <td>
+                                                                <!-- <input type="date" id="survey_date" name="survey_date" placeholder="dd-mm-yyyy" placeholder="-- กรอกวันที่ --" isBuddhist: true > -->
+                                                                <input type="text" name="survey_date" id="survey_date" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
                                                 <br>
                                                 {{-- 1 ลักษณะทั่วไป--}}
                                                 <h4><span class="number">1 </span>  ลักษณะทั่วไป  </h4> </td>
-                                                <table class="table table-borderless">
-                                                    {{-- 1.1 --}}
-                                                    <tr>
-                                                        <th colspan="2" width="30%">1.1 ประเภทลำน้ำ  {{-- <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span> --}}  </th>
-                                                        <td>
-                                                            <select id="river_type" name="river_type">
-                                                                <option value="">-- เลือกประเภท --</option>
-                                                                <option value="แม่น้ำสายหลัก">แม่น้ำสายหลัก</option>
-                                                                <option value="แม่น้ำสาขา">แม่น้ำสาขา</option>
-                                                                <option value="ลำห้วย">ลำห้วย</option>
-                                                                <option value="ลำเหมือง">ลำเหมือง</option>
-                                                            </select>
-                                                        </td>
-                                                    </tr>
-                                                    <tr><th colspan="2">1.2 ที่ตั้งของช่วงเวลาที่เกิดปัญหา  {{--  <span class="chatbox__button1"><img src="{{ asset('images/question-mark.png') }} " /></span>  --}} </th></tr>
-                                                    <tr>
-                                                        <td align="right">จังหวัด : </td>
-                                                        <td colspan="2">
-                                                            <select id='blk_province' name='blk_province' >
-                                                                <option value='เชียงใหม่'> เชียงใหม่ </option>
-                                                            </select>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="right">อำเภอ : </td>
-                                                        <td colspan="2">
-                                                            <select id='blk_district' name='blk_district' required onchange="validateForm(this.id)">
-                                                                <option value=''>-- เลือกอำเภอ --</option>
-                                                                <!-- Read district -->
-                                     
-                                                                @foreach($districtData['data'] as $village)
-                                                                    <option value='{{ $village->vill_district }}'>{{ $village->vill_district  }}</option>
-                                                                @endforeach
-                                                                    
-                                                            </select>
-                                                            <div class="invalid-feedback"></div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="right">ตำบล : </td>
-                                                        <td colspan="2">
-                                                            <select id="blk_tumbol" name="blk_tumbol" required onchange="validateForm(this.id)">
-                                                                <option value=''>-- เลือกตำบล --</option>
-                                                            </select>
-                                                            <div class="invalid-feedback"></div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="right">หมู่บ้าน : </td>
-                                                        <td colspan="2">
-                                                            <select id="blk_village" name="blk_village" required onchange="validateForm(this.id)">
-                                                                <option value=''>-- เลือกหมู่บ้าน --</option>
-                                                            </select>
-                                                            <div class="invalid-feedback"></div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="right">หมายเหตุ : </td>
-                                                        <td colspan="2">
-                                                            <input type="text" id="comment" name="comment" >
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <div class="table-responsive">
+                                                    <table class="table table-borderless">
+                                                        {{-- 1.1 --}}
+                                                        <tr>
+                                                            <th width=30%>1.1 ประเภทลำน้ำ  {{-- <span class="chatbox__button"><img src="{{ asset('images/question-mark.png') }} " /></span> --}}  </th>
+                                                            <td>
+                                                                <select id="river_type" name="river_type">
+                                                                    <option value="">-- เลือกประเภท --</option>
+                                                                    <option value="แม่น้ำสายหลัก">แม่น้ำสายหลัก</option>
+                                                                    <option value="แม่น้ำสาขา">แม่น้ำสาขา</option>
+                                                                    <option value="ลำห้วย">ลำห้วย</option>
+                                                                    <option value="ลำเหมือง">ลำเหมือง</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <table class="table table-borderless">
+                                                        <tr><th colspan="2">1.2 ที่ตั้งของช่วงเวลาที่เกิดปัญหา  {{--  <span class="chatbox__button1"><img src="{{ asset('images/question-mark.png') }} " /></span>  --}} </th></tr>
+                                                        <tr>
+                                                            <td align="right" width=30% class="text_location">จังหวัด  </td>
+                                                            <td colspan="2">
+                                                                <select id='blk_province' name='blk_province' >
+                                                                    <option value='เชียงใหม่'> เชียงใหม่ </option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right" class="text_location">อำเภอ  </td>
+                                                            <td colspan="2">
+                                                                <select id='blk_district' name='blk_district' required onchange="validateForm(this.id)">
+                                                                    <option value=''>-- เลือกอำเภอ --</option>
+                                                                    <!-- Read district -->
+                                        
+                                                                    @foreach($districtData['data'] as $village)
+                                                                        <option value='{{ $village->vill_district }}'>{{ $village->vill_district  }}</option>
+                                                                    @endforeach
+                                                                        
+                                                                </select>
+                                                                <div class="invalid-feedback"></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right" class="text_location">ตำบล  </td>
+                                                            <td colspan="2">
+                                                                <select id="blk_tumbol" name="blk_tumbol" required onchange="validateForm(this.id)">
+                                                                    <option value=''>-- เลือกตำบล --</option>
+                                                                </select>
+                                                                <div class="invalid-feedback"></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right" class="text_location">หมู่บ้าน  </td>
+                                                            <td colspan="2">
+                                                                <select id="blk_village" name="blk_village" required onchange="validateForm(this.id)">
+                                                                    <option value=''>-- เลือกหมู่บ้าน --</option>
+                                                                </select>
+                                                                <div class="invalid-feedback"></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right" class="text_location">หมายเหตุ </td>
+                                                            <td colspan="2">
+                                                                <input type="text" id="comment" name="comment" >
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
                                                 <table>
                                                     <tr>
                                                         <td colspan="2">
@@ -160,57 +166,74 @@
                                                 </table>
                                                 <table style="margin-left:10px;" class="table table-borderless">
                                                     <tr>
-                                                        <td colspan="4">พิกัดเริ่มต้นของปัญหา : {{-- <span class="chatbox__button2"><img src="{{ asset('images/question-mark.png') }} " /></span>--}} </td>
+                                                        <td colspan="3" >พิกัดเริ่มต้นของปัญหา : {{-- <span class="chatbox__button2"><img src="{{ asset('images/question-mark.png') }} " /></span>--}} </td>
+                                                        
                                                     </tr>
                                                     <tr>
-                                                        <td></td>
-                                                        <td><input type="text" id="xstart" name="xstart" placeholder="UTM Easting" maxlength="6"  required> <div class="invalid-feedback"></div> </td>
-                                                        <td align="center"><button class="btn btn-outline-success waves-effect" type="button" onclick="transform()"> >> </button>  </td>
-                                                        <td><input type="text" id="latstart" name="latstart" placeholder="Latitude" required> <div class="invalid-feedback"></div></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
+                                                        <td width=10%> &nbsp;</td>
+                                                        <td><input type="text" id="xstart" name="xstart" placeholder="UTM Easting" maxlength="6"  required> 
+                                                            <div class="invalid-feedback"></div> 
+                                                        </td>
                                                         <td><input type="text" id="ystart" name="ystart" placeholder="UTM Northing" maxlength="7"  required>
                                                             <div class="invalid-feedback"></div>
                                                         </td>
-                                                        <td align="center" ><button class="btn btn-outline-success waves-effect" type="button" onclick="transformutm()"> <<</button> </td>
-                                                        <td><input type="text" id="longstart" name="longstart" placeholder="Longitude" required>
-                                                            <div class="invalid-feedback"></div>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> &nbsp;</td>
+                                                        <td align="center" >
+                                                            <button class="btn btn-outline-success waves-effect" type="button" onclick="transform()"> UTM >> Lat/Long  </button>  
+                                                        </td>
+                                                        <td align="center" >
+                                                            <button class="btn btn-outline-success waves-effect" type="button" onclick="transformutm()">  Lat/Long >> UTM </button> 
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td></td><td></td>
-                                                        <td align="center" colspan="2">  <button class="btn btn-outline-success waves-effect"  type="button" onclick="getStLocation()" >Location</button>
+                                                        <td > &nbsp;</td>
+                                                        <td ><input type="text" id="latstart" name="latstart" placeholder="Latitude" required> <div class="invalid-feedback"></div></td>
+                                                        <td  ><input type="text" id="longstart" name="longstart" placeholder="Longitude" required>
+                                                            <div class="invalid-feedback"></div>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td > &nbsp;</td>
+                                                        <td colspan="2" align="center" >  <button class="btn btn-outline-success btn-lg btn-block waves-effect"  type="button" onclick="getStLocation()" >Location</button>
                                                     </tr>
                                                 </table>
                                                 <table style="margin-left:10px;" class="table table-borderless">
                                                     <tr>
-                                                        <td colspan="4">พิกัดสิ้นสุดของปัญหา : {{-- <span class="chatbox__button3"><img src="{{ asset('images/question-mark.png') }} " /></span> --}} </td>
+                                                        <td colspan="3">พิกัดสิ้นสุดของปัญหา : {{-- <span class="chatbox__button3"><img src="{{ asset('images/question-mark.png') }} " /></span> --}} </td>
                                                     </tr>
+
                                                     <tr>
-                                                        <td></td>
+                                                        <td width=10%> &nbsp;</td>
                                                         <td><input type="text" id="xend" name="xend" placeholder="UTM Easting" maxlength="6" required>
-                                                            <div class="invalid-feedback"></div>
+                                                            <div class="invalid-feedback"></div> 
                                                         </td>
-                                                        <td align="center"><button  class="btn btn-outline-success waves-effect"  type="button" onclick="transformend()" > >></button> </td>
-                                                        <td><input type="text" id="latend" name="latend" placeholder="Latitude" required>
-                                                            <div class="invalid-feedback"></div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
                                                         <td><input type="text" id="yend" name="yend" placeholder="UTM Northing" maxlength="7" required >
                                                             <div class="invalid-feedback"></div>
                                                         </td>
-                                                        <td align="center"><button  class="btn btn-outline-success waves-effect"  type="button" onclick="transformendutm()"> <<</button> </td>
-                                                        <td><input type="text" id="longend" name="longend" placeholder="Longitude" required>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> &nbsp;</td>
+                                                        <td align="center" >
+                                                            <button  class="btn btn-outline-success waves-effect"  type="button" onclick="transformend()" > UTM >> Lat/Long  </button>  
+                                                        </td>
+                                                        <td align="center" >
+                                                            <button  class="btn btn-outline-success waves-effect"  type="button" onclick="transformendutm()"> Lat/Long >> UTM </button> 
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td > &nbsp;</td>
+                                                        <td ><input type="text" id="latend" name="latend" placeholder="Latitude" required> <div class="invalid-feedback"></div></td>
+                                                        <td  ><input type="text" id="longend" name="longend" placeholder="Longitude" required>
                                                             <div class="invalid-feedback"></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td></td><td></td>
-                                                        <td align="center" colspan="2">  <button class="btn btn-outline-success waves-effect"  type="button" onclick="getFinLocation()" >Location</button>
-                                                </tr>
+                                                        <td > &nbsp;</td>
+                                                        <td colspan="2" align="center" >  <button class="btn btn-outline-success btn-lg btn-block waves-effect"  type="button" onclick="getFinLocation()" >Location</button>
+                                                    </tr>
 
                                                 </table>
                                             
@@ -378,14 +401,14 @@
                                                                         <label for="damage_type1">น้ำท่วม</label>
                                                         </td>
                                                     </tr>
-                                                    <tr align="center">
+                                                    <tr>
                                                         <td width="5%"></td>
-                                                        <td ><input type="hidden" name="damage_level[flood]" value="0">
+                                                        <td class="loc_damage" ><input type="hidden" name="damage_level[flood]" value="0">
                                                             <input type="radio" id="damageflood1" name="damage_level[flood]" value="low" disabled/> 
                                                             <label for="damageflood1">น้อย</label>
                                                         </td>
-                                                        <td><input type="radio" id="damageflood2" name="damage_level[flood]" value="medium" disabled/><label for="damageflood2"> ปานกลาง</label></td>
-                                                        <td><input type="radio" id="damageflood3" name="damage_level[flood]" value="high" disabled/> <label for="damageflood3">มาก</label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damageflood2" name="damage_level[flood]" value="medium" disabled/><label for="damageflood2"> ปานกลาง</label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damageflood3" name="damage_level[flood]" value="high" disabled/> <label for="damageflood3">มาก</label></td>
                                                     </tr>
                                                     <tr>
 
@@ -394,32 +417,33 @@
                                                                         <label for="damage_type2">น้ำเสีย</label>
                                                         </td>
                                                     </tr>
-                                                    <tr align="center">
+                                                    <tr>
                                                         <td width="5%"></td>
-                                                        <td><input type="hidden" name="damage_level[waste]" value="0">
+                                                        <td class="loc_damage"><input type="hidden" name="damage_level[waste]" value="0">
                                                             <input type="radio" id="damagewaste1" name="damage_level[waste]" value="low" disabled/>
                                                             <label for="damagewaste1"> น้อย </label>
                                                         </td>
-                                                        <td><input type="radio" id="damagewaste2" name="damage_level[waste]" value="medium" disabled/><label for="damagewaste2"> ปานกลาง </label></td>
-                                                        <td><input type="radio" id="damagewaste3" name="damage_level[waste]" value="high" disabled/><label for="damagewaste3"> มาก </label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damagewaste2" name="damage_level[waste]" value="medium" disabled/><label for="damagewaste2"> ปานกลาง </label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damagewaste3" name="damage_level[waste]" value="high" disabled/><label for="damagewaste3"> มาก </label></td>
                                                     </tr>
                                                     <tr >
-                                                    <td width="10%"><input type="hidden" name="damage_type[other]" value="0">
+                                                        <td width="10%"><input type="hidden" name="damage_type[other]" value="0">
                                                                         <input type="checkbox" id="damage_type3"  name='damage_type[other]' value="1" onclick="damageLevelRadioValidation()">
                                                                         <label for="damage_type3">อื่นๆ </label>
-                                                        <td colspan="2">
+                                                        </td>
+                                                        <td colspan="2" width="60%">
                                                             <input type="hidden" name="damage_level[other][detail]" value="NULL">
                                                                         <input type="text" name="damage_level[other][detail]" id="damageotherdetail" size="5" placeholder="ระบุ">
                                                         </td>
                                                     </tr>
-                                                    <tr align="center">
+                                                    <tr>
                                                         <td width="5%"></td>
-                                                        <td><input type="hidden" name="damage_level[other][level]" value="0">
+                                                        <td class="loc_damage"><input type="hidden" name="damage_level[other][level]" value="0">
                                                             <input type="radio" id="damageother1" name="damage_level[other][level]" value="low" disabled/>
                                                             <label for="damageother1"> น้อย </label>
                                                         </td>
-                                                        <td><input type="radio" id="damageother2" name="damage_level[other][level]" value="medium" disabled/> <label for="damageother2">ปานกลาง </label></td>
-                                                        <td><input type="radio" id="damageother3" name="damage_level[other][level]" value="high" disabled/> <label for="damageother3">มาก </label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damageother2" name="damage_level[other][level]" value="medium" disabled/> <label for="damageother2">ปานกลาง </label></td>
+                                                        <td class="loc_damage"><input type="radio" id="damageother3" name="damage_level[other][level]" value="high" disabled/> <label for="damageother3">มาก </label></td>
                                                     </tr>
                                                 </table>
 
