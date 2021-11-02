@@ -31,7 +31,7 @@ class ManagmemntVerifyUserController extends Controller
         }
         else
         {   
-            $massageNotic = "If you are admin please contact";
+            $massageNotic = "หากคุณต้องการเข้าถึงกรุณา ";
             return view('verifyMessage', compact('massageNotic'));
         }
 
