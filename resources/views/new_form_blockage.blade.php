@@ -1111,7 +1111,30 @@
                         </div>
                     </div>
 
-                    <div class="chatbox__button_pix">
+                    <div class="chatbox_support_admin chatbox-infomation">
+                        
+                        <div class="chatbox__header">
+                            <div class="chatbox__image--header">
+                                <button class="btn-close" id="closeTab">X</button>
+                            </div>
+                            <div class="chatbox__content--header">
+                            </div>
+                        </div>
+                        <div class="chatbox__messages">
+                        <div class="user-img"><img src="{{ asset('images/chat_bot_web.png') }}" /></div>
+                            <div>
+                                <div class="messages__item messages__item--visitor">
+                                   <p>คุยกับน้องผ่าน line ได้นะคะด้วยการเพิ่มน้องเป็นเพือนผ่าน line id: @188hzruo</p>
+                                   <p>หรือผ่าน QRCode</p>
+                                   <p><img src="{{ asset('images/qrcode/ninaqrcode.png') }}" height=150 width=150></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatbox__footer">
+                        </div>
+                    </div>
+
+                    <div class="chatbox__button_pix chatbox_button_admin">
                         <button ><img src="{{ asset('images/chat_bot_web.png') }}" /></button>
                     </div>
                 </div>
