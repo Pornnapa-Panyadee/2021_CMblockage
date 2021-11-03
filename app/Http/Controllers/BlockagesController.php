@@ -79,7 +79,7 @@ class BlockagesController extends Controller
     }
 
     // Blockage by tumbol 
-    function find_location_blk_tumbol($ampol, $tumbol){
+    function find_location_blk_tumbol($tumbol, $ampol){
         $data = DB::table('blockage_locations')
         ->select(DB::raw("blockages.blk_code, blockages.blk_id, photos.thumbnail_name ,
         JSON_EXTRACT(ST_AsGeoJSON(blk_start_location),'$.coordinates[0]') as latitude_start, 
@@ -174,7 +174,7 @@ class BlockagesController extends Controller
     // }
 
     // สถานที่เเจ้งปัญหา //
-    function report_promble($aumpol,$tumbol){
+    function report_promble($tumbol,$aumpol){
         $data = DB::table('problem_report')
         ->select('*')
         ->where([

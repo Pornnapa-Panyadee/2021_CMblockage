@@ -31,11 +31,7 @@ class ManagmemntVerifyUserController extends Controller
         }
         else
         {   
-<<<<<<< HEAD
-            $massageNotic = "หากคุณต้องการเข้าถึงกรุณา";
-=======
-            $massageNotic = "หากคุณต้องการเข้าถึงกรุณา ";
->>>>>>> e270484666324bae332f3a4989acbe99010e7ec3
+            $massageNotic = "หากคุณต้องการเข้าหน้าเพจนี้ถึงกรุณา";
             return view('verifyMessage', compact('massageNotic'));
         }
 

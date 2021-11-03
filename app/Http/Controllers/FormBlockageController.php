@@ -382,7 +382,7 @@ class FormBlockageController extends Controller
             // dd($data[0]);
             return view('pages.homeblockage',compact('data','user'));
         }else if($verify_status == 0){
-            $massageNotic = "Please contact admin to verify account.";
+            $massageNotic = "หากคุณต้องการเข้าหน้าเพจนี้ถึงกรุณา";
             return view('verifyMessage', compact('massageNotic'));
 
         }else if(Auth::user()->status_work=="expert" ){
