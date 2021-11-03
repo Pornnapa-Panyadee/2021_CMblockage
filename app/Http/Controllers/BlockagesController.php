@@ -174,7 +174,7 @@ class BlockagesController extends Controller
     // }
 
     // สถานที่เเจ้งปัญหา //
-    function report_promble($aumpol,$tumbol){
+    function report_promble($tumbol,$aumpol){
         $data = DB::table('problem_report')
         ->select('*')
         ->where([

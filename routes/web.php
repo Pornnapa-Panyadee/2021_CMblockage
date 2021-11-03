@@ -248,7 +248,7 @@ Route::get('find_location_blk_tumbol/{tumbol}/{ampol}',[BlockagesController::cla
 //2.2 IDF Curve
 // Route::get('water_idf/{longitude}/{latitude}', [BlockagesController::class, 'water_idf_value']);
 //2.3 สถานที่เเจ้งปัญหา
-Route::get('problem_report/{aumpol}/{tumbol}',[BlockagesController::class, 'report_promble']);
+Route::get('problem_report/{tumbol}/{aumpol}',[BlockagesController::class, 'report_promble']);
 // ---- end card 2 --- //
 
 
