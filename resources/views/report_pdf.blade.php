@@ -188,15 +188,30 @@
                             <td class="line"> 085-9087632<td>
                             
                         </tr>
-                        <tr>
-                            <td align="center"> ตำแหน่งที่  </td>
-                            <td class="line"> {{$data[0]->blk_id}}</td>
-                            <td align="center"> ชื่อลำน้ำ  </td>
-                            <td colspan="2"class="line">  {{ $data[0]->river->river_name }}</td>
-                            <td align="center">  เป็นสาขาของแม่น้ำ  </td>
-                            <td class="line" > {{  $data[0]->river->river_main  }}</td>
+                        <?php  if($data[0]->blk_id=="B00399" || $data[0]->blk_id=="B00398"|| $data[0]->blk_id=="B00400"){?> 
+                            <tr>
+                                <td align="center"> ตำแหน่งที่  </td>
+                                <td class="line"> {{$data[0]->blk_id}}</td>
+                                <td align="center"> ชื่อลำน้ำ  </td>
+                                <td colspan="2"class="line">  {{ $data[0]->river->river_name }}</td>
+                            </tr>
+                            <tr>
+                                <td align="center">  เป็นสาขาของแม่น้ำ  </td>
+                                <td class="line" colspan="3"> {{  $data[0]->river->river_main  }}</td>
                                 
-                        </tr>
+                             </tr>
+                        <?php }else{ ?>
+
+                            <tr>
+                                <td align="center"> ตำแหน่งที่  </td>
+                                <td class="line"> {{$data[0]->blk_id}}</td>
+                                <td align="center"> ชื่อลำน้ำ  </td>
+                                <td colspan="2"class="line">  {{ $data[0]->river->river_name }}</td>
+                                <td align="center">  เป็นสาขาของแม่น้ำ  </td>
+                                <td class="line" > {{  $data[0]->river->river_main  }}</td>
+                                    
+                            </tr>
+                        <?php } ?>
                     </table>
 
                     {{-- ข้อ1    --}}
@@ -227,6 +242,12 @@
                               <td width=10% class="line"> เชียงใหม่ </td> 
                           <tr>
                       </table>
+                      <table class="table-report1" width="72%" align="center" style="margin-bottom: 10px;" >
+                        <tr>
+                            <td width=5% >หมายเหตุ </td>
+                            <td class="line"> {{  $data[0]->blockageLocation->comment}} </td>
+                        </tr>
+                    </table>
 
                       <table class="table-report4" width="100%" align="center">
                           <tr >
@@ -270,6 +291,8 @@
                               </td>
                           </tr>
                     </table>
+                    
+
                     <?php 
                     function checkZero($text) {
                         if($text=="0"){
@@ -285,16 +308,16 @@
                                 <td colspan="4">1.3 หน้าตัดของลำน้ำเดิมก่อนเกิดปัญหา (โดยประมาณ) </td>
                             </tr>
                     </table>
-                    <table class="table-report2" width="80%" align="center">
+                    <table class="table-report2" width="90%" align="center">
                             <tr >
                                 <td align="right">กว้าง  </td>
-                                <td align="center" class="line" width=20%>{{ checkZero($pastData->width)}} </td>
+                                <td align="center" class="line" width=10%>{{ checkZero($pastData->width)}} </td>
                                 <td> เมตร </td>
                                 <td align="right">ลึก  </td>
-                                <td align="center" class="line"  width=20% >{{ checkZero($pastData->depth)}} </td>
+                                <td align="center" class="line"  width=10% >{{ checkZero($pastData->depth)}} </td>
                                 <td> เมตร </td>
                                 <td align="right">ความลาดชันของตลิ่ง  </td>
-                                <td align="center" class="line" width=20%>{{ checkZero( $pastData->slop)}} </td>
+                                <td align="center" class="line" width=30% >{{ checkZero( $pastData->slop)}} </td>
                                 <td> เมตร </td>
                             </tr>
                     </table>
@@ -307,13 +330,13 @@
                             </tr>
                             <tr >
                                     <td align="right"  >กว้าง  </td>
-                                    <td align="center" class="line" width=20%>{{checkZero($current_start->width)}} </td>
+                                    <td align="center" class="line" width=10%>{{checkZero($current_start->width)}} </td>
                                     <td width=5%>เมตร</td>
                                     <td align="right">ลึก  </td>
-                                    <td align="center" class="line"  width=20% >{{ checkZero($current_start->depth)}} </td>
+                                    <td align="center" class="line"  width=10% >{{ checkZero($current_start->depth)}} </td>
                                     <td > เมตร </td>
                                     <td align="right">ความลาดชันของตลิ่ง  </td>
-                                    <td align="center" class="line" width=20%>{{checkZero($current_start->slop)}} </td>
+                                    <td align="center" class="line" width=40%>{{checkZero($current_start->slop)}} </td>
                                     <td > เมตร </td>
                             </tr>
                             <tr>
@@ -323,20 +346,35 @@
 
                     {{-- checkCuase --}}
                     <?php 
-                    function checkCuase($text) {
-                        if($text!=NULL){
-                            $img='https://cmblockage.cmfightflood.com/images/logo/check.png';
-                            // $img='http://localhost/2021_CMblockage/public/images/logo/check.png';
-                            echo "<img src='{$img}'  width=3%>";	
-                            //echo  "<font size=\"4\"> &#9745;</font>";
-                        }else{
-                            // echo "<font size=\"4\"> &#9744;</font>";
-                            $img='https://cmblockage.cmfightflood.com/images/logo/square.png';
-                            // $img='http://localhost/2021_CMblockage/public/images/logo/square.png';
-                            echo "<img src='{$img}'  width=3%>";	
+                        function checkCuase($text) {
+                            if($text!=NULL){
+                                $img='https://cmblockage.cmfightflood.com/images/logo/check.png';
+                                // $img='http://localhost/2021_CMblockage/public/images/logo/check.png';
+                                echo "<img src='{$img}'  width=3%>";	
+                                //echo  "<font size=\"4\"> &#9745;</font>";
+                            }else{
+                                // echo "<font size=\"4\"> &#9744;</font>";
+                                $img='https://cmblockage.cmfightflood.com/images/logo/square.png';
+                                // $img='http://localhost/2021_CMblockage/public/images/logo/square.png';
+                                echo "<img src='{$img}'  width=3%>";	
+                            }
                         }
+                        function checkCuaseProb($text) {
+                            if($text!=NULL){
+                                $img='https://cmblockage.cmfightflood.com/images/logo/check.png';
+                                // $img='http://localhost/2021_CMblockage/public/images/logo/check.png';
+                                echo "<img src='{$img}'  width=3% style='margin-top:10px;'>";	
+                                //echo  "<font size=\"4\"> &#9745;</font>";
+                            }else{
+                                // echo "<font size=\"4\"> &#9744;</font>";
+                                $img='https://cmblockage.cmfightflood.com/images/logo/square.png';
+                                // $img='http://localhost/2021_CMblockage/public/images/logo/square.png';
+                                echo "<img src='{$img}'  width=3% style='margin-top:10px;'>";	
+                            }
                         }
+                        
                     ?>
+                    
                     {{-- checkCuase --}}
                     <table width="80%" align="center">
                                                 
@@ -344,13 +382,13 @@
                                 <td >{{checkCuase($current_narrow_new->waterway_type ) }} </td>
                                 <td> ทางน้ำเปิด </td>
                                 <td align="right"> กว้าง </td>
-                                <td width=15% class="line" align="center">{{ checkZero($current_narrow_new->waterway->width) }} </td>
+                                <td width=10% class="line" align="center">{{ checkZero($current_narrow_new->waterway->width) }} </td>
                                 <td>เมตร  </td> 
                                 <td align="right"> ลึก</td>
-                                <td width=15% class="line" align="center">{{ checkZero($current_narrow_new->waterway->depth) }} </td>
+                                <td width=10% class="line" align="center">{{ checkZero($current_narrow_new->waterway->depth) }} </td>
                                 <td>เมตร  </td>
                                 <td align="right"> ความลาดชันของตลิ่ง</td>
-                                <td width=15% class="line" align="center">{{ checkZero($current_narrow_new->waterway->slop) }} </td>
+                                <td width=10% class="line" align="center">{{ checkZero($current_narrow_new->waterway->slop) }} </td>
                                 <td>เมตร  </td>
 
                             </tr>
@@ -358,13 +396,13 @@
                                 <td >{{checkCuase($current_brigde->width) }} </td>
                                 <td> สะพาน </td>
                                 <td align="right"> กว้าง </td>
-                                <td width=15% class="line" align="center">{{ checkZero($current_brigde->width) }} </td>
+                                <td class="line" align="center">{{ checkZero($current_brigde->width) }} </td>
                                 <td>เมตร  </td> 
                                 <td align="right"> ลึก</td>
-                                <td width=15% class="line" align="center">{{ checkZero($current_brigde->depth) }} </td>
+                                <td class="line" align="center">{{ checkZero($current_brigde->depth) }} </td>
                                 <td>เมตร  </td>
                                 <td align="right"> ความลาดชันของตลิ่ง</td>
-                                <td width=15% class="line" align="center">{{ checkZero($current_narrow_new->waterway->slop) }} </td>
+                                <td class="line" align="center">{{ checkZero($current_narrow_new->waterway->slop) }} </td>
                                 <td>เมตร  </td>
 
                             </tr>
@@ -377,6 +415,9 @@
                                 <td align="right"> จำนวนท่อ</td>
                                 <td class="line" align="center">{{ checkZero($current_narrow_new->round->num) }} </td>
                                 <td>ช่อง  </td>  
+                                <td align="right"> ความยาว</td>
+                                <td class="line" align="center">{{ checkZero($current_narrow_new->round->len) }} </td>
+                                <td>เมตร  </td>  
 
                             </tr>
 
@@ -394,26 +435,28 @@
                                 <td>ช่อง </td>  
 
                             </tr>
+                    </table>
+                    <table width="80%" align="center">
                             <tr>
-                                <td> {{checkCuase($current_narrow_new->other_type ) }} </td>
-                                <td > อื่นๆ </td>
-                                <td class="line" colspan="3"> {{ $current_narrow_new->other->detail }} </td>
+                                <td> {{checkCuase($current_narrow_new->other->detail ) }} </td>
+                                <td width=5% align="left"> อื่นๆ </td>
+                                <td class="line" align="left" width=90%> {{ $current_narrow_new->other->detail }} </td>
                             </tr>
                             
                     </table>
-                    <table class="table-report2" width="80%" align="center">
+                    <table  width="80%" align="center">
                         <tr>
-                                <td colspan="9">1.4.3 หน้าตัดของลำน้ำท้ายน้ำหลังที่เกิดปัญหา</td>
+                            <td colspan="9">1.4.3 หน้าตัดของลำน้ำท้ายน้ำหลังที่เกิดปัญหา</td>
                         </tr>
                         <tr >
-                            <td align="right"  >กว้าง  </td>
-                            <td align="center" class="line" width=20%>{{checkZero($current_end->width)}} </td>
-                            <td width=5%>เมตร</td>
+                            <td align="right">กว้าง  </td>
+                            <td align="center" class="line" width=10%>{{checkZero($current_end->width)}} </td>
+                            <td >เมตร</td>
                             <td align="right">ลึก  </td>
-                            <td align="center" class="line"  width=20% >{{ checkZero($current_end->depth)}} </td>
+                            <td align="center" class="line"  width=10% >{{ checkZero($current_end->depth)}} </td>
                             <td > เมตร </td>
                             <td align="right">ความลาดชันของตลิ่ง  </td>
-                            <td align="center" class="line" width=20%>{{ checkZero($current_end->slope)}} </td>
+                            <td align="center" class="line" width=40%>{{ checkZero($current_end->slope)}} </td>
                             <td > เมตร </td>
                          </tr>
                     </table>
@@ -646,12 +689,12 @@
                                             <td >{{checkCuase($problem[0]->nat_missing)}} </td>
                                             <td colspan="2">ลำน้ำขาดหาย</td>
                                         </tr>
-                                        <tr>
-                                            <td>{{checkCuase($problem[0]->nat_winding)}} </td>
+                                        <tr VALIGN=TOP >
+                                            <td>{{checkCuaseProb($problem[0]->nat_winding)}} </td>
                                             <td>ลำน้ำคดเคี้ยวมาก </td>
-                                            <td>{{checkCuase($problem[0]->nat_weed)}} </td>
+                                            <td>{{checkCuaseProb($problem[0]->nat_weed)}} </td>
                                             <td > วัชพืช  <font class="line">{{$problem[0]->nat_weed_detail}} </font></td>
-                                            <td>{{checkCuase($problem[0]->nat_other)}} </td>
+                                            <td>{{checkCuaseProb($problem[0]->nat_other)}} </td>
                                             <td width=5%> อื่นๆ </td>
                                             <td class="line">{{$problem[0]->nat_other_detail}}</td>
                                         </tr>
