@@ -18,14 +18,14 @@
 <!-- navbar -->
         <!-- ============================================================== -->
         <div class="dashboard-header">
-                <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <nav class="navbar navbar-expand-xl bg-white fixed-top">
                     <a class="navbar-brand" href="{{ url('/') }}">Chiang Mai Stream Blockages</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <div class="navbar-toggler-icon"> <img src="{{ asset('images/logo/bar.png') }}" width="100%"> </div>
                     </button>
                     <div class="collapse navbar-collapse " id="navbarSupportedContent">
                         <ul class="navbar-nav mx-auto navbar-right-top" >
-                            <li class="nav-item" style="width: 40%">    </li>
+                            <li class="nav-item" style="width: 60%">    </li>
                              <li class="nav-item dropdown " style="padding-bottom:-20px;">
                                 <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ข้อมูลสิ่งกีดขวางทางน้ำ</a>
                                 <div class="dropdown-menu dropdown-menu-right" style="padding:20px 0 20px ; background-color:#b3d6ff ; font-size:16px;"  >

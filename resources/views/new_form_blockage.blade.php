@@ -1041,14 +1041,17 @@
                                                             <tr style="margin-bottom: 200px;">
                                                                 <td width="30%">ระดับจุด A</td>
                                                                 <td ><input type="number" name="A" id="A" ></td>
+                                                                <td> เมตร </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>ระดับจุด B </td>
                                                                 <td> <input type="number"name="B" id="B"></td>
+                                                                <td> เมตร </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>ระยะทางจาก A ถึง B </td>
                                                                 <td> <input type="number" name="lenght" id="lenght"></td>
+                                                                <td> เมตร </td>
                                                             </tr>
                                                             <tr>
                                                                 <td colspan="2">

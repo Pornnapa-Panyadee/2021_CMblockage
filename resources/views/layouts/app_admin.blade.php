@@ -152,8 +152,16 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ asset('js/popupInfo.js') }}"></script>
+
+   
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/main-js.js') }}"></script>
     <script src= "{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/main-js.js') }}"></script>
+    <script src="{{ asset('js/jquery-1.9.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>
+    <script src="{{ asset('js/popupInfo.js') }}"></script>
     <script src="{{ asset('js/Chat.js') }}"></script>
     <script src="{{ asset('js/app_chat.js') }}"></script>
     <script src="{{ asset('js/shortable-nestable/Sortable.min.js') }}"></script>

@@ -137,7 +137,7 @@
     <div class="row" align="center" > 
     
         <div class="text_report">รายงานสรุป</div>
-        <div class="text_report1">ข้อมูลสภาพปัญหาและแนวทางกา</div>
+        <div class="text_report1">ข้อมูลสภาพปัญหาและแนวทางการ</div>
         <?php if ($tumbol!="sum"){?>
             <div class="text_report2">ตำบล{{$tumbol}}</div>
             <div class="text_report1">อำเภอ{{$amp_req}} จังหวัดเชียงใหม่</div>
@@ -196,8 +196,8 @@
                                         <td rowspan="2" width=2%>ลำดับ</td>
                                         <td rowspan="2" width=2%>รหัส</td>
                                         <td rowspan="2" width=4%>หมู่บ้าน/ตำบล/อำเภอ<br> ชื่อลำน้ำ</td>
-                                        <td colspan="2" >พิกัด</td>
-                                        <td rowspan="2" >วันที่สำรวจ</td>
+                                        <td colspan="2" width=16%>พิกัด</td>
+                                        <td rowspan="2" width=4%>วันที่สำรวจ</td>
                                         <td rowspan="2" width=22%>สภาพปัญหาการกีดขวางทางน้ำ</td>
                                         <td rowspan="2" width=18% >ข้อมูลพื้นที่รับน้ำ</td>
                                         <td rowspan="2" width=25%>แนวทางและวิธีการแก้ไขปัญหาเบื้องต้น</td>
@@ -215,8 +215,6 @@
                                         <td colspan="9" style="padding-left:10px; font-size:18px;" >อำเภอ{{$data[$i]['amp']}}</td>                  
                                     </tr>
                                     <?php 
-                                    
-                                    
                                         for($j = 0;$j < count($data[$i]['detail']);$j++){
                                             $string=$data[$i]['detail'][$j]->blk_village;
                                             $vill=explode(' ', $string);
@@ -224,6 +222,9 @@
 
                                             $slope=checkW($data[$i]['detail'][$j]->exp_slope);
                                             // $loc=$vill;
+                                            if($data[$i]['detail'][$j]->river_name=="คลองส่งน้ำจากชลประทานสองซ้ายสิบเก้าซ้าย"){
+                                                $data[$i]['detail'][$j]->river_name="คลองส่งน้ำจากชลประทาน<br>สองซ้ายสิบเก้าซ้าย";
+                                            }
                                             $loc=$vill."/".$data[$i]['detail'][$j]->blk_tumbol."/".$data[$i]['detail'][$j]->blk_district."<br>".$data[$i]['detail'][$j]->river_name;
                                             if($data[$i]['detail'][$j]->exp_a25==0){
                                                 $A  ="A=".checkZero($data[$i]['detail'][$j]->exp_area)." km<sup>2</sup> ";
@@ -261,11 +262,11 @@
                                         <tr style="background-color:#F1F0F0">
                                             <td rowspan="2"  width=4%>ลำดับ</td>
                                             <td rowspan="2" width=6% >รหัส</td>
-                                            <td rowspan="2" width=8%>หมู่บ้าน/ตำบล/อำเภอ<br> ชื่อลำน้ำ</td>
-                                            <td colspan="2" width=10%>พิกัด</td>
+                                            <td rowspan="2" width=8%>หมู่บ้าน/ตำบล<br> ชื่อลำน้ำ</td>
+                                            <td colspan="2" width=16%>พิกัด</td>
                                             <td rowspan="2" width=4%>วันที่สำรวจ</td>
-                                            <td rowspan="2" width=22%>สภาพปัญหาการกีดขวางทางน้ำ</td>
-                                            <td rowspan="2" width=20%>ข้อมูลพื้นที่รับน้ำ</td>
+                                            <td rowspan="2" width=25%>สภาพปัญหาการกีดขวางทางน้ำ</td>
+                                            <td rowspan="2" width=16%>ข้อมูลพื้นที่รับน้ำ</td>
                                             <td rowspan="2" width=30%>แนวทางและวิธีการแก้ไขปัญหาเบื้องต้น</td>
                                         </tr>
                                         <tr style="background-color:#F1F0F0">
@@ -285,26 +286,27 @@
                                                 $vill=$vill[2];
     
                                                 $slope=checkW($data[$i]['detail'][$j]->exp_slope);
-    
-                                                $loc=$vill."/".$data[$i]['detail'][$j]->blk_tumbol."/".$data[$i]['detail'][$j]->blk_district."<br>".$data[$i]['detail'][$j]->river_name;
+                                                if($data[$i]['detail'][$j]->river_name=="คลองส่งน้ำจากชลประทานสองซ้ายสิบเก้าซ้าย"){
+                                                    $data[$i]['detail'][$j]->river_name="คลองส่งน้ำจากชลประทาน<br>สองซ้ายสิบเก้าซ้าย";
+                                                }
+                                                $loc=$vill."/".$data[$i]['detail'][$j]->blk_tumbol."<br>".$data[$i]['detail'][$j]->river_name;
                                                 if($data[$i]['detail'][$j]->exp_a25==0.00){
-                                                $A  ="A = ".checkZero($data[$i]['detail'][$j]->exp_area)." km<sup>2</sup> ";
-                                                $L0 ="L0 = ".checkZero($data[$i]['detail'][$j]->exp_L0)." km ";
-                                                $H  ="H = ".checkZero($data[$i]['detail'][$j]->exp_H) ." m";
-                                                $C  ="C = ".checkZero($data[$i]['detail'][$j]->exp_C);
-                                                $tc ="tc = ".checkZero($data[$i]['detail'][$j]->exp_tc)." hr";
-                                                $I  ="I = ".checkZero($data[$i]['detail'][$j]->exp_I). " mm"; 
-                                                $rate="อัตราการไหลสูงสุด = ".checkZero($data[$i]['detail'][$j]->exp_maxflow). "m<sup>3</sup>/s";
-                                                $rp ="Return period = ".checkZero($data[$i]['detail'][$j]->exp_returnPeriod). "ปี";
-                                                $area = $A." ".$L0." ".$H."<br> ".$C." ".$tc."<br>".$rate." <br>".$rp;
-                                            }else{
-                                                $A  ="A = ".checkZero($data[$i]['detail'][$j]->exp_area)." km<sup>2</sup> ";
-                                                $rate="อัตราการไหลสูงสุด = ".checkZero($data[$i]['detail'][$j]->exp_maxflow). "m<sup>3</sup>/s";
-                                                $rp ="Return period = ".checkZero($data[$i]['detail'][$j]->exp_returnPeriod). "ปี";
-                                                $area = $A." <br>".$rate." <br>".$rp;
-                                            }
+                                                    $A  ="A = ".checkZero($data[$i]['detail'][$j]->exp_area)." km<sup>2</sup> ";
+                                                    $L0 ="L0 = ".checkZero($data[$i]['detail'][$j]->exp_L0)." km ";
+                                                    $H  ="H = ".checkZero($data[$i]['detail'][$j]->exp_H) ." m";
+                                                    $C  ="C = ".checkZero($data[$i]['detail'][$j]->exp_C);
+                                                    $tc ="tc = ".checkZero($data[$i]['detail'][$j]->exp_tc)." hr";
+                                                    $I  ="I = ".checkZero($data[$i]['detail'][$j]->exp_I). " mm"; 
+                                                    $rate="อัตราการไหลสูงสุด = ".checkZero($data[$i]['detail'][$j]->exp_maxflow). "m<sup>3</sup>/s";
+                                                    $rp ="Return period = ".checkZero($data[$i]['detail'][$j]->exp_returnPeriod). "ปี";
+                                                    $area = $A." ".$L0."<br> ".$H." ".$C." ".$tc."<br>".$rate." <br>".$rp;
+                                                }else{
+                                                    $A  ="A = ".checkZero($data[$i]['detail'][$j]->exp_area)." km<sup>2</sup> ";
+                                                    $rate="อัตราการไหลสูงสุด = ".checkZero($data[$i]['detail'][$j]->exp_maxflow). "m<sup>3</sup>/s";
+                                                    $rp ="Return period = ".checkZero($data[$i]['detail'][$j]->exp_returnPeriod). "ปี";
+                                                    $area = $A." <br>".$rate." <br>".$rp;
+                                                }
                                              
-                                                
                                                 echo "<tr  align=\"center\" ><td>".($j+1)."</td>";
                                                 echo "<td>".$data[$i]['detail'][$j]->blk_code."</td>";
                                                 echo "<td>".$loc."</td>";
