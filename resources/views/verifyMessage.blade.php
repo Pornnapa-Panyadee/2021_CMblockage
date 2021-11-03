@@ -10,6 +10,6 @@
 <body>
     <h3 style="text-align: center;">คุณไม่ได้รับสิทธิ์ให้เข้าถึงหน้านี้</h3>
     <h3 style="text-align: center;"> {{$massageNotic}} <a href="https://cmblockage.cmfightflood.com/contact" target="_blank">ติดต่อ</a> แอดมิน</h3>
-    <h3 style="text-align: center;"><a class="btn btn-primary"  href="{{ asset('/')}}">Home</a></h3>
+    <h3 style="text-align: center;"><a class="btn btn-primary"  href="{{ asset('/')}}">กลับสู่หน้าหลัก</a></h3>
 </body>
 </html>
