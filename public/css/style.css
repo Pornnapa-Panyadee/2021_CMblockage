@@ -1245,7 +1245,7 @@ Top Header
 
 .dashboard-header .navbar {
     padding: 0px;
-    border-bottom: 1px solid #e6e6f2;
+    border-bottom: 3px solid #007bff;
     -webkit-box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
     box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
     -webkit-transition: all 0.3s ease;
@@ -1256,13 +1256,13 @@ Top Header
 
 .navbar-brand {
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: 14rem;
     line-height: inherit;
     white-space: nowrap;
-    padding: 11px 20px;
-    font-size: 30px;
+    padding: 11px 60px;
+    font-size: 28px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 900;
     color: #007bff;
 }
 .navbar-brand:hover{
@@ -1279,10 +1279,12 @@ Top Header
 }
 
 .navbar-right-top .nav-item .nav-link {
-    padding: 1px 20px;
-    font-size: 16px;
-    line-height: 2;
-    color: #82849f;
+    text-align: center;
+    padding: 1px 10px;
+    font-size: 20px;
+    line-height: 1;
+    width:220px;
+    color: #3490dc;
 }
 
 
@@ -4585,6 +4587,31 @@ Pills vertical
     font-weight: normal;
 }
 
+.table_approve {
+    font-family: 'Mitr';
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 5px;
+    padding: 0;
+    width: 95%;
+    table-layout: fixed;
+}    
+.table_approve th {
+    text-align: center;
+    padding: 10px;
+    vertical-align: middle;
+    /* border-top: 1px solid #e6e6f2; */
+    font-weight: normal;
+}
+.table_approve tr,
+.table_approve td  {
+    margin: 5px;
+    padding: 5px;
+    vertical-align: middle;
+    /* border-top: 1px solid #e6e6f2; */
+    font-weight: normal;
+}
+
 
 
 /*-----------------------
@@ -6856,8 +6883,25 @@ Media Query
 
 
 /* Small Devices, Tablets */
+@media only screen and (max-width:1400px) {
+    .navbar-right-top .nav-item .nav-link {
+        text-align: center;
+        padding: 1px 1px;
+        font-size: 16px;
+        line-height: 1;
+        width:160px;
+        color: #3490dc;
+    }
+}
 
 @media only screen and (max-width:1024px) {
+    .navbar-right-top .nav-item .nav-link {
+        text-align: right;
+        padding: 5px 10px;
+        font-size: 16px;
+        line-height: 2;
+        color:#3490dc;
+    }
     .card-title {
         font-size: 12px;
     }
@@ -6950,7 +6994,8 @@ Media Query
         line-height: 0.4;
     }
     .navbar-right-top .nav-item .nav-link {
-        padding: 1px 20px;
+        text-align: right;
+        padding: 1px 5px;
         font-size: 14px;
         line-height: 2;
         color: #82849f;
@@ -6960,7 +7005,7 @@ Media Query
         margin-right: 1rem;
         line-height: inherit;
         white-space: nowrap;
-        padding: 11px 20px;
+        padding: 11px 10px;
         font-size: 4vw;
         text-transform: uppercase;
         font-weight: 500;
@@ -7068,7 +7113,7 @@ Media Query
         display: inline-block;
         max-width: 90%;
         margin-bottom: 5px;
-        font-size: 14px;
+        font-size: 16px;
         color: #71748d;
     }
   /*--------- dashboard-product-single -------- */
@@ -7169,7 +7214,7 @@ Media Query
         margin-left: 15px;
       } 
 /* --------------------------------- */
-    .table_bg {
+    .table_bg , .table_approve {
         border: 1px solid #ccc;
         border-collapse: collapse;
         margin: 5px;
@@ -7177,7 +7222,7 @@ Media Query
         width: 100%;
         table-layout: fixed;
     }    
-    .table_bg thead {
+    .table_bg thead, .table_approve thead {
         text-align: center;
         border: none;
         clip: rect(0 0 0 0);
@@ -7189,7 +7234,7 @@ Media Query
         width: 1px;
     }
     
-    .table_bg tr {
+    .table_bg tr, .table_approve tr {
         text-align: center;
         background-color: #f8f8f8;
         margin: 5px;
@@ -7200,31 +7245,30 @@ Media Query
         margin-bottom: .625em;
     }
     
-    .table_bg td {
+    .table_bg td , .table_approve td {
       border-bottom: 1px solid #ddd;
       display: block;
       font-size: 12px;
       text-align: right;
     }
     
-    .table_bg td::before {
+    .table_bg td::before , .table_approve td::before{
       content: attr(data-label);
       float: left;
       font-weight: bold;
       text-transform: uppercase;
     }
     
-    .table_bg td:last-child {
+    .table_bg td:last-child, .table_approve td:last-child{
       border-bottom: 0;
     }
 
 
     li{
-      font-size: 16px;
+      font-size: 9px;
       text-align: left;
-      font-weight: bold;
       padding: 2px;
-      margin: 5px;
+      margin: 1px;
       color: #000000;
     }
     .table-name{
@@ -7380,7 +7424,7 @@ Media Query
 
 /* chat */
 .chatbox__support4, .chatbox__support9, .chatbox__support10, .chatbox__support1_7, .chatbox__support18, .chatbox__support6, .chatbox__support7
-, .chatbox__support8, .chatbox_support_admin{
+,.chatbox_support_admin{
     background: #dfe6ec;
     height: 450px;
     width: 1px;

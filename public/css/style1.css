@@ -1226,7 +1226,7 @@ Top Header
 
 .dashboard-header .navbar {
     padding: 0px;
-    border-bottom: 1px solid #e6e6f2;
+    border-bottom: 3px solid #007bff;
     -webkit-box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
     box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
     -webkit-transition: all 0.3s ease;
@@ -1240,10 +1240,10 @@ Top Header
     margin-right: 1rem;
     line-height: inherit;
     white-space: nowrap;
-    padding: 11px 20px;
+    padding: 11px 30px;
     font-size: 28px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 900;
     color: #007bff;
 }
 .navbar-brand:hover{
@@ -1261,10 +1261,12 @@ Top Header
 }
 
 .navbar-right-top .nav-item .nav-link {
-    padding: 1px 20px;
-    font-size: 16px;
-    line-height: 2;
-    color: #82849f;
+    text-align: center;
+    padding: 1px 10px;
+    font-size: 20px;
+    line-height: 1;
+    width:220px;
+    color: #3490dc;
 }
 
 
@@ -6802,7 +6804,7 @@ Media Query
 
 /*--------- dashboard-influence -------- */
     h1 {
-        font-size: 24px;
+        font-size: 20px;
     }
     .user-social-media {
         padding: 16px 45px;
@@ -6816,13 +6818,24 @@ Media Query
 
 
 /* Small Devices, Tablets */
+@media only screen and (max-width:1400px) {
+    .navbar-right-top .nav-item .nav-link {
+        text-align: center;
+        padding: 1px 1px;
+        font-size: 16px;
+        line-height: 1;
+        width:160px;
+        color: #3490dc;
+    }
+}
 
 @media only screen and (max-width:1024px) {
     .navbar-right-top .nav-item .nav-link {
-        padding: 1px 10px;
-        font-size: 10px;
+        text-align: right;
+        padding: 5px 10px;
+        font-size: 16px;
         line-height: 2;
-        color: #82849f;
+        color:#3490dc;
     }
     
     .card-title {
@@ -6834,7 +6847,7 @@ Media Query
     }
     .dashboard-content {
     padding: 20px 20px 60px 20px;
-}
+    }
     .nav-left-sidebar .navbar a {
         color: #fff;
         font-size: 18px;
@@ -6904,6 +6917,7 @@ Media Query
 @media only screen and (max-width:600px) {
     h1 {
         font-size: 16px;
+        color: #007bff;
     }
     .nav-user-dropdown .dropdown-item {
         display: block;
@@ -6920,6 +6934,7 @@ Media Query
         line-height: 0.4;
     }
     .navbar-right-top .nav-item .nav-link {
+        text-align: right;
         padding: 1px 20px;
         font-size: 16px;
         line-height: 2;
@@ -6930,10 +6945,10 @@ Media Query
         margin-right: 1rem;
         line-height: inherit;
         white-space: nowrap;
-        padding: 11px 20px;
+        padding: 10px 10px;
         font-size: 4vw;
         text-transform: uppercase;
-        font-weight: 500;
+        font-weight: 700;
         color: #007bff;
     }
     .card-title {
@@ -7038,7 +7053,7 @@ Media Query
         display: inline-block;
         max-width: 90%;
         margin-bottom: 5px;
-        font-size: 12px;
+        font-size: 16px;
         color: #71748d;
     }
   /*--------- dashboard-product-single -------- */
@@ -7186,11 +7201,10 @@ Media Query
       border-bottom: 0;
     }
     li{
-      font-size: 16px;
+      font-size: 9px;
       text-align: left;
-      font-weight: bold;
       padding: 2px;
-      margin: 5px;
+      margin: 1px;
       color: #000000;
     }
     .table-name{
