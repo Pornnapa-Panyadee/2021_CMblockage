@@ -16,6 +16,8 @@ use App\BlockageLocation;
 use App\Photo;
 use App\ChangeLogs;
 use App\Expert;
+use Auth;
+
 
 class PagesController extends Controller
 {
@@ -88,8 +90,9 @@ class PagesController extends Controller
         
       }
 
-      public function newFormblockage(){
+      public function newFormblockage(User $user){
 
+        // dd(Auth::user()->id);
         $data = DB::table('advice')->select('details','desc','method')->get();
         $data_json = json_decode($data, true);
 
@@ -215,6 +218,35 @@ class PagesController extends Controller
         $methodAdviceF124 = $data_json[24]['method'];      
 
         $districtData['data'] = Page::getDistrict();
+        if(Auth::user()->status_work=="surveyor1"){
+          return view('new_form_blockage_survery', 
+          compact(
+            ['districtData','detailsAdviceF110', 'descAdviceF110', 'methodAdviceF110', 'detailsAdviceF121', 'detailsAdviceF122', 
+            'descAdviceF122',  'methodAdviceF122', 'detailsAdviceF123', 'descAdviceF123', 'methodAdviceF123','detailsAdviceF130', 'descAdviceF130','methodAdviceF130',
+            'detailsAdviceF140', 'descAdviceF140', 'methodAdviceF140', 'detailsAdviceF141', 'descAdviceF141', 'methodAdviceF141', 'detailsAdviceF142', 'descAdviceF142',
+            'methodAdviceF142', 'detailsAdviceF143', 'descAdviceF143', 'methodAdviceF143','detailsAdviceF150', 'descAdviceF150', 'methodAdviceF150', 'detailsAdviceF200',
+            'descAdviceF200', 'methodAdviceF200', 'detailsAdviceF210', 'descAdviceF210','methodAdviceF210', 'detailsAdviceF211','descAdviceF211', 'methodAdviceF211', 'detailsAdviceF222', 
+            'descAdviceF222', 'methodAdviceF222',  'detailsAdviceF220', 'descAdviceF220', 'methodAdviceF220', 'detailsAdviceF300', 'detailsAdviceF310', 'descAdviceF310', 'methodAdviceF310',
+            'detailsAdviceF311','descAdviceF311', 'methodAdviceF311', 'detailsAdviceF312', 'descAdviceF312','methodAdviceF312','detailsAdviceF320','descAdviceF320',
+            'methodAdviceF320', 'detailsAdviceF400','descAdviceF400', 'methodAdviceF400','detailsAdviceF410', 'descAdviceF410', 'methodAdviceF410','detailsAdviceF420', 
+            'descAdviceF420','methodAdviceF420','detailsAdviceF500', 'descAdviceF500','methodAdviceF500','detailsAdviceF124','descAdviceF124','methodAdviceF124']
+          ));
+      
+        }else{
+          return view('new_form_blockage', 
+          compact(
+            ['districtData','detailsAdviceF110', 'descAdviceF110', 'methodAdviceF110', 'detailsAdviceF121', 'detailsAdviceF122', 
+            'descAdviceF122',  'methodAdviceF122', 'detailsAdviceF123', 'descAdviceF123', 'methodAdviceF123','detailsAdviceF130', 'descAdviceF130','methodAdviceF130',
+            'detailsAdviceF140', 'descAdviceF140', 'methodAdviceF140', 'detailsAdviceF141', 'descAdviceF141', 'methodAdviceF141', 'detailsAdviceF142', 'descAdviceF142',
+            'methodAdviceF142', 'detailsAdviceF143', 'descAdviceF143', 'methodAdviceF143','detailsAdviceF150', 'descAdviceF150', 'methodAdviceF150', 'detailsAdviceF200',
+            'descAdviceF200', 'methodAdviceF200', 'detailsAdviceF210', 'descAdviceF210','methodAdviceF210', 'detailsAdviceF211','descAdviceF211', 'methodAdviceF211', 'detailsAdviceF222', 
+            'descAdviceF222', 'methodAdviceF222',  'detailsAdviceF220', 'descAdviceF220', 'methodAdviceF220', 'detailsAdviceF300', 'detailsAdviceF310', 'descAdviceF310', 'methodAdviceF310',
+            'detailsAdviceF311','descAdviceF311', 'methodAdviceF311', 'detailsAdviceF312', 'descAdviceF312','methodAdviceF312','detailsAdviceF320','descAdviceF320',
+            'methodAdviceF320', 'detailsAdviceF400','descAdviceF400', 'methodAdviceF400','detailsAdviceF410', 'descAdviceF410', 'methodAdviceF410','detailsAdviceF420', 
+            'descAdviceF420','methodAdviceF420','detailsAdviceF500', 'descAdviceF500','methodAdviceF500','detailsAdviceF124','descAdviceF124','methodAdviceF124']
+          ));
+
+        }
         return view('new_form_blockage', 
           compact(
             ['districtData', 
