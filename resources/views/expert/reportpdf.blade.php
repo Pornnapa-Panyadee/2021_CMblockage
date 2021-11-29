@@ -234,7 +234,7 @@
             }
             function DateTimeThai($strDate)
                             {
-                                $strYear = (date("Y",strtotime($strDate))+543);
+                                $strYear = (date("Y",strtotime($strDate)));
                                 $strMonth= date("n",strtotime($strDate));
                                 $strDay= date("j",strtotime($strDate));
                                 // $strHour= date("H",strtotime($strDate));
@@ -244,7 +244,7 @@
                                 $strMonthThai=$strMonthCut[$strMonth];
                                 return "$strDay $strMonthThai $strYear ";
                             }
-        ?>
+            ?>
         <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12" > 
             <div class="card">
                     
@@ -259,7 +259,7 @@
                                  รหัสตำแหน่งกีดขวางที่: {{ $data[0]->blk_code }} 
                             </div>
                             {{-- <div align="right" style="margin-top: -10px;margin-bottom:5px;">
-                                วันที่สำรวจ: {{DateTimeThai($data[0]->created_at)}}  
+                                วันที่สำรวจ: {{DateTimeThai($data[0]->survey_date)}}  
                            </div> --}}
                             <div class="title m-b-md">
                                 <table  class="table table-borderless" width="80%" align="center">
@@ -268,7 +268,7 @@
                                             <td>ชื่อลำน้ำ {{ $data[0]->river->river_name }}</td>
                                             <td colspan="2"> เป็นสาขาของแม่น้ำ  {{  $data[0]->river->river_main  }} </td>
                                             <td>ประเภทลำน้ำ {{ $data[0]->river->river_type }}</td>
-                                            <td>วันที่สำรวจ: {{DateTimeThai($data[0]->created_at)}}  </td>
+                                            <td>วันที่สำรวจ: {{DateTimeThai($data[0]->survey_date)}}  </td>
                                         </tr>
                                         <tr>
                                             <td>หมู่บ้าน {{$data[0]->blockageLocation->blk_village}}</td>
@@ -513,7 +513,7 @@
                                             <td colspan="2"style="height:150px"></td>
                                             
                                         </tr>
-                                       <!-- <?php 
+                                       <?php 
                                             
                                             if(!empty($expert[0]->exp_google_map)){ ?>
                                                 <tr>
@@ -533,7 +533,7 @@
                                                     </td>
                                                 </tr>
 
-                                        <?php } ?> -->
+                                        <?php } ?>
                                         
                                     </tbody>
                                 </table>
