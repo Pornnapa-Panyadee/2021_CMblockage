@@ -247,7 +247,18 @@ class FormBlockageController extends Controller
             $Expertdata = new Expert(
                 [
                     'blk_id'=>$blockageId,
-                    'blk_code'=>$codeBlk
+                    'blk_code'=>$codeBlk,
+                    'exp_problem'=>$request->problem,
+                    'exp_area'=>$request->exp_area,
+                    'exp_L0'=>$request->exp_L0,
+                    'exp_H'=>$request->exp_H,
+                    'exp_C'=>$request->exp_C,
+                    'exp_tc'=>$request->exp_tc,
+                    'exp_returnPeriod'=>$request->exp_returnPeriod,
+                    'exp_I'=>$request->exp_I,
+                    'exp_maxflow'=>$request->exp_maxflow,
+                    'exp_solution'=>$request->exp_solution,
+                    'exp_slope'=>$request->exp_slope
                 ]
             );
             $Expertdata->save();
