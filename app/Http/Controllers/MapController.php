@@ -12,6 +12,7 @@ use App\Solution;
 use App\Project;
 use DB;
 use Auth;
+use App\User;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
 ini_set("memory_limit","521M");
 class MapController extends Controller
@@ -55,6 +56,122 @@ class MapController extends Controller
          $test = json_encode($test);
          echo $test;
         //return response()->json($data);
+        
+    }
+    // Get Level Damage
+    public function getMapByUser(User $user) {
+        
+        header('Access-Control-Allow-Origin: *');
+        // dd($amp);
+        $username = Auth::user()->name;
+        function checkRisk($level,$fq){
+            if($level=="มาก"){
+                $l=3;
+            }else if($level=="ปานกลาง"){
+                $l=2;
+            }else{
+                $l=1;
+            }
+
+            if($fq=="ทุกปี"){
+                $f=3;
+            }else if($fq=="2-4 ปีครั้ง"){
+                $f=2;
+            }else{
+                $f=1;
+            }
+            
+            $cal=$l*$f;
+
+            if($cal<3){
+                return "น้อย";
+            }
+            else if($cal<6){
+                return "ปานกลาง";
+            }else{
+                return "มาก";
+            }
+        }
+        function checklevel($flood,$waste,$other) {
+            if($flood!=NULL||$flood!=0){
+                if($flood=="low"){
+                    $level="น้อย";
+                }else if( $flood=="medium"){
+                    $level="ปานกลาง";
+                }else if( $flood=="high") {
+                    $level="มาก";
+                }else{
+                    $level=NULL;
+                }
+            }else if($waste!=NULL||$waste!=0){
+                if($waste=="low"){
+                    $level="น้อย";
+                }else if( $waste=="medium"){
+                    $level="ปานกลาง";
+                }else if( $waste=="high") {
+                    $level="มาก";
+                }else{
+                    $level=NULL;
+                }
+
+            }else if($other!=NULL||$other!=0){
+                if($other=="low"){
+                    $level="น้อย";
+                }else if( $other=="medium"){
+                    $level="ปานกลาง";
+                }else if( $other=="high") {
+                    $level="มาก";
+                }else{
+                    $level=NULL;
+                }
+            }
+                return $level;
+        }
+
+        // $data = DB::table('blockage_locations')
+        //         ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
+        //         ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
+        //         ->where('blockages.blk_user_name', '=', $username)
+        //         ->get(); 
+        
+        // $data = BlockageLocation::with('blockage','blockage.River')
+        //         ->where('blockage.blk_user_name', '=', $username)
+        //         ->get();
+    
+        $data = BlockageLocation::with('blockage','blockage.River')
+                ->get();
+
+        $result=[];
+        $properties['time']=[];
+        
+        for ($i=0;$i<count($data);$i++){
+
+            if($data[$i]->blockage->blk_user_name == $username){
+                $fq = ProblemDetail::select('prob_level')->where ('problem_details.blk_id', $data[$i]->blockage->blk_id)->get();
+              
+                $damage=$data[$i]->blockage->damage_level;
+                $damageData=json_decode($damage);
+                $level=checklevel($damageData->flood,$damageData->waste,$damageData->other->level);
+                $risk=checkRisk($level,$data[$i]->blockage->damage_frequency);
+
+                    $result[] = [
+                        'id' => $data[$i]->blockage->blk_id,
+                        'time'=> date($data[$i]->blockage->updated_at),
+                        'blk_code'=> $data[$i]->blockage->blk_code,
+                        'blk_id'=>$data[$i]->blockage->blk_id,
+                        'river'=>$data[$i]->blockage->River->river_name,
+                        'location'=>$data[$i]->blk_village,
+                        'tambol'=> $data[$i]->blk_tumbol , 
+                        'district'=>$data[$i]->blk_district,
+                        'geometry'=> $data[$i]->blk_start_location,
+                        'level'=>$risk,
+                        'status_approve'=>$data[$i]->blockage->status_approve];
+             }
+            
+        }
+    
+         $result = json_encode($result);
+         echo $result;
         
     }
 
@@ -670,7 +787,8 @@ class MapController extends Controller
         $location =BlockageLocation::where('blk_location_id', $data[0]->blk_location_id)->get();
       
         
-        // dd($location[0]->blk_start_location->getLat());
+        dd($location[0]->blk_start_location->getLat());
+        // dd($location);
         return view('expert.mapshow',compact('data','location'));
 
     }
