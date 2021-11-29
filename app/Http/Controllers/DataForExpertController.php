@@ -119,10 +119,6 @@ class DataForExpertController extends Controller
             $high=null;
             $numsq=null;
         }
-
-
-     
-       
         if(($current_narrow->type=="waterway" )|| isset($current_narrow->width) ){
             $current_narrow_new->waterway_type="1";
             $current_narrow_new->waterway->width=$current_narrow->width;
@@ -857,7 +853,7 @@ class DataForExpertController extends Controller
         }else{
             $name=Auth::user()->name ;
             // dd ($name);
-            if($name=="admin" ||$name=="ระวีเวช จาติเกตุ" || $name=="Prem"||Auth::user()->status_work=="admin" ){
+            if($name=="admin" ||$name=="ระวีเวช จาติเกตุ" || $name=="Prem"||Auth::user()->status_work=="admin" || Auth::user()->status_work=="expert" ){
                 // $data = Blockage::with('blockageLocation')->get();
                 // dd($data);
                 $data = DB::table('blockage_locations')
@@ -868,7 +864,7 @@ class DataForExpertController extends Controller
                 // ->where('blockage_locations.blk_province', '=', "เชียงราย")->get();
                 return view('expert.expert',compact('data','districtData'));
                 
-            }else if(Auth::user()->status_work=="surveyor"){
+            }else if(Auth::user()->status_work=="surveyor" ||Auth::user()->status_work=="surveyor1" ){
                 $data = DB::table('blockage_locations')
                 ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                 ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
@@ -876,19 +872,8 @@ class DataForExpertController extends Controller
                 ->orderBy('blockages.created_at', 'DESC')
                 ->get();
                 
-                return view('expert.expert',compact('data','districtData'));
+                return view('expert.expertByUser',compact('data','districtData'));
 
-            }else if(Auth::user()->status_work=="expert"){
-                $data = DB::table('blockage_locations')
-                ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
-                ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
-                ->orderBy('blockages.created_at', 'DESC')
-                ->get();
-                
-                return view('expert.expert',compact('data','districtData'));
-
-            }else{
-                return view('pages.test',compact('districtData'));
             }
         }
 
@@ -896,43 +881,49 @@ class DataForExpertController extends Controller
 
 
     public function getDataforHome(User $user, Request $request){
-
-        if(!empty($request->blk_district)){
-            if(!empty($request->blk_tumbolCR) && $request->blk_tumbolCR!="sum"){
-                $data = DB::table('blockage_locations')
-                ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
-                ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
-                ->where('blockage_locations.blk_province', '=', "เชียงใหม่")
-                ->where('blockage_locations.blk_district', '=',$request->blk_district)
-                ->where('blockage_locations.blk_tumbol', '=',$request->blk_tumbolCR)
-                ->get();
-            }else  {
-                $data = DB::table('blockage_locations')
-                ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
-                ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
-                ->where('blockage_locations.blk_province', '=', "เชียงใหม่")
-                ->where('blockage_locations.blk_district', '=',$request->blk_district)
-                ->get();
-            }
-            
-                // dd($data);
-
-
-        }else{
-            $data = DB::table('blockage_locations')
-                ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
-                ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
-                ->where('blockage_locations.blk_province', '=', "เชียงใหม่")
-                ->get();
-                //  dd($data);
-        }
-
-        $districtData['data'] = Page::getDistrictCM();
-        //  dd($districtData['data']);
+       
         if(Auth::guest()){
+            $data = DB::table('blockage_locations')
+                    ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
+                    ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
+                    ->where('blockage_locations.blk_province', '=', "เชียงใหม่")
+                    ->get();
+            $districtData['data'] = Page::getDistrictCM();
             return view('pages.home',compact('data','districtData'));
         }else{
-            return view('pages.test',compact('data','districtData'));
+
+            if(Auth::user()->status_work=="surveyor1"){
+                $username = Auth::user()->name;
+                $lastname = Auth::user()->LName;
+                $position =Auth::user()->Position;
+                $department =Auth::user()->Department;
+                $data = DB::table('blockage_locations')
+                    ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
+                    ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
+                    ->where('blockages.blk_user_name', '=', $username)
+                    ->get();            
+                // dd($data);
+                
+
+            }else{
+                $data = DB::table('blockage_locations')
+                    ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
+                    ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
+                    ->where('blockage_locations.blk_province', '=', "เชียงใหม่")
+                    ->get();
+                // dd($data);
+            }
+
+            $districtData['data'] = Page::getDistrictCM();
+            $location =BlockageLocation::where('blk_location_id', $data[0]->blk_location_id)->get();        
+            // dd($data);
+        
+            if(Auth::user()->status_work=="surveyor1"){
+                return view('pages.surveyor1',compact('data','districtData','username','lastname','position','department','location'));
+            }else{
+                return view('pages.test',compact('data','districtData'));
+            }
+            
         }
         
     }
@@ -1134,10 +1125,12 @@ class DataForExpertController extends Controller
 
     public function solutionPDFgen(Request $request)
     {
-        $amp_req=$request->amp;
+        $amp_req=" 12 อำเภอ";
         $tumbol=$request->tumbol;
+
         if ($request->amp=="sum"){
-            $amp=[ 'เชียงของ','เชียงแสน','เวียงแก่น','เวียงชัย','เวียงเชียงรุ้ง','แม่จัน','แม่สาย','แม่ฟ้าหลวง','ดอยหลวง'];
+            $amp=["ฝาง","ไชยปราการ","แม่อาย","ดอยหล่อ", "สะเมิง","สันกำแพง","สันทราย","สันป่าตอง","หางดง","เมืองเชียงใหม่","แม่ริม","แม่วาง","แม่ออน"];
+            // dd("sum");
                 for($i=0;$i<count($amp);$i++){
                     $blk[$i] =DB::table('blockage_locations')
                     ->join('blockages', 'blockage_locations.blk_location_id', '=', 'blockages.blk_location_id')
@@ -1156,7 +1149,7 @@ class DataForExpertController extends Controller
             // dd($data);
             $pix="9amp.jpg";
             $key=1;
-            $pdf = PDF::loadView('expert.tablepdf' ,compact('data','pix','key'))->setPaper('a4', 'landscape');
+            $pdf = PDF::loadView('expert.tablepdf' ,compact('data','pix','key','tumbol','amp_req'))->setPaper('a4', 'landscape');
             return $pdf->stream('solution_report.pdf');
         }else{
             if($request->tumbol=="sum"){
