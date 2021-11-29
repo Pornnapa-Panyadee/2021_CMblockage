@@ -172,12 +172,23 @@
                         </tr>
                     </table>
 
+                    <?php function DateTimeThai($strDate)
+                            {
+                                $strYear = (date("Y",strtotime($strDate)));
+                                $strMonth= date("n",strtotime($strDate));
+                                $strDay= date("j",strtotime($strDate));
+                                $strMonthCut =  Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+                                $strMonthThai=$strMonthCut[$strMonth];
+                                return "$strDay $strMonthThai $strYear ";
+                            }
+                    ?>
                     <table class="table-report1" width="90%" align="center"  >
                         <tr>
                             <td>ผู้กรอกแบบสำรวจ &nbsp;&nbsp;</td>
                             <td colspan="3" class="line">  {{ $data[0]->blk_user_name}} </td>
                             <td align="center" >  วัน/เดือน/ปี</td>
-                            <td colspan="2"class="line"> {{date_format($data[0]->created_at,"d/m/Y") }} </td>
+                            <!-- <td colspan="2"class="line"> {{date_format($data[0]->created_at,"d/m/Y") }} </td> -->
+                            <td colspan="2"class="line"> {{DateTimeThai($data[0]->survey_date)}} </td>
                         </tr>
                         <tr>
                             <td align="center"> ตำแหน่ง  </td>
