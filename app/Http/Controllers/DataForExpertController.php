@@ -220,6 +220,7 @@ class DataForExpertController extends Controller
         
 
         $current_end = json_decode($current_end);
+        // dd($data);
         return view('expert.report', compact('photo_has','expert','data','nut','hum','damageData','damage_type','pastData','current_start','current_narrow_new','current_end','problem','photo_Blockage','photo_Land','photo_Riverbefore','photo_Riverprob','photo_Riverafter','photo_Probsketch','solution_id','project_id'));
        
     }
@@ -859,8 +860,10 @@ class DataForExpertController extends Controller
                 $data = DB::table('blockage_locations')
                 ->join('blockages', 'blockages.blk_location_id', '=', 'blockage_locations.blk_location_id')
                 ->join('rivers', 'rivers.river_id', '=', 'blockages.river_id')
+                ->join('experts','experts.blk_code','=','blockages.blk_code')
                 ->orderBy('blockages.created_at', 'DESC')
                 ->get();
+              
                 // ->where('blockage_locations.blk_province', '=', "เชียงราย")->get();
                 return view('expert.expert',compact('data','districtData'));
                 
