@@ -96,7 +96,7 @@
                                                 $num=$text;
                                              }
                                                 return $num;
-                                            }
+                                        }
                                         function checkProbleLevel($text){
                                             if($text==NULL){
                                                 return "-";
@@ -169,6 +169,11 @@
                                                 }
                                             }
                                                 return $level;
+                                        }
+                                        function checksame($t1, $t2) {
+                                            if($t1==$t2){$text='checked';}
+                                            else{ $text=' '; }
+                                            return $text;
                                         }
                                     ?>
                                     <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12" > 
@@ -371,13 +376,32 @@
                                                                     </tbody>
                                                                 </table>
                                                                 <br><br>
-                                                                <h3><span class="number">3 </span>  ข้อมูลสำหรับผู้เชียวชาญ  </h3> 
-
-
+                                                                <h3><span class="number">3 </span>  ข้อมูลจากผู้สำรววจ  </h3> 
                                                                 <table class="table table-bordered">
                                                                     <thead>
                                                                         <tr>
-                                                                            <td colspan="2" style="background-color:#C0C0C0">คำอธิบายสภาพปัญหา</td>
+                                                                            <td colspan="2" style="background-color:#C0C0C0">คำอธิบายสภาพปัญหาจากผู้สำรววจ</td>
+
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="text-center" style="background-color:#C0C0C0" widht=30%>คำอธิบายสภาพปัญหาเบื้องต้น</td>
+                                                                            <td class="text-center" style="background-color:#C0C0C0" >แนวทางการแก้ไขเบื้องต้น</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td  ><textarea rows="8" cols="50" style="color:#000;" id="survey_problem" name="survey_problem"> {{checkZero($expert[0]->survey_problem)}} </textarea></td>
+                                                                            <td ><textarea rows="8" cols="50" id="survey_solution" name="survey_solution" style="color:#000;"> {{checkZero($expert[0]->survey_solution)}} </textarea></td>                                                                           
+                                                                        </tr>
+                                                                       
+                                                                    </tbody>
+                                                                    
+                                                                </table>
+                                                                <h3><span class="number">4 </span>  ข้อมูลสำหรับผู้เชียวชาญ  </h3> 
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td colspan="2" style="background-color:#C0C0C0">คำอธิบายสภาพปัญหาจากผู้เชียวชาญ</td>
 
                                                                         </tr>
                                                                     </thead>
@@ -441,7 +465,7 @@
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td class="text-center" style="background-color:#C0C0C0">แนวทางการแก้ไขเบื้องต้น</td>
+                                                                            <td class="text-center" style="background-color:#C0C0C0">แนวทางการแก้ไขเบื้องต้นจากผู้เชียวชาญ</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td ><textarea rows="8" cols="50" id="exp_solution" name="exp_solution" style="color:#000;"> {{checkZero($expert[0]->exp_solution)}} </textarea></td>
@@ -450,7 +474,12 @@
                                                                     </tbody>
                                                                     
                                                                 </table>
-                                                            
+                                                                <h3><span class="number">5 </span>  ผลพิจารณา  </h3> 
+                                                                <div>
+                                                                <input type="radio" id="status_approve1" name="status_approve" value="1" {{checksame($data[0]->status_approve,"1")}}/><label for="status_approve1"> ผ่านการพิจารณา </label> <br>
+                                                                    <input type="radio" id="status_approve0" name="status_approve" value="0" {{checksame($data[0]->status_approve,"0")}}/><label for="status_approve0"> ไม่ผ่านการพิจารณา </label>
+                                                                </div>
+                                                                <br>
                                                                 <button type="submit" class="butsummit" >บันทึกข้อมูล</button>
                                                             </div>
                                                         </form>
