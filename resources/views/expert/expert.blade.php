@@ -36,7 +36,7 @@
                                         <div class="tab">
                                             <button class="tablinks active" onclick="openCity(event, 'All')">ทั้งหมด</button>
                                             <button class="tablinks" onclick="openCity(event, 'Success')">พิจารณาเรียบร้อย</button>
-                                            <button class="tablinks" onclick="openCity(event, 'Doing')">กำลังพิจารณา</button>
+                                            <button class="tablinks" onclick="openCity(event, 'Doing')">กำลังรอพิจารณา</button>
                                             
                                         </div>
 
@@ -44,7 +44,6 @@
                                             <div id="tableData">   
                                                 <div class="card-body" style="overflow-x:auto;">
                                                     <table class="table_bg table-striped table-bordered first" width=95% align="center">
-                                                    <!-- <table class="table_bg " width="100%" > -->
                                                         <thead>
                                                             <tr>
                                                                 <th scope="col" width="2%;">#</th>
@@ -66,7 +65,7 @@
                                                                     <td data-label="วันที่สำรวจ">{{$data[$i]->created_at}}</td>
                                                                     <td data-label="ผู้สำรวจ">{{$data[$i]->blk_user_name}}</td>
                                                                     <?php if($data[$i]->status_approve==0){ ?> 
-                                                                        <td ><button type="button" class="btn btn-warning" >กำลังพิจารณา</button>  </td>   
+                                                                        <td ><button type="button" class="btn btn-offline" >กำลังรอพิจารณา</button>  </td>   
                                                                     <?php }else { ?> 
                                                                         <td ><button type="button" class="btn btn-success" >พิจารณาเรียบร้อย</button>  </td>   
                                                                     <?php } ?>
@@ -87,17 +86,26 @@
                                                     <!-- <table class="table_bg " width="100%" > -->
                                                         <thead>
                                                             <tr>
-                                                                <th scope="col" width="2%;">#</th>
-                                                                <th scope="col" width="10%;">รหัส</th>
-                                                                <th scope="col" width="20%;">ลำน้ำ</th>
-                                                                <th scope="col" width="15%;">ที่ตั้ง</th>
-                                                                <th scope="col" width="10%;">วันที่สำรวจ</th>
-                                                                <th scope="col" width="10%;">ผู้สำรวจ</th>
-                                                                <th></th>
+                                                                <th width="2%;">#</th>
+                                                                <th >รหัส</th>
+                                                                <th >ลำน้ำ</th>
+                                                                <th >ที่ตั้ง</th>
+                                                                <th >วันที่สำรวจ</th>
+                                                                <th >ผู้สำรวจ</th>
+                                                                <th >ผู้พิจารณา</th>
+                                                                <th> สถานะ </th>
+                                                                <th>รายละเอียด</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <?php $c=0;
+                                                                function checkName($text,$name) {
+                                                                    if($text<15 ){
+                                                                        return "วิศวกรแหล่งน้ำ";
+                                                                    }else{
+                                                                        return $name;
+                                                                     }
+                                                                }
                                                                 for($i = 0;$i < count($data);$i++){
                                                                     if($data[$i]->status_approve==1){ ?>
                                                                     <tr align="center">
@@ -107,6 +115,8 @@
                                                                         <td align="left" data-label="หมู่บ้าน">{{$data[$i]->blk_village}} ต.{{$data[$i]->blk_tumbol}} อ.{{$data[$i]->blk_district}}</td>
                                                                         <td data-label="วันที่สำรวจ">{{$data[$i]->created_at}}</td>
                                                                         <td data-label="ผู้สำรวจ">{{$data[$i]->blk_user_name}}</td>
+                                                                        <td>{{checkName($data[$i]->blk_user_id,$data[$i]->approve_by)}}</td>
+                                                                        <td ><button type="button" class="btn btn-success" >พิจารณาเรียบร้อย</button>  </td>   
                                                                         <td data-label="" align="center">
                                                                             <div class="btn-group ml-auto">
                                                                                 <a href='{{ asset('expert/report/') }}/{{$data[$i]->blk_id}}' target="_blank" >  <button class="btn btn-outline-primary waves-effect" title="รายละเอียด" ><i class="fas fa-edit"></i></button>&nbsp;&nbsp;   </a>
@@ -139,7 +149,8 @@
                                                                 <th scope="col" width="15%;">ที่ตั้ง</th>
                                                                 <th scope="col" width="10%;">วันที่สำรวจ</th>
                                                                 <th scope="col" width="10%;">ผู้สำรวจ</th>
-                                                                <th></th>
+                                                                <th> สถานะ </th>
+                                                                <th>รายละเอียด</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -153,6 +164,7 @@
                                                                             <td align="left" data-label="หมู่บ้าน">{{$data[$i]->blk_village}} ต.{{$data[$i]->blk_tumbol}} อ.{{$data[$i]->blk_district}}</td>
                                                                             <td data-label="วันที่สำรวจ">{{$data[$i]->created_at}}</td>
                                                                             <td data-label="ผู้สำรวจ">{{$data[$i]->blk_user_name}}</td>
+                                                                            <td ><button type="button" class="btn btn-offline" >กำลังรอพิจารณา</button>  </td>   
                                                                             <td data-label="" align="center">
                                                                                 <div class="btn-group ml-auto">
                                                                                     <a href='{{ asset('expert/report/') }}/{{$data[$i]->blk_id}}' target="_blank" >  <button class="btn btn-outline-primary waves-effect" title="รายละเอียด" ><i class="fas fa-edit"></i></button>&nbsp;&nbsp;   </a>
