@@ -248,7 +248,7 @@ class FormBlockageController extends Controller
                 [
                     'blk_id'=>$blockageId,
                     'blk_code'=>$codeBlk,
-                    'exp_problem'=>$request->problem,
+                    'survey_problem'=>$request->problem,
                     'exp_area'=>$request->exp_area,
                     'exp_L0'=>$request->exp_L0,
                     'exp_H'=>$request->exp_H,
@@ -257,7 +257,7 @@ class FormBlockageController extends Controller
                     'exp_returnPeriod'=>$request->exp_returnPeriod,
                     'exp_I'=>$request->exp_I,
                     'exp_maxflow'=>$request->exp_maxflow,
-                    'exp_solution'=>$request->exp_solution,
+                    'survey_solution'=>$request->exp_solution,
                     'exp_slope'=>$request->exp_slope
                 ]
             );
@@ -884,6 +884,10 @@ class FormBlockageController extends Controller
     public function updateForExpert(Request $request)
     {
         // dd($request);
+         /////////--------blockage-------------/////////
+         $blk = Blockage::where('blk_code', $request->blk_code)
+         ->update(['status_approve' =>"1"]);
+        
         $expertInfo = Expert::where('blk_code', $request->blk_code)
                 ->update([
                     'exp_problem'=>$request->problem,
@@ -896,9 +900,13 @@ class FormBlockageController extends Controller
                     'exp_I'=>$request->exp_I,
                     'exp_maxflow'=>$request->exp_maxflow,
                     'exp_solution'=>$request->exp_solution,
-                    'exp_slope'=>$request->exp_slope
+                    'exp_slope'=>$request->exp_slope,
+                    'survey_solution'=>$request->survey_solution,
+                    'survey_problem'=>$request->survey_problem,
+                    'approve_by'=>Auth::user()->name
                 ]);
-        return redirect()->route('expert.report', ['id' => $request->blk_id]);
+        // return redirect()->route('expert.report', ['id' => $request->blk_id]);
+        return redirect()->route('expert.expert');
     }
 
 
