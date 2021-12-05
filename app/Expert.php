@@ -24,7 +24,10 @@ class Expert extends Model
         'exp_pix1',
         'exp_pix2',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'survey_problem',
+        'survey_solution',
+        'approve_by'
 
     ];
 }
